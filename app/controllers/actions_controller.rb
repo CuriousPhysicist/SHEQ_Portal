@@ -1,14 +1,16 @@
 class ActionsController < ApplicationController
     
+    before_action :require_user, only: [:index, :show]
+    
     def index
-        @users = User.all
+        @actions = Action.all
     end
     
     def create
-        @user = User.new(user_params)
+        @action = Action.new(action_params)
         
-        if @user.save
-            redirect_to @user
+        if @action.save
+            redirect_to @action
         else
             render 'edit'
         end
