@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html!>
   <head>
     <title>SheqActionApp</title>
     <%= csrf_meta_tags %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    
+    <%= render 'layouts/header' %>
+    
     <%= yield %>
+    
+    <%= render 'layouts/footer' %>
+    
   </body>
 </html>
