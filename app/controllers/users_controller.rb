@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
     
     before_action :require_user, only: [:index, :show]
+    before_action :require_admin, only: [:new, :create, :edit, :destroy]
+    
+    # Standard RESTful actions
     
     def index
         @users = User.all
@@ -41,6 +44,12 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(paras[:id])
         @user.destroy
+    end
+    
+    # Role specific actions
+    
+    def admin?
+       self.role == 'admin'
     end
     
     private

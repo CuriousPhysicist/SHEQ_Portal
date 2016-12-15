@@ -1,6 +1,7 @@
 class ActionsController < ApplicationController
     
     before_action :require_user, only: [:index, :show]
+    before_action :require_admin, only: [:destroy]
     
     def index
         @actions = Action.all
