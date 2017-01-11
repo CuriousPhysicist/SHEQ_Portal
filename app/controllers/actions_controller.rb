@@ -1,20 +1,13 @@
 class ActionsController < ApplicationController
     
-    before_action :require_user, only: [:index, :show]
-    before_action :require_admin, only: [:destroy]
+    #before_action :require_user, only: [:index, :show]
+    #before_action :require_admin, only: [:destroy]
+    
+    def options
+    end
     
     def index
         @actions = Action.all
-    end
-    
-    def create
-        @action = Action.new(action_params)
-        
-        if @action.save
-            redirect_to @action
-        else
-            render 'edit'
-        end
     end
     
     def new
@@ -29,13 +22,23 @@ class ActionsController < ApplicationController
         @action = Action.find(params[:id])
     end
     
+    def create
+        @action = Action.new(action_params)
+        
+        if @action.save!
+            redirect_to user_actions_path
+        else
+            render 'edit'
+        end
+    end
+    
     def update
         @action = Action.new(params[:id])
         
         if @action.update(action_params)
             redirect_to @action
         else
-            render 'edit'
+            redirect_to edit_action_path
         end
     end
     
@@ -47,7 +50,8 @@ class ActionsController < ApplicationController
     private
     
     def action_params
-        params.require(:reference_number).permit(:description, :progress, :closeout)
+        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :description, :progress, :closeout)
     end
     
 end
+   

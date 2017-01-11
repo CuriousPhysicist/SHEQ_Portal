@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html!>
+<html>
   <head>
     <title>SheqActionApp</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= render 'layouts/rails_default'%>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
+    <div class="container">
+      <header><%= render 'layouts/header' %></header>
+      
+      <% if current_user %>
+      
+        <div class="sidebar-right">
+          <div class="main col-xs-8"
+            <section>
+            <%= yield %>
+            </section>
+          </div>
+        
+          <div class="sidebar col-xs-4 ">
+            <aside>
+              <%= render 'layouts/sidebar' if current_user %>
+            </aside>
+          </div>
+        </div>
+        
+        <% else %>
+        
+        <div class="main col-xs-12">
+            <section>
+            <%= yield %>
+            </section>
+        </div>
+        
+        <% end %>
     
-    <%= render 'layouts/header' %>
-    
-    <%= yield %>
-    
-    <%= render 'layouts/footer' %>
-    
+      <footer><%= render 'layouts/footer' %></footer>
+    </div>
   </body>
 </html>

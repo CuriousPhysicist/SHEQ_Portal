@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
-    before_action :require_user, only: [:index, :show]
-    before_action :require_admin, only: [:new, :create, :edit, :destroy]
+    #before_action :require_user, only: [:index, :show]
+    #before_action :require_admin, only: [:new, :create, :edit, :destroy]
     
     # Standard RESTful actions
     
@@ -10,8 +10,9 @@ class UsersController < ApplicationController
     end
     
     def create
-        @user = User.new(user_params)
         
+        @user = User.new(user_params)
+    
         if @user.save
             redirect_to @user
         else
@@ -20,15 +21,15 @@ class UsersController < ApplicationController
     end
     
     def new
-      @user = User.new  
+      @user = User.new
     end
     
     def edit
-        @user = User.find(paras[:id])
+        @user = User.find(params[:id])
     end
     
     def show
-        @user = User.find(paras[:id])
+        @user = User.find(params[:id])
     end
     
     def update
@@ -55,7 +56,8 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:password).permit(:first_name, :last_name, :email)
+        
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
     
 end

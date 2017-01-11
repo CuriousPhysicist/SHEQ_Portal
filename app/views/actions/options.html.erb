@@ -1,0 +1,9 @@
+<ul>
+    <li><%= link_to "Create", new_user_action_path(current_user[:id]) %></li>
+    <li>Update</li>
+    <li>Approve</li>
+    <li>Close</li>
+    <li>Remove</li>
+</ul>
+
+<%= link_to "Back", user_actions_path(current_user[:id]) %>

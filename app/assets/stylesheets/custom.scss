@@ -1,0 +1,36 @@
+//This will contain app specific styling and positioning of elements in the flow of the page.
+
+//Main page sections
+
+header {
+    height:200px;
+    background-color: #000;
+}
+
+nav {
+    clear:both;
+}
+
+.main{
+    background-color: #789;
+}
+
+.sidebar-right .main{
+    background-color: #789;
+    float:left;
+}
+
+.sidebar-right .sidebar{
+    background-color:#456;
+    float:right;
+}
+
+footer {
+    clear:both ;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+//
