@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   
   get '/actions/options', to: 'actions#options'
   
-  resources :users do
-    resources :actions
-  end
+  resources :users
+  resources :actions
+  
   
 end

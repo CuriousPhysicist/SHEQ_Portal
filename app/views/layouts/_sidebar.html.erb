@@ -5,6 +5,6 @@
     <li>Email: <%= current_user.email %></li>
 </ul>
 <%= link_to "Dashboard", '#' %>
-<%= link_to "Actions", user_actions_path(current_user[:id]) %>
+<%= link_to "Actions", actions_path(current_user[:id]) %>
 <%= link_to "Users", users_path %>
 <%= link_to "Admin", users_path %>

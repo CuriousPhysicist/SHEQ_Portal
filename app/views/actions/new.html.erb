@@ -1,7 +1,7 @@
 <%# :button_text => "Create Action" %>
 <%# :path => new_action_path %>
 
-<%= form_for(:actions, url: user_actions_path, :method => :post) do |f| %>
+<%= form_for(:actions, url: actions_path, :method => :post) do |f| %>
       <%#= render 'shared/error_messages', object: f.object %>
       
       <% lastaction = 1 #Action.last.id %>
@@ -13,9 +13,14 @@
       <%= f.label  :initiator %>
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true %>
       <%= f.hidden_field  :initiator, :value => "#{current_user.first_name} #{current_user.last_name}" %>
-      
+      <br/>
       <%= f.label  :owner %>
-      <%= f.text_field  :owner, class: 'form-control' %>
+      
+      <%= f.collection_select(:user_id, User.order(:last_name),:id,:last_name, {}, {:id =>"choose-owner"}) %>
+      <br>
+      <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true, :id => "owner_dummy" %>
+      <%= f.hidden_field  :owner, :value => "#{current_user.first_name} #{current_user.last_name}" %>
+      
       
       <%= f.label  :source %>
       <%= f.text_field  :source, class: 'form-control' %>
@@ -43,6 +48,7 @@
       <%= f.text_area :closeout, class: 'form-control' %>
         
         <br />
-      <%= f.submit "Create a new action here!", class: "btn-submit" %>
+      <%= f.submit "Create a new action here!", class: "btn btn-primary" %>
+      
       
 <% end %>

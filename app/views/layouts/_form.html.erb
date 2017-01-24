@@ -15,7 +15,12 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+      <br/>
+      
+      <%= f.label :team %>
+      <%= f.select(:team, [["SHEQ","SHEQ"],["Operations","Operations"],["Analytical","Analytical"],["Maintenance","Maintenance"],["Projects","Projects"],["Engineering","Engineering"],["Management","Management"]]) %>
+      <br/>
+      <br/>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
       
 <% end %>

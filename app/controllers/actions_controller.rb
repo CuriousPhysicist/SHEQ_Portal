@@ -1,17 +1,20 @@
 class ActionsController < ApplicationController
     
-    #before_action :require_user, only: [:index, :show]
-    #before_action :require_admin, only: [:destroy]
+    before_action :require_user, only: [:options, :index] # [ :show]
+    #before_action :require_admin, only: 
     
     def options
     end
     
     def index
-        @actions = Action.all
+            @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
+            @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
     end
     
     def new
-      @actions = Action.new  
+      @actions = Action.new
+      @users = User.all
+      gon.users = User.all
     end
     
     def edit
@@ -26,7 +29,7 @@ class ActionsController < ApplicationController
         @action = Action.new(action_params)
         
         if @action.save!
-            redirect_to user_actions_path
+            redirect_to actions_path
         else
             render 'edit'
         end
