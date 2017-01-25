@@ -1,17 +1,20 @@
 class SessionsController < ApplicationController
     
+    include SessionsHelper
+    
     def new
     end
         
     def create
     
-       @user = User.find_by_email(params[:session][:email])
-       
+       @user = User.find_by_email(params[:session][:email].downcase)
+
        if @user && @user.authenticate(params[:session][:password])
-           session[:user_id] = @user.id
+           log_in(@user)
+           remember(@user)
            redirect_to actions_path(session[:user_id])
        else
-           redirect_to '/login'
+           redirect_to '/error'
        end
     end
     

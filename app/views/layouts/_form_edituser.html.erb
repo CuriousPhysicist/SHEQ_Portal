@@ -20,6 +20,15 @@
       <%= f.label :team %>
       <%= f.select(:team, [["SHEQ","SHEQ"],["Operations","Operations"],["Analytical","Analytical"],["Maintenance","Maintenance"],["Projects","Projects"],["Engineering","Engineering"],["Management","Management"]]) %>
       <br/>
+      <%= f.label :role %>
+      <%= f.select(:role, [["Team Leader","Team Leader"],["Senior Manager","Senior Manager"],["Site Manager","Site Manager"]]) %>
+      <br/>
+      <%= f.label "Approval Rights" %>
+      <br/>
+      <%= f.radio_button :approval_type, "All Types" %>
+      <%= f.label :approval_type, "All Types" %>
+      <%= f.radio_button :approval_type, "B and C Type" %>
+      <%= f.label :approval_type, "B and C Type" %>
       <br/>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
       

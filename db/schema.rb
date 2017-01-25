@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214172950) do
+ActiveRecord::Schema.define(version: 20170125171746) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "refernce_number"
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 20161214172950) do
     t.string   "role"
     t.integer  "level"
     t.string   "approval_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "remember_digest"
+    t.boolean  "admin",           default: false
   end
 
 end

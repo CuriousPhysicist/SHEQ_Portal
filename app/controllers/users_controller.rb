@@ -14,7 +14,8 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
     
         if @user.save
-            redirect_to @user
+            
+            redirect_to actions_path(session[:user_id])
         else
             render 'edit'
         end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
     end
     
     def update
-        @user = User.new(params[:id])
+        @user = User.find(params[:id])
         
         if @user.update(user_params)
             redirect_to @user
@@ -43,8 +44,12 @@ class UsersController < ApplicationController
     end
     
     def destroy
-        @user = User.find(paras[:id])
+        @user = User.find(params[:id])
         @user.destroy
+        redirect_to users_path
+    end
+    
+    def error
     end
     
     # Role specific actions
@@ -57,7 +62,7 @@ class UsersController < ApplicationController
     
     def user_params
         
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :team, :role, :approval_type)
     end
     
 end

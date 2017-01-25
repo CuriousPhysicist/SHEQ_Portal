@@ -1,9 +1,17 @@
-<ul>
-    <li><%= link_to "Create", new_action_path(current_user[:id]) %></li>
-    <li>Update</li>
-    <li>Approve</li>
-    <li>Close</li>
-    <li>Remove</li>
-</ul>
+    <%= link_to "Create New Action", new_action_path(current_user[:id]) %>
+    <br/>
+    <%= label_tag "Update Action" %>
+    <%= text_field_tag :action_id, nil, placeholder: "Enter Action ID"  %>
+    
+    <br/>
+    <%= label_tag "Approve Action" %>
+    <%= text_field_tag :action_id, nil, placeholder: "Enter Action ID"  %>
+    <br/>
+    <%= label_tag "Close Action" %>
+    <%= text_field_tag :action_id, nil, placeholder: "Enter Action ID"  %>
+    <br/>
+    <%= label_tag "Remove Action" %>
+    <%= text_field_tag :action_id, nil, placeholder: "Enter Action ID"  %>
+    <br/><br/>
 
 <%= link_to "Back", actions_path(current_user[:id]) %>
