@@ -20,10 +20,11 @@ class ActionsController < ApplicationController
     
     def edit
         @actions = Action.find(params[:id])
+        gon.users = User.all
     end
     
     def show
-        @action = Action.find(params[:id])
+        @actions = Action.find(params[:id])
     end
     
     def create
@@ -54,7 +55,7 @@ class ActionsController < ApplicationController
     private
     
     def action_params
-        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :description, :progress, :closeout)
+        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout)
     end
     
 end

@@ -9,11 +9,14 @@
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>
       <%= f.hidden_field  :initiator, :value => "#{@actions.initiator}" %>
       <br/>
+      <%= f.label :date_time_created %>
+      <%= f.datetime_local_field :date_time_created, class: 'form-control' %>
+      <br/>
       <%= f.label  :owner %>
       
-      <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {blank: true}, {:id =>"choose-owner"}) %>
+      <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
       <br>
-      <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{@actions.owner}", :disabled=>true, :id => "owner_dummy" %>
+      <%= f.text_field  :owner, class: 'form-control', :disabled => true, :id => "owner_dummy" %>
       <%= f.hidden_field  :owner, :value => "#{@actions.owner}" %>
       
       
@@ -40,7 +43,11 @@
       
       <%= f.label :closeout %>
       <%= f.text_area :closeout, class: 'form-control' %>
-        
+      <br/>
+      <%= f.label :open_flag, "Action Open" %>
+      <%= f.check_box :open_flag %>
+      <%= f.label :open_flag, "Action Open" %>
+      <%= f.check_box :open_flag %>
         <br />
       <%= f.submit "Update this Action", class: "btn btn-primary" %>
       

@@ -14,6 +14,8 @@ jQuery ->
         console.log(newowner_name)
         target_dummy = $('#owner_dummy').attr("placeholder", newowner_name)
         console.log(target_dummy)
+        target_dummy = $('#owner_dummy').attr("value", newowner_name)
+        console.log(target_dummy)
         target = $('#actions_owner').attr("value", newowner_name)
         console.log(target)
     

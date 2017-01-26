@@ -8,7 +8,7 @@
        
       <%= f.label  :refernce_number %>
       <%= f.text_field  :refernce_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>
-      <%= f.hidden_field  :refernce_number, :value => 1 %>
+      <%= f.hidden_field  :refernce_number, :value => lastaction + 1 %>
       
       <%= f.label  :initiator %>
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true %>
@@ -16,7 +16,7 @@
       <br/>
       <%= f.label  :owner %>
       
-      <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {}, {:id =>"choose-owner"}) %>
+      <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
       <br>
       <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true, :id => "owner_dummy" %>
       <%= f.hidden_field  :owner, :value => "#{current_user.first_name} #{current_user.last_name}" %>
@@ -37,6 +37,7 @@
         <br />        
       <%= f.label :target_date %>
       <%= f.date_field :date_target, class: 'form-control' %>
+      <%= f.hidden_field  :date_time_created, :value => Time.now %>
       
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control' %>
