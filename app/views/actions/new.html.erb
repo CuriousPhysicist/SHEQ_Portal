@@ -4,7 +4,7 @@
 <%= form_for(:actions, url: actions_path, :method => :post) do |f| %>
       <%#= render 'shared/error_messages', object: f.object %>
       
-      <% lastaction = 1 #Action.last.id %>
+      <% lastaction = @last_action.id %>
        
       <%= f.label  :refernce_number %>
       <%= f.text_field  :refernce_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>
@@ -16,7 +16,7 @@
       <br/>
       <%= f.label  :owner %>
       
-      <%= f.collection_select(:user_id, User.order(:last_name),:id,:last_name, {}, {:id =>"choose-owner"}) %>
+      <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {}, {:id =>"choose-owner"}) %>
       <br>
       <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true, :id => "owner_dummy" %>
       <%= f.hidden_field  :owner, :value => "#{current_user.first_name} #{current_user.last_name}" %>

@@ -14,3 +14,11 @@ User.create!(first_name:  "Bob",
              password:              "Password",
              password_confirmation: "Password"
              )
+             
+Action.create!(refernce_number: 1,
+            initiator: "Andrew Hampson",
+            owner: "Andrew Hampson",
+            type_ABC: "B",
+            description: "Test action - do something",
+            user_id: 1
+             )

@@ -6,8 +6,8 @@
     <li>Team: <%= current_user.team %></li>
 </ul>
 <%= link_to "Dashboard", '#' %>
-<%= link_to "Actions", actions_path(current_user[:id]) %>
-<%= link_to "Users", users_path %>
+<%= link_to "Actions", actions_path(current_user[:id]), class:"btn btn-secondary" %>
+<%= link_to "Users", users_path, class:"btn btn-secondary" %>
 <%# if admin? %>
-<%= link_to "Admin", users_path %>
+<%= link_to "Admin", users_path, class:"btn btn-secondary" %>
 <%# end %>

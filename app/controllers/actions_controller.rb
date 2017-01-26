@@ -13,12 +13,13 @@ class ActionsController < ApplicationController
     
     def new
       @actions = Action.new
+      @last_action = Action.last
       @users = User.all
       gon.users = User.all
     end
     
     def edit
-        @action = Action.find(params[:id])
+        @actions = Action.find(params[:id])
     end
     
     def show
@@ -36,7 +37,7 @@ class ActionsController < ApplicationController
     end
     
     def update
-        @action = Action.new(params[:id])
+        @action = Action.find(params[:id])
         
         if @action.update(action_params)
             redirect_to @action

@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(version: 20170125171746) do
     t.string   "owner"
     t.string   "type_ABC"
     t.date     "date_target"
-    t.integer  "extentions_number"
+    t.integer  "extentions_number", default: 0
     t.text     "description"
     t.text     "progress"
     t.text     "closeout"
     t.string   "source"
-    t.boolean  "open_flag"
+    t.boolean  "open_flag",         default: true
     t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["user_id"], name: "index_actions_on_user_id"
   end
 
