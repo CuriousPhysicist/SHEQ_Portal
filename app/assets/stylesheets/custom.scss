@@ -3,26 +3,67 @@
 //Main page sections
 
 header {
-    height:200px;
+    height:150px;
     background-color: #000;
+    .app-title {
+    	color: #fff;
+    	text-align: center;
+    	padding: 20px
+    }
 }
 
 nav {
     clear:both;
 }
 
+.content {
+	border: 1px solid #000;
+}
+
+section {
+	h1, h2, table, form, input, p{
+		//border: 1px solid #000;
+		text-align: center;
+	}
+	//border: 1px solid #000;
+	height: 100%;
+}
+
+aside {
+	height: 100%;
+	//border: 1px solid #000;
+}
+
+.actions {
+	th, td {
+		text-align: center;
+		padding: 2px;
+		border: 1px solid #000;
+	}
+	//border: 3px solid #0f0;
+	width: 100%;
+}
+
 .main{
     background-color: #789;
+    height: 100%;
 }
 
-.sidebar-right .main{
-    background-color: #789;
-    float:left;
-}
-
-.sidebar-right .sidebar{
-    background-color:#456;
-    float:right;
+.sidebar-right {
+	display: inline_block;
+	.main{
+    	background-color: #789;
+    	float:left;
+    	border: 1px solid #000;
+    	height: 100%;
+    	display: inline;
+    }
+    .sidebar{
+    	background-color:#456;
+    	float:right;
+    	display: inline;
+    }
+    //border: 3px solid #0f0;
 }
 
 footer {

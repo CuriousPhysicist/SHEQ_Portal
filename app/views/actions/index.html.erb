@@ -1,24 +1,21 @@
+
+<h2>Owned Actions</h2>
+<br/>
+<table class="actions">
+    <tr><th>Reference Number</th><th>Owner</th></tr>
+    <%= render @actions_owned  %>
+</table>
+
+<br/>
+
+<h2>Created Actions</h2>
+<br/>
+<table class="actions">
+    <tr><th>Reference Number</th><th>Owner</th></tr>
+  <%= render @actions_created %>
+</table>
+
+<br/>
 <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
-
-<% if logged_in? %>
-    <h2>Owned Actions</h2>
-    <table class="actions-owned">
-        <tr><th>Reference Number</th><th>Owner</th></tr>
-      <%= render @actions_owned  %>
-    </table>
-    
-    <br/>
-    
-    <h2>Created Actions</h2>
-    
-    <table class="actions-created">
-        <tr><th>Reference Number</th><th>Owner</th></tr>
-      <%= render @actions_created %>
-    </table>
-
-<% else %>
-    <p>This will be a list of actions owned by the User.</p>
-
-<% end %>
 
 

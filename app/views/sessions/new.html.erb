@@ -1,9 +1,16 @@
-<h1>USER LOG IN</h1>
+<div class="">
+	<h1>USER LOG IN</h1>
+	<br/>
 
-<%= form_for(:session, url: login_path, :method => :post) do |f| %>
-    <%= f.email_field :email, :placeholder => "Email" %>
-    <%= f.password_field :password, :placeholder => "Password" %>
-    <%= f.submit "Log In", class: "btn-submit" %>
-<% end %>
+	<%= form_for(:session, url: login_path, :method => :post) do |f| %>
+	    <%= f.email_field :email, :placeholder => "Email" %>
+	    <br/><br/>
+	    <%= f.password_field :password, :placeholder => "Password" %>
+	    <br/><br/>
+	    <%= f.submit "Log In", class: "btn btn-primary btn-submit" %>
+	    <br/>
+	<% end %>
+	<br/>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
 
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

@@ -55,7 +55,7 @@ class ActionsController < ApplicationController
     private
     
     def action_params
-        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout)
+        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout, :open_flag)
     end
     
 end
