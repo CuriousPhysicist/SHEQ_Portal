@@ -17,7 +17,7 @@ nav {
 }
 
 .content {
-	border: 1px solid #000;
+	//border: 1px solid #000;
 }
 
 section {
@@ -50,24 +50,16 @@ aside {
 }
 
 .sidebar-right {
-	display: inline_block;
 	.main{
     	background-color: #789;
-    	float:left;
-    	border: 1px solid #000;
-    	height: 100%;
-    	display: inline;
     }
     .sidebar{
     	background-color:#456;
-    	float:right;
-    	display: inline;
     }
     //border: 3px solid #0f0;
 }
 
 footer {
-    clear:both ;
 }
 
 @import "bootstrap-sprockets";

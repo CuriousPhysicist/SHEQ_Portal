@@ -15,24 +15,26 @@
       
       <% if current_user %>
       
-        <div class="sidebar-right">
-          <div class="main col-xs-8">
-            <section>
-              <%= yield %>
-            </section>
-          </div>
-        
-          <div class="sidebar col-xs-4 ">
-            <aside>
-              <%= render 'layouts/sidebar' if current_user %>
-            </aside>
-          </div>
-        </div>
+        <table class="sidebar-right">
+          <tr>
+            <td class="main col-xs-8">
+              <section>
+                <%= yield %>
+              </section>
+            </td>
+
+            <td class="sidebar col-xs-4">
+              <aside>
+                <%= render 'layouts/sidebar' if current_user %>
+              </aside>
+            </td>
+          </tr>
+        </table>
         
         <% else %>
         
-        <div class="main col-xs-12">
-            <section>
+        <div>
+            <section class="main col-xs-12">
             <%= yield %>
             </section>
         </div>
