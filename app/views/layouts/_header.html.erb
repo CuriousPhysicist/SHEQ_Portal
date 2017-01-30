@@ -1,0 +1,15 @@
+<%-#image_tag("smiley_face.png", :alt => "Profile picture") -%>
+<div class"d-inline">
+    <%= link_to (image_tag("logo.jpg", :alt => "Inutec")), '#', :class =>"pull-left" %>
+    <h1 class="app-title">SHEQ Application</h1>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header pull-right">
+        
+        <%= link_to "Home", "/", :class => "btn btn-secondary" %>
+        <%= link_to "Log in", login_path, :class => "btn btn-secondary" %>
+        <%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %>
+        <%= link_to "Back", '/', :class => "btn btn-secondary" %>
+        </div>
+    </nav>
+</div>
+    
