@@ -50,6 +50,7 @@ class ActionsController < ApplicationController
     def destroy
         @action = Action.find(params[:id])
         @action.destroy
+        redirect_to actions_path
     end
     
     private

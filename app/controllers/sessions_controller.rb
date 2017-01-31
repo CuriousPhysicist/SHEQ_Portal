@@ -9,8 +9,15 @@ class SessionsController < ApplicationController
       @due = @actions.where('date_target >= ?', Time.now).count
       @year_count = Action.all.count
       
+      @typeA_num = @actions.where('type_ABC = ?', "A").count
+      @typeB_num = @actions.where('type_ABC = ?', "B").count
+      @typeC_num = @actions.where('type_ABC = ?', "C").count
+      
       @series1 = @actions.where('date_target >= ?', Time.now).group(:owner).count
       @series2 = @actions.where('date_target < ?', Time.now).group(:owner).count
+      @series3 = @actions.where('date_target >= ?', Time.now).group(:type_ABC).count
+      @series4 = @actions.where('date_target < ?', Time.now).group(:type_ABC).count
+      
     end
     
     def new

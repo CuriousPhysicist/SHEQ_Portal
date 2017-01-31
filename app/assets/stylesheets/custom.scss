@@ -31,13 +31,15 @@ nav {
     }
 }
 
-.content {
-	//border: 1px solid #000;
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: right;
 }
 
 section {
     
-	h1, h2, table, form, input, p, .wrapper{
+	h1, h2, h3, table, form, input, p, .wrapper{
 		//border: 1px solid #000;
 		text-align: center;
 	}
@@ -71,6 +73,9 @@ aside {
 }
 
 .actions {
+    a {
+        color: #222;   
+    }
 	th {
 		text-align: center;
 		padding: 2px;
@@ -113,8 +118,6 @@ aside {
   vertical-align: top;
 }
 
-footer {
-}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

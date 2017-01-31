@@ -23,8 +23,3 @@ jQuery ->
                 if value != newteam_val
                     new_attr = $(".user#{i}").attr("style", "display: none")
                     console.log(new_attr)
-            
-        # $(this).attr("display", "none")
-        #     else
-        #     end
-            

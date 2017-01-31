@@ -1,5 +1,5 @@
 <tr>
-  <td class="first_two_cols"><%= action.id %></td>
+  <td class="first_two_cols"><%= link_to action.id, action_path(action.id) %></td>
   <td class="first_two_cols"><%= action.owner %></td>
   <td class="last_three_cols"><%= action.description %></td>
   <td class="last_three_cols"><%= action.progress %></td>
