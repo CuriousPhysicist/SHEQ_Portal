@@ -14,6 +14,21 @@ header {
 
 nav {
     clear:both;
+    border-radius: 0;
+    background-color: #222;
+    ul li a {
+        background: url(../assets/images/homeNavBullet.gif) left center no-repeat;
+    }
+    a {
+        fontweight: 800;
+        color: #fff;
+    }
+    ul li{
+        display: inline;
+    }
+    li {
+        list-style: none;
+    }
 }
 
 .content {
@@ -25,21 +40,23 @@ section {
 		//border: 1px solid #000;
 		text-align: center;
 	}
-	//border: 1px solid #000;
-	height: 100%;
 }
 
 aside {
-	height: 100%;
-	//border: 1px solid #000;
+	border: 1px solid #000;
 }
 
 .actions {
-	th, td {
+	th {
 		text-align: center;
 		padding: 2px;
 		border: 1px solid #000;
 	}
+    td {
+        text-align: left;
+        padding: 2px;
+        border: 1px solid #000;
+    }
 	//border: 3px solid #0f0;
 	width: 100%;
 }
@@ -50,6 +67,9 @@ aside {
 }
 
 .sidebar-right {
+    ul li {
+        list-style: none;
+    }
 	.main{
     	background-color: #789;
     }
@@ -59,11 +79,19 @@ aside {
     //border: 3px solid #0f0;
 }
 
+#actual-table { 
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+#actual-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
 footer {
 }
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
 //

@@ -1,0 +1,8 @@
+<p>Put the funky graphs in here ... include links / jobs to update / import and export excel CSV.</p>
+
+<%= bar_chart @actions.group(:user_id).count, width: "400px" %>
+
+<%= pie_chart @actions.group(:open_flag).count, width: "400px" %>
+
+<h2>KPIs</h2>
+<p>Action close-out rate = <%# (Action.where(:open_flag => true).count / Action.where(:open_flag => true).count )*100 #Action.where(created_on >= Time.now.one_year_ago) )*100 %> %.</p>

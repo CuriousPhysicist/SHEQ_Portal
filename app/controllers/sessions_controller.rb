@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
     
     include SessionsHelper
+
+    def dashboard
+      @actions=Action.all
+      
+    end
     
     def new
     end
