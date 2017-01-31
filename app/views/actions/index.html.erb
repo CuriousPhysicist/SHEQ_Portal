@@ -1,6 +1,11 @@
 <div class="wrapper">
     <h2>Owned Actions</h2>
     <br/>
+    <p>
+      Download:
+      <%= link_to "CSV", actions_path(format: "csv") %> |
+      <%= link_to "Excel", actions_path(format: "xls") %>
+    </p>
     <table class="actions">
         <tr>
             <th>Reference Number</th>

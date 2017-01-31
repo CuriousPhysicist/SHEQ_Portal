@@ -6,8 +6,15 @@ class ActionsController < ApplicationController
     #RESTful resources
     
     def index
-            @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
-            @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+        @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
+        @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+        @actions = Action.all
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @actions.to_csv }
+            format.xls { send_data @actions.to_csv(col_sep: "\t") }
+        end
     end
     
     def new
