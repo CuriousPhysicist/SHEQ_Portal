@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125171746) do
+ActiveRecord::Schema.define(version: 20170131172237) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "refernce_number"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20170125171746) do
     t.text     "progress"
     t.text     "closeout"
     t.string   "source"
-    t.boolean  "open_flag",         default: true
     t.integer  "user_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "closed_flag"
     t.index ["user_id"], name: "index_actions_on_user_id"
   end
 

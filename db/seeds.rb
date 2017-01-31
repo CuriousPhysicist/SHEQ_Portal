@@ -49,7 +49,7 @@ User.create!(first_name:  "Bob",
             date_time_created: target - 3.months,
             type_ABC: type[rnd3],
             description: Faker::Lorem.paragraph,
-            open_flag: Faker::Boolean.boolean(rnd4),
+            closed_flag: Faker::Boolean.boolean(rnd4),
             user_id: j
             )
  end

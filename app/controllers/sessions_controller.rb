@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     include SessionsHelper
 
     def dashboard
-      @actions = Action.where('open_flag = ?', true)
+      @actions = Action.where('closed_flag = ?', false)
       
       @over = @actions.where('date_target < ?', Time.now).count
       @due = @actions.where('date_target >= ?', Time.now).count
