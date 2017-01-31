@@ -3,8 +3,7 @@ class ActionsController < ApplicationController
     before_action :require_user, only: [:options, :index] # [ :show]
     #before_action :require_admin, only: 
     
-    def options
-    end
+    #RESTful resources
     
     def index
             @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
@@ -51,6 +50,19 @@ class ActionsController < ApplicationController
         @action = Action.find(params[:id])
         @action.destroy
         redirect_to actions_path
+    end
+    
+    #additional routes
+    
+    def options
+    end
+    
+    def transfer
+    end
+    
+    def import
+        #Action.import(params[:file])
+        redirect_to root_url, notice: "Products imported."
     end
     
     private

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/actions/options', to: 'actions#options'
   
   resources :users
-  resources :actions
-  
+  resources :actions do
+    collection { post :import}
+    collection { get :transfer}
+  end
   
 end
