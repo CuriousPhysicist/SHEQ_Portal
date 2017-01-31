@@ -36,11 +36,19 @@ nav {
 }
 
 section {
-	h1, h2, table, form, input, p{
+    
+	h1, h2, table, form, input, p, .wrapper{
 		//border: 1px solid #000;
 		text-align: center;
 	}
-	.chart-wrapper:nth-child(1) {border: 1px solid #000 }
+	
+	.form-wrapper {
+        //border: 1px solid #000;
+        @extend .wrapper; 
+        width: 60%;
+        position: relative;
+        left: 20%;
+    }
 	
 	.chart-wrapper {
 	    //border: 1px solid #000;
@@ -55,7 +63,11 @@ section {
 }
 
 aside {
-	border: 1px solid #000;
+    h3, ul, li, div {
+        text-align: center;
+        padding: 0;
+    }
+	//border: 1px solid #000;
 }
 
 .actions {

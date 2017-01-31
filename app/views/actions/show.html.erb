@@ -1,20 +1,23 @@
-<h1>Single Action Show template</h1>
+<h1>Action number: <%= @actions.id %></h1>
 
-<%= form_for(:actions, url: action_path, method: :patch) do |f| %>
-      <%#= render 'shared/error_messages', object: f.object %>
-       <%# debugger  %>
+<div class="form-wrapper">
+  <%= form_for(:actions, url: action_path, method: :patch) do |f| %>
+      
       <%= f.label  :refernce_number %>
       <%= f.text_field  :refernce_number, class: 'form-control', :placeholder => @actions.refernce_number, :disabled=>true %>
       
       <%= f.label  :initiator %>
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>
       <br/>
+      
       <%= f.label :date_time_created %>
       <%= f.datetime_local_field :date_time_created, class: 'form-control', :placeholder => @actions.date_time_created, :disabled=>true %>
       <br/>
+      
       <%= f.label  :owner %>
       <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{@actions.owner}", :disabled=>true, :id => "owner_dummy" %>
       <br/>
+      
       <%= f.label  :source %>
       <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}",:disabled=>true %>
       
@@ -26,7 +29,7 @@
       <%= f.radio_button :type_ABC, "C", :disabled=>true %>
       <%= f.label :type_ABC, "C" %>
    
-        <br />        
+      <br/>        
       <%= f.label :target_date %>
       <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target, :disabled=>true %>
       
@@ -39,8 +42,11 @@
       <%= f.label :closeout %>
       <%= f.text_area :closeout, class: 'form-control', :disabled =>true %>
       <br/>
+      
       <%= f.label :open_flag, "Action Open" %>
       <%= f.check_box :open_flag, :disabled => true  %>
-        <br />
+      <br/>
       
-<% end %>
+  <% end %>
+  
+</div>

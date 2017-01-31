@@ -1,7 +1,11 @@
 <h3><%= user.first_name %> <%= user.last_name %></h3>
 <p>Team: <%= user.team %></p>
-<%# if admin? %>
+
+<% if true #current_user? %>
     <%= link_to "Edit", edit_user_path(user.id) %>
+<% elsif current_user.admin %>
+    <%= link_to "Edit", edit_user_path(user.id) %>
+    |
     <%= link_to "Remove", user_path(user.id), method: :delete,
                                   data: { confirm: "You sure?" } %>
-<%# end %>
+<% end %>

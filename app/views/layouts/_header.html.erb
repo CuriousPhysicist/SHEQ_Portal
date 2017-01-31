@@ -6,9 +6,11 @@
         <div class="navbar-header pull-right">
         <ul>
             <li><%= link_to "Home", "/", :class => "btn btn-secondary" %></li>
-            <li><%= link_to "Log in", login_path, :class => "btn btn-secondary" %></li>
-            <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
-            <li><%= link_to "Back", '/', :class => "btn btn-secondary" %></li>
+            <% if !logged_in? %>
+                <li><%= link_to "Log in", login_path, :class => "btn btn-secondary" %></li>
+            <% else %>
+                <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
+            <% end %>
         </ul>
         </div>
     </nav>

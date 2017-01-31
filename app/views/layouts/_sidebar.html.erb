@@ -1,6 +1,6 @@
 
 
-<h2>User Information</h2>
+<h3>User Information</h3>
 <ul>
     <li>First Name: <%= current_user.first_name %></li>
     <li>Last Name: <%= current_user.last_name %></li>
@@ -9,9 +9,12 @@
     <li><hr></li>
     <li>Team: <%= current_user.team %></li>
 </ul>
-<%= link_to "Dashboard", root_path %>
-<%= link_to "Actions", actions_path(current_user[:id]), class:"btn btn-secondary" %>
-<%= link_to "Users", users_path, class:"btn btn-secondary" %>
-<%# if admin? %>
-<%= link_to "Admin", users_path, class:"btn btn-secondary" %>
-<%# end %>
+
+<div id="sidebar-buttons">
+    <%= link_to "Dashboard", root_path %>
+    <%= link_to "Actions", actions_path(current_user[:id]), class:"btn btn-secondary" %>
+    <%= link_to "Users", users_path, class:"btn btn-secondary" %>
+    <%# if admin? %>
+    <%= link_to "Admin", users_path, class:"btn btn-secondary" %>
+    <%# end %>
+</div>

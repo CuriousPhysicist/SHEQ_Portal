@@ -1,7 +1,5 @@
-<%# :button_text => "Create Action" %>
-<%# :path => new_action_path %>
-
-<%= form_for(:actions, url: actions_path, :method => :post) do |f| %>
+<div class="form-wrapper">
+  <%= form_for(:actions, url: actions_path, :method => :post) do |f| %>
       <%#= render 'shared/error_messages', object: f.object %>
       
       <% lastaction = @last_action.id %>
@@ -14,10 +12,11 @@
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true %>
       <%= f.hidden_field  :initiator, :value => "#{current_user.first_name} #{current_user.last_name}" %>
       <br/>
-      <%= f.label  :owner %>
       
+      <%= f.label  :owner %>
       <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
-      <br>
+      <br/>
+      
       <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true, :id => "owner_dummy" %>
       <%= f.hidden_field  :owner, :value => "#{current_user.first_name} #{current_user.last_name}" %>
       
@@ -34,7 +33,7 @@
       <%= f.label :type_ABC, "C" %>
    
         
-        <br />        
+      <br/>        
       <%= f.label :target_date %>
       <%= f.date_field :date_target, class: 'form-control' %>
       <%= f.hidden_field  :date_time_created, :value => Time.now %>
@@ -48,8 +47,10 @@
       <%= f.label :closeout %>
       <%= f.text_area :closeout, class: 'form-control' %>
         
-        <br />
-      <%= f.submit "Create a new action here!", class: "btn btn-primary" %>
+      <br/>
+      <%= f.submit "Create a new action.", class: "btn btn-primary" %>
       
-      
-<% end %>
+  <% end %>
+  
+</div>
+

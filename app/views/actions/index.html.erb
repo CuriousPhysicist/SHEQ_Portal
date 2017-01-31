@@ -1,21 +1,32 @@
-
-<h2>Owned Actions</h2>
-<br/>
-<table class="actions">
-    <tr><th>Reference Number</th><th>Owner</th><th>Description</th></tr>
-    <%= render @actions_owned  %>
-</table>
-
-<br/>
-
-<h2>Created Actions</h2>
-<br/>
-<table class="actions">
-    <tr><th>Reference Number</th><th>Owner</th><th>Description</th></tr>
-  <%= render @actions_created %>
-</table>
-
-<br/>
-<%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
-
-
+<div class="wrapper">
+    <h2>Owned Actions</h2>
+    <br/>
+    <table class="actions">
+        <tr>
+            <th>Reference Number</th>
+            <th>Owner</th
+            ><th>Description</th>
+            <th>Progress</th>
+            <th>Close-out</th>
+        </tr>
+        <%= render @actions_owned  %>
+    </table>
+    
+    <br/>
+    
+    <h2>Created Actions</h2>
+    <br/>
+    <table class="actions">
+        <tr>
+            <th>Reference Number</th>
+            <th>Owner</th
+            ><th>Description</th>
+            <th>Progress</th>
+            <th>Close-out</th>
+        </tr>
+      <%= render @actions_created %>
+    </table>
+    
+    <br/>
+    <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+</div>
