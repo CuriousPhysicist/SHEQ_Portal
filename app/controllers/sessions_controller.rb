@@ -3,8 +3,14 @@ class SessionsController < ApplicationController
     include SessionsHelper
 
     def dashboard
-      @actions=Action.all
+      @actions = Action.where('open_flag = ?', true)
       
+      @over = @actions.where('date_target < ?', Time.now).count
+      @due = @actions.where('date_target >= ?', Time.now).count
+      @year_count = Action.all.count
+      
+      @series1 = @actions.where('date_target >= ?', Time.now).group(:owner).count
+      @series2 = @actions.where('date_target < ?', Time.now).group(:owner).count
     end
     
     def new

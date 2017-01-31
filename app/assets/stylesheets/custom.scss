@@ -40,6 +40,18 @@ section {
 		//border: 1px solid #000;
 		text-align: center;
 	}
+	.chart-wrapper:nth-child(1) {border: 1px solid #000 }
+	
+	.chart-wrapper {
+	    //border: 1px solid #000;
+	    padding: 0;
+	    -webkit-box-align:center;
+        -webkit-box-pack:center;
+        display:-webkit-box;
+        canvas {
+            //border: 1px solid #000;
+        }
+	}
 }
 
 aside {

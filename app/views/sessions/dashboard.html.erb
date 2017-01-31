@@ -1,8 +1,30 @@
-<p>Put the funky graphs in here ... include links / jobs to update / import and export excel CSV.</p>
+<h1>Performance Dashboard</h1>
 
-<%= bar_chart @actions.group(:user_id).count, width: "400px" %>
+<div class="chart-wrapper col-xs-6">
+    <% stackcol_data = [
+        {
+            name: "Due",
+            data: @series1
+            },
+        {
+            name: "Over-Due",
+            data: @series2
+            }
+        ]
+        %>
+    <%= column_chart stackcol_data, stacked: true, width: "300px", height: "300px"%>
+</div>
 
-<%= pie_chart @actions.group(:open_flag).count, width: "400px" %>
+<div class="chart-wrapper col-xs-6">
+    <% pie_data =
+        {
+            Due: @due,
+            Overdue: @over
+        }
+    %>
+    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
+</div>
 
-<h2>KPIs</h2>
-<p>Action close-out rate = <%# (Action.where(:open_flag => true).count / Action.where(:open_flag => true).count )*100 #Action.where(created_on >= Time.now.one_year_ago) )*100 %> %.</p>
+ <h2>KPIs</h2>
+ 
+    <p><b>Action close-out rate:</b> <%= ((@over.to_f/@year_count.to_f)*100).round(2) %> %.</p>
