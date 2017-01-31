@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     
     def index
         @users = User.all
+        gon.user_number = User.all.count
     end
     
     def create
