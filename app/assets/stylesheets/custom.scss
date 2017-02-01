@@ -14,32 +14,78 @@ header {
 
 nav {
     clear:both;
+    border-radius: 0;
+    background-color: #222;
+    ul li a {
+        background: url(../assets/images/homeNavBullet.gif) left center no-repeat;
+    }
+    a {
+        fontweight: 800;
+        color: #fff;
+    }
+    ul li{
+        display: inline;
+    }
+    li {
+        list-style: none;
+    }
 }
 
-.content {
-	//border: 1px solid #000;
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: right;
 }
 
 section {
-	h1, h2, table, form, input, p{
+    
+	h1, h2, h3, table, form, input, p, .wrapper{
 		//border: 1px solid #000;
 		text-align: center;
 	}
-	//border: 1px solid #000;
-	height: 100%;
+	
+	.form-wrapper {
+        //border: 1px solid #000;
+        @extend .wrapper; 
+        width: 60%;
+        position: relative;
+        left: 20%;
+    }
+	
+	.chart-wrapper {
+	    //border: 1px solid #000;
+	    padding: 0;
+	    -webkit-box-align:center;
+        -webkit-box-pack:center;
+        display:-webkit-box;
+        canvas {
+            //border: 1px solid #000;
+        }
+	}
 }
 
 aside {
-	height: 100%;
+    h3, ul, li, div {
+        text-align: center;
+        padding: 0;
+    }
 	//border: 1px solid #000;
 }
 
 .actions {
-	th, td {
+    a {
+        color: #222;   
+    }
+	th {
 		text-align: center;
 		padding: 2px;
 		border: 1px solid #000;
 	}
+    td {
+        text-align: left;
+        padding: 2px;
+        border: 1px solid #000;
+    }
 	//border: 3px solid #0f0;
 	width: 100%;
 }
@@ -50,6 +96,9 @@ aside {
 }
 
 .sidebar-right {
+    ul li {
+        list-style: none;
+    }
 	.main{
     	background-color: #789;
     }
@@ -59,11 +108,17 @@ aside {
     //border: 3px solid #0f0;
 }
 
-footer {
+#actual-table { 
+    border-collapse: collapse; 
+    width: 100%;
 }
+
+#actual-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
 //

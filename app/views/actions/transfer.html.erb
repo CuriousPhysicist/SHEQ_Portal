@@ -1,0 +1,8 @@
+<h1>This page will allow upload / download of Actions</h1>
+
+<div class="form-wrapper">
+    <%= form_tag import_actions_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import", class: "btn btn-primary" %>
+    <% end %>
+</div>

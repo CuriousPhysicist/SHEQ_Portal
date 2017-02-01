@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  root 'sessions#new'
+  root 'sessions#dashboard'
   
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get '/actions/options', to: 'actions#options'
   
   resources :users
-  resources :actions
-  
+  resources :actions do
+    collection { post :import}
+    collection { get :transfer}
+    collection { get :admin}
+  end
   
 end

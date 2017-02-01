@@ -1,5 +1,13 @@
-<h1>User Index page</h1>
+<h1>Users</h1>
 
-<%= render @users %>
-
-
+<div class="wrapper">
+    
+    <%= label_tag :team %>
+    <%= select_tag(:team, "<option>SHEQ</option><option>Operations</option><option>Analytical</option><option>Maintenance</option>
+                                    <option>Projects</option><option>Engineering</option><option>Management</option>".html_safe, prompt: "All") %>
+      <br/>
+      <br/>
+    
+    <%= render @users %>
+    
+</div>

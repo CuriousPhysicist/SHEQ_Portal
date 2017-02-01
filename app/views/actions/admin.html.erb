@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <h2>Owned Actions</h2>
+    <h2>All Actions</h2>
     <br/>
     <p>
       Download:
@@ -14,23 +14,10 @@
             <th>Progress</th>
             <th>Close-out</th>
         </tr>
-        <%= render @actions_owned  %>
+        <%= render @actions  %>
     </table>
     
     <br/>
-    
-    <h2>Created Actions</h2>
-    <br/>
-    <table class="actions">
-        <tr>
-            <th>Reference Number</th>
-            <th>Owner</th
-            ><th>Description</th>
-            <th>Progress</th>
-            <th>Close-out</th>
-        </tr>
-      <%= render @actions_created %>
-    </table>
     
     <br/>
     <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>

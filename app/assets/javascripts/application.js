@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //
+//=require Chart.bundle
+//=require chartkick
+//
 //= require tether
 //= require bootstrap-sprockets
 //

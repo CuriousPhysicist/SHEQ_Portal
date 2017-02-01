@@ -12,13 +12,44 @@ User.create!(first_name:  "Bob",
              last_name: "Builder",
              email: "example@email.com",
              password:              "Password",
-             password_confirmation: "Password"
+             password_confirmation: "Password",
+             team: "Engineering",
+             role: "Senior Manager"
              )
-             
-Action.create!(refernce_number: 1,
-            initiator: "Andrew Hampson",
-            owner: "Andrew Hampson",
-            type_ABC: "B",
-            description: "Test action - do something",
-            user_id: 1
-             )
+
+10.times do |i|
+    rnd1 = rand(0..6)
+    teams = ["SHEQ","Operations","Analytical","Maintenance","Projects","Engineering","Management"]
+    
+      User.create(
+            first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
+            email: "example#{i}@email.com",
+            password:              "Password",
+            password_confirmation: "Password",
+            team: teams[rnd1]
+      )
+ end
+
+30.times do |i| 
+      rnd1 = rand(1..11)
+      rnd2 = rand(1..11)
+      rnd3 = rand(0..2)
+      rnd4 = rand()
+      
+      target = Faker::Date.between(2.years.ago,(Time.now + 6.months))
+      
+      type = ["A","B","C"]
+      
+      Action.create(
+            refernce_number: i+1,
+            initiator:"#{User.find(rnd1).first_name} #{User.find(rnd1).last_name}",
+            owner: "#{User.find(rnd2).first_name} #{User.find(rnd2).last_name}",
+            date_target: target,
+            date_time_created: target - 3.months,
+            type_ABC: type[rnd3],
+            description: Faker::Lorem.paragraph,
+            closed_flag: Faker::Boolean.boolean(rnd4),
+            user_id: j
+            )
+ end
