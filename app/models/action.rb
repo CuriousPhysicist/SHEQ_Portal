@@ -15,22 +15,22 @@ class Action < ApplicationRecord
     end
 
     def self.import(file)
-    	spreadsheet = open_speadsheet(file)
+    	spreadsheet = open_spreadsheet(file)
     	header = spreadsheet.row(1)
-    	(2..spreadsheet.last.row).each do |i|
+    	(2..spreadsheet.last_row).each do |i|
     		row = Hash[[header, spreadsheet.row(i)].transpose]
 	    	action = find_by_id(row["id"])||new
-	    	action.attributes = row.to_hash.slice(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC,
-                                                                     :date_time_created, :description, :progress, :closeout, :closed_flag)
+	    	action.attributes = row.to_hash.slice(*['refernce_number', 'initiator', 'owner', 'source', 'date_target', 'type_ABC',
+                                                                     'date_time_created', 'description', 'progress', 'closeout', 'closed_flag'])
 	    	action.save!
 	    end
     end
 
     def self.open_spreadsheet(file)
     	case File.extname(file.original_filename)
-    	when ".csv" then Roo::Csv.new(file.path, nil, :ignore)
-    	when ".xls" then Excel.new(file.path, nil, :ignore)
-    	when "xlsx" then Exelx.new(file.path, nil, :ignore)
+    	when ".csv" then Roo::CSV.new(file.path, csv_options: {encoding: "iso-8859-1:utf-8"})
+    	when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    	when "xlsx" then Roo::Exelx.new(file.path, nil, :ignore)
     	else raise "Unknown file type: #{file.original_filename}"
     	end
     end
