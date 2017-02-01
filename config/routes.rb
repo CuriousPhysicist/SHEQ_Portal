@@ -12,12 +12,16 @@ Rails.application.routes.draw do
   get    '/error',   to: 'users#error'
   
   get '/actions/options', to: 'actions#options'
+  patch '/closeplease', to: 'actions#closeplease'
+  patch '/close', to: 'actions#close'
+  get '/reject', to: 'actions#reject'
   
   resources :users
   resources :actions do
     collection { post :import}
-    collection { get :transfer}
+    collection { get :upload}
     collection { get :all}
+    collection { get :tasks}
   end
   
 end

@@ -26,6 +26,7 @@ class ActionsController < ApplicationController
     
     def edit
         @actions = Action.find(params[:id])
+        @user = current_user
         gon.users = User.all
     end
     
@@ -74,6 +75,35 @@ class ActionsController < ApplicationController
     def import
         Action.import(params[:file])
         redirect_to root_url, notice: "Products imported."
+    end
+    
+    def closeplease
+       @action =  Action.find(params[:format])
+    
+       if @action.close_request_flag == false
+           @action.update(:close_request_flag => true)
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def close
+       @action =  Action.find(params[:format])
+    
+       if @action.close_request_flag == true
+           @action.update(:close_request_flag => false)
+           @action.update(:closed_flag => true)
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def reject
+       @action = Action.find(params[:format])
+       
+    end
+    
+    def tasks
+        @actions_for_closeout = Action.where('close_request_flag = ?', true)
+        @closeout_notes
     end
     
     private

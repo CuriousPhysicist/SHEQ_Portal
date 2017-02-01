@@ -1,0 +1,26 @@
+<h1>Actions awaiting review.</h1>
+
+<div class="wrapper">
+    <p>
+      Download:
+      <%= link_to "CSV", actions_path(format: "csv") %> |
+      <%= link_to "Excel", actions_path(format: "xls") %>
+    </p>
+    
+    <h3>Actions for Close-out:</h3>
+    <table class="actions">
+        <tr>
+            <th>Reference Number</th>
+            <th>Owner</th
+            ><th>Description</th>
+            <th>Progress</th>
+            <th>Close-out</th>
+        </tr>
+        <%= render @actions_for_closeout  %>
+    </table>
+    
+    <br/>
+    
+    <br/>
+    <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+</div>
