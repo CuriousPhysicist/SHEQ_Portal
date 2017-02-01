@@ -97,8 +97,21 @@ class ActionsController < ApplicationController
     end
     
     def reject
-       @action = Action.find(params[:format])
-       
+       @actions = Action.find(params[:format])
+       @closeout
+    end
+
+    def return
+        @action =  Action.find(params[:id])
+        
+        closeout_update = @action.closeout + " | " + params[:updatetext] 
+        debugger
+
+       if @action.close_request_flag == true
+           @action.update(:close_request_flag => false)
+           @action.update(:closeout => closeout_update)
+           redirect_to action_path(@action.id)
+       end
     end
     
     def tasks
