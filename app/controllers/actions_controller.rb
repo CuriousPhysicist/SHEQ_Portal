@@ -67,6 +67,10 @@ class ActionsController < ApplicationController
     def transfer
     end
     
+    def admin
+        @actions = Action.all
+    end
+    
     def import
         Action.import(params[:file])
         redirect_to root_url, notice: "Products imported."

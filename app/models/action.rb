@@ -3,7 +3,7 @@ class Action < ApplicationRecord
     belongs_to :user, optional: true
     
     validates :initiator, presence: true, length: { maximum: 255 }
-    validates :description, presence: true, length: { maximum: 255 }
+    validates :description, presence: true
     
     def self.to_csv(options={})
     	CSV.generate(options) do |csv|
@@ -30,7 +30,7 @@ class Action < ApplicationRecord
     	case File.extname(file.original_filename)
     	when ".csv" then Roo::CSV.new(file.path, csv_options: {encoding: "iso-8859-1:utf-8"})
     	when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
-    	when "xlsx" then Roo::Exelx.new(file.path, nil, :ignore)
+    	when ".xlsx" then Roo::Excelx.new(file.path)
     	else raise "Unknown file type: #{file.original_filename}"
     	end
     end

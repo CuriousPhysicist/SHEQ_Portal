@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :actions do
     collection { post :import}
     collection { get :transfer}
+    collection { get :admin}
   end
   
 end
