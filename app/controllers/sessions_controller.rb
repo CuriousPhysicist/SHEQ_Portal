@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
        if @user && @user.authenticate(params[:session][:password])
            log_in(@user)
            remember(@user)
-           redirect_to actions_path(session[:user_id])
+           redirect_to actions_path
        else
            redirect_to '/error'
        end

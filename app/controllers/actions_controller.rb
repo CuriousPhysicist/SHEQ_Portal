@@ -1,7 +1,7 @@
 class ActionsController < ApplicationController
     
-    before_action :require_user, only: [:options, :index] # [ :show]
-    #before_action :require_admin, only: 
+    before_action :require_user, only: [:options, :index]
+    before_action :require_admin, only: [:destroy, :transfer, :all]
     
     #RESTful resources
     
@@ -67,7 +67,7 @@ class ActionsController < ApplicationController
     def transfer
     end
     
-    def admin
+    def all
         @actions = Action.all
     end
     

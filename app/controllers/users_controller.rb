@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
-    #before_action :require_user, only: [:index, :show]
-    #before_action :require_admin, only: [:new, :create, :edit, :destroy]
+    before_action :require_user, only: [:index, :show]
+    before_action :require_admin, only: [:new, :create, :edit, :destroy]
     
     # Standard RESTful actions
     
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     # Role specific actions
     
     def admin?
-       self.role == 'admin'
+       self.admin == true
     end
     
     private

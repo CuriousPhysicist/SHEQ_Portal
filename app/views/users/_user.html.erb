@@ -1,10 +1,10 @@
 <div class="user<%= user.id%>", value="<%= user.team%>">
     <h3><%= user.first_name %> <%= user.last_name %></h3>
     <p>Team: <%= user.team %></p>
-
-    <% if true #current_user? %>
+    
+    <% if current_user.id == user.id %>
         <%= link_to "Edit", edit_user_path(user.id) %>
-    <% elsif current_user.admin %>
+    <% elsif current_user.try(:admin) %>
         <%= link_to "Edit", edit_user_path(user.id) %>
         |
         <%= link_to "Remove", user_path(user.id), method: :delete,
