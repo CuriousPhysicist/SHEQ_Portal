@@ -1,7 +1,6 @@
 <div class="form-wrapper">
   <%= form_for(:actions, url: action_path, method: :patch) do |f| %>
-      <%#= render 'shared/error_messages', object: f.object %>
-       <%# debugger  %>
+      
       <%= f.label  :reference_number %>
       <%= f.text_field  :reference_number, class: 'form-control', :placeholder => @actions.reference_number, :disabled=>true %>
       <%= f.hidden_field  :reference_number, :value => @actions.reference_number %>
@@ -10,19 +9,26 @@
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>
       <%= f.hidden_field  :initiator, :value => "#{@actions.initiator}" %>
       <br/>
-      <%= f.label :date_time_created %>
-      <%= f.datetime_local_field :date_time_created, class: 'form-control' %>
-      <br/>
       <%= f.label  :owner %>
       
       <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
       <br>
+
       <%= f.text_field  :owner, class: 'form-control', :disabled => true, :id => "owner_dummy" %>
       <%= f.hidden_field  :owner, :value => "#{@actions.owner}" %>
       
-      
-      <%= f.label  :source %>
-      <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}" %>
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label  :source %>
+                        <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}" %>
+                  </td>
+                  <td>
+                        <%= f.label :event_id, "Associated UNOR" %>
+                        <%= f.text_field :event_id, class: 'form-control', :placeholder => "#{@actions.event_id}" %>
+                  </td>
+            </tr>
+      </table>
       
       <%= f.label "Action Type" %>
       <%= f.radio_button :type_ABC, "A" %>
@@ -32,9 +38,19 @@
       <%= f.radio_button :type_ABC, "C" %>
       <%= f.label :type_ABC, "C" %>
    
-        <br />        
-      <%= f.label :target_date %>
-      <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target %>
+        <br />
+        <table>
+            <tr>
+                  <td>
+                        <%= f.label :date_time_created %>
+                        <%= f.datetime_local_field :date_time_created, class: 'form-control' %>
+                  </td>
+                  <td>
+                        <%= f.label :target_date %>
+                        <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target %>
+                  </td>
+            </tr>
+        </table>         
       
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control'  %>
