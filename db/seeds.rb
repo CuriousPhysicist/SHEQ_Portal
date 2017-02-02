@@ -5,6 +5,7 @@ User.create!(first_name:  "Andrew",
              password_confirmation: "Password",
              team: "SHEQ",
              role: "Senior Manager",
+             approval_type: "All Types",
              admin: true
              )
               
@@ -35,14 +36,13 @@ User.create!(first_name:  "Bob",
       rnd1 = rand(1..11)
       rnd2 = rand(1..11)
       rnd3 = rand(0..2)
-      rnd4 = rand()
       
       target = Faker::Date.between(2.years.ago,(Time.now + 6.months))
       
       type = ["A","B","C"]
       
       Action.create(
-            refernce_number: i+1,
+            reference_number: i+1,
             initiator:"#{User.find(rnd1).first_name} #{User.find(rnd1).last_name}",
             owner: "#{User.find(rnd2).first_name} #{User.find(rnd2).last_name}",
             date_target: target,
@@ -50,6 +50,6 @@ User.create!(first_name:  "Bob",
             type_ABC: type[rnd3],
             description: Faker::Lorem.paragraph,
             closed_flag: false,
-            user_id: j
+            user_id: rnd2
             )
  end

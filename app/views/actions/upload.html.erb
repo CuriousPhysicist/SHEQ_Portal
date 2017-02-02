@@ -1,8 +1,24 @@
-<h1>This page will allow uploading of Actions</h1>
+<div class="wrapper">
+    <h2>Upload Data from Excel</h2>
 
-<div class="form-wrapper">
-    <%= form_tag import_actions_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import", class: "btn btn-primary" %>
-    <% end %>
+    <p><b>The following fields are required with the associated data types:</b></p>
+    
+    <div class="form-wrapper">
+        <ul class="with-bullets align-left">
+            <li>Initiator (person placing the action) => Full Name (String)</li>
+            <li>Owner (Responsible officer for the action) => Full Name (String) 
+                <ul>
+                    <li>For new actions this must be one of the registered Users of the SHEQ Actions Application</li>
+                </ul>
+            </li>
+            <li>Date created => DD/MM/YYYY (HH:MM) - time is optional</li>
+            <li>Source => QA or SHE (String)</li>
+            <li>Description => Short description of the action, including where possible clear close-out criteria.</li>
+        </ul>
+        
+        <%= form_tag import_actions_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import Data", class: "btn btn-primary" %>
+        <% end %>
+    </div>
 </div>

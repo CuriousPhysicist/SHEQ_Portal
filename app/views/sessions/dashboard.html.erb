@@ -16,31 +16,6 @@
     </p>
 
 <div class="chart-wrapper col-xs-6">
-    <% stackcol_data1 = [
-        {
-            name: "Due",
-            data: @series1
-            },
-        {
-            name: "Over-Due",
-            data: @series2
-            }
-        ]
-        %>
-    <%= column_chart stackcol_data1, stacked: true, width: "300px", height: "300px"%>
-</div>
-
-<div class="chart-wrapper col-xs-6">
-    <% pie_data =
-        {
-            Due: @due,
-            Overdue: @over
-        }
-    %>
-    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
-</div>
-
-<div class="chart-wrapper col-xs-12">
     <% stackcol_data2 = [
         {
             name: "Due",
@@ -55,5 +30,27 @@
     <%= column_chart stackcol_data2, width: "300px", height: "300px"%>
 </div>
 
- 
+<div class="chart-wrapper col-xs-6">
+    <% pie_data =
+        {
+            Due: @due,
+            Overdue: @over
+        }
+    %>
+    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
+</div>
 
+<div class="chart-wrapper col-xs-12">
+    <% stackcol_data1 = [
+        {
+            name: "Due",
+            data: @series1
+            },
+        {
+            name: "Over-Due",
+            data: @series2
+            }
+        ]
+        %>
+    <%= column_chart stackcol_data1, stacked: true, width: "600px", height: "400px"%>
+</div>

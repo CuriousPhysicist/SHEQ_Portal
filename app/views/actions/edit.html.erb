@@ -2,9 +2,9 @@
   <%= form_for(:actions, url: action_path, method: :patch) do |f| %>
       <%#= render 'shared/error_messages', object: f.object %>
        <%# debugger  %>
-      <%= f.label  :refernce_number %>
-      <%= f.text_field  :refernce_number, class: 'form-control', :placeholder => @actions.refernce_number, :disabled=>true %>
-      <%= f.hidden_field  :refernce_number, :value => @actions.refernce_number %>
+      <%= f.label  :reference_number %>
+      <%= f.text_field  :reference_number, class: 'form-control', :placeholder => @actions.reference_number, :disabled=>true %>
+      <%= f.hidden_field  :reference_number, :value => @actions.reference_number %>
       
       <%= f.label  :initiator %>
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>

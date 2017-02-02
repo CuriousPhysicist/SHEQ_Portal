@@ -24,7 +24,10 @@ Rails.application.routes.draw do
     collection { post :import}
     collection { get :upload}
     collection { get :all}
+    collection { get :owned}
+    collection { get :created}
     collection { get :tasks}
+    
   end
   
 end

@@ -4,9 +4,9 @@
       
       <% lastaction = @last_action.id %>
        
-      <%= f.label  :refernce_number %>
-      <%= f.text_field  :refernce_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>
-      <%= f.hidden_field  :refernce_number, :value => lastaction + 1 %>
+      <%= f.label  :reference_number %>
+      <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>
+      <%= f.hidden_field  :reference_number, :value => lastaction + 1 %>
       
       <%= f.label  :initiator %>
       <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true %>

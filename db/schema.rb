@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20170201225203) do
 
   create_table "actions", force: :cascade do |t|
-    t.integer  "refernce_number"
+    t.integer  "reference_number"
     t.datetime "date_time_created"
     t.string   "initiator"
     t.string   "owner"
