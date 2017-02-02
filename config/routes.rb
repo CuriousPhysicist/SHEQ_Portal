@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   patch '/extend', to: 'actions#extend'
   
   resources :users
+  
+  resources :events do
+    collection { get :tasks}
+  end
+  
   resources :actions do
     collection { post :import}
     collection { get :upload}
@@ -27,7 +32,6 @@ Rails.application.routes.draw do
     collection { get :owned}
     collection { get :created}
     collection { get :tasks}
-    
   end
   
 end
