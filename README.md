@@ -27,7 +27,7 @@ will be hosted locally on the company intranet.
 
 FRAMEWORK
 
-* Ruby version - 5.0.0.1
+* Rails version - 5.0.0.1
 * Ruby version - 2.3.0
 
 
@@ -35,11 +35,27 @@ SETUP
 
 * System dependencies
 
+Gems: in addition to core Rails gems
+
+bcrypt',        '3.1.11'
+'bootstrap-sass', '3.3.6'
+'gon'
+'roo', "~> 2.7.0"
+'chartkick'
+
+Remember to run : bundle install
+
 * Configuration
 
 * Database creation
 
+run : rails db:migrate
+
 * Database initialization
+
+If in development environment seed the db using the Faker gem.
+
+run : rails db:seed
 
 * How to run the test suite
 
