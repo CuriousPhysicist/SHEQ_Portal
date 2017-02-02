@@ -37,11 +37,11 @@ SETUP
 
 Gems: in addition to core Rails gems
 
-bcrypt',        '3.1.11'
-'bootstrap-sass', '3.3.6'
-'gon'
-'roo', "~> 2.7.0"
-'chartkick'
+* bcrypt',        '3.1.11'
+* 'bootstrap-sass', '3.3.6'
+* 'gon'
+* 'roo', "~> 2.7.0"
+* 'chartkick'
 
 Remember to run : bundle install
 
@@ -62,4 +62,8 @@ run : rails db:seed
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
+This is now a viable application for user testing.
+
+Version 0.0.0
 
