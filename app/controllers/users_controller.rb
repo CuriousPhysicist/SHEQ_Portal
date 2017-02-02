@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
-    before_action :require_user, only: [:index, :show]
-    before_action :require_admin, only: [:new, :create, :edit, :destroy]
+    before_action :require_user, only: [:index, :show, :edit]
+    before_action :require_admin, only: [:new, :create, :destroy]
     
     # Standard RESTful actions
     

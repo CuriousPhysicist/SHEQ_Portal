@@ -26,6 +26,7 @@ class ActionsController < ApplicationController
     
     def edit
         @actions = Action.find(params[:id])
+        @user = current_user
         gon.users = User.all
     end
     
@@ -74,6 +75,86 @@ class ActionsController < ApplicationController
     def import
         Action.import(params[:file])
         redirect_to root_url, notice: "Products imported."
+    end
+    
+    def closeplease
+       @action =  Action.find(params[:format])
+    
+       if @action.close_request_flag == false
+           @action.update(:close_request_flag => true)
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def close
+       @action =  Action.find(params[:format])
+    
+       if @action.close_request_flag == true
+           @action.update(:close_request_flag => false)
+           @action.update(:closed_flag => true)
+           redirect_to action_path(@action.id)
+       end
+    end
+
+    def extendplease
+       @action =  Action.find(params[:format])
+    
+       if @action.extend_request_flag == false
+           @action.update(:extend_request_flag => true)
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def extend
+       @action =  Action.find(params[:format])
+
+       extensions = @action.extensions_number
+    
+       if @action.extend_request_flag == true
+            
+            extensions += 1
+            @action.update(:extensions_number => extensions)
+            @action.update(:extend_request_flag => false)
+           
+            redirect_to action_path(@action.id)
+       end
+    end
+    
+    def reject
+       @actions = Action.find(params[:format])
+       
+    end
+
+    def return
+        @action =  Action.find(params[:id])
+        
+
+        if @action.closeout != nil
+            closeout_update = @action.closeout + " | " + params[:updatetext]
+        else
+            closeout_update = params[:updatetext]
+        end
+
+        if @action.progress != nil
+            progress_update = @action.progress + " | " + params[:updatetext]
+        else
+            progress_update = params[:updatetext]
+        end
+
+        if @action.close_request_flag == true
+           @action.update(:closeout => closeout_update)
+           redirect_to action_path(@action.id)
+        end
+
+        if @action.extend_request_flag == true
+           @action.update(:progress => progress_update)
+           redirect_to action_path(@action.id)
+        end
+    end
+    
+    def tasks
+        @actions_for_closeout = Action.where('close_request_flag = ?', true)
+        @actions_for_extention = Action.where('extend_request_flag = ?', true)
     end
     
     private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131172237) do
+ActiveRecord::Schema.define(version: 20170201225203) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "refernce_number"
@@ -19,15 +19,17 @@ ActiveRecord::Schema.define(version: 20170131172237) do
     t.string   "owner"
     t.string   "type_ABC"
     t.date     "date_target"
-    t.integer  "extentions_number", default: 0
+    t.integer  "extensions_number",   default: 0
     t.text     "description"
     t.text     "progress"
     t.text     "closeout"
     t.string   "source"
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.boolean  "closed_flag"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "closed_flag",         default: false
+    t.boolean  "close_request_flag",  default: false
+    t.boolean  "extend_request_flag", default: false
     t.index ["user_id"], name: "index_actions_on_user_id"
   end
 

@@ -1,7 +1,7 @@
 class AddClosedFlagColumnToActions < ActiveRecord::Migration[5.0]
   def up
     change_table :actions do |t|
-      t.boolean :closed_flag
+      t.boolean :closed_flag, :default => false
     end
   end
   
