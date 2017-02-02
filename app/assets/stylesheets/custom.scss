@@ -16,9 +16,6 @@ nav {
     clear:both;
     border-radius: 0;
     background-color: #222;
-    ul li a {
-        background: url(../assets/images/homeNavBullet.gif) left center no-repeat;
-    }
     a {
         fontweight: 800;
         color: #fff;
@@ -38,10 +35,17 @@ footer {
 }
 
 section {
+	
+	.align-left {
+		    text-align: left;
+	}
     
 	h1, h2, h3, table, form, input, p, .wrapper{
 		//border: 1px solid #000;
 		text-align: center;
+		ul .with-bullets li{
+		    list-style: round;
+	    }
 	}
 	
 	.form-wrapper {
@@ -61,9 +65,6 @@ section {
 	    -webkit-box-align:center;
         -webkit-box-pack:center;
         display:-webkit-box;
-        canvas {
-            //border: 1px solid #000;
-        }
 	}
 }
 
@@ -99,7 +100,7 @@ aside {
 }
 
 .sidebar-right {
-    ul li {
+    li {
         list-style: none;
     }
 	.main{

@@ -1,7 +1,7 @@
 class CreateActions < ActiveRecord::Migration[5.0]
   def change
     create_table :actions do |t|
-      t.integer :refernce_number
+      t.integer :reference_number
       t.datetime :date_time_created
       t.string :initiator
       t.string :owner

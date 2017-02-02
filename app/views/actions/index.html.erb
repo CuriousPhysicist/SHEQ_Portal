@@ -2,9 +2,10 @@
     <h2>Owned Actions</h2>
     <br/>
     <p>
+        <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
       Download:
-      <%= link_to "CSV", actions_path(format: "csv") %> |
-      <%= link_to "Excel", actions_path(format: "xls") %>
+      <%= link_to "CSV", owned_actions_path(format: "csv") %> |
+      <%= link_to "Excel", owned_actions_path(format: "xls") %>
     </p>
     <table class="actions">
         <tr>
@@ -21,6 +22,12 @@
     
     <h2>Created Actions</h2>
     <br/>
+    <p>
+        <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+      Download:
+      <%= link_to "CSV", created_actions_path(format: "csv") %> |
+      <%= link_to "Excel", created_actions_path(format: "xls") %>
+    </p>
     <table class="actions">
         <tr>
             <th>Reference Number</th>
@@ -33,5 +40,5 @@
     </table>
     
     <br/>
-    <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+    
 </div>

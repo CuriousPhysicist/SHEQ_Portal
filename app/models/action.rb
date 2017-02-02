@@ -20,7 +20,7 @@ class Action < ApplicationRecord
     	(2..spreadsheet.last_row).each do |i|
     		row = Hash[[header, spreadsheet.row(i)].transpose]
 	    	action = find_by_id(row["id"])||new
-	    	action.attributes = row.to_hash.slice(*['refernce_number', 'initiator', 'owner', 'source', 'date_target', 'type_ABC',
+	    	action.attributes = row.to_hash.slice(*['reference_number', 'initiator', 'owner', 'source', 'date_target', 'type_ABC',
                                                                      'date_time_created', 'description', 'progress', 'closeout', 'closed_flag'])
 	    	action.save!
 	    end

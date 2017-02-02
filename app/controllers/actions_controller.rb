@@ -8,13 +8,6 @@ class ActionsController < ApplicationController
     def index
         @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
         @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
-        @actions = Action.all
-
-        respond_to do |format|
-            format.html
-            format.csv { send_data @actions.to_csv }
-            format.xls { send_data @actions.to_csv(col_sep: "\t") }
-        end
     end
     
     def new
@@ -70,6 +63,32 @@ class ActionsController < ApplicationController
     
     def all
         @actions = Action.all
+        
+        respond_to do |format|
+            format.html
+            format.csv { send_data @actions.to_csv }
+            format.xls { send_data @actions.to_csv(col_sep: "\t") }
+        end
+    end
+    
+    def owned
+        @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @actions_owned.to_csv }
+            format.xls { send_data @actions_owned.to_csv(col_sep: "\t") }
+        end
+    end
+    
+    def created
+        @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @actions_created.to_csv }
+            format.xls { send_data @actions_created.to_csv(col_sep: "\t") }
+        end
     end
     
     def import
@@ -95,66 +114,15 @@ class ActionsController < ApplicationController
            redirect_to action_path(@action.id)
        end
     end
-
-    def extendplease
-       @action =  Action.find(params[:format])
-    
-       if @action.extend_request_flag == false
-           @action.update(:extend_request_flag => true)
-           redirect_to action_path(@action.id)
-       end
-    end
-    
-    def extend
-       @action =  Action.find(params[:format])
-
-       extensions = @action.extensions_number
-    
-       if @action.extend_request_flag == true
-            
-            extensions += 1
-            @action.update(:extensions_number => extensions)
-            @action.update(:extend_request_flag => false)
-           
-            redirect_to action_path(@action.id)
-       end
-    end
     
     def reject
-       @actions = Action.find(params[:format])
+       @action = Action.find(params[:format])
        
-    end
-
-    def return
-        @action =  Action.find(params[:id])
-        
-
-        if @action.closeout != nil
-            closeout_update = @action.closeout + " | " + params[:updatetext]
-        else
-            closeout_update = params[:updatetext]
-        end
-
-        if @action.progress != nil
-            progress_update = @action.progress + " | " + params[:updatetext]
-        else
-            progress_update = params[:updatetext]
-        end
-
-        if @action.close_request_flag == true
-           @action.update(:closeout => closeout_update)
-           redirect_to action_path(@action.id)
-        end
-
-        if @action.extend_request_flag == true
-           @action.update(:progress => progress_update)
-           redirect_to action_path(@action.id)
-        end
     end
     
     def tasks
         @actions_for_closeout = Action.where('close_request_flag = ?', true)
-        @actions_for_extention = Action.where('extend_request_flag = ?', true)
+        @closeout_notes
     end
     
     private
