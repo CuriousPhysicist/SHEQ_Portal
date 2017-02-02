@@ -31,10 +31,3 @@ jQuery ->
         console.log(url3)
         url4 = $('#remove-button').attr("href", "/actions/#{actionnumber}")
         console.log(url4)
-
-    $('#updatetext').keyup ->
-
-        updatecloseout = $(this).val()
-        console.log(updatecloseout)
-        new_value = $('#update').attr("value", updatecloseout)
-        console.log(new_value)

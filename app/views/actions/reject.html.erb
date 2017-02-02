@@ -5,6 +5,8 @@
     <%= form_tag url: reject_path(@actions.id), method: :post do %>
         <%= text_area_tag :updatetext, nil, class: "form-control" %>
         <%= hidden_field_tag :id, @actions.id %>
+        <%= hidden_field_tag :extend_request_flag, @actions.extend_request_flag %>
+        <%= hidden_field_tag :close_request_flag, @actions.close_request_flag %>
         <br/>
         <%= submit_tag "Return Action", class: "btn btn-primary" %>
     <% end %>

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   patch '/close', to: 'actions#close'
   get '/reject', to: 'actions#reject'
   post '/reject', to: 'actions#return'
+  patch '/extendplease', to: 'actions#extendplease'
+  patch '/extend', to: 'actions#extend'
   
   resources :users
   resources :actions do

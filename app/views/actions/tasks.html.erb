@@ -20,6 +20,18 @@
     </table>
     
     <br/>
+
+    <h3>Actions for Extension:</h3>
+    <table class="actions">
+        <tr>
+            <th>Reference Number</th>
+            <th>Owner</th
+            ><th>Description</th>
+            <th>Progress</th>
+            <th>Close-out</th>
+        </tr>
+        <%= render @actions_for_extention  %>
+    </table>
     
     <br/>
     <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>

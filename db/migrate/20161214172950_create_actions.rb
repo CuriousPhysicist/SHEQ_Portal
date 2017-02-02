@@ -7,7 +7,7 @@ class CreateActions < ActiveRecord::Migration[5.0]
       t.string :owner
       t.string :type_ABC
       t.date :date_target
-      t.integer :extentions_number, default: 0
+      t.integer :extensions_number, default: 0
       t.text :description
       t.text :progress
       t.text :closeout
