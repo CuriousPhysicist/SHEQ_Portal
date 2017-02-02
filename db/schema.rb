@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201225203) do
+ActiveRecord::Schema.define(version: 20170202111337) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -25,12 +25,38 @@ ActiveRecord::Schema.define(version: 20170201225203) do
     t.text     "closeout"
     t.string   "source"
     t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.boolean  "closed_flag",         default: false
     t.boolean  "close_request_flag",  default: false
     t.boolean  "extend_request_flag", default: false
+    t.index ["event_id"], name: "index_actions_on_event_id"
     t.index ["user_id"], name: "index_actions_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "reference_number"
+    t.datetime "date_raised"
+    t.datetime "date_closed"
+    t.string   "location"
+    t.string   "building"
+    t.string   "area"
+    t.text     "what_happened"
+    t.text     "immediate_actions"
+    t.string   "classification"
+    t.string   "root_cause"
+    t.decimal  "bc_number"
+    t.boolean  "injury_flag"
+    t.boolean  "safety_flag"
+    t.boolean  "environmental_flag"
+    t.boolean  "security_flag"
+    t.boolean  "quality_flag"
+    t.boolean  "closed_flag"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

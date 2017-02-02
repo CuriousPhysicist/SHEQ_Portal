@@ -53,3 +53,26 @@ User.create!(first_name:  "Bob",
             user_id: rnd2
             )
  end
+ 
+ 30.times do |i| 
+      rnd1 = rand(1..11)
+      rnd2 = rand(0..1)
+      rnd3 = rand(1..30)
+      
+      
+      raised = Faker::Date.between(2.years.ago,(Time.now))
+      
+      closed_array = [(raised + 3.months), nil]
+      
+      
+      Event.create(
+            reference_number: i,
+            what_happened: Faker::Lorem.paragraph,
+            immediate_actions: Faker::Lorem.paragraph,
+            date_raised: raised,
+            date_closed: closed_array[rnd2],
+            closed_flag: false,
+            user_id: rnd1,
+            event_id: rnd3
+            )
+ end
