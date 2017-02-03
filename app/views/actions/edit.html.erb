@@ -18,17 +18,19 @@
       <%= f.hidden_field  :owner, :value => "#{@actions.owner}" %>
       
       <table>
-            <tr>
-                  <td>
-                        <%= f.label  :source %>
-                        <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}" %>
-                  </td>
-                  <td>
-                        <%= f.label :event_id, "Associated UNOR" %>
-                        <%= f.text_field :event_id, class: 'form-control', :placeholder => "#{@actions.event_id}" %>
-                  </td>
-            </tr>
-      </table>
+                  <tr>
+                        <td>
+                              <%= f.label  :source %>
+                              <%= f.select(:source, [['QA', 'QA'],['SHE', 'SHE']], {:include_blank => true}, {:id => "choose-source"}) %> 
+                              <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}",:disabled => true, :id => "source_dummy" %>
+                        </td>
+                        <td>
+                              <%= f.label :event_id, "Associated UNOR" %>
+                              <%= f.collection_select(:event_id, Event.order(:id),:id,:id, {:include_blank => true}, { :id =>"choose-event"}) %>
+                              <%= f.text_field :event_id, class: 'form-control',:disabled => true, :placeholder => "@actions.event_id}",:id => "event_dummy" %>
+                        </td>
+                  </tr>
+            </table>
       
       <%= f.label "Action Type" %>
       <%= f.radio_button :type_ABC, "A" %>

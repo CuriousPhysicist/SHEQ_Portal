@@ -24,14 +24,13 @@
                   <tr>
                         <td>
                               <%= f.label  :source %>
-                              <%= f.select(:source, [['QA', 'QA'],['SHE', 'SHE']], {:id => "choose-source"}) %> 
-                              <%= f.text_field  :source, class: 'form-control' %>
+                              <%= f.select(:source, [['QA', 'QA'],['SHE', 'SHE']], {:include_blank => true}, {:id => "choose-source"}) %> 
+                              <%= f.text_field  :source, class: 'form-control', :placeholder => "",:disabled => true, :id => "source_dummy" %>
                         </td>
                         <td>
                               <%= f.label :event_id, "Associated UNOR" %>
-                              <%= f.collection_select(:source, {}, nil, nil ) %>
-                              <%#= f.collection_select(:event_id, Event.order(:id),:id,:event_id, {:include_blank => true}, {:id =>"choose-event"}) %>
-                              <%= f.text_field :event_id, class: 'form-control' %>
+                              <%= f.collection_select(:event_id, Event.order(:id),:id,:id, {:include_blank => true}, {:placeholder => "", :id =>"choose-event"}) %>
+                              <%= f.text_field :event_id, class: 'form-control',:disabled => true, :id => "event_dummy" %>
                         </td>
                   </tr>
             </table>

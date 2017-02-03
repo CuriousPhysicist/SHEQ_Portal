@@ -15,6 +15,7 @@ class ActionsController < ApplicationController
       @last_action = Action.last
       @users = User.all
       gon.users = User.all
+      gon.events = Event.all
     end
     
     def edit
