@@ -6,5 +6,5 @@ class EventsController < ApplicationController
         @events = Event.all
     end
     
-    
+
 end
