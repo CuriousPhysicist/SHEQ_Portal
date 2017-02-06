@@ -1,65 +1,12 @@
+
+<% provide(:path, action_path) %>
+<% provide(:method_text, :patch) %>
+<% provide(:show_flag, "show") %>
+
 <h1>Action number: <%= @actions.id %></h1>
 
 <div class="form-wrapper">
-  <%= form_for(:actions, url: action_path, method: :patch) do |f| %>
-      
-      <%= f.label  :initiator %>
-      <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>
-      <br/>
-      
-      <%= f.label  :owner %>
-      <%= f.text_field  :owner, class: 'form-control', :placeholder => "#{@actions.owner}", :disabled=>true, :id => "owner_dummy" %>
 
-      <table>
-            <tr>
-                  <td>
-                        <%= f.label  :source %>
-                        <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}",:disabled=>true %>
-                  </td>
-                  <td>
-                        <%= f.label :event_id, "Associated UNOR" %>
-                        <%= f.text_field :event_id, class: 'form-control', :placeholder => "#{@actions.event_id}", :disabled => true %>
-                  </td>
-            </tr>
-      </table>
-      
-      <%= f.label "Action Type" %>
-      <%= f.radio_button :type_ABC, "A", :disabled=>true %>
-      <%= f.label :type_ABC, "A" %>
-      <%= f.radio_button :type_ABC, "B", :disabled=>true %>
-      <%= f.label :type_ABC, "B" %>
-      <%= f.radio_button :type_ABC, "C", :disabled=>true %>
-      <%= f.label :type_ABC, "C" %>
-   
-      <br/> 
-      <table>
-            <tr>
-                  <td>
-                        <%= f.label :date_time_created %>
-                        <%= f.datetime_local_field :date_time_created, class: 'form-control', :placeholder => @actions.date_time_created, :disabled=>true %>
-                  </td>
-                  <td>
-                        <%= f.label :target_date %>
-                        <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target, :disabled=>true %>
-                  </td>
-            </tr>
-      </table>       
-      
-      
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control', :disabled =>true  %>
-      
-      <%= f.label :progress %>
-      <%= f.text_area :progress, class: 'form-control', :disabled =>true %>
-      
-      <%= f.label :closeout %>
-      <%= f.text_area :closeout, class: 'form-control', :disabled =>true %>
-      <br/>
-      
-      <%= f.label :closed_flag, "Action Closed" %>
-      <%= f.check_box :closed_flag, :disabled => true  %>
-      <br/>
-      
-  <% end %>
+      <%= render 'layouts/form_action' %>
   
 </div>

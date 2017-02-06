@@ -3,15 +3,26 @@
     <%= link_to (image_tag("logo.jpg", :alt => "Inutec")), root_path, :class =>"pull-left" %>
     <h1 class="app-title">SHEQ Application</h1>
     <nav class="navbar">
+        <div class="navbar-header pull-left">
+            <ul>
+                <li><%= link_to "Home", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Actions", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "UNORs", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Documents", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Training", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Appointments", "/", :class => "btn btn-secondary" %></li>
+            </ul>
+        </div>
         <div class="navbar-header pull-right">
-        <ul>
-            <li><%= link_to "Home", "/", :class => "btn btn-secondary" %></li>
+            <ul>
             <% if !logged_in? %>
                 <li><%= link_to "Log in", login_path, :class => "btn btn-secondary" %></li>
             <% else %>
                 <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
             <% end %>
-            <li><%= link_to "Import Actions", upload_actions_path, :class => "btn btn-secondary" %></li>
+            <% if current_user.try(:admin) %>
+                <li><%= link_to "Import Actions", upload_actions_path, :class => "btn btn-secondary" %></li>
+            <% end %>
         </ul>
         </div>
     </nav>
