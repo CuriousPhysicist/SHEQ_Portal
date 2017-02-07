@@ -1,0 +1,118 @@
+<%= form_for :events, url: yield(:path), :method => yield(:method_text) do |f| %>
+      
+      <% if @events.new_record? %>
+            <% lastevent = @last_event.id %>
+       
+            <%= f.label  :reference_number %>
+            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
+            <%= f.hidden_field  :reference_number, :value => lastevent + 1 %>
+      
+      <% else %>
+
+            <%= f.label  :reference_number %>
+            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => "#{@events.id}", :disabled=>true %>
+
+      <% end %>
+
+      <br/>
+      
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label :safety_flag, "Safety Related" %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.check_box :safety_flag, disabled: :true %>
+                        <% else %>
+                              <%= f.check_box :safety_flag %>
+                        <% end %>
+
+                        <br/>
+
+                        <%= f.label :environmental_flag, "Environment Related" %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.check_box :environmental_flag, disabled: :true %>
+                        <% else %>
+                              <%= f.check_box :environmental_flag %>
+                        <% end %>
+                  </td>
+                  <td>
+                        <%= f.label :security_flag, "Security Related" %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.check_box :security_flag, disabled: :true %>
+                        <% else %>
+                              <%= f.check_box :security_flag %>
+                        <% end %>
+
+                        <br/>
+
+                        <%= f.label :quality_flag, "Quality Related" %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.check_box :quality_flag, disabled: :true %>
+                        <% else %>
+                              <%= f.check_box :quality_flag %>
+                        <% end %>
+                  </td>
+            </tr>
+      </table>
+
+      <%= f.label :injury_flag, "Injury" %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.check_box :injury_flag, disabled: :true %>
+      <% else %>
+            <%= f.check_box :injury_flag %>
+      <% end %>
+      
+      <br/>
+
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label :date_raised, 'Date created' %>
+                        <% if @events.new_record? %>
+                              <%= f.date_field :date_raised, class: 'form-control' %>
+                              <%= f.hidden_field  :date_raised, :value => Time.now.to_date %>
+                        <% elsif yield(:show_flag) == "show" %>
+                              <%= f.datetime_local_field :date_raised, class: 'form-control', :disabled => true %>
+                        <% else %>
+                              <%= f.datetime_local_field :date_raised, class: 'form-control' %>
+                        <% end %>
+                  </td>
+                  <td>
+                        <%= f.label :date_closed %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.date_field :date_closed, class: 'form-control', :value => @events.date_closed, :disabled => true %>
+                        <% else %>
+                              <%= f.date_field :date_closed, class: 'form-control', :value => @events.date_closed %>
+                        <% end %>
+                  </td>
+            </tr>
+      </table>
+      
+      <%= f.label :what_happened %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.text_area :what_happened, class: 'form-control', :disabled => true %>
+      <% else %>
+            <%= f.text_area :what_happened, class: 'form-control' %>
+      <% end %>
+
+      <br/>
+      
+      <%= f.label :immediate_actions %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.text_area :immediate_actions, class: 'form-control', :disabled => true %>
+      <% else %>
+            <%= f.text_area :immediate_actions, class: 'form-control' %>
+      <% end %>
+
+
+      <br/>
+
+      <%= f.label :closed_flag, "UNOR Closed" %>
+      <%= f.check_box :closed_flag, disabled: :true %>
+        
+      <br/>
+      <% if yield(:show_flag) == "" %>
+            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+      <% end %>
+
+<% end %>

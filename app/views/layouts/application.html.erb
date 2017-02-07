@@ -8,14 +8,14 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container"> <!-- bootstrap container div -->
       
       <header><%= render 'layouts/header' %></header>
       
       
       <% if current_user %>
       
-        <table class="sidebar-right" id="actual-table">
+        <table id="structure-table">
           <tr>
             <td class="main col-xs-9">
               <section>
@@ -33,15 +33,22 @@
         
         <% else %>
         
-        <div>
-            <section class="main col-xs-12">
-            <%= yield %>
-            </section>
-        </div>
+          <div class="main col-xs-12">
+              <section>
+                <%= yield %>
+              </section>
+          </div>
         
         <% end %>
     
-      <footer><%= render 'layouts/footer' %></footer>
+      <footer>
+        
+        <%= render 'layouts/footer' %>
+
+      </footer>
+
     </div>
+
   </body>
+
 </html>

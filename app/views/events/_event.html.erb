@@ -5,7 +5,7 @@
   <td class="last_three_cols"><%= event.immediate_actions %></td>
   <td class="first_two_cols">
 
-  	<% if event.actions.ids.empty? %>
+  <% if event.actions.ids.empty? %>
   	<% else %>
 	  	<% for i in (0..event.actions.ids.length-2) do %>
 	  		<%= link_to(event.actions.ids[i], action_path(event.actions.ids[i])) %>

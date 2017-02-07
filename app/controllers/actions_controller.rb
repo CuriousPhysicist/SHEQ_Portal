@@ -6,7 +6,7 @@ class ActionsController < ApplicationController
     #RESTful resources
     
     def index
-        @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}")
+        @actions_owned = Action.where(owner: "#{current_user.first_name} #{current_user.last_name}").order('date_target')
         @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
     end
     
@@ -125,6 +125,8 @@ class ActionsController < ApplicationController
         @actions_for_closeout = Action.where('close_request_flag = ?', true)
         @closeout_notes
     end
+
+    # Private actions below (including strong parameters white-list)
     
     private
     

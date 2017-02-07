@@ -1,14 +1,20 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 //This will contain app specific styling and positioning of elements in the flow of the page.
 
-//Main page sections
+//Main page sections and structuring
+
+// Styling for header section
 
 header {
-    height:150px;
+    height: 150px;
     background-color: #000;
+    color: #fff;
+    text-align: center;
+
     .app-title {
-    	color: #fff;
-    	text-align: center;
-    	padding: 20px
+    	padding: 20px;
     }
 }
 
@@ -16,17 +22,32 @@ nav {
     clear:both;
     border-radius: 0;
     background-color: #222;
+
     a {
         fontweight: 800;
         color: #fff;
     }
+
     ul li{
         display: inline;
-    }
-    li {
         list-style: none;
     }
+
 }
+
+// This table structure ensures equal height columns for the main section and sidebar
+
+#structure-table { 
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+#structure-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+// Styling for the footer section
 
 footer {
     background-color: #000;
@@ -34,7 +55,12 @@ footer {
     text-align: right;
 }
 
-section {
+// Sets the styling for the main display area
+
+.main {
+
+    background-color: #789;
+    height: 100%;
 	
 	.align-left {
 		    text-align: left;
@@ -43,11 +69,15 @@ section {
 	h1, h2, h3, table, form, input, p, .wrapper{
 		//border: 1px solid #000;
 		text-align: center;
-		ul .with-bullets li{
+
+		ul li{
 		    list-style: round;
 	    }
 	}
 	
+
+    // Styling for all forms for input or display
+
 	.form-wrapper {
         //border: 1px solid #000;
         @extend .wrapper; 
@@ -59,6 +89,8 @@ section {
         }
     }
 	
+    // Stying for charts displayed on dashboards
+
 	.chart-wrapper {
 	    //border: 1px solid #000;
 	    padding: 0;
@@ -68,13 +100,25 @@ section {
 	}
 }
 
-aside {
+// Sets the styling for the sidebar
+
+.sidebar{
+    
+    background-color:#456;
+    text-align: center;
+
+    li {
+        list-style: none;
+    }
+
     h3, ul, li, div {
-        text-align: center;
         padding: 0;
     }
-	//border: 1px solid #000;
+    
+    //border: 1px solid #000;
 }
+
+// sets the styling for the table displaying actions
 
 .actions {
     a {
@@ -85,6 +129,17 @@ aside {
 		padding: 2px;
 		border: 1px solid #000;
 	}
+    //tr {
+        .due {
+            background-color: white;
+        }
+        .urgent {
+            background-color: yellow;
+        }
+        .overdue {
+            background-color: red;
+        }
+    //}
     td {
         text-align: left;
         padding: 2px;
@@ -94,35 +149,5 @@ aside {
 	width: 100%;
 }
 
-.main{
-    background-color: #789;
-    height: 100%;
-}
 
-.sidebar-right {
-    li {
-        list-style: none;
-    }
-	.main{
-    	background-color: #789;
-    }
-    .sidebar{
-    	background-color:#456;
-    }
-    //border: 3px solid #0f0;
-}
-
-#actual-table { 
-    border-collapse: collapse; 
-    width: 100%;
-}
-
-#actual-table td {
-  padding: 10px;
-  vertical-align: top;
-}
-
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
 //

@@ -1,9 +1,16 @@
 <% provide(:button_text, "Update User") %>
 <% provide(:path, user_path) %>
+<% provide(:show_flag, "" ) %>
+<% provide(:method_text, :patch) %>
+
 <h1>User Information</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'layouts/form_edituser' %>
+
+  <div class="form-wrapper">
+
+    <%= render 'layouts/form_user' %>
+
   </div>
+
 </div>
