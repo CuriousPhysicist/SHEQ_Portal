@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get    '/error',   to: 'users#error'
   
-  get '/actions/options', to: 'actions#options'
   patch '/closeplease', to: 'actions#closeplease'
   patch '/close', to: 'actions#close'
   get '/reject', to: 'actions#reject'
@@ -22,10 +21,12 @@ Rails.application.routes.draw do
   resources :users
   
   resources :events do
+    collection { get :options}
     collection { get :tasks}
   end
   
   resources :actions do
+    collection { get :options}
     collection { post :import}
     collection { get :upload}
     collection { get :all}

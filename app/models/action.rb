@@ -3,6 +3,7 @@ class Action < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :event, optional: true
     
+    validates :reference_number, presence: true
     validates :initiator, presence: true, length: { maximum: 255 }
     validates :description, presence: true
     

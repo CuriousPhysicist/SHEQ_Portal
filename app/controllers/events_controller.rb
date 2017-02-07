@@ -11,7 +11,8 @@ class EventsController < ApplicationController
     end
 
     def new
-    	@event = Event.new
+    	@events = Event.new
+    	@last_event = Event.last
     end
     
     def edit
@@ -55,7 +56,7 @@ class EventsController < ApplicationController
     private
     
     def event_params
-        params.require(:events).permit(:refernce_number, :date_raised, :date_closed, :location, :building, :area, 
+        params.require(:events).permit(:reference_number, :date_raised, :date_closed, :location, :building, :area, 
         									:what_happened, :immediate_actions, :classification, :root_cause, :bc_number, 
         										:injury_flag, :safety_flag, :environmental_flag, :security_flag, :quality_flag, 
         											:closed_flag, :user_id, :report_form)

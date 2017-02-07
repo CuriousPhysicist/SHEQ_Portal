@@ -5,4 +5,6 @@ class Event < ApplicationRecord
 
     mount_uploader :report_form, ReportFormUploader
     
+    validates :reference_number, presence: true
+    
 end

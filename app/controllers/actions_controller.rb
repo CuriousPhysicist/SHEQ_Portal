@@ -32,7 +32,7 @@ class ActionsController < ApplicationController
         @action = Action.new(action_params)
         
         if @action.save!
-            redirect_to actions_path
+            redirect_to actions_path(current_user[:id])
         else
             render 'edit'
         end
@@ -131,7 +131,8 @@ class ActionsController < ApplicationController
     private
     
     def action_params
-        params.require(:actions).permit(:refernce_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout, :closed_flag)
+        
+        params.require(:actions).permit(:reference_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout, :closed_flag)
     end
     
 end
