@@ -19,6 +19,21 @@ jQuery ->
         target = $('#actions_owner').attr("value", newowner_name)
         console.log(target)
     
+    $('#choose-source').change ->
+        
+        newsource = $('#choose-source :selected').val()
+        console.log(newsource)
+        target_dummy = $('#source_dummy').attr("placeholder", newsource)
+        console.log(target_dummy)
+        
+
+    $('#choose-event').change ->
+        
+        newevent = $('#choose-event :selected').val()
+        console.log(newevent)
+        target_dummy = $('#event_dummy').attr("placeholder", newevent)
+        console.log(target_dummy)
+
     $('#action-number').keyup ->
         
         actionnumber = $(this).val()

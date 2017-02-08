@@ -1,9 +1,12 @@
 require_relative 'boot'
 
-require 'csv'
-require 'roo'
-#require 'iconv'
+require 'csv' # these two requirements allow csv and excel import and export
+require 'roo' #
+
 require 'rails/all'
+
+require 'carrierwave'                     # required for storage of files
+require 'carrierwave/orm/activerecord'    # required to fix mount_uploader bug in controllers
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

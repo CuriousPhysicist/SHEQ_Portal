@@ -65,5 +65,5 @@ run : rails db:seed
 
 This is now a viable application for user testing.
 
-Version 0.0.0
+Version 0.1.0 - Actions and Events (UNORs) modelled and working.
 

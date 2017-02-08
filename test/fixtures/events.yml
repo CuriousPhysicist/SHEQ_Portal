@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Reference_number: 1
+  Date_raised: 2017-02-02 11:13:37
+  Date_closed: 2017-02-02 11:13:37
+  Location: MyString
+  Building: MyString
+  Area: MyString
+  What_happened: MyText
+  Immediate_actions: MyText
+  Classification: MyString
+  Root_cause: MyString
+  BC_number: 9.99
+  Injury_flag: false
+  Safety_flag: false
+  Environmental_flag: false
+  Security_flag: false
+  Quality_flag: false
+  Closed_flag: false
+
+two:
+  Reference_number: 1
+  Date_raised: 2017-02-02 11:13:37
+  Date_closed: 2017-02-02 11:13:37
+  Location: MyString
+  Building: MyString
+  Area: MyString
+  What_happened: MyText
+  Immediate_actions: MyText
+  Classification: MyString
+  Root_cause: MyString
+  BC_number: 9.99
+  Injury_flag: false
+  Safety_flag: false
+  Environmental_flag: false
+  Security_flag: false
+  Quality_flag: false
+  Closed_flag: false

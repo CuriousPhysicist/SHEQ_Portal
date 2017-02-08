@@ -1,0 +1,41 @@
+<h1>Performance Dashboard - UNORs</h1>
+
+    <h3>KPIs</h3>
+ 
+    <p>
+        <b>UNOR close-out rate:</b> 
+        <%= ((@open.to_f/@year_count.to_f)*100).round(2) %> %.<br/>
+        
+        <b>Number of open UNORs - Total: </b>
+        <%= @total_open %>  
+        <b>Near Miss: </b>
+        <%= @nearmiss_num %>
+        <b>Occurance: </b>
+        <%= @occurance_num %><br/>
+    
+    </p>
+
+<div class="chart-wrapper col-xs-6">
+    <% col_data2 = [
+        {
+            name: "Due",
+            data: @series1
+            },
+        {
+            name: "Over-Due",
+            data: @series2
+            }
+        ]
+        %>
+    <%= column_chart col_data2, width: "300px", height: "300px"%>
+</div>
+
+<div class="chart-wrapper col-xs-6">
+    <% pie_data =
+        {
+            "Near Miss" => @series3,
+            "Occurances" => @series4
+        }
+    %>
+    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
+</div>

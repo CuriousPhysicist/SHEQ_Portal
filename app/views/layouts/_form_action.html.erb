@@ -1,0 +1,132 @@
+
+<%= form_for :actions, url: yield(:path), :method => yield(:method_text) do |f| %>
+      
+      <% if @actions.new_record? %>
+            <% lastaction = @last_action.id %>
+       
+            <%= f.label  :reference_number %>
+            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>
+            <%= f.hidden_field  :reference_number, :value => lastaction + 1 %>
+      
+            <%= f.label  :initiator %>
+            <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{current_user.first_name} #{current_user.last_name}", :disabled=>true %>
+            <%= f.hidden_field  :initiator, :value => "#{current_user.first_name} #{current_user.last_name}" %>
+      <% else %>
+
+            <%= f.label  :reference_number %>
+            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => "#{@actions.id}", :disabled=>true %>
+
+            <%= f.label  :initiator %>
+            <%= f.text_field  :initiator, class: 'form-control', :placeholder => "#{@actions.initiator}", :disabled=>true %>
+            <%= f.hidden_field  :initiator, :value => "#{@actions.initiator}" %>
+      <% end %>
+
+      <br/>
+      
+      <%= f.label  :owner %>
+
+      <% if yield(:show_flag) == "" %>
+            <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
+            <br>
+      <% end %>
+
+      <%= f.text_field  :owner, class: 'form-control', :disabled => true, :id => "owner_dummy" %>
+      <%= f.hidden_field  :owner, :value => "#{@actions.owner}" %>
+      
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label  :source %>
+                        <% if yield(:show_flag) == "" %>
+                              <%= f.select(:source, [['QA', 'QA'],['SHE', 'SHE']], {:include_blank => true}, {:id => "choose-source"}) %>
+                        <% end %> 
+                        <%= f.text_field  :source, class: 'form-control source_dummy', :placeholder => "#{@actions.source}",:disabled => true, :id => "source_dummy" %>
+                  </td>
+                  <td>
+                        <%= f.label :event_id, "Associated UNOR" %>
+                        <% if yield(:show_flag) == "" %>
+                        <%= f.collection_select(:event_id, Event.order(:id),:id,:id, {:include_blank => true}, { :id =>"choose-event"}) %>
+                        <% end %>
+                        <%= f.text_field :event_id, class: 'form-control event_dummy',:disabled => true, :placeholder => "#{@actions.event_id}", :id => "event_dummy" %>
+                  </td>
+            </tr>
+      </table>
+
+            <%= f.label 'Action Type :' %>
+            <%= f.label "A" %>
+            <% if yield(:show_flag) == "show" %>
+                  <%= f.radio_button :type_ABC, "A", :disabled=>true %>
+            <% else %>
+                  <%= f.radio_button :type_ABC, "A" %>
+            <% end %>
+            <%= f.label "B" %>
+            <% if yield(:show_flag) == "show" %>
+                  <%= f.radio_button :type_ABC, "B", :disabled=>true %>
+            <% else %>
+                  <%= f.radio_button :type_ABC, "B" %>
+            <% end %>
+            <%= f.label "C" %>
+            <% if yield(:show_flag) == "show" %>
+                  <%= f.radio_button :type_ABC, "C", :disabled=>true %>
+            <% else %>
+                  <%= f.radio_button :type_ABC, "C" %>
+            <% end %>
+            
+      
+      <br/>
+
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label :date_time_created, 'Date created' %>
+                        <% if @actions.new_record? %>
+                              <%= f.date_field :date_time_created, class: 'form-control' %>
+                              <%= f.hidden_field  :date_time_created, :value => Time.now.to_date %>
+                        <% elsif yield(:show_flag) == "show" %>
+                              <%= f.datetime_local_field :date_time_created, class: 'form-control', :disabled => true %>
+                        <% else %>
+                              <%= f.datetime_local_field :date_time_created, class: 'form-control' %>
+                        <% end %>
+                  </td>
+                  <td>
+                        <%= f.label :target_date %>
+                        <% if yield(:show_flag) == "show" %>
+                              <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target, :disabled => true %>
+                        <% else %>
+                              <%= f.date_field :date_target, class: 'form-control', :value => @actions.date_target %>
+                        <% end %>
+                  </td>
+            </tr>
+      </table>
+      
+      <%= f.label :description %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.text_area :description, class: 'form-control', :disabled => true %>
+      <% else %>
+            <%= f.text_area :description, class: 'form-control' %>
+      <% end %>
+      
+      <%= f.label :progress %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.text_area :progress, class: 'form-control', :disabled => true %>
+      <% else %>
+            <%= f.text_area :progress, class: 'form-control' %>
+      <% end %>
+
+      <%= f.label :closeout %>
+      <% if yield(:show_flag) == "show" %>
+            <%= f.text_area :closeout, class: 'form-control', :disabled => true %>
+      <% else %>
+            <%= f.text_area :closeout, class: 'form-control' %>
+      <% end %>
+      <br/>
+
+      <%= f.label :closed_flag, "Action Closed" %>
+      <%= f.check_box :closed_flag, disabled: :true %>
+        
+      <br/>
+      <% if yield(:show_flag) == "" %>
+            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+      <% end %>
+
+<% end %>

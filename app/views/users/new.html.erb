@@ -1,10 +1,16 @@
-<% provide(:title, "Sign up") %>
 <% provide(:button_text, "Create my account") %>
 <% provide(:path, signup_path) %>
+<% provide(:show_flag, "" ) %>
+<% provide(:method_text, :post) %>
+
 <h1>Sign up</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'layouts/form_newuser' %>
+
+  <div class="form-wrapper">
+
+    <%= render 'layouts/form_user' %>
+
   </div>
+
 </div>

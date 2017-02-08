@@ -14,7 +14,7 @@ class CreateActions < ActiveRecord::Migration[5.0]
       t.string :source
       t.boolean :open_flag, default: true
       
-      t.references :user
+      t.references :user, :event
 
       t.timestamps
     end

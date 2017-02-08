@@ -16,6 +16,7 @@ gem 'jbuilder',     '2.4.1'
 gem 'gon'
 gem 'roo', "~> 2.7.0"
 gem 'chartkick'
+gem 'carrierwave', '~> 1.0'
 
 
 source 'https://rails-assets.org' do

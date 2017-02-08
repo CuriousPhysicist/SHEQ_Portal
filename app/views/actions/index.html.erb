@@ -2,7 +2,7 @@
     <h2>Owned Actions</h2>
     <br/>
     <p>
-        <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+        <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
       Download:
       <%= link_to "CSV", owned_actions_path(format: "csv") %> |
       <%= link_to "Excel", owned_actions_path(format: "xls") %>
@@ -23,7 +23,7 @@
     <h2>Created Actions</h2>
     <br/>
     <p>
-        <%= link_to "Action Options", actions_options_path, class:"btn btn-primary", method: :get %>
+        <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
       Download:
       <%= link_to "CSV", created_actions_path(format: "csv") %> |
       <%= link_to "Excel", created_actions_path(format: "xls") %>
