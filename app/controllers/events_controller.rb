@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     end
     
     def create
-        @events = Event.new(event_params)
+        @event = Event.new(event_params)
         
         if @event.save!
             flash[:success] = "Report successfully submitted"
@@ -32,12 +32,6 @@ class EventsController < ApplicationController
             flash[:warning] = "Report failed to submit"
             render 'edit'
         end
-    end
-
-    def guest
-	@events = Event.new
-	@last_event = Event.last
-	@user = User.first #all.where('last_name = ?', "Hampson")
     end
     
     def update
@@ -57,6 +51,26 @@ class EventsController < ApplicationController
         @event.destroy
         flash[:info] = "Report deleted"
         redirect_to events_path
+    end
+
+    # Guest event reporting actions
+
+    def create_guest
+        @event = Event.new(event_params)
+        
+        if @event.save!
+            flash[:success] = "Report successfully submitted"
+            redirect_to root_path
+        else
+            flash[:warning] = "Report failed to submit"
+            render 'guest'
+        end
+    end
+
+    def guest
+       @events = Event.new
+       @last_event = Event.last
+       @user = User.first # Change this to admin user group in production
     end
 
     # Private actions below (including strong parameters white-list)

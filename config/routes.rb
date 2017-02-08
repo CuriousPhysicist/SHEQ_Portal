@@ -55,7 +55,9 @@ Rails.application.routes.draw do
   resources :events do
     collection { get :options}
     collection { get :tasks}
-    collection { get :guest }
   end
+
+  get '/guest', to: 'events#guest'
+  post '/guest', to: 'events#create_guest'
   
 end

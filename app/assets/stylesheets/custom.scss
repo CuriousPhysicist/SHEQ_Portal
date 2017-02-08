@@ -69,7 +69,6 @@ footer {
 
 }
 
-
 .main {
 
     background-color: Cornsilk;
@@ -92,13 +91,20 @@ footer {
     // Styling for all forms for input or display
 
 	.form-wrapper {
+
         //border: 1px solid #000;
+
         @extend .wrapper;
-	background-color: LightGrey;
-	padding: 10px; 
+
+        border-radius: 10px;
+
+        margin: 0px 0px 30px 0px;
+	    background-color: LightGrey;
+	    padding: 10px; 
         width: 60%;
         position: relative;
         left: 20%;
+
         table {
             width: 100%;
         }
@@ -110,8 +116,8 @@ footer {
 	    //border: 1px solid #000;
 	    padding: 0;
 	    -webkit-box-align:center;
-            -webkit-box-pack:center;
-            display:-webkit-box;
+        -webkit-box-pack:center;
+        display:-webkit-box;
 	    margin: 0 auto;
 	    text-align: center;
 	}
@@ -147,17 +153,17 @@ footer {
 		padding: 2px;
 		border: 1px solid #000;
 	}
-    //tr {
-        .due {
-            background-color: white;
-        }
-        .urgent {
-            background-color: yellow;
-        }
-        .overdue {
-            background-color: red;
-        }
-    //}
+    
+    .due {
+        background-color: white;
+    }
+    .urgent {
+        background-color: yellow;
+    }
+    .overdue {
+        background-color: red;
+    }
+        
     td {
         text-align: left;
         padding: 2px;
@@ -169,8 +175,20 @@ footer {
 
 .instructions {
         display: inline-block;
-	width: 400px;
-        text-align: left;
+	    width: 400px;
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+        
+}
+
+.file-input {
+    -webkit-box-align:center;
+        -webkit-box-pack:center;
+        display:-webkit-box;
+        margin: 0 auto;
+        text-align: center;
 }
 
 //

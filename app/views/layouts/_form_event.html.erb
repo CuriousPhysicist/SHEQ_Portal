@@ -6,10 +6,12 @@
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
             <%= f.hidden_field  :reference_number, :value => lastevent + 1 %>
-            <br/><br/>
+            <br/>
             
-            <%= f.label :report_form, "Upload UNOR form (doc, docx, pdf)" %>
-            <%= f.file_field :report_form %>
+            <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+            <div class="file-input">
+                  <%= f.file_field :report_form %>
+            </div>
             
             <%= f.hidden_field  :user_id, :value => @user.id %>
             
@@ -18,6 +20,13 @@
 
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => "#{@events.id}", :disabled=>true %>
+
+            <br/>
+            
+            <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+            <div class="file-input">
+                  <%= f.file_field :report_form %>
+            </div>
 
       <% end %>
 
@@ -99,6 +108,7 @@
                   </td>
             </tr>
       </table>
+      <br/>
       
       <%= f.label :what_happened %>
       <% if yield(:show_flag) == "show" %>
