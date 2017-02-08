@@ -1,0 +1,40 @@
+<% provide(:button_text, "Submit Report") %> 
+<% provide(:path, events_path) %>
+<% provide(:show_flag, "" ) %>
+<% provide(:method_text, :post) %> 
+<% provide(:guest_flag, "true")  %>
+ 
+
+<div class="wrapper" >
+
+	<h2>Submit your report here.</h2>
+	
+	<p><b>Remember to include:</b></p>
+	
+	<div class="instructions">
+		<ul>
+			<li><b>Your Name</b></li>
+			<li><b>A description of what happened</b></li>
+		</ul>
+	</div>
+	<br/><br/>
+	
+	<p>Provide if possible:</p>
+	
+	
+	<div class="instructions">
+		<ul>
+        		<li>Immediate actions taken</li>
+	        	<li>Select type (Safety, Security, Environmental, Quality) <br/><i>(You can choose more than one)</i></li>
+			<li>Indicate if event involves an injury</li>
+		</ul>	
+	</div>
+
+	</br><br/>
+	
+	<div class="form-wrapper">
+
+		<%= render  'layouts/form_event' %> <!-- yields to the form partial in /layouts -->
+
+	</div>
+</div>

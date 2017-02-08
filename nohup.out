@@ -4,3 +4,12 @@ Puma starting in single mode...
 * Environment: development
 * Listening on tcp://0.0.0.0:3000
 Use Ctrl-C to stop
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2017-02-08 16:12:10 +0000 ===
+- Goodbye!
+Puma starting in single mode...
+* Version 3.4.0 (ruby 2.3.3-p222), codename: Owl Bowl Brawl
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop

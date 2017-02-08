@@ -35,11 +35,6 @@ nav {
 
 }
 
-.messages {
-	text-align: center;
-	font-size: 2em;
-}
-
 // This table structure ensures equal height columns for the main section and sidebar
 
 #structure-table { 
@@ -62,14 +57,22 @@ footer {
 
 // Sets the styling for the main display area
 
+.landing {
+	padding: 100px;
+}
+
 .messages {
     margin: 0;
     border-radius: 0;
+    text-align: center;
+    font-size: 2em;
+
 }
+
 
 .main {
 
-    background-color: #789;
+    background-color: Cornsilk;
     height: 100%;
 	
 	.align-left {
@@ -90,7 +93,9 @@ footer {
 
 	.form-wrapper {
         //border: 1px solid #000;
-        @extend .wrapper; 
+        @extend .wrapper;
+	background-color: LightGrey;
+	padding: 10px; 
         width: 60%;
         position: relative;
         left: 20%;
@@ -116,7 +121,7 @@ footer {
 
 .sidebar{
     
-    background-color:#456;
+    background-color: LightSteelBlue;
     text-align: center;
 
     li {
@@ -137,6 +142,7 @@ footer {
         color: #222;   
     }
 	th {
+		background-color: DarkGrey;
 		text-align: center;
 		padding: 2px;
 		border: 1px solid #000;
@@ -161,5 +167,10 @@ footer {
 	width: 100%;
 }
 
+.instructions {
+        display: inline-block;
+	width: 400px;
+        text-align: left;
+}
 
 //

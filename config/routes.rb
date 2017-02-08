@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   # root sets the landing page.
   
-  root 'sessions#dashboard_actions'
+  root 'sessions#landing_page'
   
   # Sessions are not stored as a model but add a remember digest attribute to the User model
   
@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   resources :events do
     collection { get :options}
     collection { get :tasks}
+    collection { get :guest }
   end
   
 end

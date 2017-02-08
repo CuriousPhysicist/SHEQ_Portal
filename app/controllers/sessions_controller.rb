@@ -44,7 +44,10 @@ class SessionsController < ApplicationController
     
     def new
     end
-        
+    
+    def landing_page
+    end
+    
     def create
     
        @user = User.find_by_email(params[:session][:email].downcase)

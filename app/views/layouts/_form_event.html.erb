@@ -21,6 +21,11 @@
 
       <% end %>
 
+      <% if yield(:guest_flag) == "true" %>
+		<%= f.label :guest_name, "Name:" %>
+		<%= f.text_field :guest_name, class: 'form-control', :placeholder => "Enter name here" %>
+      <% end %>
+
       <br/>
       
       <table>
