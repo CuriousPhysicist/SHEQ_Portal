@@ -1,19 +1,19 @@
+<% provide(:button_1_text, "Submit UNOR report") %>
+<% provide(:path_1, new_event_path(current_user[:id])) %>
+
+<% provide(:text_label, "UNOR number:") %>
+<% provide(:text_placeholder, "Enter UNOR ID") %>
+
+<% provide(:button_2_text, "Update UNOR") %>
+<% provide(:path_2, edit_event_path(:event_id)) %>
+<% provide(:button_3_text, "Remove UNOR") %>
+<% provide(:path_3, event_path(:event_id)) %>
+<% provide(:path_back, events_path) %>
+
 <h2>UNOR Options</h2><br/>
 
-<div class="wrapper">
-    <%= link_to "Submit UNOR report", new_event_path(current_user[:id]), class:"btn btn-primary" %>
-    <br/><br/>
-    
-    <%= label_tag "UNOR Number:" %><br/>
-    <%= text_field_tag :event_id, nil, placeholder: "Enter UNOR ID", id: "event-number"  %>
-    <br/><br/>
-    
-        <%= link_to "Update UNOR", edit_event_path(:event_id), class:"btn btn-primary", id: "update-button" %><br/><br/>
-        
-        <% if current_user.try(:admin) %>
-            <%= link_to "Remove UNOR", event_path(:event_id), class:"btn btn-primary", id: "remove-button", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <br/><br/>
-    
-    <%= link_to "Back", events_path, class:"btn btn-primary" %>
+<div class="form-wrapper">
+
+    <%= render 'layouts/form_options' %>
+
 </div>

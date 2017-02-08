@@ -5,12 +5,16 @@
     <nav class="navbar">
         <div class="navbar-header pull-left">
             <ul>
-                <li><%= link_to "Home", "/", :class => "btn btn-secondary" %></li>
+                <% if !logged_in? %>
+                    <li><%= link_to "Home", "/", :class => "btn btn-secondary" %></li>
+                <% else %>
+                    <li><%= link_to "Home", actions_path, :class => "btn btn-secondary" %></li>
+                <% end %>
                 <li><%= link_to "Actions", dashboard_actions_path, :class => "btn btn-secondary" %></li>
                 <li><%= link_to "UNORs", dashboard_events_path, :class => "btn btn-secondary" %></li>
-                <li><%= link_to "Documents", "/", :class => "btn btn-secondary" %></li>
-                <li><%= link_to "Training", "/", :class => "btn btn-secondary" %></li>
-                <li><%= link_to "Appointments", "/", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Documents", "#", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Training", "#", :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Appointments", "#", :class => "btn btn-secondary" %></li>
             </ul>
         </div>
         <div class="navbar-header pull-right">

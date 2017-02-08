@@ -1,19 +1,19 @@
+<% provide(:button_1_text, "Create New Action") %>
+<% provide(:path_1, new_action_path(current_user[:id])) %>
+
+<% provide(:text_label, "Action number:") %>
+<% provide(:text_placeholder, "Enter Action ID") %>
+
+<% provide(:button_2_text, "Update UNOR") %>
+<% provide(:path_2, edit_action_path(:event_id)) %>
+<% provide(:button_3_text, "Remove Action") %>
+<% provide(:path_3, action_path(:event_id)) %>
+<% provide(:path_back, actions_path) %>
+
 <h2>Action Options</h2><br/>
 
-<div class="wrapper">
-    <%= link_to "Create New Action", new_action_path(current_user[:id]), class:"btn btn-primary" %>
-    <br/><br/>
+<div class="form-wrapper">
     
-    <%= label_tag "Action Number:" %><br/>
-    <%= text_field_tag :action_id, nil, placeholder: "Enter Action ID", id: "action-number"  %>
-    <br/><br/>
-    
-        <%= link_to "Update Action", edit_action_path(:action_id), class:"btn btn-primary", id: "update-button" %><br/><br/>
-        
-        <% if current_user.try(:admin) %>
-            <%= link_to "Remove Action", action_path(:action_id), class:"btn btn-primary", id: "remove-button", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <br/><br/>
-    
-    <%= link_to "Back", actions_path(current_user[:id]), class:"btn btn-primary" %>
+    <%= render 'layouts/form_options' %>
+
 </div>

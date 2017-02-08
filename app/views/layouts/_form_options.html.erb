@@ -1,0 +1,16 @@
+
+<%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
+<br/><br/>
+    
+<%= label_tag yield(:text_label) %><br/>
+<%= text_field_tag :action_id, nil, placeholder: yield(:text_placeholder), id: "action-number"  %>
+<br/><br/>
+    
+<%= link_to yield(:button_2_text), yield(:path_2), class:"btn btn-primary", id: "update-button" %><br/><br/>
+        
+<% if current_user.try(:admin) %>
+    <%= link_to yield(:button_3_text), yield(:path_3), class:"btn btn-primary", id: "remove-button", method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<br/><br/>
+    
+<%= link_to "Back", yield(:path_back), class:"btn btn-primary" %>

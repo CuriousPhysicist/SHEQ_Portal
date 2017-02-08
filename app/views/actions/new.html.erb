@@ -3,6 +3,20 @@
 <% provide(:method_text, :post) %>
 <% provide(:show_flag, "") %>
 
+<% if !@actions.errors.empty? %>
+  <div class="messages alert alert-error">
+    <ul>
+      <% @actions.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% # Main body of the view %>
+
+<h2>Action Information</h2>
+
 <div class="form-wrapper">
       
       <%= render 'layouts/form_action' %>
