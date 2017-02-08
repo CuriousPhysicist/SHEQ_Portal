@@ -40,14 +40,14 @@
                         <% if yield(:show_flag) == "" %>
                               <%= f.select(:source, [['QA', 'QA'],['SHE', 'SHE']], {:include_blank => true}, {:id => "choose-source"}) %>
                         <% end %> 
-                        <%= f.text_field  :source, class: 'form-control source_dummy', :placeholder => "#{@actions.source}",:disabled => true, :id => "source_dummy" %>
+                        <%= f.text_field  :source, class: 'form-control', :placeholder => "#{@actions.source}", :disabled => true, :id => "source_dummy" %>
                   </td>
                   <td>
                         <%= f.label :event_id, "Associated UNOR" %>
                         <% if yield(:show_flag) == "" %>
                         <%= f.collection_select(:event_id, Event.order(:id),:id,:id, {:include_blank => true}, { :id =>"choose-event"}) %>
                         <% end %>
-                        <%= f.text_field :event_id, class: 'form-control event_dummy',:disabled => true, :placeholder => "#{@actions.event_id}", :id => "event_dummy" %>
+                        <%= f.text_field :event_id, class: 'form-control', :disabled => true, :id => "event_dummy" %>
                   </td>
             </tr>
       </table>

@@ -28,12 +28,11 @@ jQuery ->
             target_dummy = $('#source_dummy').attr("placeholder", newsource)
             console.log(target_dummy)
             
-
         $('#choose-event').change ->
             
             newevent = $('#choose-event :selected').val()
             console.log(newevent)
-            target_dummy = $('#event_dummy').attr("placeholder", newevent)
+            target_dummy = $('#event_dummy').attr("value", newevent)
             console.log(target_dummy)
 
         $('#action-number').keyup ->
