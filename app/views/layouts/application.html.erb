@@ -12,6 +12,9 @@
       
       <header><%= render 'layouts/header' %></header>
       
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "messages alert alert-#{message_type}") %>
+      <% end %>
       
       <% if current_user %>
       

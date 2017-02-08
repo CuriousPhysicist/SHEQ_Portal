@@ -123,7 +123,7 @@ class ActionsController < ApplicationController
     
     def tasks
         @actions_for_closeout = Action.where('close_request_flag = ?', true)
-        @closeout_notes
+        @actions_for_extension = Action.where('extend_request_flag = ?', true)
     end
 
     # Private actions below (including strong parameters white-list)

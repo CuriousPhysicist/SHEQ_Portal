@@ -32,7 +32,8 @@ class SessionsController < ApplicationController
            remember(@user)
            redirect_to actions_path
        else
-           redirect_to '/error'
+          flash[:warning] = "Incorrect email or password."
+           redirect_to login_path
        end
     end
     
