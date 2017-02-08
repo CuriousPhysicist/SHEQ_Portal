@@ -6,13 +6,18 @@ Rails.application.routes.draw do
   
   # root sets the landing page.
   
-  root 'sessions#dashboard'
+  root 'sessions#dashboard_actions'
   
   # Sessions are not stored as a model but add a remember digest attribute to the User model
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  # dashboard routes are available without loggin in...
+  
+  get     '/dashboard_actions', to: 'sessions#dashboard_actions'
+  get     '/dashboard_events', to: 'sessions#dashboard_events'
   
   # User routes 
   
@@ -41,7 +46,7 @@ Rails.application.routes.draw do
   patch '/closeplease', to: 'actions#closeplease'
   patch '/close', to: 'actions#close'
   get '/reject', to: 'actions#reject'
-  post '/reject', to: 'actions#return'
+  post '/reject', to: 'actions#reject_submitted'
   patch '/extendplease', to: 'actions#extendplease'
   patch '/extend', to: 'actions#extend'
   

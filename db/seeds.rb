@@ -61,9 +61,11 @@ User.create!(first_name:  "Bob",
       rnd2 = rand(0..1)
       
       
-      raised = Faker::Date.between(2.years.ago,(Time.now))
+      raised = Faker::Date.between(1.years.ago,(Time.now))
       
       closed_array = [(raised + 3.months), nil]
+      
+      classification_array = ["Near Miss","Occurance"]
       
       
       Event.create(
@@ -72,6 +74,7 @@ User.create!(first_name:  "Bob",
             immediate_actions: Faker::Lorem.paragraph,
             date_raised: raised,
             date_closed: closed_array[rnd2],
+            classification: classification_array[rnd2],
             closed_flag: false,
             user_id: rnd1,
             )

@@ -32,8 +32,10 @@ class ActionsController < ApplicationController
         @action = Action.new(action_params)
         
         if @action.save!
+            flash[:success] = "Action successfully created"
             redirect_to actions_path(current_user[:id])
         else
+            flash[:warning] = "Action failed to save"
             render 'edit'
         end
     end
@@ -42,8 +44,10 @@ class ActionsController < ApplicationController
         @action = Action.find(params[:id])
         
         if @action.update(action_params)
+            flash[:success] = "Action successfully updated"
             redirect_to @action
         else
+            flash[:warning] = "Action failed to update"
             redirect_to edit_action_path
         end
     end
@@ -51,6 +55,7 @@ class ActionsController < ApplicationController
     def destroy
         @action = Action.find(params[:id])
         @action.destroy
+        flash[:info] = "Action successfully deleted"
         redirect_to actions_path
     end
     
@@ -94,7 +99,7 @@ class ActionsController < ApplicationController
     
     def import
         Action.import(params[:file])
-        redirect_to root_url, notice: "Products imported."
+        redirect_to root_url
     end
     
     def closeplease
@@ -102,6 +107,7 @@ class ActionsController < ApplicationController
     
        if @action.close_request_flag == false
            @action.update(:close_request_flag => true)
+           flash[:info] = "Action closeout requested"
            redirect_to action_path(@action.id)
        end
     end
@@ -112,13 +118,53 @@ class ActionsController < ApplicationController
        if @action.close_request_flag == true
            @action.update(:close_request_flag => false)
            @action.update(:closed_flag => true)
+           flash[:success] = "Action closed"
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def extendplease
+       @action =  Action.find(params[:format])
+    
+       if @action.extend_request_flag == false
+           @action.update(:extend_request_flag => true)
+           flash[:info] = "Action extension requested"
+           redirect_to action_path(@action.id)
+       end
+    end
+    
+    def extend
+       @action =  Action.find(params[:format])
+    
+       if @action.extend_request_flag == true
+           @action.update(:extend_request_flag => false)
+           @action.increment!(:extensions_number, 1)
+           flash[:success] = "Action extended"
            redirect_to action_path(@action.id)
        end
     end
     
     def reject
        @action = Action.find(params[:format])
-       
+    end
+    
+    def reject_submitted 
+        @action =  Action.find(params[:id])
+        
+        #debugger
+        
+        if @action.close_request_flag
+            update_text = @action.closeout + " | " + params[:updatetext]
+            @action.update(:closeout => update_text)
+            flash[:info] = "Close-out request rejected"
+        elsif @action.extend_request_flag
+            update_text = @action.progress  + " | " + params[:updatetext]
+            @action.update(:progress => update_text)
+            flash[:info] = "Extension request rejected"
+        end
+ 
+        redirect_to action_path(@action.id)
+        
     end
     
     def tasks

@@ -11,12 +11,11 @@ class EventsController < ApplicationController
     def new
     	@events = Event.new
     	@last_event = Event.last
+    	@user = current_user
     end
     
     def edit
         @events = Event.find(params[:id])
-        @user = current_user
-        gon.users = User.all
     end
     
     def show
@@ -27,8 +26,10 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         
         if @event.save!
+            flash[:success] = "Report successfully submitted"
             redirect_to events_path
         else
+            flash[:warning] = "Report failed to submit"
             render 'edit'
         end
     end
@@ -37,8 +38,10 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
         
         if @event.update(event_params)
+            flash[:success] = "Report successfully updated"
             redirect_to @event
         else
+            flash[:warning] = "Report failed to update"
             redirect_to edit_event_path
         end
     end
@@ -46,6 +49,7 @@ class EventsController < ApplicationController
     def destroy
         @event = Event.find(params[:id])
         @event.destroy
+        flash[:info] = "Report deleted"
         redirect_to events_path
     end
 

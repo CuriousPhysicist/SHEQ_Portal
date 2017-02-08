@@ -15,9 +15,10 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
     
         if @user.save
-            
+            flash[:success] = "User successfully created"
             redirect_to actions_path(session[:user_id])
         else
+            flash[:warning] = "User failed to save."
             render 'edit'
         end
     end
@@ -38,8 +39,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         
         if @user.update(user_params)
+            flash[:success] = "User successfully updated"
             redirect_to @user
         else
+            flash[:warning] = "User failed to update"
             render 'edit'
         end
     end
@@ -47,6 +50,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         @user.destroy
+        flash[:info] = "User deleted"
         redirect_to users_path
     end
     

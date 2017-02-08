@@ -23,7 +23,7 @@
       </table>
   <% elsif @user.approval_type == "B and C Type" %>
     <% if @actions.type_ABC == "A"%>
-    <% elsif @actions.type_ABC == "B" && @actions.extension_number >= 1 %>
+    <% elsif @actions.type_ABC == "B" && @actions.extensions_number >= 1 %>
     <% else %>
       <table>
         <tr>
@@ -31,7 +31,7 @@
 
             <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary" %><br/><br/>
               <% if @actions.extend_request_flag %>
-                <%= link_to "Reject Extension Request", reject_path(@actions.id), class:"btn btn-primary" %>
+                <%= link_to "Reject Extension Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
                 <%= link_to "Extend Action", extend_path(@actions.id), method: :patch, class:"btn btn-primary" %>
               <% end %>
           </td>
