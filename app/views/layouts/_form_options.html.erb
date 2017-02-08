@@ -3,7 +3,7 @@
 <br/><br/>
     
 <%= label_tag yield(:text_label) %><br/>
-<%= text_field_tag :action_id, nil, placeholder: yield(:text_placeholder), id: "action-number"  %>
+<%= text_field_tag :action_id, nil, placeholder: yield(:text_placeholder), id: yield(:number_id)  %>
 <br/><br/>
     
 <%= link_to yield(:button_2_text), yield(:path_2), class:"btn btn-primary", id: "update-button" %><br/><br/>
