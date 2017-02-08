@@ -3,13 +3,27 @@
 <% provide(:show_flag, "" ) %>
 <% provide(:method_text, :post) %>
 
-<h1>User Information</h1>
+<% # The messages <div> below is shown only if there are errors in the form submission %>
+
+<% if !@events.errors.empty? %>
+  <div class="messages alert alert-error">
+    <ul>
+      <% @events.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% # Main body of the view %>
+
+<h2>UNOR Information</h2>
 
 <div class="row">
 
   <div class="form-wrapper">
 
-    <%= render 'layouts/form_event' %>
+    <%= render 'layouts/form_event' %> <!-- yields to the form partial in /layouts -->
 
   </div>
 

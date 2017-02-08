@@ -1,8 +1,6 @@
 class EventsController < ApplicationController
-    
-	before_action :require_user, only: [:index, :show, :edit]
-    
-    
+	
+	before_action :require_user, only: [:index, :show, :edit] # Sets before filters limiting actions for users
 
     #RESTful resources
     

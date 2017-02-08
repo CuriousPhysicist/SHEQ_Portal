@@ -6,6 +6,11 @@
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
             <%= f.hidden_field  :reference_number, :value => lastevent + 1 %>
+            <br/><br/>
+            
+            <%= f.label :report_form, "Upload UNOR form (doc, docx, pdf)" %>
+            <%= f.file_field :report_form %>
+            
       
       <% else %>
 
