@@ -30,9 +30,14 @@ class ActionsController < ApplicationController
     
     def create
         @action = Action.new(action_params)
+        ownername = @action.owner.split(" ")
+        @owner = User.where('last_name = ?', ownername[1])
         
+        #debugger
+
         if @action.save!
             flash[:success] = "Action successfully created"
+            UserMailer.new_action_email(@owner, @action).deliver_now
             redirect_to actions_path(current_user[:id])
         else
             flash[:warning] = "Action failed to save"
@@ -178,7 +183,8 @@ class ActionsController < ApplicationController
     
     def action_params
         
-        params.require(:actions).permit(:reference_number, :initiator, :owner, :source, :date_target, :type_ABC, :date_time_created, :description, :progress, :closeout, :closed_flag)
+        params.require(:actions).permit(:reference_number, :initiator, :owner, :source, :date_target, 
+                          :type_ABC, :date_time_created, :description, :progress, :closeout, :closed_flag, :event_id)
     end
     
 end

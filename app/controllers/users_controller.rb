@@ -62,6 +62,8 @@ class UsersController < ApplicationController
     def admin?
        self.admin == true
     end
+
+    # Private actions including strong parameters
     
     private
     
