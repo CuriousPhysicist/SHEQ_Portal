@@ -1,10 +1,12 @@
-<div class="wrapper">
+<h1>Data Uploader Landing Page</h1>
 
-	<h1>Data Uploader Landing Page</h1>
+<div class="form-wrapper">
 
-	<p>This will present the user with options to upload data into any of the models.</p>
-	<p>There will be a selection box, linked through JavaScript to the button below.</p>
+	<%= label_tag :data, "Select type of data to upload:" %>
+	<%= select_tag :data, "<option>actions</option><option>events</option><option>users</option>".html_safe, id: "choose-data" %>
 
-	<%= link_to "UPLOAD DATA", upload_actions_path, :class => "btn btn-warning btn-lg" %>
+	<br/>
+
+	<%= link_to "UPLOAD DATA", upload_actions_path, :class => "btn btn-warning btn-lg", :id => "data-button" %>
 
 </div>
