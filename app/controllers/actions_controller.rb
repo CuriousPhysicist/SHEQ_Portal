@@ -32,8 +32,6 @@ class ActionsController < ApplicationController
         @action = Action.new(action_params)
         ownername = @action.owner.split(" ")
         @owner = User.where('last_name = ?', ownername[1])
-        
-        #debugger
 
         if @action.save!
             flash[:success] = "Action successfully created"
@@ -104,7 +102,7 @@ class ActionsController < ApplicationController
     
     def import
         Action.import(params[:file])
-        redirect_to root_url
+        redirect_to actions_path
     end
     
     def closeplease

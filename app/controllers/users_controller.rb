@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
     def import
         User.import(params[:file])
-        redirect_to users_url
+        redirect_to users_path
     end
     
     def error
