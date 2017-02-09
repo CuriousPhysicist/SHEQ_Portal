@@ -2,18 +2,32 @@
     <h2>Upload Users from Excel</h2>
 
     <div class="form-wrapper">
-	    <p><b>The following fields are required with the associated data types:</b></p>
-    
-        <ul class="instructions">
-            <li>First Name  => (String)</li>
-	    <li>Last Name  => (String)</li>
-            <li>email => example@email.com (String) </li>
-            <li>Password => (String)</li>
-	    <li>Password Confirmation => must match Password </li>
-            <li>Team => SHEQ, Maintenance, Engineering, Analytical, Operations (String)</li>
-        </ul>
+	
+	<table class="instructions">
+		<thead></thead>
+		<tbody>
+			<tr>
+				<td>
+					<b>The following fields are required:</b>
+					<ul>
+						<li><b>First Name  => (String)</b></li>
+				                <li><b>Last Name  => (String)</b></li>
+				                <li><b>email => example@email.com (String)</b></li>
+				                <li><b>Password => (String)</b></li>
+				                <li><b>Password Confirmation <i> must match Password</i></b> </li>
+					</ul>
+				</td>
+				<td>
+					The following fields are optional:
+					<ul>
+			        		 <li>Team => <i>SHEQ, Maintenance, Engineering, Analytical, Operations</i> (String)</li>
+					</ul>	
+				</td>
+			</tr>
+		</tbody>
+	</table>
         
-        <%= form_tag import_actions_path, multipart: true do %>
+        <%= form_tag import_users_path, multipart: true do %>
         <%= file_field_tag :file, class: "file-input" %><br/>
         <%= submit_tag "Import Data", class: "btn btn-primary" %>
         <% end %>

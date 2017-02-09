@@ -25,7 +25,10 @@ Rails.application.routes.draw do
 
   # User routes 
   
-  resources :users, only: [:index, :edit, :update, :show, :destroy]
+  resources :users, only: [:index, :edit, :update, :show, :destroy] do
+    collection { post :import }
+    collection { get :upload }
+  end
   
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'

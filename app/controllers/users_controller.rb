@@ -53,6 +53,11 @@ class UsersController < ApplicationController
         flash[:info] = "User deleted"
         redirect_to users_path
     end
+
+    def import
+        User.import(params[:file])
+        redirect_to users_url
+    end
     
     def error
     end

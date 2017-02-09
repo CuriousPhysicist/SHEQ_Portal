@@ -15,8 +15,41 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  # method for exporting csv file
+
+  def self.to_csv(options={})
+    CSV.generate(options) do |csv|
+    	csv << column_names
+    	all.each do |action|
+    		csv << action.attributes.values_at(*column_names)
+    	end
+    end
+  end
+
+  # methods for allowing uploading of users into the database
+
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+    	row = Hash[[header, spreadsheet.row(i)].transpose]
+    	user = find_by_id(row["id"])||new
+    	user.attributes = row.to_hash.slice(*['first_name', 'last_name', 'email', 'password', 'password_confirmation', 'team', 'role', 'approval_type'])
+    	user.save!
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+      when ".csv" then Roo::CSV.new(file.path, csv_options: {encoding: "iso-8859-1:utf-8"})
+      when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+      when ".xlsx" then Roo::Excelx.new(file.path)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
   # Returns the hash digest of the given string.
-  def User.digest(string)
+    def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -44,17 +77,7 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-  
-  # Activates an account.
-  def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
-  end
-
-  # Sends activation email.
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
-  
+    
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
@@ -71,11 +94,6 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
-  # Defines a proto-feed.
-  # See "Following users" for the full implementation.
-  def feed
-    Micropost.where("user_id = ?", id)
-  end
   
   private
     

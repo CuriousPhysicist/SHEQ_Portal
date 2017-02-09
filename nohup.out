@@ -1738,3 +1738,628 @@ app/views/sessions/uploader_options.html.erb:16: syntax error, unexpected end-of
 === puma shutdown: 2017-02-09 08:57:59 +0000 ===
 - Goodbye!
 Exiting
+=> Booting Puma
+=> Rails 5.0.0.1 application starting in development on http://0.0.0.0:3000
+=> Run `rails server -h` for more startup options
+A server is already running. Check /var/www/sheq/sheq_actions_app/tmp/pids/server.pid.
+Exiting
+=> Booting Puma
+=> Rails 5.0.0.1 application starting in development on http://0.0.0.0:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.4.0 (ruby 2.3.3-p222), codename: Owl Bowl Brawl
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 09:56:39 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_rails_default.html.erb (3442.5ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (60.9ms)
+  Rendered layouts/_sidebar.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 3565ms (Views: 3540.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:03:28 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (8.3ms)
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_rails_default.html.erb (278.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 327ms (Views: 313.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2/edit" for 151.182.197.140 at 2017-02-09 10:03:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (626.9ms)
+  Rendered users/edit.html.erb within layouts/application (629.7ms)
+  Rendered layouts/_rails_default.html.erb (55.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 706ms (Views: 698.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:03:44 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (7.1ms)
+  Rendered users/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_rails_default.html.erb (131.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 168ms (Views: 160.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:05:45 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (2.9ms)
+  Rendered users/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:6: syntax error, unexpected tCONSTANT, expecting ')'
+...t_buffer.append=( link_to "Edit", edit_user_path(user.id) );...
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:8: syntax error, unexpected tCONSTANT, expecting ')'
+...t_buffer.append=( link_to "Edit", edit_user_path(user.id) );...
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:10: syntax error, unexpected tCONSTANT, expecting ')'
+...buffer.append=( link_to "Remove", user_path(user.id), method...
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:11: syntax error, unexpected tCONSTANT, expecting ')'
+...          data: { confirm: "You sure?" } );@output_buffer.sa...
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:11: unterminated string meets end of file
+/var/www/sheq/sheq_actions_app/app/views/users/_user.html.erb:11: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/users/_user.html.erb:6: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/_user.html.erb:8: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/_user.html.erb:10: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/_user.html.erb:11: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/_user.html.erb:11: unterminated string meets end of file
+app/views/users/_user.html.erb:11: syntax error, unexpected end-of-input, expecting ')'
+app/views/users/index.html.erb:11:in `_app_views_users_index_html_erb__3147972968580387033_69925402914500'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.5ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.2ms)
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:06:04 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (193.3ms)
+  Rendered users/index.html.erb within layouts/application (198.0ms)
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `show_user_path' for #<#<Class:0x007f316b8474b8>:0x007f316b620a68>):
+    1: <div class="user<%= user.id%>", value="<%= user.team%>">
+    2:     <h3><%= link_to "#{user.first_name} #{user.last_name}", show_user_path(user.id)  %></h3>
+    3:     <p>Team: <%= user.team %></p>
+    4:     
+    5:     <% if current_user.id == user.id %>
+  
+app/views/users/_user.html.erb:2:in `_app_views_users__user_html_erb__2389896835981323332_69925115335740'
+app/views/users/index.html.erb:11:in `_app_views_users_index_html_erb__3147972968580387033_69925115858600'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.9ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.8ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from status_code_with_paginate at /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/will_paginate-3.1.0/lib/will_paginate/railtie.rb:49)
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:07:15 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (10.0ms)
+  Rendered users/index.html.erb within layouts/application (14.2ms)
+  Rendered layouts/_rails_default.html.erb (162.3ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 202ms (Views: 196.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for 151.182.197.140 at 2017-02-09 10:07:20 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (10.2ms)
+  Rendered users/show.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_rails_default.html.erb (170.5ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+  Rendered layouts/_sidebar.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 214ms (Views: 205.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:07:25 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (9.6ms)
+  Rendered users/index.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_rails_default.html.erb (174.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_sidebar.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 218ms (Views: 208.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1" for 151.182.197.140 at 2017-02-09 10:07:26 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (10.6ms)
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_rails_default.html.erb (155.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 192ms (Views: 188.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 10:07:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [12 times] (9.3ms)
+  Rendered users/index.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_rails_default.html.erb (168.5ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_sidebar.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 211ms (Views: 203.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2/edit" for 151.182.197.140 at 2017-02-09 10:07:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (13.2ms)
+  Rendered users/edit.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_rails_default.html.erb (160.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 212ms (Views: 197.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/2" for 151.182.197.140 at 2017-02-09 10:07:33 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S4jNI8LeRbYnCTLF03WOnaQGkPEByfTRATvLVPZhr75r+zwD6XYZE2FC2QZSKqTweXKvOt1Um9zw8CwYmbDIsw==", "user"=>{"first_name"=>"Bob", "last_name"=>"Builder", "email"=>"example@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "team"=>"Engineering", "role"=>"Senior Manager", "approval_type"=>"B and C Type"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "example@email.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "approval_type" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["approval_type", "B and C Type"], ["updated_at", 2017-02-09 10:07:33 UTC], ["id", 2]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://151.182.197.125:3000/users/2
+Completed 302 Found in 62ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/users/2" for 151.182.197.140 at 2017-02-09 10:07:33 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (10.6ms)
+  Rendered users/show.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_rails_default.html.erb (164.7ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_sidebar.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 206ms (Views: 201.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 10:09:03 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_rails_default.html.erb (190.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 215ms (Views: 212.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 10:13:29 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"upload"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=upload):
+  
+app/controllers/users_controller.rb:35:in `show'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.1ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.7ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.4ms)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 10:53:23 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_rails_default.html.erb (218.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (61.9ms)
+  Rendered layouts/_sidebar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 309ms (Views: 303.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 10:53:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"upload"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=upload):
+  
+app/controllers/users_controller.rb:35:in `show'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.2ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.9ms)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 10:53:45 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_rails_default.html.erb (155.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 179ms (Views: 177.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 10:55:38 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#upload as HTML
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_rails_default.html.erb (151.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (48.4ms)
+  Rendered layouts/_sidebar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 220ms (Views: 215.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 11:06:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 11:06:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#upload as HTML
+Processing by UsersController#upload as HTML
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (2.2ms)
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_rails_default.html.erb (72.0ms)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (can't add a new key into hash during iteration):
+    1: <%= csrf_meta_tags %>
+    2:     
+    3:     <%= include_gon %>
+    4:     <%= stylesheet_link_tag    'application', media: 'all',
+    5:                                               'data-turbolinks-track': 'reload' %>
+    6:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:4:in `_app_views_layouts__rails_default_html_erb___1348619686775691137_69925118918120'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__743539568233653804_69925119837840'
+  Rendered layouts/_rails_default.html.erb (546.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (24.0ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 608ms (Views: 605.1ms | ActiveRecord: 1.2ms)
+
+
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.3ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.9ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from status_code_with_paginate at /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/will_paginate-3.1.0/lib/will_paginate/railtie.rb:49)
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 11:07:24 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#upload as HTML
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_rails_default.html.erb (149.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.5ms)
+  Rendered layouts/_sidebar.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 176ms (Views: 172.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 11:07:57 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#upload as HTML
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_rails_default.html.erb (141.9ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 167ms (Views: 164.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/actions/import" for 151.182.197.140 at 2017-02-09 11:08:32 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y9vZVt/iBVe6OcItnLCreTKYmDk1OtXoq4OZj7by+zhDqCh29EpZ8vxyKe4d74EU7+yn8umnuuVaSH7D2SOcNQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f316b1b38e0 @tempfile=#<Tempfile:/tmp/RackMultipart20170209-56093-glgi6k.xlsx>, @original_filename="TestUserList.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"TestUserList.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import Data"}
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 422 Unprocessable Entity in 248ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Reference number can't be blank, Initiator can't be blank, Description can't be blank):
+  
+app/models/action.rb:27:in `block in import'
+app/models/action.rb:22:in `import'
+app/controllers/actions_controller.rb:106:in `import'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.2ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.4ms)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 11:10:26 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as */*
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_rails_default.html.erb (141.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 200ms (Views: 191.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/upload" for 151.182.197.140 at 2017-02-09 11:11:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#upload as HTML
+  Rendering users/upload.html.erb within layouts/application
+  Rendered users/upload.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_rails_default.html.erb (153.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.1ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 178ms (Views: 175.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/import" for 151.182.197.140 at 2017-02-09 11:11:47 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WlHQyzNrZtGNVOVvSHX7fAURp/7JhnqgUS/YN0hX8DRGrZjB2XxPgB+uFY8fv2ALWB5VCe7dudwj1gssvA4zQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f316bb47e38 @tempfile=#<Tempfile:/tmp/RackMultipart20170209-56093-5neyqd.xlsx>, @original_filename="TestUserList.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"TestUserList.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import Data"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "andrew.hampson@tradebe.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "team", "approval_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Andrew C"], ["last_name", "Hampson"], ["email", "andrew.hampson@tradebe.com"], ["password_digest", "$2a$10$UyAI7i2cB2Weo3p0jmYX6eenkGev1zuhpaH22jLZpj3HJr83Y0BZi"], ["team", "SHEQ"], ["approval_type", "All Types"], ["created_at", 2017-02-09 11:11:47 UTC], ["updated_at", 2017-02-09 11:11:47 UTC]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "paul.durden@tradebe.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "team", "approval_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Paul"], ["last_name", "Durden"], ["email", "paul.durden@tradebe.com"], ["password_digest", "$2a$10$3dFZ2c5/MCM.VPi8d93U4uEhYjlRYRtILp3Mt/1UJOF9vfXM2mZhi"], ["team", "Engineering"], ["approval_type", "B and C Type"], ["created_at", 2017-02-09 11:11:47 UTC], ["updated_at", 2017-02-09 11:11:47 UTC]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "louise.neal@tradebe.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "team", "approval_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Louise"], ["last_name", "Neal"], ["email", "louise.neal@tradebe.com"], ["password_digest", "$2a$10$bXoZV9CY.p/w7N7Qyhbhf.fJkAm.UF7IUHSBEatfMJJvXvYH5gA/y"], ["team", "SHEQ"], ["approval_type", "All Types"], ["created_at", 2017-02-09 11:11:47 UTC], ["updated_at", 2017-02-09 11:11:47 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "peter.thompson@tradebe.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "team", "approval_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Peter"], ["last_name", "Thompson"], ["email", "peter.thompson@tradebe.com"], ["password_digest", "$2a$10$KYU/Wi64LdDyIQSWpPft2e0aVNqHOvj8DSeRMW5.Wr6aRBCeKYFbK"], ["team", "SHEQ"], ["approval_type", "All Types"], ["created_at", 2017-02-09 11:11:48 UTC], ["updated_at", 2017-02-09 11:11:48 UTC]]
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "michaela.nash@tradebe.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "team", "approval_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michaela"], ["last_name", "Nash"], ["email", "michaela.nash@tradebe.com"], ["password_digest", "$2a$10$iuz20z8hWVlUfISrexVpZOfQijLFSoammhL/Ub8Q3vDGTRFhwJLC."], ["team", "SHEQ"], ["approval_type", "All Types"], ["created_at", 2017-02-09 11:11:48 UTC], ["updated_at", 2017-02-09 11:11:48 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://151.182.197.125:3000/users
+Completed 302 Found in 829ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 11:11:48 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [17 times] (5.1ms)
+  Rendered users/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_rails_default.html.erb (62.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_sidebar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 81ms (Views: 78.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/13" for 151.182.197.140 at 2017-02-09 11:11:57 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (11.6ms)
+Started GET "/users/13" for 151.182.197.140 at 2017-02-09 11:11:57 +0000
+  Rendered users/show.html.erb within layouts/application (14.9ms)
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (9.3ms)
+  Rendered users/show.html.erb within layouts/application (18.3ms)
+  Rendered layouts/_rails_default.html.erb (301.7ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_rails_default.html.erb (262.8ms)
+  Rendered layouts/_header.html.erb (8.8ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 361ms (Views: 356.3ms | ActiveRecord: 0.4ms)
+
+
+  Rendered layouts/_header.html.erb (8.5ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 342ms (Views: 333.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 11:12:05 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [17 times] (12.0ms)
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_rails_default.html.erb (145.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_sidebar.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 187ms (Views: 181.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 151.182.197.140 at 2017-02-09 11:12:21 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered collection of users/_user.html.erb [17 times] (11.7ms)
+  Rendered users/index.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_rails_default.html.erb (155.7ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 196ms (Views: 190.0ms | ActiveRecord: 1.0ms)
+
+
