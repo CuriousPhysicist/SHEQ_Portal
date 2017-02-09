@@ -2,6 +2,7 @@
       
       <% if @events.new_record? %>
             <% lastevent = @last_event.id %>
+	    <% lastevent ||= 0 %>
        
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
