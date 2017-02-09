@@ -22,9 +22,28 @@ class Action < ApplicationRecord
     	(2..spreadsheet.last_row).each do |i|
     		row = Hash[[header, spreadsheet.row(i)].transpose]
 	    	action = find_by_id(row["id"])||new
-	    	action.attributes = row.to_hash.slice(*['reference_number', 'initiator', 'owner', 'source', 'date_target', 'type_ABC',
-                                                                     'date_time_created', 'description', 'progress', 'closeout', 'closed_flag'])
-	    	action.save!
+		
+		name = row['owner'].split(", ")
+		created = row['date_time_created'].to_date
+		
+		#debugger
+
+		is_user = nil
+		user_id = nil
+		is_user ||= User.where('last_name = ?', name[0])
+		if is_user.empty? == false 
+			user_id = is_user[0].id
+		end
+		owner_name = name.reverse.join(" ")
+		#debugger
+	    	action.attributes = row.to_hash.slice(*['reference_number', 'initiator', 'source', 'date_target', 'type_ABC',
+                                                                      'description', 'progress', 'closeout', 'closed_flag'])
+		action.update("owner" => owner_name)
+		action.update("user_id" => user_id)
+		action.update("date_time_created" => created)
+		
+		#debugger
+		action.save!
 	    end
     end
 
