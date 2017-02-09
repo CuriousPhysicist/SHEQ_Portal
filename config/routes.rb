@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get     '/dashboard_actions', to: 'sessions#dashboard_actions'
   get     '/dashboard_events', to: 'sessions#dashboard_events'
   
+  # uploader route is only availble if logged in and admin user
+
+  get	  '/uploader_options', to: 'sessions#uploader_options'
+
   # User routes 
   
   resources :users, only: [:index, :edit, :update, :show, :destroy]

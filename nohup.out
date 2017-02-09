@@ -13,3 +13,1572 @@ Puma starting in single mode...
 * Environment: development
 * Listening on tcp://0.0.0.0:3000
 Use Ctrl-C to stop
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2017-02-08 18:11:53 +0000 ===
+- Goodbye!
+=> Booting Puma
+=> Rails 5.0.0.1 application starting in development on http://0.0.0.0:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.4.0 (ruby 2.3.3-p222), codename: Owl Bowl Brawl
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 151.182.197.140 at 2017-02-09 07:52:13 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#landing_page as HTML
+  Rendering sessions/landing_page.html.erb within layouts/application
+  Rendered sessions/landing_page.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_rails_default.html.erb (586.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (68.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 711ms (Views: 687.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/guest" for 151.182.197.140 at 2017-02-09 07:52:20 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#guest as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/guest.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (668.3ms)
+  Rendered events/guest.html.erb within layouts/application (670.8ms)
+  Rendered layouts/_rails_default.html.erb (55.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 854ms (Views: 734.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/login" for 151.182.197.140 at 2017-02-09 07:54:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_rails_default.html.erb (131.3ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 157ms (Views: 154.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for 151.182.197.140 at 2017-02-09 07:54:32 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_form_user.html.erb (8.7ms)
+  Rendered users/new.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_rails_default.html.erb (131.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 161ms (Views: 157.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 151.182.197.140 at 2017-02-09 07:54:38 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_rails_default.html.erb (132.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 155ms (Views: 152.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 151.182.197.140 at 2017-02-09 07:54:53 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Nqth0ILoxlFqQqaPyBTyGVnq43U++fXlg/ka4Rl1v/AqVynaaP/vAPi4Vm+f3mluBOURghmiNpnxAMn67Sx8g==", "session"=>{"email"=>"andrewhampson6@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrewhampson6@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$10$R0vr8bSp45IMp46MREqLDeEKm43EcBh2L0K30eJNieGT7BRSsF.ka"], ["updated_at", 2017-02-09 07:54:54 UTC], ["id", 1]]
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://151.182.197.125:3000/actions
+Completed 302 Found in 419ms (ActiveRecord: 14.1ms)
+
+
+Started GET "/actions" for 151.182.197.140 at 2017-02-09 07:54:54 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/index.html.erb within layouts/application
+  [1m[36mAction Load (0.6ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."owner" = ? ORDER BY date_target[0m  [["owner", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [3 times] (3.0ms)
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."initiator" = ?[0m  [["initiator", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [4 times] (1.4ms)
+  Rendered actions/index.html.erb within layouts/application (48.7ms)
+  Rendered layouts/_rails_default.html.erb (145.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_sidebar.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 239ms (Views: 210.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/actions/options" for 151.182.197.140 at 2017-02-09 07:55:00 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#options as HTML
+  Parameters: {"authenticity_token"=>"JB9xRiFTf5KXp05oce7RthNyK+Uj6v2vOER+yu+FyFQEbIBmCvsjN9HspavwsfvbzgYULv93kqLJj5mGgFSvWQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/options.html.erb within layouts/application
+  Rendered layouts/_form_options.html.erb (2.1ms)
+  Rendered actions/options.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_rails_default.html.erb (135.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_sidebar.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 166ms (Views: 162.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard_actions" for 151.182.197.140 at 2017-02-09 07:56:18 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#dashboard_actions as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.266447')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.268577')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (date_time_created >= '2016-02-09 07:56:18.269990')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'A')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'B')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'C')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.275138') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.281086') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.286012') GROUP BY "actions"."type_ABC"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.287939') GROUP BY "actions"."type_ABC"[0m
+Started GET "/dashboard_actions" for 151.182.197.140 at 2017-02-09 07:56:18 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#dashboard_actions as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.297876')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.303586')[0m
+  Rendering sessions/dashboard_actions.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (date_time_created >= '2016-02-09 07:56:18.305090')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'A')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'B')[0m
+  Rendered sessions/dashboard_actions.html.erb within layouts/application (3.6ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'C')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.322091') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.324107') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:18.353582') GROUP BY "actions"."type_ABC"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:18.355375') GROUP BY "actions"."type_ABC"[0m
+  Rendering sessions/dashboard_actions.html.erb within layouts/application
+  Rendered sessions/dashboard_actions.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_rails_default.html.erb (303.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (14.3ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 394ms (Views: 358.2ms | ActiveRecord: 4.2ms)
+
+
+  Rendered layouts/_rails_default.html.erb (281.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 375ms (Views: 305.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/actions" for 151.182.197.140 at 2017-02-09 07:56:20 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/index.html.erb within layouts/application
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."owner" = ? ORDER BY date_target[0m  [["owner", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [3 times] (3.0ms)
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."initiator" = ?[0m  [["initiator", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [4 times] (1.3ms)
+  Rendered actions/index.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_rails_default.html.erb (144.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 182ms (Views: 176.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashboard_events" for 151.182.197.140 at 2017-02-09 07:56:23 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#dashboard_events as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (closed_flag = 'f')[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (closed_flag = 'f')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date_raised >= '2016-02-09 07:56:23.527316')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (closed_flag = 'f') AND (classification = 'Near Miss')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (closed_flag = 'f') AND (classification = 'Occurance')[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (closed_flag = 'f')[0m
+  Rendering sessions/dashboard_events.html.erb within layouts/application
+  Rendered sessions/dashboard_events.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_rails_default.html.erb (134.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 165ms (Views: 155.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashboard_actions" for 151.182.197.140 at 2017-02-09 07:56:25 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#dashboard_actions as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:25.063623')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:25.065415')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (date_time_created >= '2016-02-09 07:56:25.066637')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'A')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'B')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'C')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:25.071416') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:25.073091') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 07:56:25.074857') GROUP BY "actions"."type_ABC"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 07:56:25.076391') GROUP BY "actions"."type_ABC"[0m
+  Rendering sessions/dashboard_actions.html.erb within layouts/application
+  Rendered sessions/dashboard_actions.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_rails_default.html.erb (126.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 164ms (Views: 147.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/events" for 151.182.197.140 at 2017-02-09 07:56:27 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Started GET "/events" for 151.182.197.140 at 2017-02-09 07:56:27 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mAction Load (0.6ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 3], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 5]]
+  [1m[36mAction Load (6.9ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mAction Load (0.6ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 12], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 14]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 15], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 15], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 17]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 18], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 19]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 20]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 20]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 21], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 21], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 22]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 22]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 24]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 24]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 25], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 26]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 26]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 27], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 27], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 28]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 28]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 29], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 29], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 30], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [30 times] (382.9ms)
+  Rendered events/index.html.erb within layouts/application (398.1ms)
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 30], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [30 times] (439.7ms)
+  Rendered events/index.html.erb within layouts/application (445.8ms)
+  Rendered layouts/_rails_default.html.erb (232.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_rails_default.html.erb (242.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (8.3ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (10.3ms)
+Completed 200 OK in 674ms (Views: 649.9ms | ActiveRecord: 17.8ms)
+
+
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 723ms (Views: 690.2ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/events/options" for 151.182.197.140 at 2017-02-09 07:56:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#options as HTML
+  Parameters: {"authenticity_token"=>"t9Yh/9BX0OgnuFRQ3+r7HNhQulshS5SqJKAfDICPM96XpdDf+/+MTWHzv5NetdFxBSSFkP3W+6fVa/hA715U0w=="}
+  Rendering events/options.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_form_options.html.erb (2.0ms)
+  Rendered events/options.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_rails_default.html.erb (143.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 170ms (Views: 167.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/7/edit" for 151.182.197.140 at 2017-02-09 07:56:33 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering events/edit.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (22.1ms)
+  Rendered events/edit.html.erb within layouts/application (24.6ms)
+  Rendered layouts/_rails_default.html.erb (142.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 191ms (Views: 185.1ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/events/7" for 151.182.197.140 at 2017-02-09 07:56:52 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OwNCzt0GFPn/uKdA8w/xAUXRYSvwS28eCLC/h8GhA5MbcLPu9q5IXLnzTINyUNtsmKVe4CzWABP5e1jLrnBkng==", "events"=>{"safety_flag"=>"0", "environmental_flag"=>"1", "security_flag"=>"0", "quality_flag"=>"0", "injury_flag"=>"0", "date_raised"=>"2016-12-24T00:00:00", "date_closed"=>"", "what_happened"=>"Quas quis aliquam eaque illo. Nulla delectus voluptas sed quidem. Aut totam itaque maxime in. Voluptatem ex dolorem blanditiis corporis enim. Voluptas ut id quod provident corrupti quos explicabo.", "immediate_actions"=>"Harum aut perferendis voluptatem dicta est. Nostrum facere ut voluptas est. Et sint dolor rerum et est est ullam. Alias et et qui expedita officiis."}, "commit"=>"Update Event", "id"=>"7"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "events" SET "injury_flag" = ?, "safety_flag" = ?, "environmental_flag" = ?, "security_flag" = ?, "quality_flag" = ?, "updated_at" = ? WHERE "events"."id" = ?[0m  [["injury_flag", false], ["safety_flag", false], ["environmental_flag", true], ["security_flag", false], ["quality_flag", false], ["updated_at", 2017-02-09 07:56:52 UTC], ["id", 7]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://151.182.197.125:3000/events/7
+Completed 302 Found in 21ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/events/7" for 151.182.197.140 at 2017-02-09 07:56:52 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (13.1ms)
+  Rendered events/show.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_rails_default.html.erb (138.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 176ms (Views: 171.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events" for 151.182.197.140 at 2017-02-09 07:57:11 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Started GET "/events" for 151.182.197.140 at 2017-02-09 07:57:11 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mAction Load (6.1ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 12], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 14]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 15], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 13], ["LIMIT", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 14]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 15], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 17]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 21], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mAction Load (0.7ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 22]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 19]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 20]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 24]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 26]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 21], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 22]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 27], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 28]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 24]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 29], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 26]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 30], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [30 times] (358.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  Rendered events/index.html.erb within layouts/application (371.7ms)
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 27], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 28]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 29], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 30], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [30 times] (401.6ms)
+  Rendered events/index.html.erb within layouts/application (410.0ms)
+  Rendered layouts/_rails_default.html.erb (247.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_sidebar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 647ms (Views: 626.4ms | ActiveRecord: 17.8ms)
+
+
+  Rendered layouts/_rails_default.html.erb (201.0ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_sidebar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 636ms (Views: 606.0ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 07:57:26 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_rails_default.html.erb (139.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 163ms (Views: 160.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dashboard_actions" for 151.182.197.140 at 2017-02-09 08:14:49 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#dashboard_actions as HTML
+Started GET "/dashboard_actions" for 151.182.197.140 at 2017-02-09 08:14:49 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:49.129941')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:49.136761')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (date_time_created >= '2016-02-09 08:14:49.138058')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'A')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'B')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'C')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:49.143034') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:49.144996') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:49.146991') GROUP BY "actions"."type_ABC"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:49.148535') GROUP BY "actions"."type_ABC"[0m
+  Rendering sessions/dashboard_actions.html.erb within layouts/application
+  Rendered sessions/dashboard_actions.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_rails_default.html.erb (136.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAction Load (0.9ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE (closed_flag = 'f')[0m
+  Rendered layouts/_header.html.erb (480.6ms)
+Completed 500 Internal Server Error in 661ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `uploader_options_path' for #<#<Class:0x007f77b5fb99e0>:0x007f77b6117d50>
+Did you mean?  uploder_options_path
+               uploder_options_url
+               upload_actions_path):
+    25:                 <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
+    26:             <% end %>
+    27:             <% if current_user.try(:admin) %>
+    28:                 <li><%= link_to "Import Data", uploader_options_path, :class => "btn btn-secondary" %></li>
+    29:             <% end %>
+    30:         </ul>
+    31:         </div>
+  
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb___3867261485986087956_70075987614160'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3150241000630853009_70076066214280'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.0ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.6ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from status_code_with_paginate at /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/will_paginate-3.1.0/lib/will_paginate/railtie.rb:49)
+Processing by SessionsController#dashboard_actions as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:50.166503')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:50.171561')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (date_time_created >= '2016-02-09 08:14:50.172737')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'A')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'B')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "actions" WHERE (closed_flag = 'f') AND (type_ABC = 'C')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:50.176859') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."owner" AS actions_owner FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:50.178466') GROUP BY "actions"."owner"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target >= '2017-02-09 08:14:50.180017') GROUP BY "actions"."type_ABC"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, "actions"."type_ABC" AS actions_type_abc FROM "actions" WHERE (closed_flag = 'f') AND (date_target < '2017-02-09 08:14:50.181393') GROUP BY "actions"."type_ABC"[0m
+  Rendering sessions/dashboard_actions.html.erb within layouts/application
+  Rendered sessions/dashboard_actions.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_rails_default.html.erb (123.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAction Load (0.8ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE (closed_flag = 'f')[0m
+  Rendered layouts/_header.html.erb (428.7ms)
+Completed 500 Internal Server Error in 584ms (ActiveRecord: 6.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `uploader_options_path' for #<#<Class:0x007f77b6378b08>:0x007f77b636deb0>
+Did you mean?  uploder_options_path
+               uploder_options_url
+               upload_actions_path):
+    25:                 <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
+    26:             <% end %>
+    27:             <% if current_user.try(:admin) %>
+    28:                 <li><%= link_to "Import Data", uploader_options_path, :class => "btn btn-secondary" %></li>
+    29:             <% end %>
+    30:         </ul>
+    31:         </div>
+  
+app/views/layouts/_header.html.erb:28:in `_app_views_layouts__header_html_erb___3867261485986087956_70075987614160'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___3150241000630853009_70076066214280'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.7ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from status_code_with_paginate at /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/will_paginate-3.1.0/lib/will_paginate/railtie.rb:49)
+- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2017-02-09 08:16:46 +0000 ===
+- Goodbye!
+Exiting
+=> Booting Puma
+=> Rails 5.0.0.1 application starting in development on http://0.0.0.0:3000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.4.0 (ruby 2.3.3-p222), codename: Owl Bowl Brawl
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/events/7" for 151.182.197.140 at 2017-02-09 08:19:08 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (652.5ms)
+  Rendered events/show.html.erb within layouts/application (657.2ms)
+  Rendered layouts/_rails_default.html.erb (368.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_sidebar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1211ms (Views: 1043.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:19:13 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...pload_actions_path, class: "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...th, class: "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...class: "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: unterminated string meets end of file):
+  
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/uploader_options.html.erb:8: unterminated string meets end of file
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.5ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.2ms)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:20:59 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...ad_actions_path, :class => "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... :class => "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ass => "btn btn-warning btn-lg" 
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/sessions/uploader_options.html.erb:8: unterminated string meets end of file):
+  
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/sessions/uploader_options.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/sessions/uploader_options.html.erb:8: unterminated string meets end of file
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.7ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:21:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_rails_default.html.erb (133.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 158ms (Views: 155.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:21:59 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_rails_default.html.erb (134.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 157ms (Views: 155.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:22:03 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_rails_default.html.erb (129.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 162ms (Views: 159.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:22:21 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_rails_default.html.erb (148.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.8ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 171ms (Views: 169.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:23:08 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_rails_default.html.erb (145.2ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.1ms)
+  Rendered layouts/_sidebar.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 171ms (Views: 168.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:26:28 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:26:28 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (2.0ms)
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_rails_default.html.erb (74.9ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (can't add a new key into hash during iteration):
+    1: <%= csrf_meta_tags %>
+    2:     
+    3:     <%= include_gon %>
+    4:     <%= stylesheet_link_tag    'application', media: 'all',
+    5:                                               'data-turbolinks-track': 'reload' %>
+    6:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+app/views/layouts/_rails_default.html.erb:4:in `_app_views_layouts__rails_default_html_erb__3884823263030126041_70159202932580'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__313836128819535503_70159203106100'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.2ms)
+  Rendered layouts/_rails_default.html.erb (581.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered layouts/_sidebar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 623ms (Views: 620.5ms | ActiveRecord: 0.2ms)
+
+
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.6ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from status_code_with_paginate at /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/will_paginate-3.1.0/lib/will_paginate/railtie.rb:49)
+Started GET "/uploader_options" for 151.182.197.140 at 2017-02-09 08:26:46 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#uploader_options as HTML
+  Rendering sessions/uploader_options.html.erb within layouts/application
+  Rendered sessions/uploader_options.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_rails_default.html.erb (126.4ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 148ms (Views: 146.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:26:48 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_rails_default.html.erb (128.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.2ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 152ms (Views: 149.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:27:16 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_rails_default.html.erb (146.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_sidebar.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 170ms (Views: 167.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:28:43 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_rails_default.html.erb (143.5ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.4ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 168ms (Views: 165.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/actions/upload" for 151.182.197.140 at 2017-02-09 08:29:08 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#upload as HTML
+  Rendering actions/upload.html.erb within layouts/application
+  Rendered actions/upload.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_rails_default.html.erb (147.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 170ms (Views: 168.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions" for 151.182.197.140 at 2017-02-09 08:29:12 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/index.html.erb within layouts/application
+  [1m[36mAction Load (0.6ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."owner" = ? ORDER BY date_target[0m  [["owner", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [3 times] (3.1ms)
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."initiator" = ?[0m  [["initiator", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [4 times] (1.4ms)
+  Rendered actions/index.html.erb within layouts/application (44.4ms)
+  Rendered layouts/_rails_default.html.erb (142.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 221ms (Views: 203.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/actions/options" for 151.182.197.140 at 2017-02-09 08:29:14 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#options as HTML
+  Parameters: {"authenticity_token"=>"TtbkhEfCdYEjeqERyQ+k7TIOlkCtHLXgjFYZs08LnFFupRWkbGopJGUxStJIUI6A73qpi3GB2u19nf7/INr7XA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/options.html.erb within layouts/application
+  Rendered layouts/_form_options.html.erb (4.4ms)
+  Rendered actions/options.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_rails_default.html.erb (125.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 153ms (Views: 150.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/new.1" for 151.182.197.140 at 2017-02-09 08:31:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#new as 
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" ORDER BY "actions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering actions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."last_name" ASC[0m
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  Rendered layouts/_form_action.html.erb (54.7ms)
+  Rendered actions/new.html.erb within layouts/application (62.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered layouts/_rails_default.html.erb (215.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_sidebar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 338ms (Views: 325.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/events" for 151.182.197.140 at 2017-02-09 08:31:36 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 3]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 4]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 6]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 15]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 15], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 16]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 16], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 18]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 20]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 21]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 21], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 22]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 24]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 25]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 25], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 26]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 27]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 27], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 28]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 29]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 29], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "actions"."id" FROM "actions" WHERE "actions"."event_id" = ?[0m  [["event_id", 30]]
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" WHERE "actions"."event_id" = ? ORDER BY "actions"."id" DESC LIMIT ?[0m  [["event_id", 30], ["LIMIT", 1]]
+  Rendered collection of events/_event.html.erb [30 times] (228.3ms)
+  Rendered events/index.html.erb within layouts/application (233.9ms)
+  Rendered layouts/_rails_default.html.erb (142.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 398ms (Views: 378.0ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/events/options" for 151.182.197.140 at 2017-02-09 08:31:37 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#options as HTML
+  Parameters: {"authenticity_token"=>"yojtIVwWoRQdsggsKN6YpUzW9Z0EInYlSSbu8iV5gHDq+xwBd779sVv54++pgbLIkaLKVti/GSi47Qm+SqjnfQ=="}
+  Rendering events/options.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_form_options.html.erb (2.3ms)
+  Rendered events/options.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_rails_default.html.erb (140.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 168ms (Views: 165.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/new.1" for 151.182.197.140 at 2017-02-09 08:31:39 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#new as 
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (14.2ms)
+  Rendered events/new.html.erb within layouts/application (22.3ms)
+  Rendered layouts/_rails_default.html.erb (138.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 221ms (Views: 207.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/new.1" for 151.182.197.140 at 2017-02-09 08:32:40 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#new as 
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (13.8ms)
+  Rendered events/new.html.erb within layouts/application (21.4ms)
+  Rendered layouts/_rails_default.html.erb (141.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_sidebar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 219ms (Views: 209.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/new.1" for 151.182.197.140 at 2017-02-09 08:34:31 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#new as 
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (4.7ms)
+  Rendered events/new.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/var/www/sheq/sheq_actions_app/app/views/layouts/_form_event.html.erb:96: syntax error, unexpected tSTRING_BEG, expecting =>
+... 'form-control', :placeholder "DD/MM/YYYY", :disabled => tru...
+...                               ^
+/var/www/sheq/sheq_actions_app/app/views/layouts/_form_event.html.erb:96: syntax error, unexpected ',', expecting ')'
+...ol', :placeholder "DD/MM/YYYY", :disabled => true );@output_...
+...                               ^):
+  
+app/views/layouts/_form_event.html.erb:96: syntax error, unexpected tSTRING_BEG, expecting =>
+app/views/layouts/_form_event.html.erb:96: syntax error, unexpected ',', expecting ')'
+app/views/events/new.html.erb:26:in `_app_views_events_new_html_erb__3904327038785524564_70159199230620'
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.8ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendering /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/andrew/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.8ms)
+Started GET "/events/new.1" for 151.182.197.140 at 2017-02-09 08:34:49 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#new as 
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (13.0ms)
+  Rendered events/new.html.erb within layouts/application (20.4ms)
+  Rendered layouts/_rails_default.html.erb (132.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 208ms (Views: 198.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/actions" for 151.182.197.140 at 2017-02-09 08:35:14 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/index.html.erb within layouts/application
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."owner" = ? ORDER BY date_target[0m  [["owner", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [3 times] (3.4ms)
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."initiator" = ?[0m  [["initiator", "Andrew Hampson"]]
+  Rendered collection of actions/_action.html.erb [4 times] (1.5ms)
+  Rendered actions/index.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_rails_default.html.erb (135.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_sidebar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 171ms (Views: 166.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/actions/options" for 151.182.197.140 at 2017-02-09 08:35:16 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#options as HTML
+  Parameters: {"authenticity_token"=>"w3FZDuKTHKRdnJTrtgLcM2vW2s/3xSFMlR7/LKYyATPjAqguyTtAARvXfyg3XfZetqLlBCtYTkFk1RhgyeNmPg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering actions/options.html.erb within layouts/application
+  Rendered layouts/_form_options.html.erb (2.3ms)
+  Rendered actions/options.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_rails_default.html.erb (131.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_sidebar.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 158ms (Views: 154.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/actions/new.1" for 151.182.197.140 at 2017-02-09 08:35:17 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActionsController#new as 
+  [1m[36mAction Load (0.5ms)[0m  [1m[34mSELECT  "actions".* FROM "actions" ORDER BY "actions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering actions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."last_name" ASC[0m
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  Rendered layouts/_form_action.html.erb (29.4ms)
+  Rendered actions/new.html.erb within layouts/application (37.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered layouts/_rails_default.html.erb (181.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_sidebar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 274ms (Views: 261.6ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/logout" for 151.182.197.140 at 2017-02-09 08:35:28 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WiYcibnaltf4MGeG0Fs3yHmNoKbTl3EV4if+ZVtKdcJ6Ve2pknLKcr57jEVRBB2lpPmfbQ8KHhgT7BkpNJsSzw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", nil], ["updated_at", 2017-02-09 08:35:28 UTC], ["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://151.182.197.125:3000/
+Completed 302 Found in 22ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/" for 151.182.197.140 at 2017-02-09 08:35:28 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#landing_page as HTML
+  Rendering sessions/landing_page.html.erb within layouts/application
+  Rendered sessions/landing_page.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_rails_default.html.erb (143.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (12.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 172ms (Views: 166.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/guest" for 151.182.197.140 at 2017-02-09 08:35:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#guest as HTML
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering events/guest.html.erb within layouts/application
+Started GET "/guest" for 151.182.197.140 at 2017-02-09 08:35:30 +0000
+Cannot render console from 151.182.197.140! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EventsController#guest as HTML
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_form_event.html.erb (24.7ms)
+  Rendered events/guest.html.erb within layouts/application (32.5ms)
+  Rendering events/guest.html.erb within layouts/application
+  Rendered layouts/_form_event.html.erb (14.1ms)
+  Rendered events/guest.html.erb within layouts/application (45.7ms)
+  Rendered layouts/_rails_default.html.erb (275.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (10.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 345ms (Views: 338.9ms | ActiveRecord: 0.9ms)
+
+
+  Rendered layouts/_rails_default.html.erb (256.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 325ms (Views: 317.0ms | ActiveRecord: 1.3ms)
+
+

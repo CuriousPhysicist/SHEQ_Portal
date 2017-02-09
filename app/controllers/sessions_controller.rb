@@ -67,4 +67,9 @@ class SessionsController < ApplicationController
         redirect_to root_url
     end
 
+    # route action for uploader options page
+
+    def uploader_options
+    end
+
 end

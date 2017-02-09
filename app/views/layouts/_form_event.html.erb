@@ -10,7 +10,7 @@
             
             <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
             <div class="file-input">
-                  <%= f.file_field :report_form %>
+                  <%= f.file_field :report_form, class: "file-input" %>
             </div>
             
             <%= f.hidden_field  :user_id, :value => @user.id %>

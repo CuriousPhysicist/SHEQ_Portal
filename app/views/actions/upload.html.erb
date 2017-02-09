@@ -1,10 +1,10 @@
 <div class="wrapper">
-    <h2>Upload Data from Excel</h2>
+    <h2>Upload Actions from Excel</h2>
 
-    <p><b>The following fields are required with the associated data types:</b></p>
-    
     <div class="form-wrapper">
-        <ul class="with-bullets align-left">
+	    <p><b>The following fields are required with the associated data types:</b></p>
+    
+        <ul class="instructions">
             <li>Initiator (person placing the action) => Full Name (String)</li>
             <li>Owner (Responsible officer for the action) => Full Name (String) 
                 <ul>
@@ -17,7 +17,7 @@
         </ul>
         
         <%= form_tag import_actions_path, multipart: true do %>
-        <%= file_field_tag :file %>
+        <%= file_field_tag :file, class: "file-input" %><br/>
         <%= submit_tag "Import Data", class: "btn btn-primary" %>
         <% end %>
     </div>

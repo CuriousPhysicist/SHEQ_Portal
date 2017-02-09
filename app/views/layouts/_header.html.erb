@@ -25,7 +25,7 @@
                 <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
             <% end %>
             <% if current_user.try(:admin) %>
-                <li><%= link_to "Import Actions", upload_actions_path, :class => "btn btn-secondary" %></li>
+                <li><%= link_to "Import Data", uploader_options_path, :class => "btn btn-secondary" %></li>
             <% end %>
         </ul>
         </div>
