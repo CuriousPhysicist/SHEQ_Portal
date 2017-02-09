@@ -73,6 +73,13 @@ class EventsController < ApplicationController
        @user = User.first # Change this to admin user group in production
     end
 
+    # actions for data importing
+
+    def import
+        Event.import(params[:file])
+        redirect_to events_path
+    end
+
     # Private actions below (including strong parameters white-list)
     
     private

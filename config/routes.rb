@@ -62,6 +62,8 @@ Rails.application.routes.draw do
   resources :events do
     collection { get :options}
     collection { get :tasks}
+    collection { post :import }
+    collection { get :upload }
   end
 
   get '/guest', to: 'events#guest'

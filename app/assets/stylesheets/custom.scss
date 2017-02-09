@@ -173,22 +173,22 @@ footer {
 	width: 100%;
 }
 
-.instructions {
-        display: inline-block;
-	    width: 400px;
-        td {
-            text-align: left;
-            vertical-align: top;
-        }
-        
-}
-
 .file-input {
         -webkit-box-align:center;
         -webkit-box-pack:center;
         display:-webkit-box;
         margin: 0 auto;
         text-align: center;
+}
+
+.instructions {
+        display: inline-block;
+        width: 400px;
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+        
 }
 
 //

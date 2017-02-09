@@ -6,7 +6,7 @@ class ActionsController < ApplicationController
     #RESTful resources
     
     def index
-	@actions_open = Action.where(closed_flag: false)
+        @actions_open = Action.where(closed_flag: false)
         @actions_owned = @actions_open.where(owner: "#{current_user.first_name} #{current_user.last_name}").order('date_target')
         @actions_created = @actions_open.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
     end
@@ -154,8 +154,6 @@ class ActionsController < ApplicationController
     
     def reject_submitted 
         @action =  Action.find(params[:id])
-        
-        #debugger
         
         if @action.close_request_flag
             update_text = @action.closeout + " | " + params[:updatetext]

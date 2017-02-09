@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <h2>Upload Events from Excel</h2>
+
+    <div class="form-wrapper">
+	    <p><b>The following fields are required with the associated data types:</b></p>
+    
+        <ul class="instructions">
+            <li>What Happened</li>
+            <li>Immediate actions</li> 
+            <li>Reference Number</li>
+        </ul>
+        
+        <%= form_tag import_events_path, multipart: true do %>
+        <%= file_field_tag :file, class: "file-input" %><br/>
+        <%= submit_tag "Import Data", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
