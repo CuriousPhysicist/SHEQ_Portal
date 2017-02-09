@@ -10,5 +10,5 @@ jQuery ->
             
             newdata_val = $('#choose-data :selected').val()
             console.log(newdata_val)
-	    url1 = $('#data-button').attr("href", "/#{newdata_val}/upload")
+            url1 = $('#data-button').attr("href", "/#{newdata_val}/upload")
             console.log(url1)
