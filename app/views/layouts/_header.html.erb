@@ -22,7 +22,7 @@
             <% if !logged_in? %>
                 <li><%= link_to "Log in", login_path, :class => "btn btn-secondary" %></li>
             <% else %>
-                <li><%= link_to "REPORT EVENT", new_event_path, :class => "btn btn-primary btn-danger" %></li>
+                <li><%= link_to "REPORT EVENT", new_event_path(current_user.id), :class => "btn btn-primary btn-danger" %></li>
                 <li><%= link_to "Log out", logout_path, method: "delete", :class => "btn btn-secondary" %></li>
             <% end %>
             <% if current_user.try(:admin) %>

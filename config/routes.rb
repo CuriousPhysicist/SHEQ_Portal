@@ -61,6 +61,8 @@ Rails.application.routes.draw do
     collection { get :tasks}
     collection { post :import }
     collection { get :upload }
+    collection { get :raised}
+    collection { get :all}
   end
 
   get '/guest', to: 'events#guest'

@@ -20,25 +20,29 @@
     
     <br/>
     
-    <h2>Created Actions</h2>
-    <br/>
-    <p>
-        <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
-      Download:
-      <%= link_to "CSV", created_actions_path(format: "csv") %> |
-      <%= link_to "Excel", created_actions_path(format: "xls") %>
-    </p>
-    <table class="actions">
-        <tr>
-            <th>Reference Number</th>
-            <th>Owner</th
-            ><th>Description</th>
-            <th>Progress</th>
-            <th>Close-out</th>
-        </tr>
-      <%= render @actions_created %>
-    </table>
-    
-    <br/>
+    <% if current_user.level >= 2 %>
+        <h2>Created Actions</h2>
+        <br/>
+        
+        <p>
+            <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+          Download:
+          <%= link_to "CSV", created_actions_path(format: "csv") %> |
+          <%= link_to "Excel", created_actions_path(format: "xls") %>
+        </p>
+        
+        <table class="actions">
+            <tr>
+                <th>Reference Number</th>
+                <th>Owner</th
+                ><th>Description</th>
+                <th>Progress</th>
+                <th>Close-out</th>
+            </tr>
+          <%= render @actions_created %>
+        </table>
+        
+        <br/>
+    <% end %>
     
 </div>

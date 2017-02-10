@@ -6,7 +6,7 @@
         <%= link_to "Edit", edit_user_path(user.id) %>
     <% elsif current_user.team == user.team && current_user.level >= user.level %>
         <%= link_to "Edit", edit_user_path(user.id) %>
-    <% elsif current_user.level == 4 %>
+    <% elsif current_user.level == 3 %>
         <%= link_to "Edit", edit_user_path(user.id) %>
     <% elsif current_user.try(:admin) %>
         <%= link_to "Edit", edit_user_path(user.id) %>

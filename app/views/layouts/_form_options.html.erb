@@ -1,6 +1,13 @@
 
-<%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
-<br/><br/>
+<% if current_user.level > 2 %>
+    <%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
+    <br/><br/>
+<% end %>
+
+<% if current_user.team == "SHEQ" %>
+    <%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
+    <br/><br/>
+<% end %>
     
 <%= label_tag yield(:text_label) %><br/>
 <%= text_field_tag :action_id, nil, placeholder: yield(:text_placeholder), id: yield(:number_id)  %>
@@ -10,7 +17,8 @@
         
 <% if current_user.try(:admin) %>
     <%= link_to yield(:button_3_text), yield(:path_3), class:"btn btn-primary", id: "remove-button", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br/><br/>
 <% end %>
-<br/><br/>
+
     
 <%= link_to "Back", yield(:path_back), class:"btn btn-primary" %>

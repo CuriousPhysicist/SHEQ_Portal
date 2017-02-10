@@ -6,18 +6,26 @@ class EventsController < ApplicationController
     
     def index
         @events = Event.where('closed_flag = ?', false)
-        teamid_arr = []
-        team_count = User.where('team = ?', current_user.team).count
-        team_hasharr = User.where('team = ?', current_user.team).to_a
-        (0..team_count-1).each do |i|
-            teamid_arr << team_hasharr[i].events
-        end
-        @team_events = {}
-        (0..team_hasharr.length-1).each do |i|
-            @team_events = ((@events.where('user_id = ?', team_hasharr[i].id)))        
-        end
-        #debugger
         @own_events = @events.where('user_id = ?', current_user.id)
+        
+        # @team_events = User.where('team = ?', current_user.team)
+        event_ids = []
+        k = 0
+        team_count = User.where('team = ?', current_user.team).count
+        team_hash = User.where('team = ?', current_user.team)
+        (0..team_count-1).each do |i|
+            team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+            (0..team_member_events_arr.length-1).each do |j|
+                event_ids[k] = team_member_events_arr[j][0]
+                k += 1
+            end
+            
+        end
+        
+        (0..team_hash.length-1).each do |i|
+            @team_events = @events.where('id IN(?)', event_ids)        
+        end
+        
     end
 
     def new
@@ -83,6 +91,28 @@ class EventsController < ApplicationController
        @events = Event.new
        @last_event = Event.last
        @user = User.first # Change this to admin user group in production
+    end
+    
+    # actions for exporting information
+    
+    def raised
+        @events_raised = Event.where('user_id = ?', current_user.id)
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @events_raised.to_csv }
+            format.xls { send_data @events_raised.to_csv(col_sep: "\t") }
+        end
+    end
+    
+    def all
+        @events_open = Event.where('closed_flag = ?', false)
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @events_open.to_csv }
+            format.xls { send_data @events_open.to_csv(col_sep: "\t") }
+        end
     end
 
     # actions for data importing

@@ -17,7 +17,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.boolean :environmental_flag
       t.boolean :security_flag
       t.boolean :quality_flag
-      t.boolean :closed_flag
+      t.boolean :closed_flag, default: false
       
       t.references :user
 

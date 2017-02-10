@@ -6,6 +6,11 @@
     
     <h2>Reports Raised by <%="#{current_user.first_name} #{current_user.last_name}"%> </h2>
     
+    <p>
+      <%= link_to "CSV", raised_events_path(format: "csv") %> |
+      <%= link_to "Excel", raised_events_path(format: "xls") %>
+    </p>
+    
     <table class="actions">
         <tr>
             <th>Reference Number</th>
@@ -36,6 +41,11 @@
     <% if current_user.level >= 3 %>
 
         <h2>All Open UNORs</h2>
+        
+        <p>
+          <%= link_to "CSV", all_events_path(format: "csv") %> |
+          <%= link_to "Excel", all_events_path(format: "xls") %>
+        </p>
 
         <table class="actions">
             <tr>
