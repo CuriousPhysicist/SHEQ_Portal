@@ -8,7 +8,6 @@ class EventsController < ApplicationController
         @events = Event.where('closed_flag = ?', false)
         @own_events = @events.where('user_id = ?', current_user.id)
         
-        # @team_events = User.where('team = ?', current_user.team)
         event_ids = []
         k = 0
         team_count = User.where('team = ?', current_user.team).count
@@ -22,9 +21,7 @@ class EventsController < ApplicationController
             
         end
         
-        
         @team_events = @events.where('id IN(?)', event_ids)        
-        
         
     end
 
@@ -112,6 +109,31 @@ class EventsController < ApplicationController
             format.html
             format.csv { send_data @events_open.to_csv }
             format.xls { send_data @events_open.to_csv(col_sep: "\t") }
+        end
+    end
+
+    def team
+        @events = Event.where('closed_flag = ?', false)
+        
+        event_ids = []
+        k = 0
+        team_count = User.where('team = ?', current_user.team).count
+        team_hash = User.where('team = ?', current_user.team)
+        (0..team_count-1).each do |i|
+            team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+            (0..team_member_events_arr.length-1).each do |j|
+                event_ids[k] = team_member_events_arr[j][0]
+                k += 1
+            end
+            
+        end
+        
+        @team_events = @events.where('id IN(?)', event_ids)
+
+        respond_to do |format|
+            format.html
+            format.csv { send_data @team_events.to_csv }
+            format.xls { send_data @team_events.to_csv(col_sep: "\t") }
         end
     end
 

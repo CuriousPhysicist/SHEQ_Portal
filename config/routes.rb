@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     collection { get :upload }
     collection { get :raised}
     collection { get :all}
+    collection { get :team}
   end
 
   get '/guest', to: 'events#guest'

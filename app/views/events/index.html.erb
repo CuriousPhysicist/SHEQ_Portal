@@ -26,6 +26,11 @@
 
         <h2>Reports raised by Team</h2>
 
+        <p>
+          <%= link_to "CSV", team_events_path(format: "csv") %> |
+          <%= link_to "Excel", team_events_path(format: "xls") %>
+        </p>
+
         <table class="actions">
             <tr>
                 <th>Reference Number</th>

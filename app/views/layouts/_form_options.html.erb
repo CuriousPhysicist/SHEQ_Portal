@@ -2,9 +2,7 @@
 <% if current_user.level > 2 %>
     <%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
     <br/><br/>
-<% end %>
-
-<% if current_user.team == "SHEQ" %>
+<% elsif current_user.team == "SHEQ" %>
     <%= link_to yield(:button_1_text), yield(:path_1), class:"btn btn-primary" %>
     <br/><br/>
 <% end %>

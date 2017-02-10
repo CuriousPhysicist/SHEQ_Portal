@@ -22,18 +22,30 @@
             <%= f.text_field :email, class: 'form-control' %>
       <% end %>
 
-      <% if yield(:show_flag) == "" && current_user.email == @user.email %>
+      <% if logged_in? %>
+            <% if yield(:show_flag) == "" && current_user.email == @user.email %>
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control' %>
+
+                  <%= f.label :password_confirmation, "Confirmation" %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <% elsif yield(:show_flag) == "" && current_user.try(:admin) %>
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control' %>
+
+                  <%= f.label :password_confirmation, "Confirmation" %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <% end %>
+      <% else %>
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
 
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <% elsif yield(:show_flag) == "" && current_user.try(:admin) %>
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
 
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.hidden_field :level, :value => "1" %>
+            <%= f.hidden_field :role, :value => "Staff" %>
+
       <% end %>
 
       <br/>

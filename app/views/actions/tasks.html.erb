@@ -3,6 +3,10 @@
 <div class="wrapper">
     
     <h3>Actions for Close-out:</h3>
+
+    <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+    <br/><br/>
+
     <% if @actions_for_closeout.empty? %>
         <p> There are no actions awaiting closeout.</p>
     <% else %>
@@ -22,6 +26,10 @@
     <br/>
 
     <h3>Actions for Extension:</h3>
+
+    <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+    <br/><br/>
+
     <% if @actions_for_extension.empty? %>
         <p> There are no actions awaiting extension.</p>
     <% else %>
@@ -39,5 +47,5 @@
     <% end %>
     
     <br/>
-    <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+    
 </div>
