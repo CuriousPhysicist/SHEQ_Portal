@@ -5,10 +5,15 @@ class UserMailer < ApplicationMailer
 
 	default from: 'SHEQ_Portal@tradebe.com' #to: User.new { Admin.pluck(:email) }
 
+	# Action controller emails...
+
 	def new_action_email(user, action)
 	    @user = user
 	    @url = "/actions/#{action.id}"
 	    mail(to: @user.try(:email), subject: 'You have recieved a new action')
+	end
+
+	def change_action_email(user, action)
 	end
 
 end

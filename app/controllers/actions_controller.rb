@@ -52,10 +52,12 @@ class ActionsController < ApplicationController
 
         if @action.save!
             flash[:success] = "Action successfully created"
+            ## email action owner warning of action placing, indicate if action is associated with an Event report
+            ## cc line management superior, cc SHEQ team for information.
             UserMailer.new_action_email(@owner, @action).deliver_now
             redirect_to actions_path(current_user[:id])
         else
-            flash[:warning] = "Action failed to save"
+            flash[:danger] = "Action failed to save"
             render 'edit'
         end
     end
@@ -65,9 +67,11 @@ class ActionsController < ApplicationController
         
         if @action.update(action_params)
             flash[:success] = "Action successfully updated"
+            ## email the action owner, cc line management and SHEQ for information.
+            # change_action_email(user, action)
             redirect_to @action
         else
-            flash[:warning] = "Action failed to update"
+            flash[:danger] = "Action failed to update"
             redirect_to edit_action_path
         end
     end
@@ -82,9 +86,6 @@ class ActionsController < ApplicationController
     #additional routes
     
     def options
-    end
-    
-    def transfer
     end
     
     def all
@@ -128,6 +129,7 @@ class ActionsController < ApplicationController
        if @action.close_request_flag == false
            @action.update(:close_request_flag => true)
            flash[:info] = "Action closeout requested"
+           ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
            redirect_to action_path(@action.id)
        end
     end
@@ -139,6 +141,7 @@ class ActionsController < ApplicationController
            @action.update(:close_request_flag => false)
            @action.update(:closed_flag => true)
            flash[:success] = "Action closed"
+           ## email action owner to confirm closure of the action, cc SHEQ for records
            redirect_to action_path(@action.id)
        end
     end
@@ -149,6 +152,8 @@ class ActionsController < ApplicationController
        if @action.extend_request_flag == false
            @action.update(:extend_request_flag => true)
            flash[:info] = "Action extension requested"
+           ## email SHEQ and group with suitable approval rights to inform them that an extension request has been made.
+           ## cc the next level of approval up for information, inform in email the number of extensions the action has recieved
            redirect_to action_path(@action.id)
        end
     end
@@ -160,6 +165,8 @@ class ActionsController < ApplicationController
            @action.update(:extend_request_flag => false)
            @action.increment!(:extensions_number, 1)
            flash[:success] = "Action extended"
+           ## email action owner to confirm target date extension, 
+           ## cc lime management, Senior Managers and Site manager as appropriate for action Type
            redirect_to action_path(@action.id)
        end
     end
@@ -175,10 +182,12 @@ class ActionsController < ApplicationController
             update_text = @action.closeout + " | " + params[:updatetext]
             @action.update(:closeout => update_text)
             flash[:info] = "Close-out request rejected"
+            ## email owner with reason for close out rejection, cc line management
         elsif @action.extend_request_flag
             update_text = @action.progress  + " | " + params[:updatetext]
             @action.update(:progress => update_text)
             flash[:info] = "Extension request rejected"
+            ## email owner with reason for extension rejection, cc line management
         end
  
         redirect_to action_path(@action.id)

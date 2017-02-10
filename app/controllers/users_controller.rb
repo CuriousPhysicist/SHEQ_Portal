@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     
         if @user.save
             flash[:success] = "User successfully created"
+            ## send email to SHEQ group to review user information and rights
             redirect_to actions_path(session[:user_id])
         else
             flash[:warning] = "User failed to save."
