@@ -35,11 +35,11 @@ class SessionsController < ApplicationController
 
       @injury_num = @events.where('injury_flag = ?', true).count
 
-      @series1 =@events.where('date_raised <= ?', Time.now.)
-            "1 - 3 Months" => @series2,
-            "3 - 6 Months" => @series3,
-            "6 - 12 Months" => @series4,
-            "over 12 Months" => @series5
+      @series1 = @events.where('date_raised >= ?', Time.now - 1.month ).count
+      @series2 = @events.where('date_raised >= ?', Time.now - 3.month ).count - @events.where('date_raised >= ?', Time.now - 1.month ).count
+      @series3 = @events.where('date_raised >= ?', Time.now - 6.month ).count - @events.where('date_raised >= ?', Time.now - 3.month ).count
+      @series4 = @events.where('date_raised >= ?', Time.now - 12.month ).count - @events.where('date_raised >= ?', Time.now - 6.month ).count
+      @series5 = @events.where('date_raised < ?', Time.now - 12.month ).count
 
       
     end

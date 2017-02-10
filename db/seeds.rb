@@ -46,15 +46,18 @@ User.create!(first_name:  "Bob",
       rnd2 = rand(1..12)
       rnd3 = rand(0..2)
       rnd4 = rand(1..30)
+      rnd5 = rand(0..1)
       
       target = Faker::Date.between(2.years.ago,(Time.now + 6.months))
       
       type = ["A","B","C"]
+      source = ["QA","SHE"]
       
       Action.create(
             reference_number: i+1,
             initiator:"#{User.find(rnd1).first_name} #{User.find(rnd1).last_name}",
             owner: "#{User.find(rnd2).first_name} #{User.find(rnd2).last_name}",
+            source: source[rnd5],
             date_target: target,
             date_time_created: target - 3.months,
             type_ABC: type[rnd3],

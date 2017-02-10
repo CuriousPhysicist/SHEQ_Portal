@@ -21,14 +21,13 @@
 
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => "#{@events.id}", :disabled=>true %>
-
-            <br/>
-            
-            <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
-            <div class="file-input">
-                  <%= f.file_field :report_form %>
-            </div>
-
+            <% if yield(:show_flag) == "" %>
+                  <br/>
+                  <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+                  <div class="file-input">
+                        <%= f.file_field :report_form %>
+                  </div>
+            <% end %>
       <% end %>
 
       <% if yield(:guest_flag) == "true" %>
@@ -136,6 +135,8 @@
       <br/>
       <% if yield(:show_flag) == "" %>
             <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+      <% else %>
+            <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
       <% end %>
 
 <% end %>

@@ -1,56 +1,60 @@
-<h1>Performance Dashboard - Actions</h1>
+<div class="wrapper">
 
-    <h3>KPIs</h3>
- 
-    <p>
-        <b>Action close-out rate:</b> 
-        <%= (((@over.to_f/@year_count.to_f)-1)*100).round(2) %> %.<br/>
+    <h1>Performance Dashboard - Actions</h1>
+
+        <h3>KPIs</h3>
+     
+        <p>
+            <b>Action close-out rate:</b> 
+            <%= (((@over.to_f/@year_count.to_f)-1)*100).round(2) %> %.<br/>
+            
+            <b>Number of open Actions - Type A:</b>
+            <%= @typeA_num %>  
+            <b>Type B:</b>
+            <%= @typeB_num %>
+            <b>Type C:</b>
+            <%= @typeC_num %><br/>
         
-        <b>Number of open Actions - Type A:</b>
-        <%= @typeA_num %>  
-        <b>Type B:</b>
-        <%= @typeB_num %>
-        <b>Type C:</b>
-        <%= @typeC_num %><br/>
-    
-    </p>
+        </p>
 
-<div class="chart-wrapper col-xs-6">
-    <% stackcol_data2 = [
-        {
-            name: "Due",
-            data: @series3
-            },
-        {
-            name: "Over-Due",
-            data: @series4
+    <div class="chart-wrapper col-xs-6">
+        <% stackcol_data2 = [
+            {
+                name: "Due",
+                data: @series3
+                },
+            {
+                name: "Over-Due",
+                data: @series4
+                }
+            ]
+            %>
+        <%= column_chart stackcol_data2, title: "Action Types", width: "300px", height: "300px"%>
+    </div>
+
+    <div class="chart-wrapper col-xs-6">
+        <% pie_data =
+            {
+                Due: @due,
+                Overdue: @over
             }
-        ]
         %>
-    <%= column_chart stackcol_data2, title: "Action Types", width: "300px", height: "300px"%>
-</div>
+        <%= pie_chart pie_data, donut: true, title: "Open Actions", width: "300px", height: "300px"%>
+    </div>
 
-<div class="chart-wrapper col-xs-6">
-    <% pie_data =
-        {
-            Due: @due,
-            Overdue: @over
-        }
-    %>
-    <%= pie_chart pie_data, donut: true, title: "Open Actions", width: "300px", height: "300px"%>
-</div>
+    <div class="chart-wrapper col-xs-12">
+        <% stackcol_data1 = [
+            {
+                name: "Due",
+                data: @series1
+                },
+            {
+                name: "Over-Due",
+                data: @series2
+                }
+            ]
+            %>
+        <%= column_chart stackcol_data1, stacked: true, title: "Action Owners", width: "600px", height: "400px"%>
+    </div>
 
-<div class="chart-wrapper col-xs-12">
-    <% stackcol_data1 = [
-        {
-            name: "Due",
-            data: @series1
-            },
-        {
-            name: "Over-Due",
-            data: @series2
-            }
-        ]
-        %>
-    <%= column_chart stackcol_data1, stacked: true, title: "Action Owners", width: "600px", height: "400px"%>
 </div>

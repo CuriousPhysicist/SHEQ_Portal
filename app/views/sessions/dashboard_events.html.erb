@@ -1,48 +1,52 @@
-<h1>Performance Dashboard - UNORs</h1>
+<div class="wrapper">
 
-    <h3>KPIs</h3>
- 
-    <p>
-        <b>UNOR close-out rate:</b> 
-        <%= (((@open.to_f/@year_count.to_f)-1)*100).round(2) %> %. <b>Number of open UNORs: </b><%= @open %> 
-        <br/>
-        <i> Breakdown - <b>Safety: </b><%= @safety_num %>, <b>Environmental: </b><%= @environment_num %>, <b>Quality: </b><%= @quality_num %>, <b>Security: </b><%= @security_num %><br/>
-        <b>Injuries: </b><%= @injury_num %>
-    
-    </p>
+    <h1>Performance Dashboard - UNORs</h1>
 
-<div class="chart-wrapper col-xs-6">
-    <% col_data2 = [
-        {
-            name: "Safety",
-            data: @safety_num
-            },
-        {
-            name: "Environment",
-            data: @environment_num
-            },
-        {
-            name: "Quality",
-            data: @quality_num
-            },
-        {
-            name: "Security",
-            data: @security_num
+        <h3>KPIs</h3>
+     
+        <p>
+            <b>UNOR close-out rate:</b> 
+            <%= (((@open.to_f/@year_count.to_f)-1)*100).round(2) %> %. <b>Number of open UNORs: </b><%= @open %> 
+            <br/>
+            <i> Breakdown - <b>Safety: </b><%= @safety_num %>, <b>Environmental: </b><%= @environment_num %>, <b>Quality: </b><%= @quality_num %>, <b>Security: </b><%= @security_num %><br/>
+            <b>Injuries: </b><%= @injury_num %></i>
+        
+        </p>
+
+    <!--<div class="chart-wrapper col-xs-6">
+        <%# col_data2 = [
+            {
+                name: "Safety",
+                data: @safety_num
+                },
+            {
+                name: "Environment",
+                data: @environment_num
+                },
+            {
+                name: "Quality",
+                data: @quality_num
+                },
+            {
+                name: "Security",
+                data: @security_num
+                }
+            ]
+            %>
+        <%#= column_chart col_data2, title: "Event Type", width: "300px", height: "300px"%>
+    </div>-->
+
+    <div class="chart-wrapper col-xs-12">
+        <% pie_data =
+            {
+                "Under 1 Month" => @series1,
+                "1 - 3 Months" => @series2,
+                "3 - 6 Months" => @series3,
+                "6 - 12 Months" => @series4,
+                "over 12 Months" => @series5
             }
-        ]
         %>
-    <%= column_chart col_data2, title: "Event Type", width: "300px", height: "300px"%>
-</div>
+        <%= pie_chart pie_data, donut: true, title: "Event Age", width: "300px", height: "300px"%>
+    </div>
 
-<div class="chart-wrapper col-xs-6">
-    <% pie_data =
-        {
-            "Under 1 Month" => @series1,
-            "1 - 3 Months" => @series2,
-            "3 - 6 Months" => @series3,
-            "6 - 12 Months" => @series4,
-            "over 12 Months" => @series5
-        }
-    %>
-    <%= pie_chart pie_data, donut: true, title: "Event Age", width: "300px", height: "300px"%>
 </div>
