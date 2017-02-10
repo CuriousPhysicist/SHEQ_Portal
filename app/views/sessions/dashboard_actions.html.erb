@@ -4,7 +4,7 @@
  
     <p>
         <b>Action close-out rate:</b> 
-        <%= ((@over.to_f/@year_count.to_f)*100).round(2) %> %.<br/>
+        <%= (((@over.to_f/@year_count.to_f)-1)*100).round(2) %> %.<br/>
         
         <b>Number of open Actions - Type A:</b>
         <%= @typeA_num %>  
@@ -27,7 +27,7 @@
             }
         ]
         %>
-    <%= column_chart stackcol_data2, width: "300px", height: "300px"%>
+    <%= column_chart stackcol_data2, title: "Action Types", width: "300px", height: "300px"%>
 </div>
 
 <div class="chart-wrapper col-xs-6">
@@ -37,7 +37,7 @@
             Overdue: @over
         }
     %>
-    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
+    <%= pie_chart pie_data, donut: true, title: "Open Actions", width: "300px", height: "300px"%>
 </div>
 
 <div class="chart-wrapper col-xs-12">
@@ -52,5 +52,5 @@
             }
         ]
         %>
-    <%= column_chart stackcol_data1, stacked: true, width: "600px", height: "400px"%>
+    <%= column_chart stackcol_data1, stacked: true, title: "Action Owners", width: "600px", height: "400px"%>
 </div>

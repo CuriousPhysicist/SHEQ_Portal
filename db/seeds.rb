@@ -70,9 +70,12 @@ User.create!(first_name:  "Bob",
       rnd2 = rand(0..1)
       
       
+      closedflag_setter = rand(0..1)
+
       raised = Faker::Date.between(1.years.ago,(Time.now))
       
       closed_array = [(raised + 3.months), nil]
+      flag_array = [true, false]
       
       classification_array = ["Near Miss","Occurance"]
       
@@ -82,9 +85,13 @@ User.create!(first_name:  "Bob",
             what_happened: Faker::Lorem.paragraph,
             immediate_actions: Faker::Lorem.paragraph,
             date_raised: raised,
-            date_closed: closed_array[rnd2],
+            date_closed: closed_array[closedflag_setter],
             classification: classification_array[rnd2],
-            closed_flag: false,
+            safety_flag: flag_array[rnd2],
+            environmental_flag: flag_array[rnd2],
+            quality_flag: flag_array[rnd2],
+            security_flag: flag_array[rnd2],
+            closed_flag: flag_array[closedflag_setter],
             user_id: rnd1,
             )
  end

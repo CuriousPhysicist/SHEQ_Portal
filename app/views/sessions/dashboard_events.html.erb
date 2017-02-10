@@ -4,38 +4,45 @@
  
     <p>
         <b>UNOR close-out rate:</b> 
-        <%= ((@open.to_f/@year_count.to_f)*100).round(2) %> %.<br/>
-        
-        <b>Number of open UNORs - Total: </b>
-        <%= @total_open %>  
-        <b>Near Miss: </b>
-        <%= @nearmiss_num %>
-        <b>Occurance: </b>
-        <%= @occurance_num %><br/>
+        <%= (((@open.to_f/@year_count.to_f)-1)*100).round(2) %> %. <b>Number of open UNORs: </b><%= @open %> 
+        <br/>
+        <i> Breakdown - <b>Safety: </b><%= @safety_num %>, <b>Environmental: </b><%= @environment_num %>, <b>Quality: </b><%= @quality_num %>, <b>Security: </b><%= @security_num %><br/>
+        <b>Injuries: </b><%= @injury_num %>
     
     </p>
 
 <div class="chart-wrapper col-xs-6">
     <% col_data2 = [
         {
-            name: "Due",
-            data: @series1
+            name: "Safety",
+            data: @safety_num
             },
         {
-            name: "Over-Due",
-            data: @series2
+            name: "Environment",
+            data: @environment_num
+            },
+        {
+            name: "Quality",
+            data: @quality_num
+            },
+        {
+            name: "Security",
+            data: @security_num
             }
         ]
         %>
-    <%= column_chart col_data2, width: "300px", height: "300px"%>
+    <%= column_chart col_data2, title: "Event Type", width: "300px", height: "300px"%>
 </div>
 
 <div class="chart-wrapper col-xs-6">
     <% pie_data =
         {
-            "Near Miss" => @series3,
-            "Occurances" => @series4
+            "Under 1 Month" => @series1,
+            "1 - 3 Months" => @series2,
+            "3 - 6 Months" => @series3,
+            "6 - 12 Months" => @series4,
+            "over 12 Months" => @series5
         }
     %>
-    <%= pie_chart pie_data, donut: true, width: "300px", height: "300px"%>
+    <%= pie_chart pie_data, donut: true, title: "Event Age", width: "300px", height: "300px"%>
 </div>

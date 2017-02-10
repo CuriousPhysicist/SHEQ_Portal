@@ -26,29 +26,33 @@ class SessionsController < ApplicationController
       @events = Event.where('closed_flag = ?', false)
       
       @open = @events.count
-      @due = @events.count
       @year_count = Event.where('date_raised >= ?', Time.now - 1.year).count
       
-      @nearmiss_num = @events.where('classification = ?', "Near Miss").count
-      @occurance_num = @events.where('classification = ?', "Occurance").count
-      @total_open = Event.where('closed_flag = ?', false).count
-      
-      @series1 = @due
-      @series2 = @over
-      @series3 = @nearmiss_num
-      @series4 = @occurance_num
+      @safety_num = @events.where('safety_flag = ?', true).count
+      @environment_num = @events.where('environmental_flag = ?', true).count
+      @quality_num = @events.where('quality_flag = ?', true).count
+      @security_num = @events.where('security_flag = ?', true).count
+
+      @injury_num = @events.where('injury_flag = ?', true).count
+
+      @series1 =@events.where('date_raised <= ?', Time.now.)
+            "1 - 3 Months" => @series2,
+            "3 - 6 Months" => @series3,
+            "6 - 12 Months" => @series4,
+            "over 12 Months" => @series5
+
       
     end
     
     # routes actions for login and logout
     
-    def new
-    end
-    
     def landing_page
       if current_user
         redirect_to actions_path(current_user[:id])
       end
+    end
+
+    def new
     end
     
     def create
