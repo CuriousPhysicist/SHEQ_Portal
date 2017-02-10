@@ -5,6 +5,22 @@
 jQuery ->
     
     $(this).on "turbolinks:load", ->
+
+        $('#user_role').change ->
+            
+            newrole = $('#user_role :selected').val()
+            console.log(newrole)
+            roles = []
+            roles[0] = "Staff"
+            roles[1] ="Line Manager"
+            roles[2] ="Senior Manager"
+            roles[3] ="Site Manager"
+            for i in [1..4] by 1
+                if newrole == roles[i-1]
+                    level_val = i
+                    console.log(roles[i-1])
+            target_level = $('#level').attr("value", level_val)
+            console.log(target_level)
     
         $('#team').change ->
         

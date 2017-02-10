@@ -33,9 +33,6 @@ Rails.application.routes.draw do
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   
-  # this route is only for development, remove requirement for full production
-  get    '/error',   to: 'users#error'
-  
   # Action routes
   
   resources :actions do

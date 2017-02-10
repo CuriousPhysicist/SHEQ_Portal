@@ -1,5 +1,4 @@
 <%= form_for @user, url: yield(:path), :method => yield(:method_text) do |f| %>
-      <%#= render 'shared/error_messages', object: f.object %>
         
       <%= f.label :first_name %>
       <% if yield(:show_flag) == "show" %>
@@ -23,7 +22,13 @@
             <%= f.text_field :email, class: 'form-control' %>
       <% end %>
 
-      <% if yield(:show_flag) == "" %>
+      <% if yield(:show_flag) == "" && current_user.email == @user.email %>
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <% elsif yield(:show_flag) == "" && current_user.try(:admin) %>
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
 
@@ -43,7 +48,8 @@
                         </td>
                         <td>
                               <%= f.label :role %>
-                              <%= f.select(:role, [["Team Leader","Team Leader"],["Senior Manager","Senior Manager"],["Site Manager","Site Manager"]]) %>
+                              <%= f.select(:role, [["Staff","Staff"],["Line Manager","Line Manager"],["Senior Manager","Senior Manager"],["Site Manager","Site Manager"]]) %>
+                              <%= f.hidden_field :level, :id => "level" %>
                               <br/>
                         </td>
                   </tr>

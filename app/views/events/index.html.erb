@@ -1,8 +1,10 @@
 <div class="wrapper">
     
-    <h2>A list of events</h2>
+    <br/>
+
+    <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
     
-    <p> <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %> </p>
+    <h2>Reports Raised by <%="#{current_user.first_name} #{current_user.last_name}"%> </h2>
     
     <table class="actions">
         <tr>
@@ -12,7 +14,40 @@
             <th>Download Form</th>
             <th>Associated Actions</th>
         </tr>
-        <%= render @events  %>
+        <%= render @own_events  %>
     </table>
+
+    <% if current_user.level >= 2 %>
+
+        <h2>Reports raised by Team</h2>
+
+        <table class="actions">
+            <tr>
+                <th>Reference Number</th>
+                <th>What Happened</th>
+                <th>Immediate Actions</th>
+                <th>Download Form</th>
+                <th>Associated Actions</th>
+            </tr>
+            <%= render @team_events  %>
+        </table>
+    <% end %>
+
+    <% if current_user.level >= 3 %>
+
+        <h2>All Open UNORs</h2>
+
+        <table class="actions">
+            <tr>
+                <th>Reference Number</th>
+                <th>What Happened</th>
+                <th>Immediate Actions</th>
+                <th>Download Form</th>
+                <th>Associated Actions</th>
+            </tr>
+            <%= render @events  %>
+        </table>
+    <% end %>
+
     
 </div>

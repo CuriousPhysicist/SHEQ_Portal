@@ -1,11 +1,23 @@
 class EventsController < ApplicationController
 	
-	before_action :require_user, only: [:index, :show, :edit] # Sets before filters limiting actions for users
+	before_action :require_user, only: [:index, :show, :edit, :update] # Sets before filters limiting actions for users
 
     #RESTful resources
     
     def index
-        @events = Event.all
+        @events = Event.where('closed_flag = ?', false)
+        teamid_arr = []
+        team_count = User.where('team = ?', current_user.team).count
+        team_hasharr = User.where('team = ?', current_user.team).to_a
+        (0..team_count-1).each do |i|
+            teamid_arr << team_hasharr[i].events
+        end
+        @team_events = {}
+        (0..team_hasharr.length-1).each do |i|
+            @team_events = ((@events.where('user_id = ?', team_hasharr[i].id)))        
+        end
+        #debugger
+        @own_events = @events.where('user_id = ?', current_user.id)
     end
 
     def new

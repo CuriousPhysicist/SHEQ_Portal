@@ -6,7 +6,14 @@ class UsersController < ApplicationController
     # Standard RESTful actions
     
     def index
-        @users = User.all
+        if current_user.level == 1
+            @users = User.where('id = ?', current_user.id)
+        elsif current_user.level == 2
+            @users = User.where('team = ?', current_user.team)
+        else
+            @users = User.all
+        end
+        
         gon.user_number = User.all.count
     end
     
@@ -57,15 +64,6 @@ class UsersController < ApplicationController
     def import
         User.import(params[:file])
         redirect_to users_path
-    end
-    
-    def error
-    end
-    
-    # Role specific actions
-    
-    def admin?
-       self.admin == true
     end
 
     # Private actions including strong parameters

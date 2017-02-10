@@ -22,15 +22,18 @@ nav {
     clear:both;
     border-radius: 0;
     background-color: #222;
+    padding: 10px 5px;
 
     a {
         font-weight: 800;
         color: #fff;
     }
 
-    ul li{
+    ul, li{
         display: inline;
         list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
 }

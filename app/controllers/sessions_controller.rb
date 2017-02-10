@@ -46,6 +46,9 @@ class SessionsController < ApplicationController
     end
     
     def landing_page
+      if current_user
+        redirect_to actions_path(current_user[:id])
+      end
     end
     
     def create
