@@ -9,6 +9,22 @@ class ActionsController < ApplicationController
         @actions_open = Action.where(closed_flag: false)
         @actions_owned = @actions_open.where(owner: "#{current_user.first_name} #{current_user.last_name}").order('date_target')
         @actions_created = @actions_open.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+        
+        action_ids = []
+        k = 0
+        team_count = User.where('team = ?', current_user.team).count
+        team_hash = User.where('team = ?', current_user.team)
+        (0..team_count-1).each do |i|
+            team_member_actions_arr = @actions_open.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+            (0..team_member_actions_arr.length-1).each do |j|
+                action_ids[k] = team_member_actions_arr[j][0]
+                k += 1
+            end
+            
+        end
+        
+        @team_actions = @actions_open.where('id IN(?)', action_ids)        
+        
     end
     
     def new

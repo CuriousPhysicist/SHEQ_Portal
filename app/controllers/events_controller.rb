@@ -22,9 +22,9 @@ class EventsController < ApplicationController
             
         end
         
-        (0..team_hash.length-1).each do |i|
-            @team_events = @events.where('id IN(?)', event_ids)        
-        end
+        
+        @team_events = @events.where('id IN(?)', event_ids)        
+        
         
     end
 

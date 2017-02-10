@@ -21,7 +21,7 @@
     <br/>
     
     <% if current_user.level >= 2 %>
-        <h2>Created Actions</h2>
+        <h2>Team Actions</h2>
         <br/>
         
         <p>
@@ -39,7 +39,7 @@
                 <th>Progress</th>
                 <th>Close-out</th>
             </tr>
-          <%= render @actions_created %>
+          <%= render @team_actions %>
         </table>
         
         <br/>
