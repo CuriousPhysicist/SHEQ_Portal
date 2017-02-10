@@ -1,0 +1,27 @@
+<h1>UNORs awaiting review.</h1>
+
+<div class="wrapper">
+    
+    <h3>UNORs for Close-out:</h3>
+
+    <%= link_to "Action Options", options_events_path, class:"btn btn-primary", method: :get %>
+    <br/><br/>
+
+    <% if @events_for_closeout.empty? %>
+        <p> There are no UNORs awaiting closeout.</p>
+    <% else %>
+        <table class="actions">
+        <tr>
+                <th>Reference Number</th>
+                <th>What Happened</th>
+                <th>Immediate Actions</th>
+                <th>Download Form</th>
+                <th>Associated Actions</th>
+            </tr>
+            <%= render @events_for_closeout  %>
+        </table>
+    <% end %>
+
+    <br/>
+    
+</div>
