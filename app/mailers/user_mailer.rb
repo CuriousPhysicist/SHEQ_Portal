@@ -17,13 +17,21 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "/actions/#{action.id}"
-	    mail(to: user.try(:email), subject: 'Action #{action.reference_number} - Accepted')
+	    mail(to: user.try(:email), subject: "Action #{action.id} - Accepted")
 	end
 
 	def change_action_email(user, action)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: user.try(:email), subject: "Action #{action.id} - Updated")
 	end
 
 	def close_request_action_email(user, action)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: user.try(:email), subject: "Action #{action.id} - Close-out Request")
 	end
 
 	def close_action_email(user, action)

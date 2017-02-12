@@ -48,15 +48,13 @@ class ActionsController < ApplicationController
     def create
         @action = Action.new(action_params)
         ownername = @action.owner.split(" ")
-        @owner = User.where('last_name = ?', ownername[1])
-
-        debugger
+        @owner = User.where('last_name = ?', ownername[1]).first
 
         if @action.save!
             flash[:success] = "Action successfully created"
             ## email action owner warning of action placing, indicate if action is associated with an Event report
             ## cc line management superior, cc SHEQ team for information.
-            UserMailer.new_action_email(@owner, @action).deliver_now
+            UserMailer.new_action_email(@owner, @action).deliver
             redirect_to actions_path(current_user[:id])
         else
             flash[:danger] = "Action failed to save"
@@ -70,7 +68,7 @@ class ActionsController < ApplicationController
         if @action.update(action_params)
             flash[:success] = "Action successfully updated"
             ## email the action owner, cc line management and SHEQ for information.
-            # change_action_email(user, action)
+            UserMailer.change_action_email(current_user, @action).deliver
             redirect_to @action
         else
             flash[:danger] = "Action failed to update"
@@ -131,7 +129,7 @@ class ActionsController < ApplicationController
       @action = Action.find(params[:format])
       @action.update(:accepted_flag => true)
       ## email SHEQ and line management to indicate action has been updated
-      UserMailer.accepted_action_email(current_user, @action).deliver_now
+      UserMailer.accepted_action_email(current_user, @action).deliver
       redirect_to actions_path
     end
     
@@ -142,7 +140,7 @@ class ActionsController < ApplicationController
           @action.update(:close_request_flag => true)
           flash[:info] = "Action closeout requested"
           ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
-          ## close_request_action_email(user, action)
+          UserMailer.close_request_action_email(current_user, @action).deliver
           redirect_to action_path(@action.id)
        end
     end
@@ -188,7 +186,7 @@ class ActionsController < ApplicationController
     end
     
     def reject
-       @action = Action.find(params[:format])
+       @actions = Action.find(params[:format])
     end
     
     def reject_submitted 
@@ -225,7 +223,7 @@ class ActionsController < ApplicationController
     def action_params
         
         params.require(:actions).permit(:reference_number, :initiator, :owner, :source, :date_target, 
-                          :type_ABC, :date_time_created, :description, :progress, :closeout, :closed_flag, :event_id)
+                          :type_ABC, :date_time_created, :description, :progress, :closeout, :updatetext, :closed_flag, :event_id)
     end
     
 end

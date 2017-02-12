@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %> <%= @user.last_name %> has requested that action number: <%= @action.reference_number %> is closed.</h1>
+    <p>
+    	The close-out information is as follows: <br/>
+    	<i>"<%= @action.closeout %>"</i>
+    </p>
+    <p>
+      Follow this link to review the action information, <%= link_to "Click Here", @url %>.
+    </p>
+  </body>
+</html>
