@@ -16,4 +16,44 @@ class UserMailer < ApplicationMailer
 	def change_action_email(user, action)
 	end
 
+	def close_request_action_email(user, action)
+	end
+
+	def close_action_email(user, action)
+	end
+
+	def extend_request_action_email(user, action)
+	end
+
+	def extend_action_email(user, action)
+	end
+
+	def reject_closeout_email(user, action)
+	end
+
+	def reject_extension_email(user, action)
+	end
+
+	# Event controller emails...
+
+	def new_event_email(user, event)
+	end
+
+	def change_event_email(user, event)
+	end
+
+	#def remove_event_email(user, event)
+	#end
+
+	def guest_event_email(user, event)
+	end
+
+	# User controller emails...
+
+	def new_user_email(user)
+	end
+
+	def change_user_email(user)
+	end
+
 end

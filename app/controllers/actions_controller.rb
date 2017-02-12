@@ -127,10 +127,11 @@ class ActionsController < ApplicationController
        @action =  Action.find(params[:format])
     
        if @action.close_request_flag == false
-           @action.update(:close_request_flag => true)
-           flash[:info] = "Action closeout requested"
-           ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
-           redirect_to action_path(@action.id)
+          @action.update(:close_request_flag => true)
+          flash[:info] = "Action closeout requested"
+          ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
+          ## close_request_action_email(user, action)
+          redirect_to action_path(@action.id)
        end
     end
     
@@ -138,11 +139,12 @@ class ActionsController < ApplicationController
        @action =  Action.find(params[:format])
     
        if @action.close_request_flag == true
-           @action.update(:close_request_flag => false)
-           @action.update(:closed_flag => true)
-           flash[:success] = "Action closed"
-           ## email action owner to confirm closure of the action, cc SHEQ for records
-           redirect_to action_path(@action.id)
+          @action.update(:close_request_flag => false)
+          @action.update(:closed_flag => true)
+          flash[:success] = "Action closed"
+          ## email action owner to confirm closure of the action, cc SHEQ for records
+          ## close_action_email(user, action)
+          redirect_to action_path(@action.id)
        end
     end
     
@@ -150,11 +152,12 @@ class ActionsController < ApplicationController
        @action =  Action.find(params[:format])
     
        if @action.extend_request_flag == false
-           @action.update(:extend_request_flag => true)
-           flash[:info] = "Action extension requested"
-           ## email SHEQ and group with suitable approval rights to inform them that an extension request has been made.
-           ## cc the next level of approval up for information, inform in email the number of extensions the action has recieved
-           redirect_to action_path(@action.id)
+          @action.update(:extend_request_flag => true)
+          flash[:info] = "Action extension requested"
+          ## email SHEQ and group with suitable approval rights to inform them that an extension request has been made.
+          ## cc the next level of approval up for information, inform in email the number of extensions the action has recieved
+          ## extend_request_action_email(user, action)
+          redirect_to action_path(@action.id)
        end
     end
     
@@ -162,12 +165,13 @@ class ActionsController < ApplicationController
        @action =  Action.find(params[:format])
     
        if @action.extend_request_flag == true
-           @action.update(:extend_request_flag => false)
-           @action.increment!(:extensions_number, 1)
-           flash[:success] = "Action extended"
-           ## email action owner to confirm target date extension, 
-           ## cc lime management, Senior Managers and Site manager as appropriate for action Type
-           redirect_to action_path(@action.id)
+          @action.update(:extend_request_flag => false)
+          @action.increment!(:extensions_number, 1)
+          flash[:success] = "Action extended"
+          ## email action owner to confirm target date extension, 
+          ## cc line management, Senior Managers and Site manager as appropriate for action Type
+          ## extend_action_email(user, action)
+          redirect_to action_path(@action.id)
        end
     end
     
@@ -179,15 +183,17 @@ class ActionsController < ApplicationController
         @action =  Action.find(params[:id])
         
         if @action.close_request_flag
-            update_text = @action.closeout + " | " + params[:updatetext]
-            @action.update(:closeout => update_text)
-            flash[:info] = "Close-out request rejected"
-            ## email owner with reason for close out rejection, cc line management
+          update_text = @action.closeout + " | " + params[:updatetext]
+          @action.update(:closeout => update_text)
+          flash[:info] = "Close-out request rejected"
+          ## email owner with reason for close out rejection, cc line management
+          ## reject_closeout_email(user, action)
         elsif @action.extend_request_flag
-            update_text = @action.progress  + " | " + params[:updatetext]
-            @action.update(:progress => update_text)
-            flash[:info] = "Extension request rejected"
-            ## email owner with reason for extension rejection, cc line management
+          update_text = @action.progress  + " | " + params[:updatetext]
+          @action.update(:progress => update_text)
+          flash[:info] = "Extension request rejected"
+          ## email owner with reason for extension rejection, cc line management
+          ## reject_extension_email(user, action)
         end
  
         redirect_to action_path(@action.id)

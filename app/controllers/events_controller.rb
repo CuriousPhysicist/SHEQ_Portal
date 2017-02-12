@@ -45,7 +45,8 @@ class EventsController < ApplicationController
         if @event.save!
             flash[:success] = "Report successfully submitted"
             ## send email to line management and SHEQ cc: user raising the report
-                        ## cc: Senior managers for Type B and Site Manager for Type A
+            ## cc: Senior managers for Type B and Site Manager for Type A
+            ## new_event_email(user, event)
             redirect_to events_path
         else
             flash[:danger] = "Report failed to submit"
@@ -59,6 +60,7 @@ class EventsController < ApplicationController
         if @event.update(event_params)
             flash[:success] = "Report successfully updated"
             ## email SHEQ and cc event raiser on changes
+            ## change_event_email(user, event)
             redirect_to @event
         else
             flash[:danger] = "Report failed to update"
@@ -71,6 +73,7 @@ class EventsController < ApplicationController
         @event.destroy
         flash[:info] = "Report deleted"
         ## email report raiser
+        ## remove_event_email(user, event)
         redirect_to events_path
     end
 
@@ -82,6 +85,7 @@ class EventsController < ApplicationController
         if @event.save!
             flash[:success] = "Report successfully submitted"
             ## email SHEQ to review report and assign owner if possible, apply cc routes based on event Type
+            ## guest_event_email(user, event)
             redirect_to root_path
         else
             flash[:warning] = "Report failed to submit"

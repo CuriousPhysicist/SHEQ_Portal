@@ -24,6 +24,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:success] = "User successfully created"
             ## send email to SHEQ group to review user information and rights
+            ## new_user_email(user)
             redirect_to actions_path(session[:user_id])
         else
             flash[:warning] = "User failed to save."
@@ -48,6 +49,8 @@ class UsersController < ApplicationController
         
         if @user.update(user_params)
             flash[:success] = "User successfully updated"
+            ## send email to user, SHEQ and line manager confirming change to user information
+            ## change_user_email(user)
             redirect_to @user
         else
             flash[:warning] = "User failed to update"
