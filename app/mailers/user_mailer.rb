@@ -10,7 +10,14 @@ class UserMailer < ApplicationMailer
 	def new_action_email(user, action)
 	    @user = user
 	    @url = "/actions/#{action.id}"
-	    mail(to: @user.try(:email), subject: 'You have recieved a new action')
+	    mail(to: user.email, subject: 'You have recieved a new action')
+	end
+
+	def accepted_action_email(user, action)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: user.email, subject: 'Action #{action.reference_number} - Accepted')
 	end
 
 	def change_action_email(user, action)

@@ -5,9 +5,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%#= @user.first_name %>, you have a new action.</h1>
+    <h1>Dear <%#= @user.first_name %>, a new action has been placed on you.</h1>
     <p>
-      Follow his link to review the action information, <%= link_to "Click Here", @url %>.
+      Follow this link to review the action information, <%= link_to "Click Here", @url %>.
+    </p>
+    <p>
+    	Make sure you accept the action to indicate that you understand the requirements and agree to the proposed target completion date.
+    </p>
+    <p>
+    	If you have any questions please contact your Line Manager to discus the action.
     </p>
   </body>
 </html>

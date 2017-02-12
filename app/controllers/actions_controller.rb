@@ -122,6 +122,16 @@ class ActionsController < ApplicationController
         Action.import(params[:file])
         redirect_to actions_path
     end
+
+    # actions associated with workflow...
+
+    def accepted
+      @action = Action.find(params[:format])
+      @action.update(:accepted_flag => true)
+      ## email SHEQ and line management to indicate action has been updated
+      accepted_action_email(current_user, @action)
+      redirect_to actions_path
+    end
     
     def closeplease
        @action =  Action.find(params[:format])
@@ -203,6 +213,7 @@ class ActionsController < ApplicationController
     def tasks
         @actions_for_closeout = Action.where('close_request_flag = ?', true)
         @actions_for_extension = Action.where('extend_request_flag = ?', true)
+        @actions_for_acceptance = Action.where('accepted_flag = ?', false).where('user_id = ?', current_user.id)
     end
 
     # Private actions below (including strong parameters white-list)

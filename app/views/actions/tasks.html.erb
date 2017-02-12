@@ -2,6 +2,28 @@
 
 <div class="wrapper">
     
+    <h3>Actions to be Accepted:</h3>
+
+    <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+    <br/><br/>
+
+    <% if @actions_for_acceptance.empty? %>
+        <p> There are no actions awaiting acceptance.</p>
+    <% else %>
+        <table class="actions">
+            <tr>
+                <th>Reference Number</th>
+                <th>Owner</th
+                ><th>Description</th>
+                <th>Progress</th>
+                <th>Close-out</th>
+            </tr>
+            <%= render @actions_for_acceptance  %>
+        </table>
+    <% end %>
+
+    <br/>
+
     <h3>Actions for Close-out:</h3>
 
     <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>

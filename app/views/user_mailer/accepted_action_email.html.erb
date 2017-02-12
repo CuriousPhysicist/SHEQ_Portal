@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %> <%= @user.last_name %> has accepted action <%= @action.reference_number %>.</h1>
+    <p>
+      Follow this link to review the action information, <%= link_to "Click Here", @url %>.
+    </p>
+  </body>
+</html>

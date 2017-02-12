@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   post '/reject', to: 'actions#reject_submitted'
   patch '/extendplease', to: 'actions#extendplease'
   patch '/extend', to: 'actions#extend'
+  patch '/accepted', to: 'actions#accepted'
   
   # Event routes
   

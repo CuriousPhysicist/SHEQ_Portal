@@ -32,14 +32,14 @@
         <tr>
           <td>
 
-            <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary" %><br/><br/>
+            <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you entered new target date?' } %><br/><br/>
               <% if @actions.extend_request_flag %>
                 <%= link_to "Reject Extension Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
                 <%= link_to "Extend Action", extend_path(@actions.id), method: :patch, class:"btn btn-primary" %>
               <% end %>
           </td>
           <td>
-            <%= link_to "Request Action Close-out", closeplease_path(@actions.id), method: :patch, class:"btn btn-primary" %><br/><br/>
+            <%= link_to "Request Action Close-out", closeplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you completed the close-out information?' } %><br/><br/>
               <% if @actions.close_request_flag %>
                 <%= link_to "Reject Close Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
                 <%= link_to "Close Action", close_path(@actions.id), method: :patch, class:"btn btn-primary" %>
