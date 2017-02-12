@@ -50,6 +50,8 @@ class ActionsController < ApplicationController
         ownername = @action.owner.split(" ")
         @owner = User.where('last_name = ?', ownername[1])
 
+        debugger
+
         if @action.save!
             flash[:success] = "Action successfully created"
             ## email action owner warning of action placing, indicate if action is associated with an Event report
@@ -129,7 +131,7 @@ class ActionsController < ApplicationController
       @action = Action.find(params[:format])
       @action.update(:accepted_flag => true)
       ## email SHEQ and line management to indicate action has been updated
-      accepted_action_email(current_user, @action)
+      UserMailer.accepted_action_email(current_user, @action).deliver_now
       redirect_to actions_path
     end
     
@@ -213,7 +215,7 @@ class ActionsController < ApplicationController
     def tasks
         @actions_for_closeout = Action.where('close_request_flag = ?', true)
         @actions_for_extension = Action.where('extend_request_flag = ?', true)
-        @actions_for_acceptance = Action.where('accepted_flag = ?', false).where('user_id = ?', current_user.id)
+        @actions_for_acceptance = Action.where('owner = ?', "#{current_user.first_name} #{current_user.last_name}").where('accepted_flag = ?', false)
     end
 
     # Private actions below (including strong parameters white-list)
