@@ -20,11 +20,11 @@ class UserMailer < ApplicationMailer
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Accepted")
 	end
 
-	def change_action_email(user, action)
+	def change_action_email(user, action, owner)
 		@user = user
 	    @action = action
 	    @url = "/actions/#{action.id}"
-	    mail(to: user.try(:email), subject: "Action #{action.id} - Updated")
+	    mail(to: owner.try(:email), subject: "Action #{action.id} - Updated")
 	end
 
 	def close_request_action_email(user, action)
@@ -43,7 +43,12 @@ class UserMailer < ApplicationMailer
 	def extend_action_email(user, action)
 	end
 
-	def reject_closeout_email(user, action)
+	def reject_closeout_email(user, action, owner)
+		@user = user
+	    @action = action
+	    @owner = owner
+	    @url = "/actions/#{action.id}"
+	    mail(to: owner.try(:email), subject: "Action #{action.id} - Close-out Request Rejected")
 	end
 
 	def reject_extension_email(user, action)

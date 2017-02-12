@@ -64,6 +64,8 @@ class ActionsController < ApplicationController
     
     def update
         @action = Action.find(params[:id])
+        ownername = @action.owner.split(" ")
+        @owner = User.where('last_name = ?', ownername[1]).first
         
         if @action.update(action_params)
             flash[:success] = "Action successfully updated"
@@ -191,15 +193,20 @@ class ActionsController < ApplicationController
     
     def reject_submitted 
         @action =  Action.find(params[:id])
+        ownername = @action.owner.split(" ")
+        @owner = User.where('last_name = ?', ownername[1]).first
+
+        debugger
+
         
         if @action.close_request_flag
-          update_text = @action.closeout + " | " + params[:updatetext]
+          update_text = @action.closeout.to_s + " | #{current_user.first_name} #{current_user.last_name} | " + params[:updatetext] # can this be implemented using action_params? would this be more secure?
           @action.update(:closeout => update_text)
           flash[:info] = "Close-out request rejected"
           ## email owner with reason for close out rejection, cc line management
-          ## reject_closeout_email(user, action)
+          UserMailer.reject_closeout_email(current_user, @action, @owner)
         elsif @action.extend_request_flag
-          update_text = @action.progress  + " | " + params[:updatetext]
+          update_text = @action.progress.to_s  + " | #{current_user.first_name} #{current_user.last_name} | " + params[:updatetext]
           @action.update(:progress => update_text)
           flash[:info] = "Extension request rejected"
           ## email owner with reason for extension rejection, cc line management
