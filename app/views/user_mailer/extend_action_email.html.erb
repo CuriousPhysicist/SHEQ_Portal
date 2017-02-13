@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Action number <%= @action.reference_number %> target date has been extended.</h1>
+    <p>
+    	The new target date is <%= @action.date_target %>. The comments are as follows: <br/>
+    	<i>"<%= @action.progress %>"</i>
+    </p>
+    <p>
+      Follow this link to review the action information, <%= link_to "Click Here", @url %>.
+    </p>
+  </body>
+</html>

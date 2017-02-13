@@ -34,13 +34,25 @@ class UserMailer < ApplicationMailer
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Close-out Request")
 	end
 
-	def close_action_email(user, action)
+	def close_action_email(user, action, owner)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: owner.try(:email), subject: "Action #{action.id} - Close-out Approved")
 	end
 
 	def extend_request_action_email(user, action)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: user.try(:email), subject: "Action #{action.id} - Extension Request")
 	end
 
-	def extend_action_email(user, action)
+	def extend_action_email(user, action, owner)
+		@user = user
+	    @action = action
+	    @url = "/actions/#{action.id}"
+	    mail(to: owner.try(:email), subject: "Action #{action.id} - Extension Approved")
 	end
 
 	def reject_closeout_email(user, action, owner)
@@ -51,7 +63,12 @@ class UserMailer < ApplicationMailer
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Close-out Request Rejected")
 	end
 
-	def reject_extension_email(user, action)
+	def reject_extension_email(user, action, owner)
+		@user = user
+	    @action = action
+	    @owner = owner
+	    @url = "/actions/#{action.id}"
+	    mail(to: owner.try(:email), subject: "Action #{action.id} - Extension Request Rejected")
 	end
 
 	# Event controller emails...

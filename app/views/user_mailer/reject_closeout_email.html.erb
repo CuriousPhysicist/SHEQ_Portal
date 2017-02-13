@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user.first_name %> <%= @user.last_name %> has rejected the request for action number: <%= @action.reference_number %> to be closed.</h1>
+    <h1><%= @user.first_name %> <%= @user.last_name %> has rejected the request for action number <%= @action.reference_number %> to be closed.</h1>
     <p>
     	The comments are as follows: <br/>
-    	<i>"<%= @action.updateinformation %>"</i>
+    	<i>"<%= @action.updatetext %>"</i>
     </p>
     <p>
       Follow this link to review the action information, <%= link_to "Click Here", @url %>.
