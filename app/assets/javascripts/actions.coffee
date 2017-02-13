@@ -39,10 +39,17 @@ jQuery ->
             
             actionnumber = $(this).val()
             console.log(actionnumber)
-            url1 = $('#update-button').attr("href", "/actions/#{actionnumber}/edit")
-            console.log(url1)
-            url4 = $('#remove-button').attr("href", "/actions/#{actionnumber}")
-            console.log(url4)
+            if actionnumber > gon.lastaction.id
+                $(this).val('')
+                url1 = $('#update-button').attr("href", "/actions//edit")
+                console.log(url1)
+                url4 = $('#remove-button').attr("href", "/actions/")
+                console.log(url4)
+            else
+                url1 = $('#update-button').attr("href", "/actions/#{actionnumber}/edit")
+                console.log(url1)
+                url4 = $('#remove-button').attr("href", "/actions/#{actionnumber}")
+                console.log(url4)
 
         $('#updatetext').keyup ->
             

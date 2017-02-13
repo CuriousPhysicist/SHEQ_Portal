@@ -26,8 +26,17 @@
       <%= f.label  :owner %>
 
       <% if yield(:show_flag) == "" %>
-            <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
-            <br>
+            <% if current_user.team == "SHEQ" %>
+                  <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
+                  <br>
+            <% elsif current_user.level == 2 %>
+                  <%= f.collection_select(:owner, User.where('team = ?', current_user.team).order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
+                  <br>
+            <% elsif current_user.level >= 3 %>
+                  <%= f.collection_select(:owner, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-owner"}) %>
+                  <br>
+            <% else %>
+            <% end %>
       <% end %>
 
       <%= f.text_field  :owner, class: 'form-control', :disabled => true, :id => "owner_dummy" %>
@@ -126,7 +135,14 @@
         
       <br/>
       <% if yield(:show_flag) == "" %>
-            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% if @actions.owner == "#{current_user.first_name} #{current_user.last_name}" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% elsif current_user.team == "SHEQ" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% elsif current_user.level >= 2 %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% else %>
+            <% end %>
       <% else %>
             <%= link_to "Action Options", options_actions_path, class: "btn btn-primary", method: :get %>
             <% if @actions.accepted_flag == false && @actions.owner == "#{current_user.first_name} #{current_user.last_name}" %>

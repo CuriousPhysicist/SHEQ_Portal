@@ -152,6 +152,12 @@ class EventsController < ApplicationController
         Event.import(params[:file])
         redirect_to events_path
     end
+    
+    # other routes
+    
+    def options
+        gon.lastevent = Event.last
+    end
 
     # Private actions below (including strong parameters white-list)
     

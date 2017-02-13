@@ -10,7 +10,15 @@ jQuery ->
 	        
 	        eventnumber = $(this).val()
 	        console.log(eventnumber)
-	        url1 = $('#update-button').attr("href", "/events/#{eventnumber}/edit")
-	        console.log(url1)
-	        url4 = $('#remove-button').attr("href", "/events/#{eventnumber}")
-	        console.log(url4)
+	        if eventnumber > gon.lastevent.id
+                $(this).val('')
+                url1 = $('#update-button').attr("href", "/events//edit")
+                console.log(url1)
+                url4 = $('#remove-button').attr("href", "/events/")
+                console.log(url4)
+            else
+                url1 = $('#update-button').attr("href", "/events/#{eventnumber}/edit")
+                console.log(url1)
+                url4 = $('#remove-button').attr("href", "/events/#{eventnumber}")
+                console.log(url4)
+                

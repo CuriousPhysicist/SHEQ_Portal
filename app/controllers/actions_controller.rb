@@ -38,7 +38,14 @@ class ActionsController < ApplicationController
     def edit
         @actions = Action.find(params[:id])
         @user = current_user
-        gon.users = User.all
+        if current_user.team == "SHEQ"
+            gon.users = User.all
+        elsif current_user.level == 2
+            gon.users = User.where('team = ?', current_user.team)
+        elsif current_user.level >= 3
+            gon.users = User.all
+        else
+        end
     end
     
     def show
@@ -88,6 +95,7 @@ class ActionsController < ApplicationController
     #additional routes
     
     def options
+        gon.lastaction = Action.last
     end
     
     def all

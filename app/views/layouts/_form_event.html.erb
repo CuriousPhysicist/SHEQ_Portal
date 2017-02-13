@@ -134,7 +134,14 @@
         
       <br/>
       <% if yield(:show_flag) == "" %>
-            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% if @events.user_id == current_user.id %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% elsif current_user.team == "SHEQ" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% elsif current_user.level >= 3 %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% else %>
+            <% end %>
       <% else %>
             <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
       <% end %>
