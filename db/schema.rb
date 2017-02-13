@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20170212223249) do
     t.boolean  "environmental_flag"
     t.boolean  "security_flag"
     t.boolean  "quality_flag"
-    t.boolean  "closed_flag",        default: false
+    t.boolean  "closed_flag"
     t.integer  "user_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "report_form"
     t.string   "guest_name"
     t.index ["user_id"], name: "index_events_on_user_id"

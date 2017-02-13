@@ -41,7 +41,7 @@ User.create!(first_name:  "Bob",
       )
  end
 
-30.times do |i| 
+10.times do |i| 
       rnd1 = rand(1..12)
       rnd2 = rand(1..12)
       rnd3 = rand(0..2)
@@ -68,7 +68,7 @@ User.create!(first_name:  "Bob",
             )
  end
  
- 30.times do |i| 
+ 10.times do |i| 
       rnd1 = rand(1..12)
       rnd2 = rand(0..1)
       

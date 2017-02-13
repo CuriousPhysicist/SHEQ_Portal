@@ -31,7 +31,19 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Print deprecation notices to the Rails logger.
+  # SMTP settings
+
+  config.action_mailer.delivery_method = :sendmail
+
+  #config.action_mailer.smtp_settings = {
+   # :address => "nix-svr.inutec.local",
+    #:port => 25,
+   # :domain => "sheq.inutec.local"
+  #}
+
+ 
+
+ # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.

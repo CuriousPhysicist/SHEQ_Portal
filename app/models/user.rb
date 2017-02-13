@@ -34,7 +34,7 @@ class User < ApplicationRecord
     (2..spreadsheet.last_row).each do |i|
     	row = Hash[[header, spreadsheet.row(i)].transpose]
     	user = find_by_id(row["id"])||new
-    	user.attributes = row.to_hash.slice(*['first_name', 'last_name', 'email', 'password', 'password_confirmation', 'team', 'role', 'approval_type'])
+    	user.attributes = row.to_hash.slice(*['first_name', 'last_name', 'email', 'password', 'password_confirmation', 'team', 'role', 'level', 'approval_type'])
     	user.save!
     end
   end
