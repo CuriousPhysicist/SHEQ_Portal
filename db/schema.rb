@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20170214125143) do
     t.datetime "updated_at",                         null: false
     t.string   "report_form"
     t.string   "guest_name"
-    t.boolean  "acknowledged_flag",  default: false
-    t.boolean  "close_request_flag", default: false
+    t.boolean  "acknowledged_flag"
+    t.boolean  "close_request_flag"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170214125143) do
     t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
-    t.boolean  "active_flag",     default: false
+    t.boolean  "active_flag"
     t.text     "comment"
   end
 

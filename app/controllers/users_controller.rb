@@ -6,12 +6,12 @@ class UsersController < ApplicationController
     # Standard RESTful actions
     
     def index
-        if current_user.level == 1
-            @users = User.where('id = ?', current_user.id)
+        if current_user.team == "SHEQ" || current_user.try(:admin)
+            @users = User.all
         elsif current_user.level == 2
             @users = User.where('active_flag = ?', true).where('team = ?', current_user.team)
-        else
-            @users = User.all
+        elsif current_user.level == 1
+            @users = User.where('id = ?', current_user.id)
         end
         
         gon.user_number = User.all.count
