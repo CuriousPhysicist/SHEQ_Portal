@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
     def dashboard_actions
       @actions = Action.where('closed_flag = ?', false)
+      @users = User.all
       
       @over = @actions.where('date_target < ?', Time.now).count
       @due = @actions.where('date_target >= ?', Time.now).count
@@ -15,10 +16,32 @@ class SessionsController < ApplicationController
       @typeB_num = @actions.where('type_ABC = ?', "B").count
       @typeC_num = @actions.where('type_ABC = ?', "C").count
       
-      @series1 = @actions.where('date_target >= ?', Time.now).group(:owner).count
-      @series2 = @actions.where('date_target < ?', Time.now).group(:owner).count
-      @series3 = @actions.where('date_target >= ?', Time.now).group(:type_ABC).count
-      @series4 = @actions.where('date_target < ?', Time.now).group(:type_ABC).count
+      # data series for the pie-chart
+
+      @series1 = @actions.where('date_target >= ?', Time.now).group(:type_ABC).count
+      @series2 = @actions.where('date_target < ?', Time.now).group(:type_ABC).count
+
+      # data series for the stacked column
+      # If statement allows for filtering by team, available to line managers and above...
+
+
+      @series3 = @actions.where('date_target >= ?', Time.now).group(:owner).count
+      @series4 = @actions.where('date_target < ?', Time.now).group(:owner).count
+
+      action_ids = []
+        k = 0
+        team_count = User.where('team = ?', "SHEQ").count
+        team_hash = User.where('team = ?', "SHEQ")
+        (0..team_count-1).each do |i|
+            team_member_actions_arr = @actions.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+            (0..team_member_actions_arr.length-1).each do |j|
+                action_ids[k] = team_member_actions_arr[j][0]
+                k += 1
+            end
+            
+        end
+        
+        gon.SHEQ_team_actions = @actions.where('id IN(?)', action_ids)
       
     end
     

@@ -138,6 +138,7 @@ class ActionsController < ApplicationController
     def accepted
       @action = Action.find(params[:format])
       @action.update(:accepted_flag => true)
+      flash[:info] = "Action Accepted"
       ## email SHEQ and line management to indicate action has been updated
       UserMailer.accepted_action_email(current_user, @action).deliver
       redirect_to actions_path

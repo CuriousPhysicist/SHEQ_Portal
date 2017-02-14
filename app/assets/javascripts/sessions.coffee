@@ -12,3 +12,11 @@ jQuery ->
             console.log(newdata_val)
             url1 = $('#data-button').attr("href", "/#{newdata_val}/upload")
             console.log(url1)
+
+        $('#dashboard-team').change ->
+            
+            newteam = $('#dashboard-team :selected').val()
+            console.log(newteam)
+            if newteam = "SHEQ"
+            	getchart = $('action-owner-chart').attr("style", "display: none")
+            	console.log(getchart)
