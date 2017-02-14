@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         if @user.save
             flash[:success] = "User successfully created"
             ## send email to SHEQ group to review user information and rights
-            ## new_user_email(user)
+            ## UserMailer.new_user_email(@user).deliver
             redirect_to actions_path(session[:user_id])
         else
             flash[:warning] = "User failed to save."
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             flash[:success] = "User successfully updated"
             ## send email to user, SHEQ and line manager confirming change to user information
-            ## change_user_email(user)
+            ## UserMailer.change_user_email(@user).deliver
             redirect_to @user
         else
             flash[:warning] = "User failed to update"
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :team, :role, :level, :approval_type)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :team, :role, :level, :approval_type, :active_flag, :comment)
     end
     
 end

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %> <%= @user.last_name %>'s profile has been updated.</h1>
+    <p>
+      Follow this link to review the profile information, <%= link_to "Click Here", @url %>.
+    </p>
+  </body>
+</html>

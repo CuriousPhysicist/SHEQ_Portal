@@ -83,10 +83,14 @@ class UserMailer < ApplicationMailer
 	end
 
 	def change_event_email(user, event)
+		
+		yr = Date.parse(event.date_time_created.to_s).year
+		
+		@user = user
+	    @event = event
+	    @url = "#{@@host_root}/events/#{event.id}"
+	    mail(to: owner.try(:email), subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Updated")
 	end
-
-	#def remove_event_email(user, event)
-	#end
 
 	def guest_event_email(event)
 		@event = event
@@ -97,9 +101,15 @@ class UserMailer < ApplicationMailer
 	# User controller emails...
 
 	def new_user_email(user)
+		@user = user
+	    @url = "#{@@host_root}/users/#{user.id}"
+	    mail(to: user.try(:email), subject: "New user signed-up.")
 	end
 
 	def change_user_email(user)
+		@user = user
+	    @url = "#{@@host_root}/users/#{user.id}"
+	    mail(to: user.try(:email), subject: "User details updated.")
 	end
 
 end

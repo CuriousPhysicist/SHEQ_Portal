@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>ATTENTION, <%= @user.first_name %> <%= @user.last_name %> has signed up to the SHEQ Portal.</h1>
+    <p>
+      Please follow this link to review the user information and assign appropriate rights, <%= link_to "Click Here", @url %>. 
+    </p>
+    <p>
+      Once the information has been reviewed, activate the user account. 
+    </p>
+  </body>
+</html>
