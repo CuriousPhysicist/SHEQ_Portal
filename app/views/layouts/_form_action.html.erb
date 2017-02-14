@@ -134,7 +134,9 @@
       <%= f.check_box :closed_flag, disabled: :true %>
         
       <br/>
-      <% if yield(:show_flag) == "" %>
+       <% if yield(:new_flag) == "true" %>
+            <%= f.submit yield(:button_text), class: "btn btn-primary", :style =>"display: none", :id => "submit-action-button" %>
+      <% elsif yield(:show_flag) == "" %>
             <% if @actions.owner == "#{current_user.first_name} #{current_user.last_name}" %>
                   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% elsif current_user.team == "SHEQ" %>

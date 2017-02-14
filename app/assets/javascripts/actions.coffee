@@ -5,7 +5,33 @@
 jQuery ->
 
     $(this).on "turbolinks:load", ->
-    
+        
+        $('#actions_description').keyup ->
+            
+	        description = $('#actions_description').val()
+	        console.log(description)
+	        owner = $('#actions_owner').val()
+	        console.log(owner)
+	        date = $('#actions_date_target').val()
+	        console.log(date)
+	        if description != "" && owner != "" && date != ""
+	            $('#submit-action-button').attr("style", "")
+	        else
+	            $('#submit-action-button').attr("style", "display: none")
+	   
+	    $('#actions_date_target').change ->
+            
+	        description = $('#actions_description').val()
+	        console.log(description)
+	        owner = $('#actions_owner').val()
+	        console.log(owner)
+	        date = $('#actions_date_target').val()
+	        console.log(date)
+	        if description != "" && owner != "" && date != ""
+	            $('#submit-action-button').attr("style", "")
+	        else
+	            $('#submit-action-button').attr("style", "display: none")
+	   
         $('#choose-owner').change ->
             
             newowner_val = $('#choose-owner :selected').val()
@@ -20,6 +46,8 @@ jQuery ->
             console.log(target_dummy)
             target = $('#actions_owner').attr("value", newowner_name)
             console.log(target)
+            # check if action can be submitted
+            
         
         $('#choose-source').change ->
             
