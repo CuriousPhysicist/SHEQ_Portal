@@ -5,15 +5,30 @@
 jQuery ->
 
 	$(this).on "turbolinks:load", ->
+		
+		$('#events_guest_name').keyup ->
+	       
+	       guestname = ""
+	       whathappend = ""
+	       immediateactions = ""
+	       
+	       guestname = $('#events_guest_name').val()
+	       immediateactions = $('#events_immediate_actions').val()
+	       whathappend = $('#events_what_happened').val()
+	       if whathappend != "" && immediateactions != "" && guestname != ""
+	           $('#submit-button').attr("style", "")
+	       else
+	           $('#submit-button').attr("style", "display: none")
 	    
 	   $('#events_what_happened').keyup ->
 	       
 	       whathappend = ""
 	       immediateactions = ""
 	       
+	       guestname = $('#events_guest_name').val()
 	       immediateactions = $('#events_immediate_actions').val()
 	       whathappend = $('#events_what_happened').val()
-	       if whathappend != "" && immediateactions != ""
+	       if whathappend != "" && immediateactions != "" && guestname != ""
 	           $('#submit-button').attr("style", "")
 	       else
 	           $('#submit-button').attr("style", "display: none")
@@ -23,9 +38,10 @@ jQuery ->
 	       whathappend = ""
 	       immediateactions = ""
 	        
-	       whathappend = $('#events_what_happened').val()
+	       guestname = $('#events_guest_name').val()
 	       immediateactions = $('#events_immediate_actions').val()
-	       if immediateactions != "" && whathappend != ""
+	       whathappend = $('#events_what_happened').val()
+	       if immediateactions != "" && whathappend != "" && guestname != ""
 	           $('#submit-button').attr("style", "")
 	       else
 	           $('#submit-button').attr("style", "display: none")

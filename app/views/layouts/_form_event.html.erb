@@ -135,6 +135,8 @@
       <br/>
       <% if yield(:new_flag) == "true" %>
             <%= f.submit yield(:button_text), class: "btn btn-primary", :style =>"display: none", :id => "submit-button" %>
+      <% elsif yield(:guest_flag) == "true" %>
+            <%= f.submit yield(:button_text), class: "btn btn-primary", :style =>"display: none", :id => "submit-button" %>
       <% elsif yield(:show_flag) == "" %>
             <% if @events.user_id == current_user.id %>
                   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
