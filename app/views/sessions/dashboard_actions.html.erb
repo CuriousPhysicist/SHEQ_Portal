@@ -48,6 +48,7 @@
             <%= select_tag(:team, "<option>SHEQ</option><option>Operations</option><option>Analytical</option><option>Maintenance</option><option>Projects</option><option>Engineering</option><option>Management</option>".html_safe, prompt: "All", :id => "dashboard-team") %>
             <br/>
             <br/>
+            <%= hidden_field_tag(:newteam, "") %>
         <% end %>
     <% end %>
 

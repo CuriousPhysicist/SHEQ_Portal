@@ -2,16 +2,7 @@
 <% provide(:path, actions_path) %>
 <% provide(:method_text, :post) %>
 <% provide(:show_flag, "") %>
-
-<% if !@actions.errors.empty? %>
-  <div class="messages alert alert-error">
-    <ul>
-      <% @actions.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<% provide(:new_flag, "true") %>
 
 <% # Main body of the view %>
 

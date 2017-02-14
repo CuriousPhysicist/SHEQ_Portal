@@ -18,12 +18,12 @@
         <tr>
           <% if @actions.extend_request_flag == false %>
             <td>
-              <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Request Action Extension", actions_extendplease_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             </td>
           <% end %>
           <% if @actions.close_request_flag == false %>
             <td>
-              <%= link_to "Request Action Close-out", closeplease_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Request Action Close-out", actions_closeplease_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             </td>
           <% end %>
         </tr>
@@ -36,18 +36,18 @@
         <tr>
           <td>
             <% if @actions.extend_request_flag == false %>
-              <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you entered new target date?' } %><br/><br/>
+              <%= link_to "Request Action Extension", extendplease_actions_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you entered new target date?' } %><br/><br/>
             <% else %>
               <%= link_to "Reject Extension Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
-              <%= link_to "Extend Action", extend_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Extend Action", extend_actions_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             <% end %>
           </td>
           <td>
           <% if @actions.close_request_flag == false %>
-              <%= link_to "Request Action Close-out", closeplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you completed the close-out information?' } %><br/><br/>
+              <%= link_to "Request Action Close-out", closeplease_actions_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you completed the close-out information?' } %><br/><br/>
             <% else %>
               <%= link_to "Reject Close Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
-              <%= link_to "Close Action", close_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Close Action", close_actions_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             <% end %>
           </td>
         </tr>
@@ -58,18 +58,18 @@
         <tr>
           <td>
             <% if @actions.extend_request_flag == false %>
-              <%= link_to "Request Action Extension", extendplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you entered new target date?' } %><br/><br/>
+              <%= link_to "Request Action Extension", extendplease_actions_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you entered new target date?' } %><br/><br/>
             <% else %>
               <%= link_to "Reject Extension Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
-              <%= link_to "Extend Action", extend_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Extend Action", extend_actions_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             <% end %>
           </td>
           <td>
           <% if @actions.close_request_flag == false %>
-              <%= link_to "Request Action Close-out", closeplease_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you completed the close-out information?' } %><br/><br/>
+              <%= link_to "Request Action Close-out", closeplease_actions_path(@actions.id), method: :patch, class:"btn btn-primary", data: { confirm: 'Have you completed the close-out information?' } %><br/><br/>
             <% else %>
               <%= link_to "Reject Close Request", reject_path(@actions.id), class:"btn btn-primary" %><br/><br/>
-              <%= link_to "Close Action", close_path(@actions.id), method: :patch, class:"btn btn-primary" %>
+              <%= link_to "Close Action", close_actions_path(@actions.id), method: :patch, class:"btn btn-primary" %>
             <% end %>
           </td>
         </tr>

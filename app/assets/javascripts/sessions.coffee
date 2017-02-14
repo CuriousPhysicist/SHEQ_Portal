@@ -17,6 +17,6 @@ jQuery ->
             
             newteam = $('#dashboard-team :selected').val()
             console.log(newteam)
-            if newteam = "SHEQ"
-            	getchart = $('action-owner-chart').attr("style", "display: none")
-            	console.log(getchart)
+            $('#newteam').attr("value", "#{newteam}")
+            console.log(update_val)
+            

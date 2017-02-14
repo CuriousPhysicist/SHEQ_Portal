@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212223249) do
+ActiveRecord::Schema.define(version: 20170214095149) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170212223249) do
     t.datetime "updated_at",                         null: false
     t.string   "report_form"
     t.string   "guest_name"
+    t.boolean  "acknowledged_flag",  default: false
+    t.boolean  "close_request_flag", default: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

@@ -6,14 +6,12 @@
     <li>Last Name: <%= current_user.last_name %></li>
     <li><hr></li>
     <li>Email: <%= current_user.email %></li>
-    <li><hr></li>
+    <li><br/></li>
     <li>Team: <%= current_user.team %></li>
 </ul>
-
+<hr>
 <div id="sidebar-buttons">
     <%= link_to "Dashboard", dashboard_actions_path %>
-    <%= link_to "Actions", actions_path, class: "btn btn-secondary" %>
-    <%= link_to "UNORs", events_path, class: "btn btn-secondary" %>
     <% if current_user.level == 1 %>
         <%= link_to "Profile", users_path, class: "btn btn-secondary" %>
     <% elsif current_user.level == 2 %>
@@ -21,8 +19,16 @@
     <% else %>
         <%= link_to "Users", users_path, class: "btn btn-secondary" %>
     <% end %>
+    <br/><hr>
+    <%= link_to "Actions", actions_path, class: "btn btn-secondary" %>
+    <%= link_to "UNORs", events_path, class: "btn btn-secondary" %>
+    <br/>
     <% if current_user.approval_type != "" %>
         <%= link_to "Action Tasks", tasks_actions_path, class: "btn btn-secondary" %>
+    <% else %>
+    <% end %>
+    <% if current_user.team == "SHEQ" %>
+        <%= link_to "UNOR Tasks", tasks_events_path, class: "btn btn-secondary" %>
     <% else %>
     <% end %>
 </div>

@@ -3,55 +3,56 @@ class UserMailer < ApplicationMailer
 	# The mailer is structured like the controller. 
 	# The mailer creates messages based on html.erb and text.erb views.
 
-	default from: 'SHEQ_Portal@tradebe.com' #to: User.new { Admin.pluck(:email) }
+	default from: 'SHEQ_NoReply@tradebe.com' #to: User.new { Admin.pluck(:email) }
+	@@host_root = "sheq.inutec.localhost:3000"
 
 	# Action controller emails...
 
 	def new_action_email(user, action)
 	    @user = user
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: user.try(:email), subject: 'You have recieved a new action')
 	end
 
 	def accepted_action_email(user, action)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Accepted")
 	end
 
 	def change_action_email(user, action, owner)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Updated")
 	end
 
 	def close_request_action_email(user, action)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Close-out Request")
 	end
 
 	def close_action_email(user, action, owner)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Close-out Approved")
 	end
 
 	def extend_request_action_email(user, action)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Extension Request")
 	end
 
 	def extend_action_email(user, action, owner)
 		@user = user
 	    @action = action
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Extension Approved")
 	end
 
@@ -59,7 +60,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @owner = owner
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Close-out Request Rejected")
 	end
 
@@ -67,13 +68,18 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @owner = owner
-	    @url = "/actions/#{action.id}"
+	    @url = "#{@@host_root}/actions/#{action.id}"
 	    mail(to: owner.try(:email), subject: "Action #{action.id} - Extension Request Rejected")
 	end
 
 	# Event controller emails...
+	
+	@@yr = Date.parse(Time.now.to_s).year
 
 	def new_event_email(user, event)
+		@user = user
+	    @url = "#{@@host_root}/events/#{event.id}"
+	    mail(to: user.try(:email), subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
 	end
 
 	def change_event_email(user, event)
@@ -82,7 +88,10 @@ class UserMailer < ApplicationMailer
 	#def remove_event_email(user, event)
 	#end
 
-	def guest_event_email(user, event)
+	def guest_event_email(event)
+		@event = event
+	    @url = "#{@@host_root}/events/#{event.id}"
+	    mail(to: user.try(:email), subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
 	end
 
 	# User controller emails...

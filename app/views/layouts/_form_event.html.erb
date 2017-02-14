@@ -133,7 +133,9 @@
       <%= f.check_box :closed_flag, disabled: :true %>
         
       <br/>
-      <% if yield(:show_flag) == "" %>
+      <% if yield(:new_flag) == "true" %>
+            <%= f.submit yield(:button_text), class: "btn btn-primary", :style =>"display: none", :id => "submit-button" %>
+      <% elsif yield(:show_flag) == "" %>
             <% if @events.user_id == current_user.id %>
                   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% elsif current_user.team == "SHEQ" %>
@@ -144,6 +146,9 @@
             <% end %>
       <% else %>
             <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
+            <% if @events.acknowledged_flag == false && current_user.team == "SHEQ" %>
+                  <%= link_to "Acknowledge UNOR", acknowledged_path(@events.id), class: "btn btn-primary", method: :patch %>
+            <% end %>
       <% end %>
 
 <% end %>

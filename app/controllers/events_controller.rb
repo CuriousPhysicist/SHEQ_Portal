@@ -33,6 +33,19 @@ class EventsController < ApplicationController
     
     def edit
         @events = Event.find(params[:id])
+        
+        event_actions = Action.where('event_id = ?', @events.id)
+        
+        @all_events_closed_flag = true
+        
+        event_actions.each do |event|
+            if event.closed_flag == true
+                @all_events_closed_flag = true
+            else
+                @all_events_closed_flag = false
+            end
+        end
+        
     end
     
     def show
@@ -46,7 +59,7 @@ class EventsController < ApplicationController
             flash[:success] = "Report successfully submitted"
             ## send email to line management and SHEQ cc: user raising the report
             ## cc: Senior managers for Type B and Site Manager for Type A
-            ## new_event_email(user, event)
+            UserMailer.new_event_email(current_user, @event).deliver
             redirect_to events_path
         else
             flash[:danger] = "Report failed to submit"
@@ -85,7 +98,7 @@ class EventsController < ApplicationController
         if @event.save!
             flash[:success] = "Report successfully submitted"
             ## email SHEQ to review report and assign owner if possible, apply cc routes based on event Type
-            ## guest_event_email(user, event)
+            UserMailer.guest_event_email(@event)
             redirect_to root_path
         else
             flash[:warning] = "Report failed to submit"
@@ -158,6 +171,46 @@ class EventsController < ApplicationController
     def options
         gon.lastevent = Event.last
     end
+    
+    def tasks
+        @events_for_acknlodgement = Event.where('acknowledged_flag = ?', false)
+        @events_for_closeout = Event.where('closed_flag = ?', false)
+    end
+    
+    def acknowledged
+      @event = Event.find(params[:format])
+      @event.update(:acknowledged_flag => true)
+      flash[:info] = "UNOR Acknowledged"
+      ## email event owner and line management to indicate event has been acknowledged
+      ## UserMailer.acknowledged_event_email(current_user, @event).deliver
+      redirect_to events_path
+    end
+    
+    def closeplease
+       @event =  Event.find(params[:format])
+
+       if @event.close_request_flag == false
+          @event.update(:close_request_flag => true)
+          flash[:info] = "UNOR closeout requested"
+          ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
+          ##UserMailer.close_request_event_email(current_user, @event).deliver
+          redirect_to event_path(@event.id)
+       end
+    end
+    
+    def close
+      @event =  Event.find(params[:format])
+      @owner = User.where('id = ?', @event.user_id).first
+    
+       if @event.close_request_flag == true
+          @event.update(:close_request_flag => false)
+          @event.update(:closed_flag => true)
+          flash[:success] = "UNOR closed"
+          ## email event owner to confirm closure of the event, cc SHEQ for records
+          ## UserMailer.close_event_email(current_user, @event, @owner).deliver
+          redirect_to event_path(@event.id)
+       end
+    end
 
     # Private actions below (including strong parameters white-list)
     
@@ -167,7 +220,7 @@ class EventsController < ApplicationController
         params.require(:events).permit(:reference_number, :date_raised, :date_closed, :location, :building, :area, 
         									:what_happened, :immediate_actions, :classification, :root_cause, :bc_number, 
         										:injury_flag, :safety_flag, :environmental_flag, :security_flag, :quality_flag, 
-        											:closed_flag, :user_id, :guest_name, :report_form)
+        											:acknowledged_flag, :closed_flag, :user_id, :guest_name, :report_form)
     end
     
 

@@ -143,6 +143,15 @@
                   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% else %>
             <% end %>
+      <% elsif yield(:new_flag) == "true" %>
+            <% if @actions.owner == "#{current_user.first_name} #{current_user.last_name}" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary", :style => "display: none" %>
+            <% elsif current_user.team == "SHEQ" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary", :style => "display: none" %>
+            <% elsif current_user.level >= 2 %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary", :style => "display: none" %>
+            <% else %>
+            <% end %>
       <% else %>
             <%= link_to "Action Options", options_actions_path, class: "btn btn-primary", method: :get %>
             <% if @actions.accepted_flag == false && @actions.owner == "#{current_user.first_name} #{current_user.last_name}" %>

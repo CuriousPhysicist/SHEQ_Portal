@@ -5,6 +5,30 @@
 jQuery ->
 
 	$(this).on "turbolinks:load", ->
+	    
+	   $('#events_what_happened').keyup ->
+	       
+	       whathappend = ""
+	       immediateactions = ""
+	       
+	       immediateactions = $('#events_immediate_actions').val()
+	       whathappend = $('#events_what_happened').val()
+	       if whathappend != "" && immediateactions != ""
+	           $('#submit-button').attr("style", "")
+	       else
+	           $('#submit-button').attr("style", "display: none")
+	            
+	   $('#events_immediate_actions').keyup ->
+	       
+	       whathappend = ""
+	       immediateactions = ""
+	        
+	       whathappend = $('#events_what_happened').val()
+	       immediateactions = $('#events_immediate_actions').val()
+	       if immediateactions != "" && whathappend != ""
+	           $('#submit-button').attr("style", "")
+	       else
+	           $('#submit-button').attr("style", "display: none")
 
 	    $('#event-number').keyup ->
 	        
@@ -22,3 +46,4 @@ jQuery ->
                 url4 = $('#remove-button').attr("href", "/events/#{eventnumber}")
                 console.log(url4)
                 
+        

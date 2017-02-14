@@ -43,16 +43,17 @@ Rails.application.routes.draw do
     collection { get :owned}
     collection { get :created}
     collection { get :tasks}
+    collection { patch :extendplease}
+    collection { patch :extend}
+    collection { patch :closeplease}
+    collection { patch :close}
   end
   
   # Business logic routes for actions - these actions set or reset Boolean flags
   
-  patch '/closeplease', to: 'actions#closeplease'
-  patch '/close', to: 'actions#close'
+  
   get '/reject', to: 'actions#reject'
   post '/reject', to: 'actions#reject_submitted'
-  patch '/extendplease', to: 'actions#extendplease'
-  patch '/extend', to: 'actions#extend'
   patch '/accepted', to: 'actions#accepted'
   
   # Event routes
@@ -65,7 +66,12 @@ Rails.application.routes.draw do
     collection { get :raised}
     collection { get :all}
     collection { get :team}
+    collection { get :tasks}
+    collection { patch :closeplease}
+    collection { patch :close}
   end
+  
+  patch '/acknowledged', to: 'events#acknowledged'
 
   get '/guest', to: 'events#guest'
   post '/guest', to: 'events#create_guest'

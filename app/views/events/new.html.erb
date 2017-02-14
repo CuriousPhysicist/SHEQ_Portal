@@ -2,18 +2,7 @@
 <% provide(:path, events_path) %>
 <% provide(:show_flag, "" ) %>
 <% provide(:method_text, :post) %>
-
-<% # The messages <div> below is shown only if there are errors in the form submission %>
-
-<% if !@events.errors.empty? %>
-  <div class="messages alert alert-error">
-    <ul>
-      <% @events.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<% provide(:new_flag, "true") %>
 
 <% # Main body of the view %>
 
