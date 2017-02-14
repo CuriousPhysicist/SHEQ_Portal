@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     collection { get :upload }
   end
   
+  get '/activate', to: 'users#activate'
+  get '/deactivation', to: 'users#comment'
+  post '/deactivation', to: 'users#comment_submitted'
+  
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   

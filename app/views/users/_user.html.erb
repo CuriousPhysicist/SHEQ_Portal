@@ -9,6 +9,17 @@
     <% elsif current_user.level >= 3 %>
         <%= link_to "Edit", edit_user_path(user.id) %>
     <% end %>
+    <% if current_user.team == "SHEQ" && user.id != current_user.id %>
+        <% if user.active_flag == true %>
+            |
+            <%= link_to "Deacivate", deactivation_path(user.id), method: :get,
+                                      data: { confirm: "You sure?" } %>
+        <% else %>
+            |
+            <%= link_to "Acivate", activate_path(user.id), method: :get,
+                                      data: { confirm: "You sure?" } %>
+        <% end %>
+    <% end %>
     <% if current_user.try(:admin) && user.id != current_user.id %>
         |
         <%= link_to "Remove", user_path(user.id), method: :delete,

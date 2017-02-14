@@ -111,5 +111,17 @@ class UserMailer < ApplicationMailer
 	    @url = "#{@@host_root}/users/#{user.id}"
 	    mail(to: user.try(:email), subject: "User details updated.")
 	end
+	
+	def activated_user_email(user)
+		@user = user
+	    @url = "#{@@host_root}/users/#{user.id}"
+	    mail(to: user.try(:email), subject: "User profile activated.")
+	end
+	
+	def deactivated_user_email(user)
+		@user = user
+	    @url = "#{@@host_root}/users/#{user.id}"
+	    mail(to: user.try(:email), subject: "User profile deactivated.")
+	end
 
 end

@@ -202,7 +202,6 @@ class ActionsController < ApplicationController
     
     def reject
        @actions = Action.find(params[:format])
-
     end
     
     def reject_submitted 

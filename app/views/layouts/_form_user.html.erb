@@ -84,7 +84,11 @@
             <%= f.text_field :approval_type, class: 'form-control', placeholder: @user.approval_type, disabled: true %>
       <% end %>
       
+      <%= f.label :active_flag, "User active:" %>
+      <%= f.check_box :active_flag, disabled: :true %>
+        
       <br/>
+      
       <% if yield(:show_flag) == "" %>
             <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <br/><br/>

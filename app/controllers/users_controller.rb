@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         if current_user.level == 1
             @users = User.where('id = ?', current_user.id)
         elsif current_user.level == 2
-            @users = User.where('team = ?', current_user.team)
+            @users = User.where('active_flag = ?', true).where('team = ?', current_user.team)
         else
             @users = User.all
         end
@@ -70,10 +70,41 @@ class UsersController < ApplicationController
         flash[:info] = "User deleted"
         redirect_to users_path
     end
+    
+    # methods for importing data
 
     def import
         User.import(params[:file])
         redirect_to users_path
+    end
+    
+    # other routes and methods
+    
+    def activate
+        @user = User.find(params[:format])
+        @user.update(:active_flag => true)
+        flash[:info] = "User Activated"
+        ## email user and line management to indicate the profile has been activated
+        UserMailer.activated_user_email(@user).deliver
+        redirect_to users_path
+    end
+    
+    def comment
+        @users = User.find(params[:format])
+    end
+    
+    def comment_submitted
+        @user =  User.find(params[:id])
+
+        update_text = @user.comment.to_s + " | #{current_user.first_name} #{current_user.last_name} | " + params[:comment] # can this be implemented using action_params? would this be more secure?
+        @user.update(:comment => update_text)
+        @user.update(:active_flag => false)
+        flash[:info] = "User account deactivated"
+        ## email user and line management to indicate the profile has been deactivated
+        UserMailer.deactivated_user_email(@user).deliver
+ 
+        redirect_to user_path(@user.id)
+        
     end
 
     # Private actions including strong parameters

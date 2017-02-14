@@ -7,6 +7,7 @@ User.create!(first_name:  "Andrew",
              role: "Senior Manager",
              approval_type: "All Types",
              level: 3,
+             active_flag: true,
              admin: true
              )
               
@@ -17,7 +18,8 @@ User.create!(first_name:  "Bob",
              password_confirmation: "Password",
              team: "Engineering",
              role: "Senior Manager",
-             level: 3
+             level: 3,
+             active_flag: true
              )
 
 10.times do |i|
@@ -35,6 +37,7 @@ User.create!(first_name:  "Bob",
             email: "example#{i}@email.com",
             password:              "Password",
             password_confirmation: "Password",
+            active_flag: true,
             team: teams[rnd1],
             role: roles[level_num-1],
             level: level_num
