@@ -6,6 +6,18 @@ class UserMailer < ApplicationMailer
 	default from: 'SHEQ_NoReply@tradebe.com' #to: User.new { Admin.pluck(:email) }
 	@@host_root = "http://sheq.inutec.local:3000"
 
+	# methods for collecting user groups
+
+	def email_team(team)
+	    @@receiver_group = User.where('team = ?', team)
+	    i = 0
+	    @@receiver_group.each do |recipient|
+		@@recipients_arr[i] = recipient.try(:email)
+		i += 1
+	    end
+	debugger
+	end
+
 	# Action controller emails...
 
 	def new_action_email(user, action)
@@ -32,6 +44,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
+	    email_team("SHEQ")
 	    mail(to: user.try(:email), subject: "Action #{action.id} - Close-out Request")
 	end
 
