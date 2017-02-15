@@ -55,7 +55,7 @@ class ActionsController < ApplicationController
     def create
         @action = Action.new(action_params)
         ownername = @action.owner.split(" ")
-        @owner = User.where('last_name = ?', ownername[1]).first
+        @owner = User.where('last_name = ?', ownername[1]).where('first_name = ?', ownername[0]).first
 
         if @action.save!
             flash[:success] = "Action successfully created"

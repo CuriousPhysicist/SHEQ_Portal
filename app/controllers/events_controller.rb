@@ -189,7 +189,7 @@ class EventsController < ApplicationController
       @event.update(:acknowledged_flag => true)
       flash[:info] = "UNOR Acknowledged"
       ## email event owner and line management to indicate event has been acknowledged
-      UserMailer.acknowledged_event_email(raised_by, @event).deliver
+      UserMailer.acknowledged_event_email(current_user, @event, raised_by).deliver
       redirect_to events_path
     end
     
