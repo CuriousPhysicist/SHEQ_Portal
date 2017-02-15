@@ -160,11 +160,15 @@ class ActionsController < ApplicationController
       @action =  Action.find(params[:format])
       ownername = @action.owner.split(" ")
       @owner = User.where('last_name = ?', ownername[1]).first
-    
+      #debugger
        if @action.close_request_flag == true
+           #debugger
           @action.update(:close_request_flag => false)
+          #debugger
           @action.update(:closed_flag => true)
+          #debugger
           flash[:success] = "Action closed"
+            #debugger
           ## email action owner to confirm closure of the action, cc SHEQ for records
           UserMailer.close_action_email(current_user, @action, @owner).deliver
           redirect_to action_path(@action.id)

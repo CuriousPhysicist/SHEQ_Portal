@@ -2,16 +2,12 @@ class UserMailer < ApplicationMailer
 
 	# The mailer is structured like the controller. 
 	# The mailer creates messages based on html.erb and text.erb views.
-
-	email_SHEQ
-	default from: 'SHEQ_NoReply@tradebe.com' #to: User.new { Admin.pluck(:email) }
-	default bcc: @@SHEQ_arr
 	
 	@@host_root = "http://sheq.inutec.local:3000"
 
 	# methods for collecting user groups and other cc: options
 
-	def email_SHEQ
+	def email_SHEQ()()
 	    receiver_group = User.where('team = ?', 'SHEQ')
 	    @@SHEQ_arr = []
 	    i = 0
@@ -21,7 +17,7 @@ class UserMailer < ApplicationMailer
 	    end
 	end
 	
-	def email_SeniorManagement
+	def email_SeniorManagement()
 	    receiver_group = User.where('role = ?', 'Senior Manager')
 	    @@SeniorManagement_arr = []
 	    i = 0
@@ -31,7 +27,7 @@ class UserMailer < ApplicationMailer
 	    end
 	end
 	
-	def email_SiteManager
+	def email_SiteManager()
 	    receiver_group = User.where('role = ?', 'Site Manager')
 	    @@SiteManagement_arr = []
 	    i = 0
@@ -61,12 +57,13 @@ class UserMailer < ApplicationMailer
 	    end
 	end
 
+
 	# Action controller emails...
 
 	def new_action_email(owner, action)
 	    @user = owner
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: @@line_management_arr,  subject: 'You have recieved a new action')
 	end
@@ -75,16 +72,16 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(user)
-	    mail(to: user.try(:email), cc: @@line_management_arr, subject: "Action #{action.id} - Accepted")
+	    mail(to: @@line_management_arr, cc: user.try(:email), subject: "Action #{action.id} - Accepted")
 	end
 
 	def change_action_email(user, action, owner)
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: [user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Updated")
 	end
@@ -93,8 +90,8 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
-	    email_SeniorManagement
+	    email_SHEQ()
+	    email_SeniorManagement()
 	    mail(to: @@SeniorManagement_arr, cc: @@SHEQ_arr, subject: "Action #{action.id} - Close-out Request")
 	end
 
@@ -102,7 +99,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: [ user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Close-out Approved")
 	end
@@ -111,8 +108,8 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
-	    email_SeniorManagement
+	    email_SHEQ()
+	    email_SeniorManagement()
 	    mail(to:  @@SeniorManagement_arr, cc: @@SHEQ_arr, subject: "Action #{action.id} - Extension Request")
 	end
 
@@ -120,7 +117,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 	    @action = action
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: [ user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Extension Approved")
 	end
@@ -130,7 +127,7 @@ class UserMailer < ApplicationMailer
 	    @action = action
 	    @owner = owner
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: [ user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Close-out Request Rejected")
 	end
@@ -140,7 +137,7 @@ class UserMailer < ApplicationMailer
 	    @action = action
 	    @owner = owner
 	    @url = "#{@@host_root}/actions/#{action.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    email_line_manager(owner)
 	    mail(to: owner.try(:email), cc: [ user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Extension Request Rejected")
 	end
@@ -152,8 +149,8 @@ class UserMailer < ApplicationMailer
 	def new_event_email(user, event)
 		@user = user
 	    @url = "#{@@host_root}/events/#{event.id}"
-	    email_SHEQ
-	    email_SeniorManagement
+	    email_SHEQ()
+	    email_SeniorManagement()
 	    mail(to: @@SHEQ_arr, cc: @@SeniorManagement_arr, subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
 	end
 	
@@ -175,7 +172,7 @@ class UserMailer < ApplicationMailer
 	    @event = event
 	    @yr = yr
 	    @url = "#{@@host_root}/events/#{event.id}"
-	    email_SHEQ
+	    email_SHEQ()
 	    mail(to: raised_by.try(:email), cc: @@SHEQ_arr, subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Updated")
 	end
 
@@ -183,8 +180,8 @@ class UserMailer < ApplicationMailer
 		
 		@event = event
 	    @url = "#{@@host_root}/events/#{event.id}"
-	    email_SHEQ
-	    email_SeniorManagement
+	    email_SHEQ()
+	    email_SeniorManagement()
 	    mail(to: @@SHEQ_arr, cc: @@SeniorManagement_arr, subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
 	end
 	
@@ -196,8 +193,8 @@ class UserMailer < ApplicationMailer
 	    @event = event
 	    @yr = yr
 	    @url = "#{@@host_root}/events/#{event.id}"
-	    email_SHEQ
-	    email_SeniorManagement
+	    email_SHEQ()
+	    email_SeniorManagement()
 	    mail(to: @@SeniorManagement_arr, cc: @@SHEQ_arr, subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Close-out Request")
 	end
 	
