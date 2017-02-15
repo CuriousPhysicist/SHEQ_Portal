@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
     
+    include SessionsHelper
+
+    before_action :logged_in_user, only: [:index, :show, :edit]
     before_action :require_user, only: [:index, :show, :edit]
     before_action :require_admin, only: [:destroy]
     
@@ -105,6 +108,16 @@ class UsersController < ApplicationController
  
         redirect_to user_path(@user.id)
         
+    end
+	    
+    # filter methods
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 
     # Private actions including strong parameters

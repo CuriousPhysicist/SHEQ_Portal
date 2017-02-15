@@ -85,7 +85,7 @@ class SessionsController < ApplicationController
        if @user && @user.authenticate(params[:session][:password])
            log_in(@user)
            remember(@user)
-           redirect_to actions_path
+           redirect_back_or actions_path
        else
           flash[:warning] = "Incorrect email or password."
            redirect_to login_path
