@@ -5,10 +5,10 @@
     <% if current_user.team == "SHEQ" %>
         <h3>UNORs to be Acknowledged:</h3>
     
-        <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
+        <%= link_to "UNOR Options", options_events_path, class: "btn btn-primary", method: :get %>
         <br/><br/>
     
-        <% if @events_for_acknlodgement.empty? %>
+        <% if @events_for_acknowledgement.empty? %>
             <p> There are no UNORs awaiting acknowledgement.</p>
         <% else %>
             <table class="actions">
@@ -19,7 +19,7 @@
                     <th>Download Form</th>
                     <th>Associated Actions</th>
                 </tr>
-            <%= render @events_for_acknlodgement  %>
+            <%= render @events_for_acknowledgement  %>
             </table>
         <% end %>
     
@@ -28,7 +28,7 @@
     
     <h3>UNORs for Close-out:</h3>
 
-    <%= link_to "UNOR Options", options_events_path, class:"btn btn-primary", method: :get %>
+    <%= link_to "UNOR Options", options_events_path, class: "btn btn-primary", method: :get %>
     <br/><br/>
 
     <% if @events_for_closeout.empty? %>

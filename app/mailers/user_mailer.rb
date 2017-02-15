@@ -156,7 +156,7 @@ class UserMailer < ApplicationMailer
 	
 	def acknowledged_event_email(user, event, raised_by)
 		
-		yr = Date.parse(event.date_time_created.to_s).year
+		yr = Date.parse(event.date_raised.to_s).year
 		@user = user
 		@yr = yr
 		@event = event
@@ -166,7 +166,7 @@ class UserMailer < ApplicationMailer
 
 	def change_event_email(user, event, raised_by)
 		
-		yr = Date.parse(event.date_time_created.to_s).year
+		yr = Date.parse(event.date_raised.to_s).year
 		
 		@user = user
 	    @event = event
@@ -187,7 +187,7 @@ class UserMailer < ApplicationMailer
 	
 	def close_request_event_email(user, event)
 		
-		yr = Date.parse(event.date_time_created.to_s).year
+		yr = Date.parse(event.date_raised.to_s).year
 		
 		@user = user
 	    @event = event
@@ -200,13 +200,13 @@ class UserMailer < ApplicationMailer
 	
 	def close_event_email(user, event, raised_by)
 		
-		yr = Date.parse(event.date_time_created.to_s).year
+		yr = Date.parse(event.date_raised.to_s).year
 		
 		@user = user
 	    @event = event
 	    @yr = yr
 	    @url = "#{@@host_root}/events/#{event.id}"
-	    mail(to: raised_by.try(:email), cc: email_group("SHEQ"), subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Close-out Approved")
+	    mail(to: raised_by.try(:email), cc: @@SHEQ_arr, subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Close-out Approved")
 	end
 
 	# User controller emails...

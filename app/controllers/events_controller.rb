@@ -70,12 +70,12 @@ class EventsController < ApplicationController
     def update
         @event = Event.find(params[:id])
         
-        raised_by = User.where('id = ?', @events.user_id)
+        raised_by = User.where('id = ?', @event.user_id)
         
         if @event.update(event_params)
             flash[:success] = "Report successfully updated"
             ## email SHEQ and cc event raiser on changes
-            change_event_email(current_user, @events, raised_by).deliver
+            UserMailer.change_event_email(current_user, @event, raised_by).deliver
             redirect_to @event
         else
             flash[:danger] = "Report failed to update"
@@ -177,7 +177,7 @@ class EventsController < ApplicationController
     end
     
     def tasks
-        @events_for_acknlodgement = Event.where('acknowledged_flag = ?', false)
+        @events_for_acknowledgement = Event.where('acknowledged_flag = ?', false)
         @events_for_closeout = Event.where('closed_flag = ?', false)
     end
     
@@ -208,7 +208,7 @@ class EventsController < ApplicationController
     def close
       @event =  Event.find(params[:format])
       raised_by = User.where('id = ?', @event.user_id)
-    
+    debugger
        if @event.close_request_flag == true
           @event.update(:close_request_flag => false)
           @event.update(:closed_flag => true)
@@ -227,7 +227,7 @@ class EventsController < ApplicationController
         params.require(:events).permit(:reference_number, :date_raised, :date_closed, :location, :building, :area, 
         									:what_happened, :immediate_actions, :classification, :root_cause, :bc_number, 
         										:injury_flag, :safety_flag, :environmental_flag, :security_flag, :quality_flag, 
-        											:acknowledged_flag, :closed_flag, :user_id, :guest_name, :report_form)
+        											:acknowledged_flag, :closed_flag, :user_id, :guest_name, :report_form, :follow_up)
     end
     
 

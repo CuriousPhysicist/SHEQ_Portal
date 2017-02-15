@@ -7,7 +7,7 @@
     <h1><%= @user.first_name %> <%= @user.last_name %> has requested that UNOR number Inutec-UNOR-<%= @yr %>-<%=@event.reference_number%> is closed.</h1>
     <p>
     	The close-out information is as follows: <br/>
-    	<i>"<%= @event.closeout %>"</i>
+    	<i>"<%= @event.follow_up %>"</i>
     </p>
     <p>
       Follow this link to review the action information, <%= link_to "Click Here", @url %>.
