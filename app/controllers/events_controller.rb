@@ -70,10 +70,12 @@ class EventsController < ApplicationController
     def update
         @event = Event.find(params[:id])
         
+        raised_by = User.where('id = ?', @events.user_id)
+        
         if @event.update(event_params)
             flash[:success] = "Report successfully updated"
             ## email SHEQ and cc event raiser on changes
-            ## change_event_email(user, event)
+            change_event_email(current_user, @events, raised_by).deliver
             redirect_to @event
         else
             flash[:danger] = "Report failed to update"
@@ -95,10 +97,12 @@ class EventsController < ApplicationController
     def create_guest
         @event = Event.new(event_params)
         
+        proxy_user = User.where('id = ?', @event.user_id)
+        
         if @event.save!
             flash[:success] = "Report successfully submitted"
             ## email SHEQ to review report and assign owner if possible, apply cc routes based on event Type
-            UserMailer.guest_event_email(@event)
+            UserMailer.guest_event_email(proxy_user, @event).deliver
             redirect_to root_path
         else
             flash[:warning] = "Report failed to submit"
@@ -109,7 +113,7 @@ class EventsController < ApplicationController
     def guest
        @events = Event.new
        @last_event = Event.last
-       @user = User.first # Change this to admin user group in production
+       @user = User.first # Change this to admin user group in production, this sets the proxy user for guest event reporting
     end
     
     # actions for exporting information
@@ -178,11 +182,14 @@ class EventsController < ApplicationController
     end
     
     def acknowledged
+      
       @event = Event.find(params[:format])
+      raised_by = User.where('id = ?', @event.user_id)
+      
       @event.update(:acknowledged_flag => true)
       flash[:info] = "UNOR Acknowledged"
       ## email event owner and line management to indicate event has been acknowledged
-      ## UserMailer.acknowledged_event_email(current_user, @event).deliver
+      UserMailer.acknowledged_event_email(raised_by, @event).deliver
       redirect_to events_path
     end
     
@@ -193,21 +200,21 @@ class EventsController < ApplicationController
           @event.update(:close_request_flag => true)
           flash[:info] = "UNOR closeout requested"
           ## email SHEQ and group with suitable approval rights to inform them that a close request has been made.
-          ##UserMailer.close_request_event_email(current_user, @event).deliver
+          UserMailer.close_request_event_email(current_user, @event).deliver
           redirect_to event_path(@event.id)
        end
     end
     
     def close
       @event =  Event.find(params[:format])
-      @owner = User.where('id = ?', @event.user_id).first
+      raised_by = User.where('id = ?', @event.user_id)
     
        if @event.close_request_flag == true
           @event.update(:close_request_flag => false)
           @event.update(:closed_flag => true)
           flash[:success] = "UNOR closed"
           ## email event owner to confirm closure of the event, cc SHEQ for records
-          ## UserMailer.close_event_email(current_user, @event, @owner).deliver
+          UserMailer.close_event_email(current_user, @event, raised_by).deliver
           redirect_to event_path(@event.id)
        end
     end

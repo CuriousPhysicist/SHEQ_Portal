@@ -21,6 +21,14 @@
 
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => "#{@events.id}", :disabled=>true %>
+            
+            <% if @events.guest_name.empty? %>
+                  <% raised_by = User.where('id = ?', @events.user_id).first %>
+                  <%= f.label "Raised by: #{raised_by.first_name} #{raised_by.last_name}" %>
+            <% else %>
+                  <%= f.label "Raised by: #{@events.guest_name}" %>
+            <% end %>
+            
             <% if yield(:show_flag) == "" %>
                   <br/>
                   <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>

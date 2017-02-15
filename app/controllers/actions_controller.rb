@@ -214,6 +214,7 @@ class ActionsController < ApplicationController
           update_text = @action.closeout.to_s + " | #{current_user.first_name} #{current_user.last_name} | " + params[:updatetext] # can this be implemented using action_params? would this be more secure?
           @action.update(:closeout => update_text)
           @action.update(:updatetext => params[:updatetext])
+          @action.update(:close_request_flag => false)
           flash[:info] = "Close-out request rejected"
           ## email owner with reason for close out rejection, cc line management
           UserMailer.reject_closeout_email(current_user, @action, @owner).deliver
@@ -221,6 +222,7 @@ class ActionsController < ApplicationController
           update_text = @action.progress.to_s  + " | #{current_user.first_name} #{current_user.last_name} | " + params[:updatetext]
           @action.update(:progress => update_text)
           @action.update(:updatetext => params[:updatetext])
+          @action.update(:extend_request_flag => false)
           flash[:info] = "Extension request rejected"
           ## email owner with reason for extension rejection, cc line management
           UserMailer.reject_extension_email(current_user, @action, @owner).deliver

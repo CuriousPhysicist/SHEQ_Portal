@@ -1,0 +1,11 @@
+<%= @user.first_name %> <%= @user.last_name %> has requested that action number <%= @action.reference_number %> is extended.
+
+================================================================================
+The progress information is as follows:
+
+"<%= @action.progress %>"
+
+The new target date is <%= @action.date_target %>
+
+================================================================================
+Follow this link to review the action information, <%= @url %>.

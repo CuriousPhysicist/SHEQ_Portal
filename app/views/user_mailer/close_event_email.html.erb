@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>UNOR number Inutec-UNOR-<%= @yr %>-<%= @event.reference_number %> has been closed.</h1>
+    <p>
+    	The comments are as follows: <br/>
+    	<i>"<%= @event.closeout %>"</i>
+    </p>
+    <p>
+      Follow this link to review the action information, <%= link_to "Click Here", @url %>.
+    </p>
+  </body>
+</html>
