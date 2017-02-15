@@ -6,7 +6,7 @@
      
         <p>
             <b>UNOR close-out rate:</b> 
-            <%= (((@open.to_f/@year_count.to_f)-1)*100).round(2) %> %. <b>Number of open UNORs: </b><%= @open %> 
+            <%= ((1-(@open.to_f/@year_count.to_f))*100).round(2) %> %. <b>Number of open UNORs: </b><%= @open %> 
             <br/>
             <i> Breakdown - <b>Safety: </b><%= @safety_num %>, <b>Environmental: </b><%= @environment_num %>, <b>Quality: </b><%= @quality_num %>, <b>Security: </b><%= @security_num %><br/>
             <b>Injuries: </b><%= @injury_num %></i>

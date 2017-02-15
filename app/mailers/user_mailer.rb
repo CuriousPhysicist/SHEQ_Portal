@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 	# The mailer creates messages based on html.erb and text.erb views.
 
 	default from: 'SHEQ_NoReply@tradebe.com' #to: User.new { Admin.pluck(:email) }
-	@@host_root = "sheq.inutec.localhost:3000"
+	@@host_root = "http://sheq.inutec.local:3000"
 
 	# Action controller emails...
 

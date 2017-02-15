@@ -28,7 +28,8 @@ class Action < ApplicationRecord
 		
 		is_user = nil
 		user_id = nil
-		is_user ||= User.where('last_name = ?', name[0])
+		is_user ||= User.where('last_name = ?', name[0]).where('first_name = ?', name[1])
+
 		if is_user.empty? == false 
 			user_id = is_user[0].id
 		end

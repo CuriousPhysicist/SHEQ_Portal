@@ -6,7 +6,7 @@
      
         <p>
             <b>Action close-out rate:</b> 
-            <%= (((@over.to_f/@year_count.to_f)-1)*100).round(2) %> %.<br/>
+            <%= ((1-(@over.to_f/@year_count.to_f))*100).round(2) %> %.<br/>
             
             <b>Number of open Actions - Type A:</b>
             <%= @typeA_num %>  
@@ -41,7 +41,8 @@
         %>
         <%= pie_chart pie_data, donut: true, title: "Open Actions", width: "300px", height: "300px", legend: "bottom"%>
     </div>
-
+    
+    <% if nil %>
     <% if logged_in? %>
         <% if current_user.level >= 2 || current_user.team == "SHEQ" %>
             <%= label_tag :team %>
@@ -51,7 +52,7 @@
             <%= hidden_field_tag(:newteam, "") %>
         <% end %>
     <% end %>
-
+    <% end %>
     <div class="chart-wrapper col-xs-12">
         <% stackcol_data1 = [
             {

@@ -116,12 +116,15 @@ footer {
 
 	.chart-wrapper {
 	    //border: 1px solid #000;
-	    padding: 0;
-	    -webkit-box-align:center;
-        -webkit-box-pack:center;
-        display:-webkit-box;
-	    margin: 0 auto;
-	    text-align: center;
+
+		#action-owner-chart, #chart-1, #chart-2,  {
+		    padding: 0;
+		    margin: 0 auto;
+		    text-align: center;
+		    -webkit-box-align:center;
+	            -webkit-box-pack:center;
+        	    display:-webkit-box;
+		}
 	}
 }
 
