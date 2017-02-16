@@ -41,7 +41,7 @@ class Event < ApplicationRecord
 		event.attributes = row.to_hash.slice(*['reference_number', 'date_raised', 'date_closed', 'location', 'building', 'area', 
         									'what_happened', 'immediate_actions', 'classification', 'root_cause', 'bc_number', 
         										'injury_flag', 'safety_flag', 'environmental_flag', 'security_flag', 'quality_flag', 
-        											'closed_flag', 'user_id', 'guest_name', 'report_form'])
+        											'closed_flag', 'user_id', 'guest_name','follow_up', 'report_form'])
 		# action.update("owner" => owner_name)
 		# action.update("user_id" => user_id)
 		# action.update("date_time_created" => created)

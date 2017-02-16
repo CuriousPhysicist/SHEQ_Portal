@@ -24,10 +24,11 @@
             
             <% if @events.guest_name %>
                   <%= f.label "Raised by: #{@events.guest_name}" %>
-            <% else %>
+            <% elsif @events.user_id %>
                   <% raised_by = User.where('id = ?', @events.user_id).first %>
                   <%= f.label "Raised by: #{raised_by.first_name} #{raised_by.last_name}" %>
-            <% end %>
+            <% else %>
+	    <% end %>
             
             <% if yield(:show_flag) == "" %>
                   <br/>

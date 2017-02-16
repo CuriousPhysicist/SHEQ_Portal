@@ -5,34 +5,36 @@
 
 <h1>UNOR Information</h1>
 
-<div class="form-wrapper">
+<div class="row">
+	<div class="form-wrapper">
 
-  <%= render 'layouts/form_event' %>
+	  <%= render 'layouts/form_event' %>
     
-  <% if @events.closed_flag == false %>
-    <% if current_user.team != "SHEQ" %>
-        <table>
-            <tr>
-              <td>
-                <% if @events.close_request_flag == false %>
-                <%= link_to "Request UNOR Close-out", closeplease_events_path(@events.id), method: :patch, class:"btn btn-primary" %>
-                <% end %>
-              </td>
-            </tr>
-        </table>
-    <% elsif current_user.team == "SHEQ" %>
-         <table>
-            <tr>
-              <td>
-                <% if @events.close_request_flag == false %>
-                  <%= link_to "Request UNOR Close-out", closeplease_events_path(@events.id), method: :patch, class:"btn btn-primary" %><br/><br/>
-                <% else %>
-                  <%= link_to "Close UNOR", close_events_path(@events.id), method: :patch, class:"btn btn-primary" %>
-                <% end %>
-              </td>
-            </tr>
-        </table>
-    <% end %>
-  <% end %>
+	  <% if @events.closed_flag == false %>
+	    <% if current_user.team != "SHEQ" %>
+        	<table>
+	            <tr>
+        	      <td>
+                	<% if @events.close_request_flag == false %>
+	                <%= link_to "Request UNOR Close-out", closeplease_events_path(@events.id), method: :patch, class:"btn btn-primary" %>
+        	        <% end %>
+	              </td>
+        	    </tr>
+	        </table>
+	    <% elsif current_user.team == "SHEQ" %>
+        	 <table>
+	            <tr>
+        	      <td>
+                	<% if @events.close_request_flag == false %>
+	                  <%= link_to "Request UNOR Close-out", closeplease_events_path(@events.id), method: :patch, class:"btn btn-primary" %><br/><br/>
+        	        <% else %>
+                	  <%= link_to "Close UNOR", close_events_path(@events.id), method: :patch, class:"btn btn-primary" %>
+	                <% end %>
+        	      </td>
+	            </tr>
+        	</table>
+	    <% end %>
+	  <% end %>
 
+	</div>
 </div>

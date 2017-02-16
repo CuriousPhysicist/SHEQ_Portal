@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20170215211546) do
     t.datetime "updated_at",                         null: false
     t.string   "report_form"
     t.string   "guest_name"
-    t.boolean  "acknowledged_flag",  default: false
-    t.boolean  "close_request_flag", default: false
+    t.boolean  "acknowledged_flag"
+    t.boolean  "close_request_flag"
     t.text     "follow_up"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
