@@ -15,7 +15,7 @@
 /log/*
 /tmp/*
 /nohup.out
-/public/uploads/event/report_form
+#public/uploads/event/report_form
 !/log/.keep
 !/tmp/.keep
 
