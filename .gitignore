@@ -15,6 +15,7 @@
 /log/*
 /tmp/*
 /nohup.out
+/public/event
 !/log/.keep
 !/tmp/.keep
 
