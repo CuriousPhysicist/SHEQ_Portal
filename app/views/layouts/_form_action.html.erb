@@ -2,7 +2,9 @@
 <%= form_for :actions, url: yield(:path), :method => yield(:method_text) do |f| %>
       
       <% if @actions.new_record? %>
-            <% lastaction = @last_action.reference_number %>
+            
+            <% @last_action ? lastaction = @last_action.id : lastaction = 0 %>
+            
        
             <%= f.label  :reference_number %>
             <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastaction + 1, :disabled=>true %>

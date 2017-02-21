@@ -28,11 +28,13 @@ class ActionsController < ApplicationController
     end
     
     def new
-      @actions = Action.new
-      @last_action = Action.last
-      @users = User.all
-      gon.users = User.all
-      gon.events = Event.all
+    
+    @actions = Action.new
+    @last_action = Action.last ## if existing events present take last one
+    @users = User.all
+    
+    gon.users = User.all
+    gon.events = Event.all
     end
     
     def edit

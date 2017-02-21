@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     before_action :require_user, only: [:index, :show, :edit]
     before_action :require_admin, only: [:destroy]
     
+    ## Global variables
+    
+    $Teams_arr =[["SHEQ","SHEQ"],["Operations","Operations"],["Analytical","Analytical"],["Finance","Finance"],["Management","Management"],["Sales","Sales"],["Maintenance","Maintenance"],["Projects","Projects"],["Engineering","Engineering"],["Commercial","Commercial"],["Waste Compliance", "Waste Compliance"]]
+    
     # Standard RESTful actions
     
     def index
@@ -43,6 +47,7 @@ class UsersController < ApplicationController
     
     def new
       @user = User.new
+
     end
     
     def edit

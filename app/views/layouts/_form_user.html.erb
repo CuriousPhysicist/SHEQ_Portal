@@ -55,7 +55,7 @@
                   <tr>
                         <td>
                               <%= f.label :team %>
-                              <%= f.select(:team, [["SHEQ","SHEQ"],["Operations","Operations"],["Analytical","Analytical"],["Maintenance","Maintenance"],["Projects","Projects"],["Engineering","Engineering"],["Management","Management"]]) %>
+                              <%= f.select(:team, $Teams_arr) %>
                               <br/>
                         </td>
                         <td>

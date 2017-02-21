@@ -52,12 +52,10 @@ class EventsController < ApplicationController
 
     def new
 
-        @last_event = 0 ## covers edge case of no existing events
-
         ## new instance of record is required to build the form in the view
 
     	@events = Event.new ## creates new instance of Event record (all attribute values nil unles default set in db/schema.rb)
-    	@last_event ||= Event.last ## if existing events present take last one
+    	@last_event = Event.last ## if existing events present take last one
     	@user = current_user ## (current_user is a method in app/controllers/application_controller.rb )
 
     end
