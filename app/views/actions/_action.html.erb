@@ -5,6 +5,7 @@
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>
 	  <td class="last_three_cols"><%= action.closeout %></td>
+	  <td class="first_two_cols"><%= action.date_target %></td>
 	</tr>
 <% elsif action.date_target <= Time.now + 1.month %>
 	<tr class="urgent">
@@ -13,6 +14,7 @@
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>
 	  <td class="last_three_cols"><%= action.closeout %></td>
+	  <td class="first_two_cols"><%= action.date_target %></td>
 	</tr>
 <% else %>
 	<tr class="due">
@@ -21,5 +23,6 @@
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>
 	  <td class="last_three_cols"><%= action.closeout %></td>
+	  <td class="first_two_cols"><%= action.date_target %></td> 
 	</tr>
 <% end %>

@@ -4,7 +4,10 @@
   <td class="last_three_cols"><%= event.what_happened %></td>
   <td class="last_three_cols"><%= event.immediate_actions %></td>
   <td class="last_three_cols"><%= event.follow_up %></td>
-  <td class="first_two_cols"><%= link_to("Click Here", event.report_form_url) %></td>
+  <td class="first_two_cols">
+	<% if event.report_form? %>
+		<%= link_to("Click Here", event.report_form_url) %></td>
+	<% end %>
   <td class="first_two_cols">
       <% if event.actions.ids.empty? %>
       	<% else %>
