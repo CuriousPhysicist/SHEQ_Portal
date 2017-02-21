@@ -266,7 +266,7 @@ class EventsController < ApplicationController
         params.require(:events).permit(:reference_number, :date_raised, :date_closed, :location, :building, :area, 
         									:what_happened, :immediate_actions, :classification, :root_cause, :bc_number, 
         										:injury_flag, :safety_flag, :environmental_flag, :security_flag, :quality_flag, 
-        											:acknowledged_flag, :closed_flag, :user_id, :guest_name, :report_form, :file_location, :follow_up)
+        											:acknowledged_flag, :closed_flag, :user_id, :guest_name, :report_form, :file_location, :follow_up, :remote_report_form_url)
     end
     
 

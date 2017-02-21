@@ -49,14 +49,19 @@ class Event < ApplicationRecord
         										'injury_flag', 'safety_flag', 'environmental_flag', 'security_flag', 'quality_flag', 
         											'closed_flag', 'user_id', 'guest_name','follow_up', 'file_location'])
 
-            event.save! ## saves new information into the database
+            #event.save! ## saves new information into the database 
 
             ## This section allows the uploading of a single associated file
-
-            path = event.file_location ## sets path variable to string in file_location attribute
-            #debugger 
-            event.update(:report_form =>  open(path))   ## uploads file through mounted uploader
+	    
+	    if event.file_location?
+		    #path = File.join(Rails.root, event.file_location) ## this path works as is on same local host
+	            #event.update(:report_form =>  open(path))   ## uploads file through mounted uploader if on the local server
+		    path = event.file_location ## sets path variable to string in file_location attribute
+		    event.remote_report_form_url = event.file_location # path ## uploads remote file through mounted uploader
+		    
 	    end
+	    event.save! ## saves new information into the database
+	end
     end
 
     ## reading of the file depends on the Roo gem (see Gemfile)
