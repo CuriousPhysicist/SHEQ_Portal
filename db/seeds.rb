@@ -74,6 +74,7 @@ User.create!(first_name:  "Andrew",
 # 10.times do |i| 
 #      rnd1 = rand(1..12)
 #      rnd2 = rand(0..1)
+#      rnd3 = rand(1..5)
       
       
 #      closedflag_setter = rand(0..1)
@@ -90,6 +91,7 @@ User.create!(first_name:  "Andrew",
 #            reference_number: i+1,
 #            what_happened: Faker::Lorem.paragraph,
 #            immediate_actions: Faker::Lorem.paragraph,
+#            follow_up: Faker::Lorem.paragraph,
 #            date_raised: raised,
 #            date_closed: closed_array[closedflag_setter],
 #            classification: classification_array[rnd2],
@@ -97,7 +99,8 @@ User.create!(first_name:  "Andrew",
 #            environmental_flag: flag_array[rnd2],
 #            quality_flag: flag_array[rnd2],
 #            security_flag: flag_array[rnd2],
-#             closed_flag: flag_array[closedflag_setter],
+#            closed_flag: flag_array[closedflag_setter],
+#            report_form: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Doc-#{rnd3}.docx"),
 #            user_id: rnd1,
 #            )
 # end

@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   resources :events do
     collection { get :options}
     collection { get :tasks}
+    collection { get :viewform}
     collection { post :import }
     collection { get :upload }
     collection { get :raised}

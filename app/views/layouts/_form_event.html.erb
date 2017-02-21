@@ -36,6 +36,9 @@
                   <div class="file-input">
                         <%= f.file_field :report_form %>
                   </div>
+            <% else %>
+                  <p>View Report Form: <%= link_to("Click Here", viewform_events_path(@events.id)) %> </p>
+                  <p>Download Report Form: <%= link_to("Click Here", @events.report_form_url) %> </p>
             <% end %>
       <% end %>
 
@@ -43,8 +46,6 @@
 		<%= f.label :guest_name, "Name:" %>
 		<%= f.text_field :guest_name, class: 'form-control', :placeholder => "Enter name here" %>
       <% end %>
-
-      <br/>
       
       <table>
             <tr>
@@ -121,7 +122,7 @@
       
       <%= f.label :what_happened %>
       <% if yield(:show_flag) == "show" %>
-            <%= f.text_area :what_happened, class: 'form-control', :disabled => true %>
+            <%= f.text_area :what_happened, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
             <%= f.text_area :what_happened, class: 'form-control' %>
       <% end %>
@@ -130,7 +131,7 @@
       
       <%= f.label :immediate_actions %>
       <% if yield(:show_flag) == "show" %>
-            <%= f.text_area :immediate_actions, class: 'form-control', :disabled => true %>
+            <%= f.text_area :immediate_actions, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
             <%= f.text_area :immediate_actions, class: 'form-control' %>
       <% end %>
@@ -140,7 +141,7 @@
 
       <%= f.label :follow_up %>
       <% if yield(:show_flag) == "show" %>
-            <%= f.text_area :follow_up, class: 'form-control', :disabled => true %>
+            <%= f.text_area :follow_up, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
             <%= f.text_area :follow_up, class: 'form-control' %>
       <% end %>

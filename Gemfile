@@ -17,6 +17,7 @@ gem 'gon'
 gem 'roo', "~> 2.7.0"
 gem 'chartkick'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 
 source 'https://rails-assets.org' do

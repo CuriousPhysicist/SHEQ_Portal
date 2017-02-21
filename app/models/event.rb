@@ -24,29 +24,19 @@ class Event < ApplicationRecord
     	spreadsheet = open_spreadsheet(file)
     	header = spreadsheet.row(1)
     	(2..spreadsheet.last_row).each do |i|
-    		row = Hash[[header, spreadsheet.row(i)].transpose]
-	    	event = find_by_id(row["id"])||new
-		
-		# name = row['owner'].split(", ")
-		# created = row['date_time_created'].to_date
-		
-		# is_user = nil
-		# user_id = nil
-		# is_user ||= User.where('last_name = ?', name[0])
-		# if is_user.empty? == false 
-		# 	user_id = is_user[0].id
-		# end
-		# owner_name = name.reverse.join(" ")
+    	    row = Hash[[header, spreadsheet.row(i)].transpose]
+	        event = find_by_id(row["id"])||new
 	    
-		event.attributes = row.to_hash.slice(*['reference_number', 'date_raised', 'date_closed', 'location', 'building', 'area', 
+		    event.attributes = row.to_hash.slice(*['reference_number', 'date_raised', 'date_closed', 'location', 'building', 'area', 
         									'what_happened', 'immediate_actions', 'classification', 'root_cause', 'bc_number', 
         										'injury_flag', 'safety_flag', 'environmental_flag', 'security_flag', 'quality_flag', 
-        											'closed_flag', 'user_id', 'guest_name','follow_up', 'report_form'])
-		# action.update("owner" => owner_name)
-		# action.update("user_id" => user_id)
-		# action.update("date_time_created" => created)
-		
-		event.save!
+        											'closed_flag', 'user_id', 'guest_name','follow_up', 'file_location'])
+
+            event.save!
+
+            path = event.file_location
+            debugger
+            event.update(:report_form =>  open(path))   
 	    end
     end
 

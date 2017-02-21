@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215211546) do
+ActiveRecord::Schema.define(version: 20170220195333) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170215211546) do
     t.boolean  "acknowledged_flag"
     t.boolean  "close_request_flag"
     t.text     "follow_up"
+    t.string   "file_location"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
