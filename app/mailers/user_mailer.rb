@@ -1,13 +1,15 @@
+## Double hash comments are to be retained, single hash commenting dissables code (consider removing from final version)
+
 class UserMailer < ApplicationMailer
 
-	# The mailer is structured like the controller. 
-	# The mailer creates messages based on html.erb and text.erb views.
+	## The mailer is structured like the controller. 
+	## The mailer creates messages based on html.erb and text.erb views.
 	
-	@@host_root = "http://sheq.inutec.local:3000"
+	@@host_root = "http://sheq.inutec.local:3000" ## sets the root for the url links sent in the emails
 
-	# methods for collecting user groups and other cc: options
+	## methods called within mailer methods for collecting user groups and other cc: options
 
-	def email_SHEQ()()
+	def email_SHEQ()
 	    receiver_group = User.where('team = ?', 'SHEQ')
 	    @@SHEQ_arr = []
 	    i = 0
@@ -58,7 +60,7 @@ class UserMailer < ApplicationMailer
 	end
 
 
-	# Action controller emails...
+	## Action controller emails...
 
 	def new_action_email(owner, action)
 	    @user = owner
@@ -142,7 +144,7 @@ class UserMailer < ApplicationMailer
 	    mail(to: owner.try(:email), cc: [ user.try(:email), @@line_management_arr], subject: "Action #{action.id} - Extension Request Rejected")
 	end
 
-	# Event controller emails...
+	## Event controller emails...
 	
 	@@yr = Date.parse(Time.now.to_s).year
 
@@ -151,7 +153,12 @@ class UserMailer < ApplicationMailer
 	    @url = "#{@@host_root}/events/#{event.id}"
 	    email_SHEQ()
 	    email_SeniorManagement()
-	    mail(to: @@SHEQ_arr, cc: @@SeniorManagement_arr, subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
+	    email_SiteManager()
+	    if event.type == "A"
+	    	mail(to: @@SHEQ_arr, cc: [@@SeniorManagement_arr, @@SiteManagement_arr], subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
+	    else
+	    	mail(to: @@SHEQ_arr, cc: @@SeniorManagement_arr, subject: "Inutec-UNOR-#{@@yr}-#{event.reference_number} - New event reported.")
+	    end
 	end
 	
 	def acknowledged_event_email(user, event, raised_by)
@@ -209,7 +216,7 @@ class UserMailer < ApplicationMailer
 	    mail(to: raised_by.try(:email), cc: @@SHEQ_arr, subject: "Inutec-UNOR-#{yr}-#{event.reference_number} - Close-out Approved")
 	end
 
-	# User controller emails...
+	## User controller emails...
 
 	def new_user_email(user)
 		@user = user

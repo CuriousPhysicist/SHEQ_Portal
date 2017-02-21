@@ -1,3 +1,6 @@
+## Double hash comments are to be retained, single hash commenting dissables code (consider removing from final version)
+## This seeds in the super-user capable of uploading all records through .csv or .xlsx files
+
 User.create!(first_name:  "Andrew",
              last_name: "Hampson",
              email: "andrewhampson6@gmail.com",
@@ -11,6 +14,8 @@ User.create!(first_name:  "Andrew",
              admin: true
              )
               
+## Retain commented code below, allows seeding of test data using the faker gem
+
 # User.create!(first_name:  "Bob",
 #             last_name: "Builder",
 #             email: "example@email.com",
@@ -82,7 +87,7 @@ User.create!(first_name:  "Andrew",
 #      raised = Faker::Date.between(1.years.ago,(Time.now))
       
 #      closed_array = [(raised + 3.months), nil]
-#       flag_array = [true, false]
+#      flag_array = [true, false]
       
 #      classification_array = ["Near Miss","Occurance"]
       

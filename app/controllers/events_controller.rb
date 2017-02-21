@@ -1,43 +1,77 @@
-class EventsController < ApplicationController
-	
-	before_action :require_user, only: [:index, :show, :edit, :update] # Sets before filters limiting actions for users
+## Double hash comments are to be retained, single hash commenting dissables code (consider removing from final version)
 
-    #RESTful resources
+class EventsController < ApplicationController
+
+    ## action filters, before filters are executed before the requested action method is executed
+	
+	before_action :require_user, only: [:index, :show, :edit, :update] ## calls method in app/controllers/application_controller.rb 
+
+    ## RESTful resources
     
     def index
+         
+        ## limits SQL query to open Events (search function required to inspect closed events)
         @events = Event.where('closed_flag = ?', false)
-        @own_events = @events.where('user_id = ?', current_user.id)
+        ## takes a cut of open actions belonging to current user (current_user is a method in app/controllers/application_controller.rb )
+        @own_events = @events.where('user_id = ?', current_user.id) 
         
+        ## code below fileters open events for users belonging to same team as current user
+
+        ## initialise variables
         event_ids = []
         k = 0
+
+        ## set variables according to result of SQL queries
         team_count = User.where('team = ?', current_user.team).count
-        team_hash = User.where('team = ?', current_user.team)
-        (0..team_count-1).each do |i|
-            team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
-            (0..team_member_events_arr.length-1).each do |j|
-                event_ids[k] = team_member_events_arr[j][0]
-                k += 1
-            end
-            
-        end
+        team_hash = User.where('team = ?', current_user.team) ## NB: actually an ActiveRecord relation, but treating it like a Hash
+
+        ## loop through each member of the team building list of events raised by each member in event_id array
         
+        (0..team_count-1).each do |i|
+            ## filter open Events for those owned by team member
+            ## create hash of events using id as key and event record as value in key => value pair
+            ## convert hash into array
+            team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a 
+
+            ## loop through new array selecting event id and appending to event_ids array
+            ## team_member_events_arr is an array of arrays i.e. ... [[a,b],[c,d],[e,f] ...]
+
+            (0..team_member_events_arr.length-1).each do |j|
+                event_ids[k] = team_member_events_arr[j][0] ## targets first element of jth array 
+                k += 1
+
+            end
+    
+        end
+
+        ## filter open Events for those owned by team members
+
         @team_events = @events.where('id IN(?)', event_ids)        
         
     end
 
     def new
-    	@events = Event.new
-    	@last_event = Event.last
-    	@user = current_user
+
+        @last_event = 0 ## covers edge case of no existing events
+
+        ## new instance of record is required to build the form in the view
+
+    	@events = Event.new ## creates new instance of Event record (all attribute values nil unles default set in db/schema.rb)
+    	@last_event ||= Event.last ## if existing events present take last one
+    	@user = current_user ## (current_user is a method in app/controllers/application_controller.rb )
+
     end
     
     def edit
-        @events = Event.find(params[:id])
+        @events = Event.find(params[:id]) ## pulls requested Event record from database
         
-        event_actions = Action.where('event_id = ?', @events.id)
+        event_actions = Action.where('event_id = ?', @events.id) ## pulls associated actions into method variable
         
-        @all_events_closed_flag = true
+        @all_events_closed_flag = true ## If no associated actions this flag is defaulted to true
         
+        ## loop through associated actions checking that all are complete, if not set flag to false
+        ## @all_events_closed_flag is passed to the view and controls if the 'Close Event' buttons are available
+
         event_actions.each do |event|
             if event.closed_flag == true
                 @all_events_closed_flag = true
@@ -49,11 +83,11 @@ class EventsController < ApplicationController
     end
     
     def show
-        @events = Event.find(params[:id])
+        @events = Event.find(params[:id]) ## pulls requested Event record from database
     end
     
     def create
-        @event = Event.new(event_params)
+        @event = Event.new(event_params) ## creates new instance of Event record with attributes populated by parameters passed from the form.
         
         if @event.save!
             flash[:success] = "Report successfully submitted"
@@ -68,9 +102,10 @@ class EventsController < ApplicationController
     end
     
     def update
-        @event = Event.find(params[:id])
+        @event = Event.find(params[:id]) ## pulls requested Event record from database
         
-        raised_by = User.where('id = ?', @event.user_id)
+        ## sets variable to User associated with the event report (used for emailing workflow)
+        raised_by = User.where('id = ?', @event.user_id) 
         
         if @event.update(event_params)
             flash[:success] = "Report successfully updated"
