@@ -208,10 +208,6 @@ class EventsController < ApplicationController
     def options
         gon.lastevent = Event.last
     end
-
-    def veiwform
-        @event = Event.find(params[:format])
-    end
     
     def tasks
         @events_for_acknowledgement = Event.where('acknowledged_flag = ?', false)

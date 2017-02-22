@@ -36,7 +36,6 @@
                         <%= f.file_field :report_form %>
                   </div>
             <% else %>
-                  <p>View Report Form: <%= link_to("Click Here", viewform_events_path(@events.id)) %> </p>
                   <p>Download Report Form: <%= link_to("Click Here", @events.report_form_url) %> </p>
             <% end %>
       <% end %>
