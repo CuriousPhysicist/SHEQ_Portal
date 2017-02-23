@@ -64,7 +64,7 @@ class ActionsController < ApplicationController
     end
     
     def edit
-        @actions = Action.find(params[:id])
+        @actions = Action.find( params[:id])
         @user = current_user
         if current_user.team == "SHEQ"
             gon.users = User.all
@@ -124,6 +124,7 @@ class ActionsController < ApplicationController
     
     def options
         gon.lastaction = Action.last
+	gon.actions = Action.all
     end
     
     def all

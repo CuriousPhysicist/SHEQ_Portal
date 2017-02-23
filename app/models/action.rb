@@ -37,7 +37,7 @@ class Action < ApplicationRecord
 		end
 		owner_name = name.reverse.join(" ")
 	    action.attributes = row.to_hash.slice(*['reference_number', 'initiator', 'source', 'date_target', 'type_ABC',
-                                                                      'description', 'progress', 'closeout', 'closed_flag'])
+                                                                      'description', 'progress', 'closeout', 'accepted_flag', 'closed_flag'])
 		action.update("owner" => owner_name)
 		action.update("user_id" => user_id)
 		action.update("date_time_created" => created)

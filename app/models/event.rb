@@ -93,7 +93,7 @@ class Event < ApplicationRecord
     ## This method enables searching of event fields
     
     def self.search(search)
-        where("reference_number LIKE ? OR what_happened LIKE ? OR immediate_actions LIKE ? OR follow_up LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+        where("reference_number LIKE ? OR reported_by LIKE ? OR what_happened LIKE ? OR immediate_actions LIKE ? OR follow_up LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
 end

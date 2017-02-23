@@ -67,16 +67,17 @@ jQuery ->
             
             actionnumber = $(this).val()
             console.log(actionnumber)
-            if actionnumber > gon.lastaction.id
+            if actionnumber > gon.lastaction.reference_number
                 $(this).val('')
                 url1 = $('#update-button').attr("href", "/actions//edit")
                 console.log(url1)
                 url4 = $('#remove-button').attr("href", "/actions/")
                 console.log(url4)
             else
-                url1 = $('#update-button').attr("href", "/actions/#{actionnumber}/edit")
+		action_id = gon.actions.where('reference_number = ?', actionnumber)
+                url1 = $('#update-button').attr("href", "/actions/#{action_id}/edit")
                 console.log(url1)
-                url4 = $('#remove-button').attr("href", "/actions/#{actionnumber}")
+                url4 = $('#remove-button').attr("href", "/actions/#{action_id}")
                 console.log(url4)
 
         $('#updatetext').keyup ->

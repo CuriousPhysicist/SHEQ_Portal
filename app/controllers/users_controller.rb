@@ -19,14 +19,14 @@ class UsersController < ApplicationController
             if current_user.level == 2
 		        @users = User.where('active_flag = ?', true).where('team = ?', current_user.team).order('level DESC')
             elsif current_user.level == 3
-                @users = User.where('active_flag = ?', true).where('department = ?', current_user.department).order('level DESC')
+                @users = User.where('department = ?', current_user.department).order('level DESC')
             else
                 @users = User.all.where('active_flag = ?', true).order('level DESC')
             end
         elsif current_user.level == 1
             @users = User.where('id = ?', current_user.id)
         end
-        
+
         gon.user_number = User.all.count
 
 	respond_to do |format|

@@ -1,6 +1,6 @@
 <% if action.date_target < Time.now %>
 	<tr class="overdue">
-	  <td class="first_two_cols"><%= link_to action.id, action_path(action.id) %></td>
+	  <td class="first_two_cols"><%= link_to action.reference_number, action_path(action.id) %></td>
 	  <td class="first_two_cols"><%= action.owner %></td>
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>
@@ -9,7 +9,7 @@
 	</tr>
 <% elsif action.date_target <= Time.now + 1.month %>
 	<tr class="urgent">
-	  <td class="first_two_cols"><%= link_to action.id, action_path(action.id) %></td>
+	  <td class="first_two_cols"><%= link_to action.reference_number, action_path(action.id) %></td>
 	  <td class="first_two_cols"><%= action.owner %></td>
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>
@@ -18,7 +18,7 @@
 	</tr>
 <% else %>
 	<tr class="due">
-	  <td class="first_two_cols"><%= link_to action.id, action_path(action.id) %></td>
+	  <td class="first_two_cols"><%= link_to action.reference_number, action_path(action.id) %></td>
 	  <td class="first_two_cols"><%= action.owner %></td>
 	  <td class="last_three_cols"><%= action.description %></td>
 	  <td class="last_three_cols"><%= action.progress %></td>

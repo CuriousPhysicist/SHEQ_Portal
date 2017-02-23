@@ -122,7 +122,7 @@
       <% if yield(:show_flag) == "show" %>
             <%= f.text_area :what_happened, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
-            <%= f.text_area :what_happened, class: 'form-control' %>
+            <%= f.text_area :what_happened, class: 'form-control', :rows => 5 %>
       <% end %>
 
       <br/>
@@ -131,7 +131,7 @@
       <% if yield(:show_flag) == "show" %>
             <%= f.text_area :immediate_actions, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
-            <%= f.text_area :immediate_actions, class: 'form-control' %>
+            <%= f.text_area :immediate_actions, class: 'form-control', :rows => 5 %>
       <% end %>
 
 
@@ -141,14 +141,17 @@
       <% if yield(:show_flag) == "show" %>
             <%= f.text_area :follow_up, class: 'form-control', :disabled => true, :rows => 5 %>
       <% else %>
-            <%= f.text_area :follow_up, class: 'form-control' %>
+            <%= f.text_area :follow_up, class: 'form-control', :rows => 5 %>
       <% end %>
 
       <br/>
 
+      <%= f.label :acknowledged_flag, "UNOR acknowledged" %>
+      <%= f.check_box :acknowledged_flag, disabled: :true %>
+       
       <%= f.label :closed_flag, "UNOR Closed" %>
       <%= f.check_box :closed_flag, disabled: :true %>
-        
+
       <br/>
 
       <% if @events.closed_flag == false %>
