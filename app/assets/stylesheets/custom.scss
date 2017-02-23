@@ -25,7 +25,6 @@ nav {
     padding: 10px 5px;
 
     a {
-        font-weight: 800;
         color: #fff;
     }
 
@@ -34,6 +33,22 @@ nav {
         list-style: none;
         padding: 0;
         margin: 0;
+    }
+    
+    .dropdown-menu {
+        background-color: #222;
+        padding: 5px 5px;
+        color: #000;
+        text-align: center;
+        
+        a {
+            color: #fff;
+        }
+        
+        .nav-btn {
+            background-color: #222;
+            color: #fff;
+        }
     }
 
 }
