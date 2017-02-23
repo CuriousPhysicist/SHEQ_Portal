@@ -41,7 +41,19 @@ class Event < ApplicationRecord
     	(2..spreadsheet.last_row).each do |i|
     	    row = Hash[[header, spreadsheet.row(i)].transpose] ## creates key => value pairs in a Hash  each column is a pair
 	        event = find_by_id(row["id"])||new ## searches for exiting record and selects, or creates new Event instance
-	    
+	        
+	        ## Code below inspects reported-by field and assigns user if available
+	        name = row['reported_by'].split(", ")
+    		
+    		is_user = nil
+    		user_id = nil
+    		is_user ||= User.where('last_name = ?', name[0]).where('first_name = ?', name[1])
+    
+    		if is_user.empty? == false 
+    			user_id = is_user[0].id
+    		end
+    		owner_name = name.reverse.join(" ")
+	        
             ## assigns/updates attributes of Event using the row Hash
             ## only listed keys are inserted, only whitelisted attributes are accepted (see app/controllers/events_controller.rb)
 		    event.attributes = row.to_hash.slice(*['reference_number', 'date_raised', 'date_closed', 'location', 'building', 'area', 
@@ -49,7 +61,8 @@ class Event < ApplicationRecord
         										'injury_flag', 'safety_flag', 'environmental_flag', 'security_flag', 'quality_flag', 
         											'closed_flag', 'user_id', 'guest_name','follow_up', 'file_location'])
 
-            #event.save! ## saves new information into the database 
+            event.update("reported_by" => owner_name)
+		    action.update("user_id" => user_id)
 
             ## This section allows the uploading of a single associated file
 	    

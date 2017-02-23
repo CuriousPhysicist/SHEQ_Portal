@@ -21,12 +21,12 @@
     <% end %>
     <br/><hr>
     <%= link_to "Actions", actions_path, class: "btn btn-secondary" %>
-    <%= link_to "UNORs", events_path, class: "btn btn-secondary" %>
-    <br/>
-    <% if current_user.approval_type != "" %>
+    <% if current_user.approval_type != nil %>
         <%= link_to "Action Tasks", tasks_actions_path, class: "btn btn-secondary" %>
     <% else %>
     <% end %>
+    <br/>
+    <%= link_to "UNORs", events_path, class: "btn btn-secondary" %>
     <% if current_user.team == "SHEQ" %>
         <%= link_to "UNOR Tasks", tasks_events_path, class: "btn btn-secondary" %>
     <% else %>

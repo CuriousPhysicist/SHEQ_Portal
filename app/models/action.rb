@@ -23,6 +23,8 @@ class Action < ApplicationRecord
     		row = Hash[[header, spreadsheet.row(i)].transpose]
 	    	action = find_by_id(row["id"])||new
 		
+		
+		## code below inspects owner field and associated to existing user if available
 		name = row['owner'].split(", ")
 		created = row['date_time_created'].to_date
 		
