@@ -9,8 +9,7 @@ class ActionsController < ApplicationController
         
         if params[:search]
             ## If a search has been carried out this collates the results 
-            @actions_result = Event.search(params[:search]).order("created_at DESC")
-            debugger
+            @actions_result = Action.search(params[:search]).order("created_at DESC")
         else
             
             ## limits SQL query to open Actions (search function required to inspect closed actions)

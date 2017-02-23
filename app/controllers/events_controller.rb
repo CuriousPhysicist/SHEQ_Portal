@@ -13,7 +13,6 @@ class EventsController < ApplicationController
         if params[:search]
             ## If a search has been carried out this collates the results 
             @events_result = Event.search(params[:search]).order("created_at DESC")
-            debugger
         else
          
             ## limits SQL query to open Events (search function required to inspect closed events)
