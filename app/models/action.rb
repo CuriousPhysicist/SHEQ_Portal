@@ -52,6 +52,12 @@ class Action < ApplicationRecord
     	else raise "Unknown file type: #{file.original_filename}"
     	end
     end
+    
+    ## This method enables searching of action fields
+    
+    def self.search(search)
+        where("reference_number LIKE ? OR description LIKE ? OR progress LIKE ? OR closeout LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    end
 
 
 end

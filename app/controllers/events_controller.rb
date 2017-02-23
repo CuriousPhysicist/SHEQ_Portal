@@ -9,45 +9,51 @@ class EventsController < ApplicationController
     ## RESTful resources
     
     def index
+        
+        if params[:search]
+            ## If a search has been carried out this collates the results 
+            @events_result = Event.search(params[:search]).order("created_at DESC")
+            debugger
+        else
          
-        ## limits SQL query to open Events (search function required to inspect closed events)
-        @events = Event.where('closed_flag = ?', false)
-        ## takes a cut of open actions belonging to current user (current_user is a method in app/controllers/application_controller.rb )
-        @own_events = @events.where('user_id = ?', current_user.id) 
+            ## limits SQL query to open Events (search function required to inspect closed events)
+            @events = Event.where('closed_flag = ?', false)
+            ## takes a cut of open events belonging to current user (current_user is a method in app/controllers/application_controller.rb )
+            @own_events = @events.where('user_id = ?', current_user.id) 
+            
+            ## code below fileters open events for users belonging to same team as current user
+    
+            ## initialise variables
+            event_ids = []
+            k = 0
+    
+            ## set variables according to result of SQL queries
+            team_count = User.where('team = ?', current_user.team).count
+            team_hash = User.where('team = ?', current_user.team) ## NB: actually an ActiveRecord relation, but treating it like a Hash
+    
+            ## loop through each member of the team building list of events raised by each member in event_id array
+            
+            (0..team_count-1).each do |i|
+                ## filter open Events for those owned by team member
+                ## create hash of events using id as key and event record as value in key => value pair
+                ## convert hash into array
+                team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a 
+    
+                ## loop through new array selecting event id and appending to event_ids array
+                ## team_member_events_arr is an array of arrays i.e. ... [[a,b],[c,d],[e,f] ...]
+    
+                (0..team_member_events_arr.length-1).each do |j|
+                    event_ids[k] = team_member_events_arr[j][0] ## targets first element of jth array 
+                    k += 1
+    
+                end
         
-        ## code below fileters open events for users belonging to same team as current user
-
-        ## initialise variables
-        event_ids = []
-        k = 0
-
-        ## set variables according to result of SQL queries
-        team_count = User.where('team = ?', current_user.team).count
-        team_hash = User.where('team = ?', current_user.team) ## NB: actually an ActiveRecord relation, but treating it like a Hash
-
-        ## loop through each member of the team building list of events raised by each member in event_id array
-        
-        (0..team_count-1).each do |i|
-            ## filter open Events for those owned by team member
-            ## create hash of events using id as key and event record as value in key => value pair
-            ## convert hash into array
-            team_member_events_arr = @events.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a 
-
-            ## loop through new array selecting event id and appending to event_ids array
-            ## team_member_events_arr is an array of arrays i.e. ... [[a,b],[c,d],[e,f] ...]
-
-            (0..team_member_events_arr.length-1).each do |j|
-                event_ids[k] = team_member_events_arr[j][0] ## targets first element of jth array 
-                k += 1
-
             end
     
+            ## filter open Events for those owned by team members
+    
+            @team_events = @events.where('id IN(?)', event_ids)        
         end
-
-        ## filter open Events for those owned by team members
-
-        @team_events = @events.where('id IN(?)', event_ids)        
-        
     end
 
     def new

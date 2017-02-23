@@ -6,25 +6,52 @@ class ActionsController < ApplicationController
     #RESTful resources
     
     def index
-        @actions_open = Action.where(closed_flag: false)
-        @actions_owned = @actions_open.where(owner: "#{current_user.first_name} #{current_user.last_name}").order('date_target')
-        @actions_created = @actions_open.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
         
-        action_ids = []
-        k = 0
-        team_count = User.where('team = ?', current_user.team).count
-        team_hash = User.where('team = ?', current_user.team)
-        (0..team_count-1).each do |i|
-            team_member_actions_arr = @actions_open.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
-            (0..team_member_actions_arr.length-1).each do |j|
-                action_ids[k] = team_member_actions_arr[j][0]
-                k += 1
+        if params[:search]
+            ## If a search has been carried out this collates the results 
+            @actions_result = Event.search(params[:search]).order("created_at DESC")
+            debugger
+        else
+            
+            ## limits SQL query to open Actions (search function required to inspect closed actions)
+            @actions_open = Action.where(closed_flag: false)
+            
+            ## takes a cut of open actions belonging to current user (current_user is a method in app/controllers/application_controller.rb )
+            @actions_owned = @actions_open.where(owner: "#{current_user.first_name} #{current_user.last_name}").order('date_target')
+            @actions_created = @actions_open.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+            
+            ## code below fileters open actions for users belonging to same team as current user
+    
+            ## initialise variables
+            action_ids = []
+            k = 0
+            
+            ## set variables according to result of SQL queries
+            team_count = User.where('team = ?', current_user.team).count
+            team_hash = User.where('team = ?', current_user.team)  ## NB: actually an ActiveRecord relation, but treating it like a Hash
+            
+            ## loop through each member of the team building list of actions raised by each member in action_ids array
+            
+            (0..team_count-1).each do |i|
+                ## filter open Actions for those owned by team member
+                ## create hash of actions using id as key and event record as value in key => value pair
+                ## convert hash into array
+                team_member_actions_arr = @actions_open.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+                
+                ## loop through new array selecting action id and appending to action_ids array
+                ## team_member_actions_arr is an array of arrays i.e. ... [[a,b],[c,d],[e,f] ...]
+                
+                (0..team_member_actions_arr.length-1).each do |j|
+                    action_ids[k] = team_member_actions_arr[j][0]
+                    k += 1
+                end
+                
             end
             
+            ## filter open Actions for those owned by team members
+            
+            @team_actions = @actions_open.where('id IN(?)', action_ids)        
         end
-        
-        @team_actions = @actions_open.where('id IN(?)', action_ids)        
-        
     end
     
     def new

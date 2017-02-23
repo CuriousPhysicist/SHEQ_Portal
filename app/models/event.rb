@@ -55,9 +55,8 @@ class Event < ApplicationRecord
 	    
 	    if event.file_location?
 		    #path = File.join(Rails.root, event.file_location) ## this path works as is on same local host
-	            #event.update(:report_form =>  open(path))   ## uploads file through mounted uploader if on the local server
-		    path = event.file_location ## sets path variable to string in file_location attribute
-		    event.remote_report_form_url = event.file_location # path ## uploads remote file through mounted uploader
+	        #event.update(:report_form =>  open(path))   ## uploads file through mounted uploader if on the local server
+		    event.remote_report_form_url = event.file_location ## uploads remote file through mounted uploader
 		    
 	    end
 	    event.save! ## saves new information into the database
@@ -74,6 +73,12 @@ class Event < ApplicationRecord
     	when ".xlsx" then Roo::Excelx.new(file.path)
     	else raise "Unknown file type: #{file.original_filename}"
     	end
+    end
+    
+    ## This method enables searching of event fields
+    
+    def self.search(search)
+        where("reference_number LIKE ? OR what_happened LIKE ? OR immediate_actions LIKE ? OR follow_up LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
 end

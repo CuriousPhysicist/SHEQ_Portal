@@ -1,37 +1,37 @@
 <div class="wrapper">
-    <h2>Owned Actions</h2>
-    <br/>
-    <p>
-        <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
-      Download:
-      <%= link_to "CSV", owned_actions_path(format: "csv") %> |
-      <%= link_to "Excel", owned_actions_path(format: "xls") %>
-    </p>
-    <table class="actions">
-        <tr>
-            <th>Reference Number</th>
-            <th>Owner</th>
-            <th>Description</th>
-            <th>Progress</th>
-            <th>Close-out</th>
-	    <th>Due Date</th>
-        </tr>
-        <%= render @actions_owned  %>
-    </table>
     
-    <br/>
-    
-    <% if current_user.level >= 2 %>
-        <h2>Team Actions</h2>
-        <br/>
+    <% if params[:search] %>
         
+        <% if @actions_result.blank? %>
+            <br/>
+            <h3>There are no actions matching the search term: <%= params[:search] %></h3>
+        <% else %>
+            <h2>Seach results for: <%= params[:search] %> </h2>
+            
+            <table class="actions">
+            <tr>
+                <th>Reference Number</th>
+                <th>Owner</th>
+                <th>Description</th>
+                <th>Progress</th>
+                <th>Close-out</th>
+    	    <th>Due Date</th>
+            </tr>
+            <%= render @actions_result  %>
+        </table>
+            
+        <% end %>
+    
+    <% else %>
+    
+        <h2>Owned Actions</h2>
+        <br/>
         <p>
             <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
           Download:
-          <%= link_to "CSV", created_actions_path(format: "csv") %> |
-          <%= link_to "Excel", created_actions_path(format: "xls") %>
+          <%= link_to "CSV", owned_actions_path(format: "csv") %> |
+          <%= link_to "Excel", owned_actions_path(format: "xls") %>
         </p>
-        
         <table class="actions">
             <tr>
                 <th>Reference Number</th>
@@ -39,61 +39,88 @@
                 <th>Description</th>
                 <th>Progress</th>
                 <th>Close-out</th>
-		<th>Due Date</th>
+    	    <th>Due Date</th>
             </tr>
-          <%= render @team_actions %>
+            <%= render @actions_owned  %>
         </table>
         
         <br/>
+        
+        <% if current_user.level >= 2 %>
+            <h2>Team Actions</h2>
+            <br/>
+            
+            <p>
+                <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+              Download:
+              <%= link_to "CSV", created_actions_path(format: "csv") %> |
+              <%= link_to "Excel", created_actions_path(format: "xls") %>
+            </p>
+            
+            <table class="actions">
+                <tr>
+                    <th>Reference Number</th>
+                    <th>Owner</th>
+                    <th>Description</th>
+                    <th>Progress</th>
+                    <th>Close-out</th>
+    		<th>Due Date</th>
+                </tr>
+              <%= render @team_actions %>
+            </table>
+            
+            <br/>
+        <% end %>
+    
+        <% if current_user.level >= 3 %>
+            <h2>All Open Actions</h2>
+            <br/>
+            
+            <p>
+                <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+              Download:
+              <%= link_to "CSV", all_actions_path(format: "csv") %> |
+              <%= link_to "Excel", all_actions_path(format: "xls") %>
+            </p>
+            
+            <table class="actions">
+                <tr>
+                    <th>Reference Number</th>
+                    <th>Owner</th>
+                    <th>Description</th>
+                    <th>Progress</th>
+                    <th>Close-out</th>
+    		<th>Due Date</th>
+                </tr>
+              <%= render @actions_open %>
+            </table>
+            
+            <br/>
+        <% elsif current_user.team == "SHEQ" %>
+            <h2>All Actions</h2>
+            <br/>
+            
+            <p>
+                <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
+              Download:
+              <%= link_to "CSV", all_actions_path(format: "csv") %> |
+              <%= link_to "Excel", all_actions_path(format: "xls") %>
+            </p>
+            
+            <table class="actions">
+                <tr>
+                    <th>Reference Number</th>
+                    <th>Owner</th
+                    ><th>Description</th>
+                    <th>Progress</th>
+                    <th>Close-out</th>
+    		<th>Due Date</th>
+                </tr>
+              <%= render @actions_open %>
+            </table>
+            
+            <br/>
+        <% end %> 
+        
     <% end %>
-
-    <% if current_user.level >= 3 %>
-        <h2>All Open Actions</h2>
-        <br/>
-        
-        <p>
-            <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
-          Download:
-          <%= link_to "CSV", all_actions_path(format: "csv") %> |
-          <%= link_to "Excel", all_actions_path(format: "xls") %>
-        </p>
-        
-        <table class="actions">
-            <tr>
-                <th>Reference Number</th>
-                <th>Owner</th>
-                <th>Description</th>
-                <th>Progress</th>
-                <th>Close-out</th>
-		<th>Due Date</th>
-            </tr>
-          <%= render @actions_open %>
-        </table>
-        
-        <br/>
-    <% elsif current_user.team == "SHEQ" %>
-        <h2>All Actions</h2>
-        <br/>
-        
-        <p>
-            <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
-          Download:
-          <%= link_to "CSV", all_actions_path(format: "csv") %> |
-          <%= link_to "Excel", all_actions_path(format: "xls") %>
-        </p>
-        
-        <table class="actions">
-            <tr>
-                <th>Reference Number</th>
-                <th>Owner</th
-                ><th>Description</th>
-                <th>Progress</th>
-                <th>Close-out</th>
-		<th>Due Date</th>
-            </tr>
-          <%= render @actions_open %>
-        </table>
-        
-        <br/>
-    <% end %>  
 </div>
