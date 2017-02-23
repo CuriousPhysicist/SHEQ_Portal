@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223113012) do
+ActiveRecord::Schema.define(version: 20170223220934) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -35,6 +35,54 @@ ActiveRecord::Schema.define(version: 20170223113012) do
     t.text     "updatetext"
     t.index ["event_id"], name: "index_actions_on_event_id"
     t.index ["user_id"], name: "index_actions_on_user_id"
+  end
+
+  create_table "approval_routes", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "document_id"
+    t.index ["document_id"], name: "index_approval_routes_on_document_id"
+  end
+
+  create_table "approvers", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "approval_route_id"
+    t.index ["approval_route_id"], name: "index_approvers_on_approval_route_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "approval_route_id"
+    t.index ["approval_route_id"], name: "index_authors_on_approval_route_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type"
+    t.integer  "issue_number"
+    t.boolean  "checked_out_flag"
+    t.string   "author"
+    t.string   "reviewer"
+    t.string   "approver"
+    t.boolean  "reviewed_flag"
+    t.boolean  "approved_flag"
+    t.boolean  "issued_flag"
+    t.datetime "issued_on"
+    t.datetime "review_period"
+    t.datetime "due_date"
+    t.datetime "review_duration"
+    t.datetime "reviewed_on"
+    t.datetime "approved_on"
+    t.string   "stored_doc"
+    t.string   "stored_pdf"
+    t.boolean  "review_request_flag"
+    t.boolean  "approve_request_flag"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "file_location_doc"
+    t.string   "file_location_pdf"
   end
 
   create_table "events", force: :cascade do |t|
@@ -68,6 +116,13 @@ ActiveRecord::Schema.define(version: 20170223113012) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "reviewers", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "approval_route_id"
+    t.index ["approval_route_id"], name: "index_reviewers_on_approval_route_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -84,6 +139,12 @@ ActiveRecord::Schema.define(version: 20170223113012) do
     t.boolean  "active_flag"
     t.text     "comment"
     t.string   "department"
+    t.integer  "author_id"
+    t.integer  "reviewer_id"
+    t.integer  "approver_id"
+    t.index ["approver_id"], name: "index_users_on_approver_id"
+    t.index ["author_id"], name: "index_users_on_author_id"
+    t.index ["reviewer_id"], name: "index_users_on_reviewer_id"
   end
 
 end
