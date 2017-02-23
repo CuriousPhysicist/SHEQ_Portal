@@ -9,14 +9,20 @@ class UsersController < ApplicationController
     ## Global variables
     
     $Teams_arr =[["SHEQ","SHEQ"],["Operations","Operations"],["Analytical","Analytical"],["Finance","Finance"],["Management","Management"],["Sales","Sales"],["Maintenance","Maintenance"],["Projects","Projects"],["Engineering","Engineering"],["Commercial","Commercial"],["Waste Compliance", "Waste Compliance"]]
-    
+
     # Standard RESTful actions
     
     def index
         if current_user.team == "SHEQ" || current_user.try(:admin)
-            @users = User.all
-        elsif current_user.level == 2
-            @users = User.where('active_flag = ?', true).where('team = ?', current_user.team)
+            @users = User.all.order('level DESC')
+        elsif current_user.level >= 2
+            if current_user.level == 2
+		@users = User.where('active_flag = ?', true).where('team = ?', current_user.team).order('level DESC')
+	    elsif current_user.level == 3
+		@users = User.where('active_flag = ?', true).where('department = ?', current_user.department).order('level DESC')
+	    else
+		@users = User.all.where('active_flag = ?', true).order('level DESC')
+	    end
         elsif current_user.level == 1
             @users = User.where('id = ?', current_user.id)
         end

@@ -43,17 +43,19 @@ class Event < ApplicationRecord
 	        event = find_by_id(row["id"])||new ## searches for exiting record and selects, or creates new Event instance
 	        
 	        ## Code below inspects reported-by field and assigns user if available
-	        name = row['reported_by'].split(", ")
+	        if row['reported_by'] != nil
+			name = row['reported_by'].split(" ")
     		
-    		is_user = nil
-    		user_id = nil
-    		is_user ||= User.where('last_name = ?', name[0]).where('first_name = ?', name[1])
+	    		is_user = nil
+    			user_id = nil
+    			is_user ||= User.where('last_name = ?', name[0]).where('first_name = ?', name[1])
     
-    		if is_user.empty? == false 
-    			user_id = is_user[0].id
-    		end
-    		owner_name = name.reverse.join(" ")
+	    		if is_user.empty? == false 
+    				user_id = is_user[0].id
+    			end
+	    		owner_name = name.reverse.join(" ")
 	        
+		end
             ## assigns/updates attributes of Event using the row Hash
             ## only listed keys are inserted, only whitelisted attributes are accepted (see app/controllers/events_controller.rb)
 		    event.attributes = row.to_hash.slice(*['reference_number', 'date_raised', 'date_closed', 'location', 'building', 'area', 
@@ -62,7 +64,7 @@ class Event < ApplicationRecord
         											'closed_flag', 'user_id', 'guest_name','follow_up', 'file_location'])
 
             event.update("reported_by" => owner_name)
-		    action.update("user_id" => user_id)
+		    event.update("user_id" => user_id)
 
             ## This section allows the uploading of a single associated file
 	    
