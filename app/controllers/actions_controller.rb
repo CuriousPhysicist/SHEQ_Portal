@@ -187,8 +187,8 @@ class ActionsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { send_data @actions_team.to_csv, :filename => "Actions_Owned_By_#{current_user.team}.csv" }
-            format.xls { send_data @actions_team.to_csv(col_sep: "\t"), :filename => "Actions_Owned_By_#{current_user.team}.xls" }
+            format.csv { send_data @team_actions.to_csv, :filename => "Actions_Owned_By_#{current_user.team}.csv" }
+            format.xls { send_data @team_actions.to_csv(col_sep: "\t"), :filename => "Actions_Owned_By_#{current_user.team}.xls" }
         end
     end
     
