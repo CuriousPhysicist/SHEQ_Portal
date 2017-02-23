@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223095635) do
+ActiveRecord::Schema.define(version: 20170223113012) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170223095635) do
     t.boolean  "admin",           default: false
     t.boolean  "active_flag"
     t.text     "comment"
+    t.string   "department"
   end
 
 end

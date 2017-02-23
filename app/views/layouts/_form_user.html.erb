@@ -56,6 +56,7 @@
                         <td>
                               <%= f.label :team %>
                               <%= f.select(:team, $Teams_arr) %>
+                              <%= f.hidden_field :department, :value => @user.department %>
                               <br/>
                         </td>
                         <td>

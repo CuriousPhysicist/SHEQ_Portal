@@ -22,6 +22,24 @@ jQuery ->
             target_level = $('#level').attr("value", level_val)
             console.log(target_level)
     
+        $('#user_team').change ->
+            
+            newteam_val = $('#user_team :selected').val()
+            console.log(newteam_val)
+            
+            if newteam_val == "SHEQ"
+                newdept = "SHEQ"
+            else if newteam_val == "Operations" || newteam_val == "Maintenance" || newteam_val == "Analytical"
+                newdept = "Operations"
+            else if newteam_val == "Commercial" || newteam_val == "Sales"
+                newdept = "Commercial"
+            else if newteam_val == "Projects" || newteam_val == "Engineering" || newteam_val == "Waste Compliance"
+                newdept = "Projects"
+            else
+                newdept = "Management"
+                            
+            $('#user_department').attr("value", newdept)
+        
         $('#team').change ->
         
             num_users = gon.user_number

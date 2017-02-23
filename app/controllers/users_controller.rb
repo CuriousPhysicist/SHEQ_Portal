@@ -17,12 +17,12 @@ class UsersController < ApplicationController
             @users = User.all.order('level DESC')
         elsif current_user.level >= 2
             if current_user.level == 2
-		@users = User.where('active_flag = ?', true).where('team = ?', current_user.team).order('level DESC')
-	    elsif current_user.level == 3
-		@users = User.where('active_flag = ?', true).where('department = ?', current_user.department).order('level DESC')
-	    else
-		@users = User.all.where('active_flag = ?', true).order('level DESC')
-	    end
+		        @users = User.where('active_flag = ?', true).where('team = ?', current_user.team).order('level DESC')
+            elsif current_user.level == 3
+                @users = User.where('active_flag = ?', true).where('department = ?', current_user.department).order('level DESC')
+            else
+                @users = User.all.where('active_flag = ?', true).order('level DESC')
+            end
         elsif current_user.level == 1
             @users = User.where('id = ?', current_user.id)
         end
@@ -136,7 +136,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :team, :role, :level, :approval_type, :active_flag, :comment)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :team, :department, :role, :level, :approval_type, :active_flag, :comment)
     end
     
 end

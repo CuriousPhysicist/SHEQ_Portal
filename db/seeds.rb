@@ -22,6 +22,7 @@ User.create!(first_name:  "Andrew",
 #             password:              "Password",
 #             password_confirmation: "Password",
 #             team: "Engineering",
+#             department: "Projects",
 #             role: "Senior Manager",
 #             level: 3,
 #             active_flag: true
@@ -44,6 +45,7 @@ User.create!(first_name:  "Andrew",
 #             password_confirmation: "Password",
 #             active_flag: true,
 #             team: teams[rnd1],
+#             department: "SHEQ",
 #             role: roles[level_num-1],
 #             level: level_num
 #      )
