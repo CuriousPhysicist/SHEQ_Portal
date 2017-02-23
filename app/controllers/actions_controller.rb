@@ -136,8 +136,8 @@ class ActionsController < ApplicationController
         
         respond_to do |format|
             format.html
-            format.csv { send_data @actions.to_csv }
-            format.xls { send_data @actions.to_csv(col_sep: "\t") }
+            format.csv { send_data @actions.to_csv, :filename => "All_Open_Actions.csv" }
+            format.xls { send_data @actions.to_csv(col_sep: "\t", :filename => "All_Open_Actions.xls") }
         end
     end
     
@@ -146,18 +146,58 @@ class ActionsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { send_data @actions_owned.to_csv }
-            format.xls { send_data @actions_owned.to_csv(col_sep: "\t") }
+            format.csv { send_data @actions_owned.to_csv, :filename => "Actions_Owned_By_#{current_user.first_name}_#{current_user.last_name}.csv" }
+            format.xls { send_data @actions_owned.to_csv(col_sep: "\t", :filename => "Actions_Owned_By_#{current_user.first_name}_#{current_user.last_name}.xls") }
         end
     end
     
-    def created
-        @actions_created = Action.where(initiator: "#{current_user.first_name} #{current_user.last_name}")
+    def team
+        
+        @actions_open = Action.where(closed_flag: false)
+        
+        ## initialise variables
+            action_ids = []
+            k = 0
+            
+            ## set variables according to result of SQL queries
+            team_count = User.where('team = ?', current_user.team).count
+            team_hash = User.where('team = ?', current_user.team)  ## NB: actually an ActiveRecord relation, but treating it like a Hash
+            
+            ## loop through each member of the team building list of actions raised by each member in action_ids array
+            
+            (0..team_count-1).each do |i|
+                ## filter open Actions for those owned by team member
+                ## create hash of actions using id as key and event record as value in key => value pair
+                ## convert hash into array
+                team_member_actions_arr = @actions_open.where('user_id = ?', team_hash[i].id).index_by(&:id).to_a
+                
+                ## loop through new array selecting action id and appending to action_ids array
+                ## team_member_actions_arr is an array of arrays i.e. ... [[a,b],[c,d],[e,f] ...]
+                
+                (0..team_member_actions_arr.length-1).each do |j|
+                    action_ids[k] = team_member_actions_arr[j][0]
+                    k += 1
+                end
+                
+            end
+            
+            ## filter open Actions for those owned by team members
+            
+            @team_actions = @actions_open.where('id IN(?)', action_ids)
 
         respond_to do |format|
             format.html
-            format.csv { send_data @actions_created.to_csv }
-            format.xls { send_data @actions_created.to_csv(col_sep: "\t") }
+            format.csv { send_data @actions_team.to_csv, :filename => "Actions_Owned_By_#{current_user.team}.csv" }
+            format.xls { send_data @actions_team.to_csv(col_sep: "\t"), :filename => "Actions_Owned_By_#{current_user.team}.xls" }
+        end
+    end
+    
+    def search
+    	@actions_result = Action.search(params[:search]).order("created_at DESC")
+    	respond_to do |format|
+                format.html
+                format.csv { send_data @actions_result.to_csv, :filename => "Actions_Matching_Search_#{params[:search]}.csv" }
+                format.xls { send_data @actions_result.to_csv(col_sep: "\t"), :filename => "Actions_Matching_Search_#{params[:search]}.xls"  }
         end
     end
     

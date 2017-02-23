@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     collection { get :upload}
     collection { get :all}
     collection { get :owned}
-    collection { get :created}
+    collection { get :team}
     collection { get :search}
     collection { get :tasks}
     collection { patch :extendplease}

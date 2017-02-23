@@ -261,7 +261,6 @@ class EventsController < ApplicationController
     def close
       @event =  Event.find(params[:format])
       raised_by = User.where('id = ?', @event.user_id)
-    debugger
        if @event.close_request_flag == true
           @event.update(:close_request_flag => false)
           @event.update(:closed_flag => true)

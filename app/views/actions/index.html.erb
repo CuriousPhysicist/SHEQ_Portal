@@ -8,6 +8,13 @@
         <% else %>
             <h2>Seach results for: <%= params[:search] %> </h2>
             
+            <% search = params[:search] %>
+
+    	    <p>
+    		<%= link_to "CSV", search_actions_path(:format => "csv", :search => "#{search}" ) %> | 
+    		<%= link_to "Excel", search_actions_path(:format =>"xls", :search => "#{search}" ) %>
+    	    </p>
+            
             <table class="actions">
             <tr>
                 <th>Reference Number</th>
@@ -53,8 +60,8 @@
             <p>
                 <%= link_to "Action Options", options_actions_path, class:"btn btn-primary", method: :get %>
               Download:
-              <%= link_to "CSV", created_actions_path(format: "csv") %> |
-              <%= link_to "Excel", created_actions_path(format: "xls") %>
+              <%= link_to "CSV", team_actions_path(format: "csv") %> |
+              <%= link_to "Excel", team_actions_path(format: "xls") %>
             </p>
             
             <table class="actions">
