@@ -8,6 +8,14 @@
         <% else %>
             <h2>Seach results for: <%= params[:search] %> </h2>
             
+	    <% search = params[:search] %>
+
+	    <p>
+		<%= link_to "CSV", search_events_path(:format => "csv", :search => "#{search}" ) %> | 
+		<%= link_to "Excel", search_events_path(:format =>"xls", :search => "#{search}" ) %>
+	    </p>
+
+
             <table class="actions">
                 <tr>
                     <th>Reference Number</th>

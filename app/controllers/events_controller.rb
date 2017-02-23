@@ -13,6 +13,7 @@ class EventsController < ApplicationController
         if params[:search]
             ## If a search has been carried out this collates the results 
             @events_result = Event.search(params[:search]).order("created_at DESC")
+
         else
          
             ## limits SQL query to open Events (search function required to inspect closed events)
@@ -156,13 +157,22 @@ class EventsController < ApplicationController
     
     # actions for exporting information
     
+    def search
+	@events_result = Event.search(params[:search]).order("created_at DESC")
+	respond_to do |format|
+                format.html
+                format.csv { send_data @events_result.to_csv, :filename => "UNORS_Matching_Search_#{params[:search]}.csv" }
+                format.xls { send_data @events_result.to_csv(col_sep: "\t"), :filename => "UNORS_Matching_Search_#{params[:search]}.xls"  }
+        end
+    end
+
     def raised
         @events_raised = Event.where('user_id = ?', current_user.id)
 
         respond_to do |format|
             format.html
-            format.csv { send_data @events_raised.to_csv }
-            format.xls { send_data @events_raised.to_csv(col_sep: "\t") }
+            format.csv { send_data @events_raised.to_csv, :filename => "UNORS_Raised_By_#{current_user.first_name}_#{current_user.last_name}.csv" }
+            format.xls { send_data @events_raised.to_csv(col_sep: "\t"), :filename => "UNORS_Raised_By_#{current_user.first_name}_#{current_user.last_name}.xls" }
         end
     end
     
@@ -171,8 +181,8 @@ class EventsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { send_data @events_open.to_csv }
-            format.xls { send_data @events_open.to_csv(col_sep: "\t") }
+            format.csv { send_data @events_open.to_csv, :filename => "All_Open_UNORS.csv" }
+            format.xls { send_data @events_open.to_csv(col_sep: "\t"), :filename => "All_Open_UNORS.xls" }
         end
     end
 
@@ -196,8 +206,8 @@ class EventsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { send_data @team_events.to_csv }
-            format.xls { send_data @team_events.to_csv(col_sep: "\t") }
+            format.csv { send_data @team_events.to_csv, :filename => "UNORS_Raised_By_#{current_user.team}.csv" }
+            format.xls { send_data @team_events.to_csv(col_sep: "\t"), :filename => "UNORS_Raised_By_#{current_user.team}.xls"  }
         end
     end
 
