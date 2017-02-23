@@ -214,6 +214,11 @@ class EventsController < ApplicationController
         gon.lastevent = Event.last
     end
     
+    def find
+       event = Event.where('reference_number = ?', params[:reference_number]).first
+       redirect_to edit_event_path(event.id)
+    end
+    
     def tasks
         @events_for_acknowledgement = Event.where('acknowledged_flag = ?', false)
         @events_for_closeout = Event.where('closed_flag = ?', false)

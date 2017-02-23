@@ -74,10 +74,9 @@ jQuery ->
                 url4 = $('#remove-button').attr("href", "/actions/")
                 console.log(url4)
             else
-		action_id = gon.actions.where('reference_number = ?', actionnumber)
-                url1 = $('#update-button').attr("href", "/actions/#{action_id}/edit")
+                url1 = $('#update-button').attr("href", "/actions/#{actionnumber}/edit")
                 console.log(url1)
-                url4 = $('#remove-button').attr("href", "/actions/#{action_id}")
+                url4 = $('#remove-button').attr("href", "/actions/#{actionnumber}")
                 console.log(url4)
 
         $('#updatetext').keyup ->

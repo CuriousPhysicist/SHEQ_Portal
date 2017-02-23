@@ -124,7 +124,11 @@ class ActionsController < ApplicationController
     
     def options
         gon.lastaction = Action.last
-	gon.actions = Action.all
+    end
+    
+    def find
+       action = Action.where('reference_number = ?', params[:reference_number]).first
+       redirect_to edit_action_path(action.id)
     end
     
     def all

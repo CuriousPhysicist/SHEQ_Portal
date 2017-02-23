@@ -7,16 +7,21 @@
     <br/><br/>
 <% end %>
     
-<%= label_tag yield(:text_label) %><br/>
-<%= text_field_tag :action_id, nil, placeholder: yield(:text_placeholder), id: yield(:number_id)  %>
-<br/><br/>
+<%= form_tag(yield(:path_2), method: :get, id: "update-button") do %>
+    <%= label_tag yield(:text_label) %><br/>
+    <%= text_field_tag :reference_number, params[:reference_number], placeholder: yield(:text_placeholder), id: yield(:number_id)  %>
+
+    <br/><br/>
     
-<%= link_to yield(:button_2_text), yield(:path_2), class:"btn btn-primary", id: "update-button" %><br/><br/>
-        
+    <%= submit_tag yield(:button_2_text), :name => nil, class:"btn btn-primary" %><br/><br/>
+
+<% end %>
+
 <% if current_user.try(:admin) %>
     <%= link_to yield(:button_3_text), yield(:path_3), class:"btn btn-primary", id: "remove-button", method: :delete, data: { confirm: 'Are you sure?' } %>
     <br/><br/>
 <% end %>
+
 
     
 <%= link_to "Back", yield(:path_back), class:"btn btn-primary" %>

@@ -41,7 +41,8 @@ Rails.application.routes.draw do
   
   resources :actions do
     collection { get :options}    # This block nests routes into the actions path
-    collection { post :import}    # they are references actions_word_path
+    collection { get :find }      # they are references actions_word_path
+    collection { post :import}    
     collection { get :upload}
     collection { get :all}
     collection { get :owned}
@@ -64,6 +65,7 @@ Rails.application.routes.draw do
   
   resources :events do
     collection { get :options}
+    collection { get :find }
     collection { get :tasks}
     collection { post :import }
     collection { get :upload }
