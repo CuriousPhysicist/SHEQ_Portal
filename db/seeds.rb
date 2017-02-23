@@ -16,98 +16,98 @@ User.create!(first_name:  "Andrew",
               
 ## Retain commented code below, allows seeding of test data using the faker gem
 
-User.create!(first_name:  "Bob",
-            last_name: "Builder",
-            email: "example@email.com",
-            password:              "Password",
-            password_confirmation: "Password",
-            team: "Engineering",
-            department: "Projects",
-            role: "Senior Manager",
-            level: 3,
-            active_flag: true
-            )
+# User.create!(first_name:  "Bob",
+#             last_name: "Builder",
+#             email: "example@email.com",
+#             password:              "Password",
+#             password_confirmation: "Password",
+#             team: "Engineering",
+#             department: "Projects",
+#             role: "Senior Manager",
+#             level: 3,
+#             active_flag: true
+#             )
 
-10.times do |i|
-    rnd1 = rand(0..6)
-    rnd2 = rand(1..4)
+# 10.times do |i|
+#     rnd1 = rand(0..6)
+#     rnd2 = rand(1..4)
 
-    level_num = rnd2
+#     level_num = rnd2
 
-    teams = ["SHEQ","Operations","Analytical","Maintenance","Projects","Engineering","Management"]
-    roles = ["Staff","Line Manager","Senior Manager","Site Manager"]
+#     teams = ["SHEQ","Operations","Analytical","Maintenance","Projects","Engineering","Management"]
+#     roles = ["Staff","Line Manager","Senior Manager","Site Manager"]
     
-     User.create(
-            first_name: Faker::Name.first_name,
-            last_name: Faker::Name.last_name,
-            email: "example#{i}@email.com",
-            password:              "Password",
-            password_confirmation: "Password",
-            active_flag: true,
-            team: teams[rnd1],
-            department: "SHEQ",
-            role: roles[level_num-1],
-            level: level_num
-     )
- end
+#      User.create(
+#             first_name: Faker::Name.first_name,
+#             last_name: Faker::Name.last_name,
+#             email: "example#{i}@email.com",
+#             password:              "Password",
+#             password_confirmation: "Password",
+#             active_flag: true,
+#             team: teams[rnd1],
+#             department: "SHEQ",
+#             role: roles[level_num-1],
+#             level: level_num
+#      )
+#  end
 
-10.times do |i| 
-     rnd1 = rand(1..12)
-     rnd2 = rand(1..12)
-     rnd3 = rand(0..2)
-     rnd4 = rand(1..30)
-     rnd5 = rand(0..1)
+# 10.times do |i| 
+#      rnd1 = rand(1..12)
+#      rnd2 = rand(1..12)
+#      rnd3 = rand(0..2)
+#      rnd4 = rand(1..30)
+#      rnd5 = rand(0..1)
       
-      target = Faker::Date.between(2.years.ago,(Time.now + 6.months))
+#       target = Faker::Date.between(2.years.ago,(Time.now + 6.months))
       
-     type = ["A","B","C"]
-     source = ["QA","SHE"]
+#      type = ["A","B","C"]
+#      source = ["QA","SHE"]
       
-     Action.create(
-            reference_number: i+1,
-            initiator:"#{User.find(rnd1).first_name} #{User.find(rnd1).last_name}",
-            owner: "#{User.find(rnd2).first_name} #{User.find(rnd2).last_name}",
-            source: source[rnd5],
-            date_target: target,
-            date_time_created: target - 3.months,
-            type_ABC: type[rnd3],
-            description: Faker::Lorem.paragraph,
-            closed_flag: false,
-            user_id: rnd2,
-            event_id: rnd4
-            )
-end
+#      Action.create(
+#             reference_number: i+1,
+#             initiator:"#{User.find(rnd1).first_name} #{User.find(rnd1).last_name}",
+#             owner: "#{User.find(rnd2).first_name} #{User.find(rnd2).last_name}",
+#             source: source[rnd5],
+#             date_target: target,
+#             date_time_created: target - 3.months,
+#             type_ABC: type[rnd3],
+#             description: Faker::Lorem.paragraph,
+#             closed_flag: false,
+#             user_id: rnd2,
+#             event_id: rnd4
+#             )
+# end
  
-10.times do |i| 
-     rnd1 = rand(1..12)
-     rnd2 = rand(0..1)
-     rnd3 = rand(1..5)
+# 10.times do |i| 
+#      rnd1 = rand(1..12)
+#      rnd2 = rand(0..1)
+#      rnd3 = rand(1..5)
       
       
-     closedflag_setter = rand(0..1)
+#      closedflag_setter = rand(0..1)
 
-     raised = Faker::Date.between(1.years.ago,(Time.now))
+#      raised = Faker::Date.between(1.years.ago,(Time.now))
       
-     closed_array = [(raised + 3.months), nil]
-     flag_array = [true, false]
+#      closed_array = [(raised + 3.months), nil]
+#      flag_array = [true, false]
       
-     classification_array = ["Near Miss","Occurance"]
+#      classification_array = ["Near Miss","Occurance"]
       
       
-     Event.create(
-            reference_number: i+1,
-            what_happened: Faker::Lorem.paragraph,
-            immediate_actions: Faker::Lorem.paragraph,
-            follow_up: Faker::Lorem.paragraph,
-            date_raised: raised,
-            date_closed: closed_array[closedflag_setter],
-            classification: classification_array[rnd2],
-            safety_flag: flag_array[rnd2],
-            environmental_flag: flag_array[rnd2],
-            quality_flag: flag_array[rnd2],
-            security_flag: flag_array[rnd2],
-            closed_flag: flag_array[closedflag_setter],
-            #report_form: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Doc-#{rnd3}.docx"),
-            user_id: rnd1,
-            )
-end
+#      Event.create(
+#             reference_number: i+1,
+#             what_happened: Faker::Lorem.paragraph,
+#             immediate_actions: Faker::Lorem.paragraph,
+#             follow_up: Faker::Lorem.paragraph,
+#             date_raised: raised,
+#             date_closed: closed_array[closedflag_setter],
+#             classification: classification_array[rnd2],
+#             safety_flag: flag_array[rnd2],
+#             environmental_flag: flag_array[rnd2],
+#             quality_flag: flag_array[rnd2],
+#             security_flag: flag_array[rnd2],
+#             closed_flag: flag_array[closedflag_setter],
+#             #report_form: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Doc-#{rnd3}.docx"),
+#             user_id: rnd1,
+#             )
+# end
