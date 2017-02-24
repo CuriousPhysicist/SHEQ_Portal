@@ -55,7 +55,8 @@ mount_uploaders :stored_pdf, PdfFileUploader
     ## This method enables searching of event fields
     
     def self.search(search)
-        where("doc_number LIKE ? OR title LIKE ? OR comments LIKE ? OR doc_type LIKE ? ", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+        #debugger
+        where("doc_number LIKE ? OR title LIKE ? OR comments LIKE ? OR doc_type LIKE ? OR status LIKE ? ", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
 end

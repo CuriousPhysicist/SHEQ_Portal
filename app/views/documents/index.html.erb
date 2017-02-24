@@ -32,23 +32,47 @@
     <% else %>
         
         <br/><br/>
-        <div class="form-wrapper">
+        <div class="filter-wrapper">
+            <h4>Filter documents:</h4>
+            <%= link_to "Remove filters", documents_path, class: "btn btn-secondary" %>
             <%= form_tag(documents_path, method: :get) do %>
-                <%= label_tag "Document Type:" %>
-                <%= label_tag :doc_type, "INUTEC/P" %>
-                <%= radio_button_tag :doc_type, "INUTEC/P" %>
-                <%= label_tag :doc_type, "INUTEC/WI" %>
-                <%= radio_button_tag :doc_type, "INUTEC/WI" %>
-                <%= label_tag :doc_type, "INUTEC/AI" %>
-                <%= radio_button_tag :doc_type, "INUTEC/AI" %>
-                <%= label_tag :doc_type, "INUTEC/MI" %>
-                <%= radio_button_tag :doc_type, "INUTEC/MI" %>
+
+                <table>
+                    <tr>
+                        <td>
+
+                            <%= label_tag "Document Type:" %><br/>
+                            <%= label_tag :doc_type, "INUTEC/P" %>
+                            <%= radio_button_tag :doc_type, "INUTEC/P" %>
+                            <br/>
+                            <%= label_tag :doc_type, "INUTEC/WI" %>
+                            <%= radio_button_tag :doc_type, "INUTEC/WI" %>
+                            <%= label_tag :doc_type, "INUTEC/AI" %>
+                            <%= radio_button_tag :doc_type, "INUTEC/AI" %>
+                            <%= label_tag :doc_type, "INUTEC/MI" %>
+                            <%= radio_button_tag :doc_type, "INUTEC/MI" %>
+                            <br/>
+                        </td>
+                        <td>
+                            <%=label_tag "Document Status:"%><br/>
+                            <%= label_tag :status1, "Issued" %>
+                            <%= check_box_tag :status1, "Issued" %>
+                            <%= label_tag :status2, "Suspended" %>
+                            <%= check_box_tag :status2, "Suspended" %>
+                            <%= label_tag :status3, "Withdrawn" %>
+                            <%= check_box_tag :status3, "Withdrawn" %>
+                            <br/>
+                            <%= label_tag :status4, "Awaiting Review" %>
+                            <%= check_box_tag :status4, "Awaiting Review" %>
+                            <%= label_tag :status5, "Awaiting Approval" %>
+                            <%= check_box_tag :status5, "Awaiting Approval" %>
+                            <br/>
+                        </td>
+                    </tr>
+                </table>
 
                 <%= submit_tag "Apply Filters", :name => nil, :class => "btn btn-primary" %>
             <% end %>
-
-            <br/>
-            <%= link_to "Remove filters", documents_path, class: "btn btn-primary" %>
         </div>
 
         <h2>Documents: <%=params[:type]%></h2>

@@ -104,6 +104,28 @@ footer {
 	    }
 	}
 	
+    // Styling for the Document Filter box
+
+    .filter-wrapper {
+
+        //border: 1px solid #000;
+
+        @extend .wrapper;
+
+        border-radius: 10px;
+
+        margin: 10px 5px;
+        background-color: LightGrey;
+        padding: 10px; 
+        width: 95%;
+        position: relative;
+        left: 2.5%;
+
+        table {
+            width: 100%;
+        }
+
+    }
 
     // Styling for all forms for input or display
 

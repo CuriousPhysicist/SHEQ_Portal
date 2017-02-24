@@ -114,16 +114,18 @@ end
 
 20.times do |i|
 
-    rnd1 = rand(0..1)
+    type_arr = ["INUTEC/P","INUTEC/WI","INUTEC/AI","INUTEC/MI"]
+    status_arr = ["Issued","Suspended","Withdrawn","Awaiting Review","Awaiting Approval"]
 
-    type_arr = ["INUTEC/P","INUTEC/WI"]
+    rnd1 = rand(0..type_arr.length-1)
+    rnd2 = rand(0..status_arr.length-1)
 
     Document.create(
             doc_type: type_arr[rnd1],
             doc_number: i*48,
             issue_number: 6,
             title: Faker::Name.title,
-            status: "Issued",
+            status: status_arr[rnd2],
             comments: Faker::Lorem.paragraph,
             #stored_doc: open(File.join(Rails.root, "app/assets/images/Test-Doc-1.doc")),
             #stored_pdf: open(File.join(Rails.root, "app/assets/images/Test-Pdf-1.pdf"))

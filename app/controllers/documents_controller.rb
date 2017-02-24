@@ -9,8 +9,16 @@ class DocumentsController < ApplicationController
       ## SQL query to provide all documents to the view, grouped by doc_type
       @documents = Document.all.order(:doc_type)
 
-      if params[:doc_type]
-        @documents = @documents.search(params[:doc_type])
+      if params.length > 3
+        #debugger
+        @documents_type = @documents.search(params[:doc_type])
+        @documents_status1 = @documents.search(params[:status1])
+        @documents_status2 = @documents.search(params[:status2])
+        @documents_status3 = @documents.search(params[:status3])
+        @documents_status4 = @documents.search(params[:status4])
+        @documents_status5 = @documents.search(params[:status5])
+
+        #@documents = merge(@documents_type, @documents_status1, @documents_status2, @documents_status3, @documents_status4, @documents_status5)
       end
 
     end
