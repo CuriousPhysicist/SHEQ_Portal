@@ -76,6 +76,6 @@ class DocumentsController < ApplicationController
   private
     
   def event_params
-      params.require(:documents).permit(:doc_number, :doc_type, :status, :issue_number, :title, :comments)
+      params.require(:documents).permit(:doc_number, :doc_type, :status, :issue_number, :title, :comments, :stored_doc, :stored_pdf)
   end
 end

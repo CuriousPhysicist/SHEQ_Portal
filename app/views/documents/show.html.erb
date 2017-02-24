@@ -1,2 +1,15 @@
-<h1>Document#show</h1>
-<p>Find me in app/views/document/show.html.erb</p>
+<% provide(:path, document_path) %>
+<% provide(:show_flag, "show" ) %>
+<% provide(:method_text, :patch) %>
+
+<h1>Document Information</h1>
+
+<div class="row">
+
+  <div class="form-wrapper">
+
+    <%= render 'layouts/form_document' %>
+
+  </div>
+
+</div>

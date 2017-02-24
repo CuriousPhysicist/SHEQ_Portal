@@ -4,7 +4,7 @@ class Document < ApplicationRecord
 
 has_one :approval_routes
 
-## Tells rails to use this uploader for this model using the report_form attribute to store file information
+## Tells rails to use these uploaders for this model using the stored_doc and stored_pdf attribute to store file information
 
 mount_uploaders :stored_doc, DocFileUploader
 mount_uploaders :stored_pdf, PdfFileUploader

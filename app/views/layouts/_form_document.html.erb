@@ -1,0 +1,38 @@
+<%= form_for :documents, url: yield(:path), :method => yield(:method_text) do |f| %>
+      
+      <% if @documents.new_record? %>
+            <% @last_event ? lastevent = @last_event.id : lastevent = 0 %>
+       
+            <%= f.label  :reference_number %>
+            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
+            <%= f.hidden_field  :reference_number, :value => lastevent + 1 %>
+            <br/>
+            
+            <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+            <div class="file-input">
+                  <%= f.file_field :report_form, class: "file-input" %>
+            </div>
+            
+            <%= f.hidden_field  :user_id, :value => @user.id %>
+            
+      
+      <% else %>
+
+            <h3><b><%= @documents.doc_type + "/" + @documents.doc_number.to_s %></b></h3>
+            
+            <% if yield(:show_flag) == "" %>
+                  <br/>
+                  <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+                  <div class="file-input">
+                        <%= f.file_field :report_form %>
+                  </div>
+            <% else %>
+                  <p>Download Document (PDF): <%#= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+            <% end %>
+      <% end %>
+      
+      <%= f.label @documents.status %>
+      
+      <br/>
+
+<% end %>
