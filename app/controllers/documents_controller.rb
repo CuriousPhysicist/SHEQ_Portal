@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
 
   def index
+    @documents = Document.all
   end
 
   def new
@@ -43,5 +44,13 @@ class DocumentsController < ApplicationController
   end
 
   def checkin
+  end
+  
+  # Private actions below (including strong parameters white-list)
+    
+  private
+    
+  def event_params
+      params.require(:documents).permit(:reference_number, :type, :status, :issue_number, :title, :comments)
   end
 end

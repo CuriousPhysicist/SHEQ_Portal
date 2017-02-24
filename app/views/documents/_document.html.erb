@@ -1,0 +1,8 @@
+<tr>
+  <td class="first_two_cols"><%= document.doc_type %></td>
+  <td class="first_two_cols"><%= link_to document.doc_number, document_path(document.id) %></td>
+  <td class="first_two_cols"><%= document.issue_number %></td>
+  <td class="last_three_cols"><%= document.title %></td>
+  <td class="first_two_cols"><%= document.status %></td>
+  <td class="last_three_cols"><%= document.comments %></td>
+</tr>

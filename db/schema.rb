@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224073219) do
+ActiveRecord::Schema.define(version: 20170224101923) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -60,15 +60,14 @@ ActiveRecord::Schema.define(version: 20170224073219) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
-    t.string   "type"
     t.integer  "issue_number"
-    t.boolean  "checked_out_flag", default: false
+    t.boolean  "checked_out_flag",     default: false
     t.string   "author"
     t.string   "reviewer"
     t.string   "approver"
-    t.boolean  "reviewed_flag",    default: false
-    t.boolean  "approved_flag",    default: false
-    t.boolean  "issued_flag",      default: true
+    t.boolean  "reviewed_flag",        default: false
+    t.boolean  "approved_flag",        default: false
+    t.boolean  "issued_flag",          default: true
     t.datetime "issued_on"
     t.datetime "review_period"
     t.datetime "due_date"
@@ -77,16 +76,17 @@ ActiveRecord::Schema.define(version: 20170224073219) do
     t.datetime "approved_on"
     t.string   "stored_doc"
     t.string   "stored_pdf"
-    t.boolean  "review_request_flag", default: false
+    t.boolean  "review_request_flag",  default: false
     t.boolean  "approve_request_flag", default: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "file_location_doc"
     t.string   "file_location_pdf"
     t.string   "status"
     t.integer  "doc_number"
     t.text     "comments"
-    t.string   "sub_type"
+    t.string   "doc_type"
+    t.string   "doc_sub_type"
   end
 
   create_table "events", force: :cascade do |t|
