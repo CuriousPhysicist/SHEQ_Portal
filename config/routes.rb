@@ -1,29 +1,30 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  ## For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  # the syntax of the routes is 'HPPT verb' 'URL' to: 'controller#action'
-  # resources produce standard RESTful actions for :index, :new, :create, :edit, :update, :show, :destroy
+  ## the syntax of the routes is 'HPPT verb' 'URL' to: 'controller#action'
+  ## resources produce standard RESTful actions for :index, :new, :create, :edit, :update, :show, :destroy
   
-  # root sets the landing page.
+  ## root sets the landing page.
   
   root 'sessions#landing_page'
   
-  # Sessions are not stored as a model but add a remember digest attribute to the User model
+  ## Sessions are not stored as a model but add a remember digest attribute to the User model
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  # dashboard routes are available without loggin in...
+  ## dashboard routes are available without loggin in...
   
   get     '/dashboard_actions', to: 'sessions#dashboard_actions'
   get     '/dashboard_events', to: 'sessions#dashboard_events'
   
-  # uploader route is only availble if logged in and admin user
+  ## uploader route is only availble if logged in and admin user
 
   get	  '/uploader_options', to: 'sessions#uploader_options'
 
-  # User routes 
+  ## User routes 
   
   resources :users, only: [:index, :edit, :update, :show, :destroy] do
     collection { post :import }
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
   get '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   
-  # Action routes
+  ## Action routes
   
   resources :actions do
     collection { get :options}    # This block nests routes into the actions path
@@ -55,18 +56,17 @@ Rails.application.routes.draw do
     collection { patch :close}
   end
   
-  # Business logic routes for actions - these actions set or reset Boolean flags
-  
+  ## Business logic routes for actions - these actions set or reset Boolean flags
   
   get '/reject', to: 'actions#reject'
   post '/reject', to: 'actions#reject_submitted'
   patch '/accepted', to: 'actions#accepted'
   
-  # Event routes
+  ## Event routes
   
   resources :events do
     collection { get :options}
-    collection { get :find }
+    collection { get :find }    ## enables finding of event by reference number rather than id (not possible through Javascript)
     collection { get :tasks}
     collection { post :import }
     collection { get :upload }
@@ -79,9 +79,52 @@ Rails.application.routes.draw do
     collection { patch :close}
   end
   
+  ## Business logic routes for events - these actions set or reset Boolean flags
+  
   patch '/acknowledged', to: 'events#acknowledged'
-
+  
+  ## Event reporting routes for none-logged-in users
+  
   get '/guest', to: 'events#guest'
   post '/guest', to: 'events#create_guest'
+  
+  ## Author/Reviewer/Approver routes
+  
+  get 'author/new'        ## no views used for these three models
+  get 'author/create'     ## cotroller will take action then return to either User or Approval_route views depending on context
+  get 'author/destroy'
+
+  get 'reviewer/new'
+  get 'reviewer/create'
+  get 'reviewer/destroy'
+  
+  get 'approver/new'
+  get 'approver/create'
+  get 'approver/destroy'
+  
+  ## Document routes
+  
+  resources :documents do
+    collection { get :upload }
+    collection { post :import }
+    collection { get :search }
+    collection { get :tasks }
+    collection { patch :reviewplease }
+    collection { patch :reviewed }
+    collection { patch :approveplease }
+    collection { patch :approved}
+end
+  
+  get 'document/checkout'
+  get 'document/checkin'
+
+  ## Approval_route routes
+  
+  get 'approval_route/new'
+  get 'approval_route/create'
+  get 'approval_route/edit'
+  get 'approval_route/update'
+  get 'approval_route/show'
+  get 'approval_route/close_route'
   
 end
