@@ -114,12 +114,18 @@ end
 
 20.times do |i|
 
+    rnd1 = rand(0..1)
+
+    type_arr = ["INUTEC/P","INUTEC/WI"]
+
     Document.create(
-            doc_type: "INUTEC/P",
+            doc_type: type_arr[rnd1],
             doc_number: i*48,
             issue_number: 6,
             title: Faker::Name.title,
             status: "Issued",
-            comments: Faker::Lorem.paragraph
+            comments: Faker::Lorem.paragraph,
+            #stored_doc: open(File.join(Rails.root, "app/assets/images/Test-Doc-1.doc")),
+            #stored_pdf: open(File.join(Rails.root, "app/assets/images/Test-Pdf-1.pdf"))
             )
 end

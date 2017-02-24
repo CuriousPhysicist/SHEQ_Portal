@@ -6,7 +6,7 @@ class DocumentsController < ApplicationController
       @documents_result = Document.search(params[:search]).order("created_at DESC")
     else
       ## SQL query to provide all documents to the view, grouped by doc_type
-      @documents = Document.all.group(doc_type)       
+      @documents = Document.all.order(:doc_type)
     end
   end
 
@@ -23,9 +23,14 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @documents = Document.find(params[:id]) ## pulls requested Document record from database
   end
 
+  # actions for data importing
+
   def import
+      Document.import(params[:file])
+      redirect_to documents_path
   end
 
   def search

@@ -31,6 +31,11 @@
     
     <% else %>
     
+        <%= form_tag(documents_path, method: :get) do %>
+            <%= label_tag :doc_type, "Document Type" %>
+            <%#= checkbox %>
+        <% end %>
+
         <h2>Documents: <%=params[:type]%></h2>
         <br/>
         
