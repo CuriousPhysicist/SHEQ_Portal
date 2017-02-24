@@ -45,8 +45,10 @@
                 <%= radio_button_tag :doc_type, "INUTEC/MI" %>
 
                 <%= submit_tag "Apply Filters", :name => nil, :class => "btn btn-primary" %>
-
             <% end %>
+
+            <br/>
+            <%= link_to "Remove filters", documents_path, class: "btn btn-primary" %>
         </div>
 
         <h2>Documents: <%=params[:type]%></h2>
