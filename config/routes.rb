@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   get     '/dashboard_actions', to: 'sessions#dashboard_actions'
   get     '/dashboard_events', to: 'sessions#dashboard_events'
+  get     '/dashboard_documents', to: 'sessions#dashboard_documents'
   
   ## uploader route is only availble if logged in and admin user
 
@@ -115,8 +116,8 @@ Rails.application.routes.draw do
     collection { patch :approved}
 end
   
-  get 'document/checkout'
-  get 'document/checkin'
+  get 'documents/checkout'
+  get 'documents/checkin'
 
   ## Approval_route routes
   

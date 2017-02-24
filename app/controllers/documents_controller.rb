@@ -1,4 +1,4 @@
-class DocumentController < ApplicationController
+class DocumentsController < ApplicationController
 
   def index
   end
