@@ -6,8 +6,8 @@ has_one :approval_routes
 
 ## Tells rails to use these uploaders for this model using the stored_doc and stored_pdf attribute to store file information
 
-mount_uploaders :stored_doc, DocFileUploader
-mount_uploaders :stored_pdf, PdfFileUploader
+mount_uploader :stored_doc, DocFileUploader
+mount_uploader :stored_pdf, PdfFileUploader
 
 ## These two methods allow for the importing and creation of Event records using a .csv, .xls or .xlsx file
 
