@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20170224101923) do
   create_table "documents", force: :cascade do |t|
     t.string   "title"
     t.integer  "issue_number"
-    t.boolean  "checked_out_flag",     default: false
+    t.boolean  "checked_out_flag"
     t.string   "author"
     t.string   "reviewer"
     t.string   "approver"
-    t.boolean  "reviewed_flag",        default: false
-    t.boolean  "approved_flag",        default: false
-    t.boolean  "issued_flag",          default: true
+    t.boolean  "reviewed_flag"
+    t.boolean  "approved_flag"
+    t.boolean  "issued_flag"
     t.datetime "issued_on"
     t.datetime "review_period"
     t.datetime "due_date"
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 20170224101923) do
     t.datetime "approved_on"
     t.string   "stored_doc"
     t.string   "stored_pdf"
-    t.boolean  "review_request_flag",  default: false
-    t.boolean  "approve_request_flag", default: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.boolean  "review_request_flag"
+    t.boolean  "approve_request_flag"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "file_location_doc"
     t.string   "file_location_pdf"
     t.string   "status"

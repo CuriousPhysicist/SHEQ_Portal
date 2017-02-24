@@ -2,27 +2,27 @@
     
     <% if params[:search] %>
         
-        <% if @actions_result.blank? %>
+        <% if @documents_result.blank? %>
             <br/>
-            <h3>There are no actions matching the search term: <%= params[:search] %></h3>
+            <h3>There are no documents matching the search term: <%= params[:search] %></h3>
         <% else %>
             <h2>Seach results for: <%= params[:search] %> </h2>
             
             <% search = params[:search] %>
 
     	    <p>
-    		<%= link_to "CSV", search_actions_path(:format => "csv", :search => "#{search}" ) %> | 
-    		<%= link_to "Excel", search_actions_path(:format =>"xls", :search => "#{search}" ) %>
+    		<%= link_to "CSV", search_documents_path(:format => "csv", :search => "#{search}" ) %> | 
+    		<%= link_to "Excel", search_documents_path(:format =>"xls", :search => "#{search}" ) %>
     	    </p>
             
             <table class="actions">
             <tr>
-                <th>Reference Number</th>
-                <th>Owner</th>
-                <th>Description</th>
-                <th>Progress</th>
-                <th>Close-out</th>
-    	    <th>Due Date</th>
+                <th>Type</th>
+                <th>Number</th>
+                <th>Issue</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Comments</th>
             </tr>
             <%= render @documents_result  %>
         </table>

@@ -1,7 +1,13 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = Document.all
+    if params[:search]
+      ## If a search has been carried out this collates the results 
+      @documents_result = Document.search(params[:search]).order("created_at DESC")
+    else
+      ## SQL query to provide all documents to the view, grouped by doc_type
+      @documents = Document.all.group(doc_type)       
+    end
   end
 
   def new
@@ -51,6 +57,6 @@ class DocumentsController < ApplicationController
   private
     
   def event_params
-      params.require(:documents).permit(:reference_number, :type, :status, :issue_number, :title, :comments)
+      params.require(:documents).permit(:doc_number, :doc_type, :status, :issue_number, :title, :comments)
   end
 end
