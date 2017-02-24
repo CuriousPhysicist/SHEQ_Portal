@@ -30,11 +30,24 @@
         <% end %>
     
     <% else %>
-    
-        <%= form_tag(documents_path, method: :get) do %>
-            <%= label_tag :doc_type, "Document Type" %>
-            <%#= checkbox %>
-        <% end %>
+        
+        <br/><br/>
+        <div class="form-wrapper">
+            <%= form_tag(documents_path, method: :get) do %>
+                <%= label_tag "Document Type:" %>
+                <%= label_tag :doc_type, "INUTEC/P" %>
+                <%= radio_button_tag :doc_type, "INUTEC/P" %>
+                <%= label_tag :doc_type, "INUTEC/WI" %>
+                <%= radio_button_tag :doc_type, "INUTEC/WI" %>
+                <%= label_tag :doc_type, "INUTEC/AI" %>
+                <%= radio_button_tag :doc_type, "INUTEC/AI" %>
+                <%= label_tag :doc_type, "INUTEC/MI" %>
+                <%= radio_button_tag :doc_type, "INUTEC/MI" %>
+
+                <%= submit_tag "Apply Filters", :name => nil, :class => "btn btn-primary" %>
+
+            <% end %>
+        </div>
 
         <h2>Documents: <%=params[:type]%></h2>
         <br/>

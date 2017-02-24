@@ -4,9 +4,19 @@ class DocumentsController < ApplicationController
     if params[:search]
       ## If a search has been carried out this collates the results 
       @documents_result = Document.search(params[:search]).order("created_at DESC")
+
+      if params[:doc_type]
+        @documents_result = @documents_result.search(params[:doc_type])
+      end
+
     else
       ## SQL query to provide all documents to the view, grouped by doc_type
       @documents = Document.all.order(:doc_type)
+
+      if params[:doc_type]
+        @documents = @documents.search(params[:doc_type])
+      end
+
     end
   end
 
