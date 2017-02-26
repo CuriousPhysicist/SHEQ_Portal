@@ -1,6 +1,87 @@
 <div class="wrapper">
     
     <% if params[:search] %>
+
+        <div class="filter-wrapper">
+            <h4>Filter documents:</h4>
+            <%= link_to "Remove filters", documents_path, class: "btn btn-secondary" %>
+            <%= form_tag(documents_path, method: :get) do %>
+
+                <table>
+                    <tr>
+                        <td>
+
+                            <%= label_tag "Document Type:" %><br/>
+                            <%= label_tag :doc_type, "INUTEC/P" %>
+                            <% if params[:doc_type] == "INUTEC/P" %>
+                                <%= radio_button_tag :doc_type, "INUTEC/P", checked: true %>
+                            <% else %>
+                                <%= radio_button_tag :doc_type, "INUTEC/P" %>
+                            <% end %>
+                            <br/>
+                            <%= label_tag :doc_type, "INUTEC/WI" %>
+                            <% if params[:doc_type] == "INUTEC/WI" %>
+                                <%= radio_button_tag :doc_type, "INUTEC/WI", checked: true %>
+                            <% else %>
+                                <%= radio_button_tag :doc_type, "INUTEC/WI" %>
+                            <% end %>
+                            <%= label_tag :doc_type, "INUTEC/AI" %>
+                            <% if params[:doc_type] == "INUTEC/AI" %>
+                                <%= radio_button_tag :doc_type, "INUTEC/AI", checked: true %>
+                            <% else %>
+                                <%= radio_button_tag :doc_type, "INUTEC/AI" %>
+                            <% end %>
+                            <%= label_tag :doc_type, "INUTEC/MI" %>
+                            <% if params[:doc_type] == "INUTEC/MI" %>
+                                <%= radio_button_tag :doc_type, "INUTEC/MI", checked: true %>
+                            <% else %>
+                                <%= radio_button_tag :doc_type, "INUTEC/MI" %>
+                            <% end %>
+                            <br/>
+                        </td>
+                        <td>
+                            <%=label_tag "Document Status:"%><br/>
+                            <%= label_tag :status1, "Issued" %>
+                            <% if params[:status1] %>
+                                <%= check_box_tag :status1, "Issued" , checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status1, "Issued" %>
+                            <% end %>
+                            <%= label_tag :status2, "Suspended" %>
+                            <% if params[:status2] %>
+                                <%= check_box_tag :status2, "Suspended" , checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status2, "Suspended" %>
+                            <% end %>
+                            <%= label_tag :status3, "Withdrawn" %>
+                            <% if params[:status3] %>
+                                <%= check_box_tag :status3, "Withdrawn", checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status3, "Withdrawn" %>
+                            <% end %>
+                            <br/>
+                            <%= label_tag :status4, "Awaiting Review" %>
+                            <% if params[:status4] %>
+                                <%= check_box_tag :status4, "Awaiting Review", checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status4, "Awaiting Review" %>
+                            <% end %>
+                            <%= label_tag :status5, "Awaiting Approval" %>
+                            <% if params[:status5] %>
+                                <%= check_box_tag :status5, "Awaiting Approval", checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status5, "Awaiting Approval" %>
+                            <% end %>
+                            <br/>
+                        </td>
+                    </tr>
+                </table>
+
+                <%= hidden_field_tag :search, params[:search] %>
+
+                <%= submit_tag "Apply Filters", :name => nil, :class => "btn btn-primary" %>
+            <% end %>
+        </div>
         
         <% if @documents_result.blank? %>
             <br/>
@@ -31,7 +112,6 @@
     
     <% else %>
         
-        <br/><br/>
         <div class="filter-wrapper">
             <h4>Filter documents:</h4>
             <%= link_to "Remove filters", documents_path, class: "btn btn-secondary" %>
