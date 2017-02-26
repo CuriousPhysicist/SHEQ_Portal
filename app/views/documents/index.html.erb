@@ -4,7 +4,7 @@
 
         <div class="filter-wrapper">
             <h4>Filter documents:</h4>
-            <%= link_to "Remove filters", documents_path, class: "btn btn-secondary" %>
+            <%= link_to "Remove filters", documents_path(:search => params[:search]), class: "btn btn-secondary" %>
             <%= form_tag(documents_path, method: :get) do %>
 
                 <table>
