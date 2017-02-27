@@ -132,4 +132,9 @@ end
             #stored_doc: open(File.join(Rails.root, "app/assets/images/Test-Doc-1.doc")),
             #stored_pdf: open(File.join(Rails.root, "app/assets/images/Test-Pdf-1.pdf"))
             )
+
+    ApprovalRoute.create(
+            document_id: i+1,
+            closed_flag: false
+        )
 end

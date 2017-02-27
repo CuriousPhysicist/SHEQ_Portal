@@ -1,37 +1,46 @@
 <%= form_for :documents, url: yield(:path), :method => yield(:method_text) do |f| %>
       
       <% if @documents.new_record? %>
-            <% @last_event ? lastevent = @last_event.id : lastevent = 0 %>
-       
-            <%= f.label  :reference_number %>
-            <%= f.text_field  :reference_number, class: 'form-control', :placeholder => lastevent + 1, :disabled=>true %>
-            <%= f.hidden_field  :reference_number, :value => lastevent + 1 %>
-            <br/>
             
             <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
             <div class="file-input">
-                  <%= f.file_field :report_form, class: "file-input" %>
+                  <%= f.file_field :report_form %>
             </div>
-            
-            <%= f.hidden_field  :user_id, :value => @user.id %>
-            
       
       <% else %>
 
-            <h3><b><%= @documents.doc_type + "/" + @documents.doc_number.to_s %></b></h3>
+            <% if yield(:show_flag) == "" %>
+                  <h3><b><%= @documents.doc_type + "/" + @documents.doc_number.to_s %></b> <small>Issue #<%= @documents.issue_number %></small></h3>
+                  <%= f.label :title %>
+                  <%= f.text_field :title, class: "form-control" %>
+            <% else %>
+                  <h3><b><%= @documents.doc_type + "/" + @documents.doc_number.to_s %></b> <small>Issue #<%= @documents.issue_number %></small></h3>
+                  <h3><i><%= @documents.title %></i></h3>
+            <% end %>
             
             <% if yield(:show_flag) == "" %>
-                  <br/>
-                  <%= f.label :report_form, "Upload UNOR form (.doc, .docx, .pdf)" %>
+                  <% if !@documents.checked_out_flag %>
+                  <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
                   <div class="file-input">
                         <%= f.file_field :report_form %>
                   </div>
+                  <% end %>
             <% else %>
-                  <p>Download Document (PDF): <%#= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+                  <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
             <% end %>
       <% end %>
       
-      <%= f.label @documents.status %>
+      <%= f.label "Document Status: " %><%= " " + @documents.status %><br/>
+      <%= f.label :checked_out_flag, "Document Checked Out:" %>
+      <%= f.check_box :checked_out_flag, disabled: :true %>
+
+      <% if @approval_route %>
+            <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
+      <% end %>
+
+      <br/>
+      <%= f.label "Document Comments:" %>
+      <%= f.text_area :comments, class: "form-control", :rows => 5 %>
       
       <br/>
 

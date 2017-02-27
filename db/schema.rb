@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224101923) do
+ActiveRecord::Schema.define(version: 20170226221454) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170224101923) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "document_id"
+    t.boolean  "closed_flag"
     t.index ["document_id"], name: "index_approval_routes_on_document_id"
   end
 
@@ -61,7 +62,7 @@ ActiveRecord::Schema.define(version: 20170224101923) do
   create_table "documents", force: :cascade do |t|
     t.string   "title"
     t.integer  "issue_number"
-    t.boolean  "checked_out_flag"
+    t.boolean  "checked_out_flag", default: false
     t.string   "author"
     t.string   "reviewer"
     t.string   "approver"
