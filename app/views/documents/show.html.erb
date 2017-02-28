@@ -6,15 +6,29 @@
 
 <div class="row">
 
-  <div class="doc-wrapper">
+<table>
+  <tr>
+    <td>
+      <div class="doc-wrapper">
 
-    <%= render 'layouts/form_document' %>
-
-  </div>
-
-  <div class="button-wrapper">
-  		<%= render 'layouts/form_document' %>
-  </div>
+        <%= render 'layouts/form_document' %>
+    
+      </div>
+    </td>
+    <td>
+      <h3>Document Options</h3>
+      
+      <br/><br/>
+      
+      <%= link_to "Create New Issue", new_document_path, :class => "btn btn-primary" %><br/><br/>
+      <%= link_to "Submit for Review", reviewplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+      <%= link_to "Submit for Approval", approveplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+      <%= link_to "Return Document to Author", "#", :class => "btn btn-primary" %><br/><br/>
+      <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/>
+      
+    </td>
+  </tr>
+</table>
 
 </div>
 

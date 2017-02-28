@@ -105,9 +105,11 @@ footer {
 	}
 	
     // Styling for the Document Filter box
-
+    
     .row {
-        padding: 10px;
+        table {
+            width: 100%;
+        }
     }
 
     .doc-wrapper {
@@ -120,39 +122,10 @@ footer {
 
         border-radius: 10px;
 
-        margin: 10px 5px;
+        margin: 10px 10px;
         background-color: LightGrey;
         padding: 10px; 
-        width: 45%;
-        position: left;
-        left: 2.5%;
-
-        table {
-            width: 100%;
-        }
-
-    }
-
-    .button-wrapper {
-
-        //border: 1px solid #000;
-
-        @extend .wrapper;
-
-        display: inline-block;
-
-        border-radius: 10px;
-
-        margin: 10px 5px;
-        background-color: LightGrey;
-        padding: 10px; 
-        width: 45%;
-        position: right;
-        left: 2.5%;
-
-        table {
-            width: 100%;
-        }
+        width: 100%;
 
     }
 
@@ -187,9 +160,9 @@ footer {
         margin: 10px 5px;
         background-color: LightGrey;
         padding: 10px; 
-        width: 95%;
+        width: 99%;
         position: relative;
-        left: 2.5%;
+        left: 0.5%;
 
         table {
             width: 100%;

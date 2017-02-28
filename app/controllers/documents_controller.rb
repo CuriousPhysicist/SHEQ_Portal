@@ -224,10 +224,10 @@ class DocumentsController < ApplicationController
       #config.validate_on_write = false
     #end
 
-    pdf_path = @documents.stored_pdf_url
-    page_index_path = File.join(Rails.root, pdf_path + "[0]")
-    pdf_page = MiniMagick::Image.read(page_index_path)
-    pdf_page.write("app/assets/images/thumb#{current_user.id}.png")
+    # pdf_path = @documents.stored_pdf_url
+    # page_index_path = File.join(Rails.root, pdf_path + "[0]")
+    # pdf_page = MiniMagick::Image.read(page_index_path)
+    # pdf_page.write("app/assets/images/thumb#{current_user.id}.png")
 
   end
 

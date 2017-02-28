@@ -18,25 +18,32 @@
                   <h3><i><%= @documents.title %></i></h3>
             <% end %>
             
-            <% if yield(:show_flag) == "" %>
-                  <% if !@documents.checked_out_flag %>
-                  <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
-                  <div class="file-input">
-                        <%= f.file_field :report_form %>
-                  </div>
-                  <% end %>
-            <% else %>
-                  <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
-            <% end %>
       <% end %>
       
-      <%= f.label "Document Status: " %><%= " " + @documents.status %><br/>
-      <%= f.label :checked_out_flag, "Document Checked Out:" %>
-      <%= f.check_box :checked_out_flag, disabled: :true %>
-
-      <% if @approval_route %>
-            <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
-      <% end %>
+      <table>
+            <tr>
+                  <td>
+                        <%= f.label "Document Status: " %><%= " " + @documents.status %><br/>
+                        <%= f.label :checked_out_flag, "Document Checked Out:" %>
+                        <%= f.check_box :checked_out_flag, disabled: :true %> 
+                  </td>
+                  <td>
+                        <% if yield(:show_flag) == "" %>
+                              <% if !@documents.checked_out_flag %>
+                              <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
+                              <div class="file-input">
+                                    <%= f.file_field :report_form %>
+                              </div>
+                              <% end %>
+                        <% else %>
+                        <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+                  <% end %>
+                       <% if @approval_route %>
+                              <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
+                        <% end %> 
+                  </td>
+            </tr>
+      </table>
 
       <br/>
       <%= f.label "Document Comments:" %>

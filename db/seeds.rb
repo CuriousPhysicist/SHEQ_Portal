@@ -127,8 +127,8 @@ end
             title: Faker::Name.title,
             status: status_arr[rnd2],
             comments: Faker::Lorem.paragraph,
-            stored_doc: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Doc-1.docx"),
-            stored_pdf: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Pdf-1.pdf"),
+            #stored_doc: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Doc-1.docx"),
+            #stored_pdf: open("/Users/sian_ma_jones/Documents/Andrew/Websites/Test-Pdf-1.pdf"),
             #stored_doc: open(File.join(Rails.root, "app/assets/images/Test-Doc-1.doc")),
             #stored_pdf: open(File.join(Rails.root, "app/assets/images/Test-Pdf-1.pdf"))
             )

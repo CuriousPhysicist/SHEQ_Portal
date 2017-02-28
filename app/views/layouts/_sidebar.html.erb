@@ -34,7 +34,7 @@
     <br/>
     <%= link_to "Documents", documents_path, class: "btn btn-secondary" %>
     <% if current_user.approval_type != nil %>
-        <%= link_to "Tasks", tasks_actions_path, class: "btn btn-secondary" %>
+        <%= link_to "Tasks", tasks_documents_path, class: "btn btn-secondary" %>
     <% else %>
     <% end %>
     <br/><hr>
