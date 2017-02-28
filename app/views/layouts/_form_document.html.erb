@@ -40,11 +40,16 @@
                                     <% else %>
                                           <p>Checkout Document (Doc): <%= link_to("Click Here", @documents.stored_doc_url) %> </p>
                                     <% end %>
+                                    
                                     <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
+                              
                               <% else %>
+                              
                                     <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+                              
                               <% end %>
-                             <% if @documents.issued_on %>
+                              
+                              <% if @documents.issued_on %>
                                     <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
                               <% end %> 
                         </td>
