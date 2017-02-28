@@ -254,6 +254,18 @@ class DocumentsController < ApplicationController
   end
 
   def update
+    @document = Document.find(params[:id]) ## pulls requested Document record from database
+    
+    if @document.update(document_params)
+            flash[:success] = "Document successfully updated"
+            ## email action owner warning of action placing, indicate if action is associated with an Event report
+            ## cc line management superior, cc SHEQ team for information.
+            #UserMailer.new_action_email(@owner, @action).deliver
+            redirect_to document_path(@document.id)
+        else
+            flash[:danger] = "Document failed to save"
+            render 'edit'
+        end
   end
 
   def show

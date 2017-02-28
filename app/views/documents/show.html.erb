@@ -23,10 +23,14 @@
       <%= link_to "Create New Issue", upissue_documents_path(:id => @documents.id), :class => "btn btn-primary", data: { confirm: "Are you sure?" } %><br/><br/>
       
       <%= link_to "Return Document to Author", "#", :class => "btn btn-primary" %><br/><br/>
-      <% if @documents.status == "In Prep" %>
+      <% if @documents.status == "In Prep" || @documents.status == "Awaiting Review" || @documents.status == "Awaiting Approval" %>
         <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/><br/>
-        <%= link_to "Submit for Review", reviewplease_documents_path, :class => "btn btn-primary" %><br/><br/>
-        <%= link_to "Submit for Approval", approveplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+        <% if @documents.status == "In Prep" %>
+          <%= link_to "Submit for Review", reviewplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+        <% end %>
+        <% if @documents.status == "Awaiting Review" %>
+          <%= link_to "Submit for Approval", approveplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+        <% end %>
       <% end %>
       
     </td>

@@ -35,7 +35,7 @@
             <table>
                   <tr>
                         <td>
-                              <%= f.label "Document Status: " %><%= " " + @documents.status %><br/>
+                              <%= f.label "Document Status: " %><br/><%= " " + @documents.status %><br/>
                               <%= f.label :checked_out_flag, "Document Checked Out:" %>
                               <%= f.check_box :checked_out_flag %> 
                         </td>
@@ -53,7 +53,7 @@
                                           <% end %>
                                           
                                           <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
-                                          <% debugger %>
+                                          
                                     <% end %>
                               
                               <% else %>
@@ -73,6 +73,11 @@
             <%= f.text_area :comments, class: "form-control", :rows => 5 %>
             
             <br/>
+            
+            <% if yield(:show_flag) == "" %>
+                  <%= f.submit yield(:button_text), class: "btn btn-primary", :id => "submit-button" %>
+            <% end %>
+            
       <% end %>
 
 
