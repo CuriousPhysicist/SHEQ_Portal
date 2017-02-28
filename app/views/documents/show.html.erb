@@ -6,10 +6,21 @@
 
 <div class="row">
 
-  <div class="form-wrapper">
+  <div class="doc-wrapper">
 
     <%= render 'layouts/form_document' %>
 
   </div>
+
+  <div class="button-wrapper">
+  		<%= render 'layouts/form_document' %>
+  </div>
+
+</div>
+
+<div class="thumbnail-wrapper">
+
+  <%= image_tag "thumb-#{current_user.id}.png", size: "20x30" %>
+  <%#= image_tag "smiley_face.png", size: "200x300" %>
 
 </div>

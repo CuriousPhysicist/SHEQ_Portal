@@ -217,8 +217,17 @@ class DocumentsController < ApplicationController
 
   def show
     @documents = Document.find(params[:id]) ## pulls requested Document record from database
-
     @approval_route = ApprovalRoute.where('document_id - ?', @documents.id).first ## selects the open approval route with the matching document id
+
+    #MiniMagick.configure do |config|
+      #config.validate_on_create = false
+      #config.validate_on_write = false
+    #end
+
+    pdf_path = @documents.stored_pdf_url
+    page_index_path = File.join(Rails.root, pdf_path + "[0]")
+    pdf_page = MiniMagick::Image.read(page_index_path)
+    pdf_page.write("app/assets/images/thumb#{current_user.id}.png")
 
   end
 
