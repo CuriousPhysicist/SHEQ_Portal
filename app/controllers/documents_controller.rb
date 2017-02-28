@@ -249,7 +249,7 @@ class DocumentsController < ApplicationController
   def edit
     @documents = Document.find(params[:id]) ## pulls requested Document record from database
 
-    @approval_route = ApprovalRoute.where('document_id - ?', @documents.id).first ## selects the open approval route with the matching document id
+    @approval_route = ApprovalRoute.where('document_id = ?', @documents.id).first ## selects the open approval route with the matching document id
 
   end
 

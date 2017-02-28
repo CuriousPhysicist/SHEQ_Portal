@@ -7,6 +7,8 @@ class ApprovalRouteController < ApplicationController
     @approval_routes = ApprovalRoute.find(params[:format]) ## pulls requested Approval Route record from database
     @document = Document.where('id = ?', @approval_routes.document_id).first ## selects the document associated with the approval route
     
+    debugger
+    
     @author = Author.where('approval_route_id = ?', @approval_routes.id).first ## author associated with this approval route
     @reviewer = Reviewer.where('approval_route_id = ?', @approval_routes.id).first ## reviewer associated with this approval route
     @approver = Approver.where('approval_route_id = ?', @approval_routes.id).first ## aprover associated with this approval route
