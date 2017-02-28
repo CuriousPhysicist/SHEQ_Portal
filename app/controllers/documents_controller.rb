@@ -235,6 +235,21 @@ class DocumentsController < ApplicationController
             @approval_route = ApprovalRoute.create(
                       document_id: @document.id
               )
+            @author = Author.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: current_user.id
+              )
+            review_users = User.where('team = ?', current_user.team)
+            review_user = review_users.where('level = ?', 2).first
+            @reviewer = Reviewer.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: 2
+              )
+            approve_user = User.where('team = ?', "SHEQ").where('level = ?', 3).first
+            @approver = Approver.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: 3
+              )
             ## email action owner warning of action placing, indicate if action is associated with an Event report
             ## cc line management superior, cc SHEQ team for information.
             #UserMailer.new_action_email(@owner, @action).deliver
@@ -286,6 +301,9 @@ class DocumentsController < ApplicationController
   
   def upissue
     @olddocument = Document.where('id = ?', params[:id]).first
+    @oldapprovalroute = ApprovalRoute.where('document_id = ?', @olddocument.id).first
+    @oldreviewer = Reviewer.where('approval_route_id = ?', @oldapprovalroute.id).first
+    @oldapprover = Approver.where('approval_route_id = ?', @oldapprovalroute.id).first
     doc_filepath = File.join(Rails.root, "public" + @olddocument.stored_doc_url)
     @documents = Document.create(
                       title: @olddocument.title,
@@ -297,6 +315,18 @@ class DocumentsController < ApplicationController
               )
     @approval_route = ApprovalRoute.create(
                       document_id: @documents.id
+              )
+    @author = Author.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: current_user.id
+              )
+    @reviewer = Reviewer.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: @oldreviewer.user_id
+              )
+    @approver = Approver.create(
+                      approval_route_id: @approval_route.id,
+                      user_id: @oldapprover.user_id
               )
   end
 

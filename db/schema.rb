@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226221454) do
+ActiveRecord::Schema.define(version: 20170228201215) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "reference_number"
@@ -49,14 +49,18 @@ ActiveRecord::Schema.define(version: 20170226221454) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "approval_route_id"
+    t.integer  "user_id"
     t.index ["approval_route_id"], name: "index_approvers_on_approval_route_id"
+    t.index ["user_id"], name: "index_approvers_on_user_id"
   end
 
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "approval_route_id"
+    t.integer  "user_id"
     t.index ["approval_route_id"], name: "index_authors_on_approval_route_id"
+    t.index ["user_id"], name: "index_authors_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -125,7 +129,9 @@ ActiveRecord::Schema.define(version: 20170226221454) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "approval_route_id"
+    t.integer  "user_id"
     t.index ["approval_route_id"], name: "index_reviewers_on_approval_route_id"
+    t.index ["user_id"], name: "index_reviewers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -144,12 +150,6 @@ ActiveRecord::Schema.define(version: 20170226221454) do
     t.boolean  "active_flag"
     t.text     "comment"
     t.string   "department"
-    t.integer  "author_id"
-    t.integer  "reviewer_id"
-    t.integer  "approver_id"
-    t.index ["approver_id"], name: "index_users_on_approver_id"
-    t.index ["author_id"], name: "index_users_on_author_id"
-    t.index ["reviewer_id"], name: "index_users_on_reviewer_id"
   end
 
 end

@@ -119,6 +119,7 @@ end
 
     rnd1 = rand(0..type_arr.length-1)
     rnd2 = rand(0..status_arr.length-1)
+    rnd3 = rand(1..12)
 
     Document.create(
             doc_type: type_arr[rnd1],
@@ -140,25 +141,19 @@ end
         )
         
     Author.create(
-            approval_route_id: i+1
+            approval_route_id: i+1,
+            user_id: rnd3
         )
         
     Reviewer.create(
-            approval_route_id: i+1
+            approval_route_id: i+1,
+            user_id: rnd3
         )
         
     Approver.create(
-            approval_route_id: i+1
+            approval_route_id: i+1,
+            user_id: rnd3
         )
     
 end
 
-12.times do |i|
-   
-   user = User.find(i+1)
-   
-   user.update(author_id: i+1)
-   user.update(reviewer_id: i+1)
-   user.update(approver_id: i+1)
-    
-end

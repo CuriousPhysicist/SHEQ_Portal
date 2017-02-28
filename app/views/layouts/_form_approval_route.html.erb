@@ -5,9 +5,9 @@
       <br/>
       <%= f.label :author %>
       <% if yield(:show_flag) == "" %>
-            <%#= f.select(:author_id, []) %>
-            <%#= f.hidden_field :autor_id %>
-            <%#= f.text_field :author, :value => "", :class => "form-control", :id => "dummy-author", disabled: true %>
+            <%= f.select(:document_id, []) %>
+            <%= f.hidden_field :document_id %>
+            <%= f.text_field :document_id, :value => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", :id => "dummy-author", disabled: true %>
       <% else %>
             <%= f.text_field :document_id, :value => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", disabled: true %>
       <% end %>
@@ -15,7 +15,9 @@
       <br/>
       <%= f.label :reviewer %>
       <% if yield(:show_flag) == "" %>
-      
+            <%= f.select(:document_id, []) %>
+            <%= f.hidden_field :document_id %>
+            <%= f.text_field :document_id, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", :id => "dummy-author", disabled: true %>
       <% else %>
             <%= f.text_field :document_id, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", disabled: true %>
       <% end %>
@@ -23,7 +25,9 @@
       <br/>
       <%= f.label :approver %>
       <% if yield(:show_flag) == "" %>
-      
+            <%= f.select(:document_id, []) %>
+            <%= f.hidden_field :document_id %>
+            <%= f.text_field :document_id, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", :id => "dummy-author", disabled: true %>
       <% else %>
             <%= f.text_field :document_id, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", disabled: true %>
       <% end %>
