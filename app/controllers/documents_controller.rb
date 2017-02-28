@@ -28,10 +28,13 @@ class DocumentsController < ApplicationController
         if params[:status5]
           @documents_status5 = @documents_result.search(params[:status5])
         end
+        if params[:status6]
+          @documents_status6 = @documents_result.search(params[:status6])
+        end
 
         ## re-initialise the instance variable with an empty ActiveRecords relation 'hash'
         ## The if statement prevents re-initialisation if no status filters applied
-        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5]
+        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5] || params[:status6]
           @documents_result = Document.none
         end
 
@@ -52,6 +55,9 @@ class DocumentsController < ApplicationController
         end
         if @documents_status5
           @documents_result = @documents_result.or(@documents_status5)
+        end
+        if @documents_status6
+          @documents_result = @documents_result.or(@documents_status6)
         end
         
       else 
@@ -74,10 +80,13 @@ class DocumentsController < ApplicationController
         if params[:status5]
           @documents_status5 = @documents_result.search(params[:status5])
         end
+        if params[:status6]
+          @documents_status6 = @documents_result.search(params[:status6])
+        end
 
         ## re-initialise the instance variable with an empty ActiveRecords relation 'hash'
         ## the if statement prevents re-initialisation if no filters applied
-        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5]
+        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5] || params[:status6]
           @documents_result = Document.none
         end
 
@@ -96,6 +105,9 @@ class DocumentsController < ApplicationController
         end
         if @documents_status5
           @documents_result = @documents_result.or(@documents_status5)
+        end
+        if @documents_status6
+          @documents_result = @documents_result.or(@documents_status6)
         end
       end
 
@@ -126,10 +138,13 @@ class DocumentsController < ApplicationController
         if params[:status5]
           @documents_status5 = @documents.search(params[:status5])
         end
+        if params[:status6]
+          @documents_status6 = @documents.search(params[:status6])
+        end
 
         ## re-initialise the instance variable with an empty ActiveRecords relation 'hash'
         ## The if statement prevents re-initialisation if no status filters applied
-        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5]
+        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5] || params[:status6]
           @documents = Document.none
         end
 
@@ -150,6 +165,9 @@ class DocumentsController < ApplicationController
         end
         if @documents_status5
           @documents = @documents.or(@documents_status5)
+        end
+        if @documents_status6
+          @documents = @documents.or(@documents_status6)
         end
 
       else 
@@ -172,10 +190,13 @@ class DocumentsController < ApplicationController
         if params[:status5]
           @documents_status5 = @documents.search(params[:status5])
         end
+        if params[:status6]
+          @documents_status6 = @documents.search(params[:status6])
+        end
 
         ## re-initialise the instance variable with an empty ActiveRecords relation 'hash'
         ## the if statement prevents re-initialisation if no filters applied
-        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5]
+        if params[:status1] || params[:status2] || params[:status3] || params[:status4] || params[:status5] || params[:status6]
           @documents = Document.none
         end
 
@@ -194,6 +215,9 @@ class DocumentsController < ApplicationController
         end
         if @documents_status5
           @documents = @documents.or(@documents_status5)
+        end
+        if @documents_status6
+          @documents = @documents.or(@documents_status6)
         end
       end
     end

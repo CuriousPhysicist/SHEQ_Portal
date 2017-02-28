@@ -60,17 +60,23 @@
                                 <%= check_box_tag :status3, "Withdrawn" %>
                             <% end %>
                             <br/>
-                            <%= label_tag :status4, "Awaiting Review" %>
+                            <%= label_tag :status4, "In Prep" %>
                             <% if params[:status4] %>
-                                <%= check_box_tag :status4, "Awaiting Review", checked: true %>
+                                <%= check_box_tag :status4, "In Prep", checked: true %>
                             <% else %>
-                                <%= check_box_tag :status4, "Awaiting Review" %>
+                                <%= check_box_tag :status4, "In Prep" %>
                             <% end %>
-                            <%= label_tag :status5, "Awaiting Approval" %>
+                            <%= label_tag :status5, "Awaiting Review" %>
                             <% if params[:status5] %>
-                                <%= check_box_tag :status5, "Awaiting Approval", checked: true %>
+                                <%= check_box_tag :status5, "Awaiting Review", checked: true %>
                             <% else %>
-                                <%= check_box_tag :status5, "Awaiting Approval" %>
+                                <%= check_box_tag :status5, "Awaiting Review" %>
+                            <% end %>
+                            <%= label_tag :status6, "Awaiting Approval" %>
+                            <% if params[:status6] %>
+                                <%= check_box_tag :status6, "Awaiting Approval", checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status6, "Awaiting Approval" %>
                             <% end %>
                             <br/>
                         </td>
@@ -170,17 +176,23 @@
                                 <%= check_box_tag :status3, "Withdrawn" %>
                             <% end %>
                             <br/>
-                            <%= label_tag :status4, "Awaiting Review" %>
+                            <%= label_tag :status4, "In Prep" %>
                             <% if params[:status4] %>
-                                <%= check_box_tag :status4, "Awaiting Review", checked: true %>
+                                <%= check_box_tag :status4, "In Prep", checked: true %>
                             <% else %>
-                                <%= check_box_tag :status4, "Awaiting Review" %>
+                                <%= check_box_tag :status4, "In Prep" %>
                             <% end %>
-                            <%= label_tag :status5, "Awaiting Approval" %>
+                            <%= label_tag :status5, "Awaiting Review" %>
                             <% if params[:status5] %>
-                                <%= check_box_tag :status5, "Awaiting Approval", checked: true %>
+                                <%= check_box_tag :status5, "Awaiting Review", checked: true %>
                             <% else %>
-                                <%= check_box_tag :status5, "Awaiting Approval" %>
+                                <%= check_box_tag :status5, "Awaiting Review" %>
+                            <% end %>
+                            <%= label_tag :status6, "Awaiting Approval" %>
+                            <% if params[:status6] %>
+                                <%= check_box_tag :status6, "Awaiting Approval", checked: true %>
+                            <% else %>
+                                <%= check_box_tag :status6, "Awaiting Approval" %>
                             <% end %>
                             <br/>
                         </td>
