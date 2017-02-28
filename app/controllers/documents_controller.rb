@@ -224,6 +224,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @documents = Document.new
   end
 
   def create
@@ -253,6 +254,22 @@ class DocumentsController < ApplicationController
     # pdf_page = MiniMagick::Image.read(page_index_path)
     # pdf_page.write("app/assets/images/thumb#{current_user.id}.png")
 
+  end
+  
+  def upissue
+    @olddocument = Document.where('id = ?', params[:id]).first
+    doc_filepath = File.join(Rails.root, "public" + @olddocument.stored_doc_url)
+    @documents = Document.create(
+                      title: @olddocument.title,
+                      doc_type: @olddocument.doc_type,
+                      doc_number: @olddocument.doc_number,
+                      status: "In Prep",
+                      issue_number: @olddocument.issue_number+1,
+                      stored_doc: open(doc_filepath)
+              )
+    @approval_route = ApprovalRoute.create(
+                      document_id: @documents.id
+              )
   end
 
   # actions for data importing

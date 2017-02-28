@@ -1,2 +1,15 @@
-<h1>ApprovalRoute#edit</h1>
-<p>Find me in app/views/approval_route/edit.html.erb</p>
+<% provide(:path, approval_route_edit_path) %>
+<% provide(:show_flag, "" ) %>
+<% provide(:method_text, :patch) %>
+
+<div class="row">
+
+    <h1><b>Approval Route for: <%= @document.doc_type + "/" + @document.doc_number.to_s %></b> <small>Issue #<%= @document.issue_number %></small></h1>
+
+    <div class="form-wrapper">
+        
+        <%= render 'layouts/form_approval_route' %>
+        
+    </div>
+    
+</div>

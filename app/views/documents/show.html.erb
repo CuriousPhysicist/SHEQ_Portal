@@ -20,11 +20,14 @@
       
       <br/><br/>
       
-      <%= link_to "Create New Issue", new_document_path, :class => "btn btn-primary" %><br/><br/>
-      <%= link_to "Submit for Review", reviewplease_documents_path, :class => "btn btn-primary" %><br/><br/>
-      <%= link_to "Submit for Approval", approveplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+      <%= link_to "Create New Issue", upissue_documents_path(:id => @documents.id), :class => "btn btn-primary" %><br/><br/>
+      
       <%= link_to "Return Document to Author", "#", :class => "btn btn-primary" %><br/><br/>
-      <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/>
+      <% if @documents.status == "In Prep" %>
+        <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/><br/>
+        <%= link_to "Submit for Review", reviewplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+        <%= link_to "Submit for Approval", approveplease_documents_path, :class => "btn btn-primary" %><br/><br/>
+      <% end %>
       
     </td>
   </tr>

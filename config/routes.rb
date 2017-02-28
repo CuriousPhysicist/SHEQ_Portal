@@ -106,6 +106,7 @@ Rails.application.routes.draw do
   ## Document routes
   
   resources :documents do
+    collection { get :upissue }
     collection { get :upload }
     collection { post :import }
     collection { get :search }
