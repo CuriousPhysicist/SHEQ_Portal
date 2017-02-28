@@ -228,6 +228,22 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    @document = Document.new(document_params)
+    
+    if @document.save!
+            flash[:success] = "Document successfully created"
+            @approval_route = ApprovalRoute.create(
+                      document_id: @document.id
+              )
+            ## email action owner warning of action placing, indicate if action is associated with an Event report
+            ## cc line management superior, cc SHEQ team for information.
+            #UserMailer.new_action_email(@owner, @action).deliver
+            redirect_to document_path(@document.id)
+        else
+            flash[:danger] = "Document failed to save"
+            render 'new'
+        end
+    
   end
 
   def edit
@@ -307,7 +323,7 @@ class DocumentsController < ApplicationController
     
   private
     
-  def event_params
+  def document_params
       params.require(:documents).permit(:doc_number, :doc_type, :status, :issue_number, :title, :comments, :stored_doc, :stored_pdf)
   end
 end

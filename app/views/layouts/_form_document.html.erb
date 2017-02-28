@@ -2,7 +2,16 @@
       
       <% if @documents.new_record? %>
             
-            <p>This is a new document!</p>
+            <%= f.label :doc_type, "Select Document Type" %>
+            <%= f.select(:doc_type, [['INUTEC/P', 'INUTEC/P'],['INUTEC/AI', 'INUTEC/AI'],['INUTEC/WI', 'INUTEC/WI'],['INUTEC/MI', 'INUTEC/MI']], {:include_blank => true}, {:id => "choose-doc-type"}) %>
+            <%= f.label :doc_number %>
+            <%= f.text_field :doc_number%>
+            <%= f.hidden_field :issue_number, :value => 1 %>
+            <%= f.hidden_field :status, :value => "In Prep" %>
+            <br
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "form-control" %>
+            
             
             <br/>
             <%= f.label "Document Comments:" %>
@@ -31,27 +40,29 @@
                               <%= f.check_box :checked_out_flag %> 
                         </td>
                         <td>
-                              <% if yield(:new_flag) == "Upissue" %>
-                                    <% if @documents.checked_out_flag %>
-                                          <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
-                                          <div class="file-input">
-                                                <%= f.file_field :report_form %>
-                                          </div>
-                                    <% else %>
-                                          <p>Checkout Document (Doc): <%= link_to("Click Here", @documents.stored_doc_url) %> </p>
+                              <% if !@documents.issued_on %>
+                              
+                                    <% if yield(:show_flag) == "" %>
+                                          <% if @documents.checked_out_flag %>
+                                                <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
+                                                <div class="file-input">
+                                                      <%= f.file_field :report_form %>
+                                                </div>
+                                          <% else %>
+                                                <p>Checkout Document (Doc): <%= link_to("Click Here", @documents.stored_doc_url) %> </p>
+                                          <% end %>
+                                          
+                                          <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
                                     <% end %>
-                                    
-                                    <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
                               
                               <% else %>
                               
                                     <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+                                    <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
                               
                               <% end %>
                               
-                              <% if @documents.issued_on %>
-                                    <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
-                              <% end %> 
+                               
                         </td>
                   </tr>
             </table>
