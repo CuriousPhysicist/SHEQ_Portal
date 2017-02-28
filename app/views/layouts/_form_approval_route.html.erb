@@ -1,0 +1,38 @@
+<%= form_for :approval_routes, url: yield(:path), :method => yield(:method_text) do |f| %>
+      
+      <% if @approval_routes.new_record? %>
+            
+            <h3><i><%= @document.title %></i></h3>
+            
+            <br/>
+            <%= f.label :author %>
+            <%= f.text_field :document_id, :value => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", disabled: true %>
+            
+            <br/>
+            <%= f.label :reviewer %>
+            <%= f.text_field :document_id, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", disabled: true %>
+            
+            <br/>
+            <%= f.label :approver %>
+            <%= f.text_field :document_id, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", disabled: true %>
+            
+      
+      <% else %>
+      
+            <h3><i><%= @document.title %></i></h3>
+            
+            <br/>
+            <%= f.label :author %>
+            <%= f.text_field :document_id, :value => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", disabled: true %>
+            
+            <br/>
+            <%= f.label :reviewer %>
+            <%= f.text_field :document_id, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", disabled: true %>
+            
+            <br/>
+            <%= f.label :approver %>
+            <%= f.text_field :document_id, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", disabled: true %>
+            
+      <% end %>
+      
+<% end %>

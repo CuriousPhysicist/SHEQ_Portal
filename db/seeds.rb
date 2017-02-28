@@ -81,7 +81,7 @@ end
 10.times do |i| 
      rnd1 = rand(1..12)
      rnd2 = rand(0..1)
-     rnd3 = rand(1..5)
+     #rnd3 = rand(1..5)
       
       
      closedflag_setter = rand(0..1)
@@ -137,4 +137,27 @@ end
             document_id: i+1,
             closed_flag: false
         )
+        
+    Author.create(
+            approval_route_id: i+1
+        )
+        
+    Reviewer.create(
+            approval_route_id: i+1
+        )
+        
+    Approver.create(
+            approval_route_id: i+1
+        )
+    
+end
+
+12.times do |i|
+   
+   user = User.find(i+1)
+   
+   user.update(author_id: i+1)
+   user.update(reviewer_id: i+1)
+   user.update(approver_id: i+1)
+    
 end

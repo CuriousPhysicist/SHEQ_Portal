@@ -16,8 +16,8 @@
 /tmp/*
 /nohup.out
 /public/uploads/event/report_form
-/public/uploads/event/stored_doc
-/public/uploads/event/stored_pdf
+/public/uploads/document/stored_doc
+/public/uploads/document/stored_pdf
 !/log/.keep
 !/tmp/.keep
 
