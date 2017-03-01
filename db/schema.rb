@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170228223147) do
     t.string   "approver"
     t.boolean  "reviewed_flag",        default: false
     t.boolean  "approved_flag",        default: false
-    t.boolean  "issued_flag",          default: true
+    t.boolean  "issued_flag",          default: false
     t.datetime "issued_on"
     t.datetime "review_period"
     t.datetime "due_date"

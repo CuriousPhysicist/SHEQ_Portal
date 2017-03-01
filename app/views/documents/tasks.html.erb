@@ -1,2 +1,27 @@
-<h1>Document#tasks</h1>
-<p>Find me in app/views/document/tasks.html.erb</p>
+<h1>Document Tasks.</h1>
+
+<div class="wrapper">
+    
+    <%  %>
+        <h3>You are Author on the following documents:</h3>
+    
+        <% if @documents_in_prep.empty? %>
+            <p> There are no Documents in preparation.</p>
+        <% else %>
+            <table class="actions">
+                <tr>
+                    <th>Type</th>
+                    <th>Number</th>
+                    <th>Issue</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Comments</th>   
+                </tr>
+            <%= render @documents_in_prep  %>
+            </table>
+        <% end %>
+    
+        <br/>
+    <%  %>
+    
+</div>

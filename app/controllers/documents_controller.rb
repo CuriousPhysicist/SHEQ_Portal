@@ -341,6 +341,29 @@ class DocumentsController < ApplicationController
   end
 
   def tasks
+    
+    ## The code below selects the documents which are 'live' and which the current_user is the assigned Author
+    approute_arr = []
+    k = 0
+    
+    author_hsh = Author.where('user_id = ?', current_user.id).index_by(&:approval_route_id).to_a
+    (0..author_hsh.length-1).each do |i| 
+      approute_arr[k] = author_hsh[i][0]
+      k += 1
+    end
+    
+    document_arr = []
+    k = 0
+    approvalroutes_hsh = ApprovalRoute.where('id IN(?)', approute_arr).index_by(&:document_id).to_a
+    
+    (0..approvalroutes_hsh.length-1).each do |i| 
+      document_arr[k] = author_hsh[i][0]
+      k += 1
+    end
+    
+    @documents_in_prep = Document.where('issued_flag = ?', false).where('id IN(?)', document_arr)
+    
+    
   end
 
   def reviewplease
