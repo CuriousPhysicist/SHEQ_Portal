@@ -125,7 +125,7 @@ end
   get 'approval_route/new'
   get 'approval_route/create'
   get 'approval_route/edit'
-  get 'approval_route/update'
+  patch 'approval_route/update'
   get 'approval_route/show'
   get 'approval_route/close_route'
   

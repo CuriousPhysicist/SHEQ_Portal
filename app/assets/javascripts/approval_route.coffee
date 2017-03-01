@@ -16,6 +16,8 @@ jQuery ->
             console.log(newauthor_name)
             target_dummy = $('#author-dummy').attr("value", newauthor_name)
             console.log(target_dummy)
+            target = $('#approval_routes_author_name').attr("value", newauthor_name)
+            console.log(target)
 
         $('#choose-reviewer').change ->
             
@@ -27,6 +29,8 @@ jQuery ->
             console.log(newreviewer_name)
             target_dummy = $('#reviewer-dummy').attr("value", newreviewer_name)
             console.log(target_dummy)
+            target = $('#approval_routes_reviewer_name').attr("value", newreviewer_name)
+            console.log(target)
 
         $('#choose-approver').change ->
             
@@ -38,4 +42,6 @@ jQuery ->
             console.log(newapprover_name)
             target_dummy = $('#approver-dummy').attr("value", newapprover_name)
             console.log(target_dummy)
+            target = $('#approval_routes_approver_name').attr("value", newapprover_name)
+            console.log(target)
             

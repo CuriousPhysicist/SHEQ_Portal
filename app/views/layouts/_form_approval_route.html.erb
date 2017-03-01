@@ -32,6 +32,8 @@
             <%= f.text_field :approver_name, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", disabled: true %>
       <% end %>
       
+      <% f.hidden_field :id %>
+      
       <% if yield(:show_flag) == "" %>
       <br/><br/>
             <%= f.submit yield(:button_text), class: "btn btn-primary", :id => "submit-button" %>
