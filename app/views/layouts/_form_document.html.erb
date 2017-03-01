@@ -44,12 +44,14 @@
                               
                                     <% if yield(:show_flag) == "" %>
                                           <% if @documents.checked_out_flag %>
-                                                <%= f.label :stored_doc, "Upload UNOR form (.doc, .docx)" %>
+                                                <%= f.label :stored_doc, "Upload Document (.doc, .docx)" %>
                                                 <div class="file-input">
-                                                      <%= f.file_field :report_form %>
+                                                      <%= f.file_field :stored_doc %>
                                                 </div>
+                                                <br/>
+                                                <p>Checkin Document: <%= link_to "Click Here", checkin_documents_path(@documents.id) %> </p>
                                           <% else %>
-                                                <p>Checkout Document (Doc): <%= link_to("Click Here", @documents.stored_doc_url) %> </p>
+                                                <p>Checkout Document (.doc, .docx): <%= link_to "Click Here", checkout_documents_path(@documents.id) %> </p>
                                           <% end %>
                                           
                                           <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>

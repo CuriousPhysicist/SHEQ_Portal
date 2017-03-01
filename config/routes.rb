@@ -111,14 +111,13 @@ Rails.application.routes.draw do
     collection { post :import }
     collection { get :search }
     collection { get :tasks }
+    collection { get :checkout }
+    collection { get :checkin }
     collection { patch :reviewplease }
     collection { patch :reviewed }
     collection { patch :approveplease }
     collection { patch :approved}
 end
-  
-  get 'documents/checkout'
-  get 'documents/checkin'
 
   ## Approval_route routes
   

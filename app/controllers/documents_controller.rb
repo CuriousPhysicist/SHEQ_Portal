@@ -379,9 +379,21 @@ class DocumentsController < ApplicationController
   end
 
   def checkout
+    @document = Document.find(params[:format])
+    
+    @document.update(:checked_out_flag => true, :checked_out_by => current_user.id)
+    #@document.send(stored_doc_url)
+    redirect_to document_path(@document.id)
+    
+    #@documents.stored_doc_url
   end
 
   def checkin
+    @document = Document.find(params[:format])
+    
+    @document.update(:checked_out_flag => false, :checked_out_by => nil)
+    #@document.send(stored_doc_url)
+    redirect_to document_path(@document.id)
   end
   
   # Private actions below (including strong parameters white-list)
