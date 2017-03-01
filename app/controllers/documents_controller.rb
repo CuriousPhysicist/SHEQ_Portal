@@ -250,6 +250,7 @@ class DocumentsController < ApplicationController
                       approval_route_id: @approval_route.id,
                       user_id: 3
               )
+            debugger
             ## email action owner warning of action placing, indicate if action is associated with an Event report
             ## cc line management superior, cc SHEQ team for information.
             #UserMailer.new_action_email(@owner, @action).deliver
@@ -382,17 +383,16 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:format])
     
     @document.update(:checked_out_flag => true, :checked_out_by => current_user.id)
-    #@document.send(stored_doc_url)
+
     redirect_to document_path(@document.id)
     
-    #@documents.stored_doc_url
   end
 
   def checkin
     @document = Document.find(params[:format])
     
     @document.update(:checked_out_flag => false, :checked_out_by => nil)
-    #@document.send(stored_doc_url)
+    
     redirect_to document_path(@document.id)
   end
   
