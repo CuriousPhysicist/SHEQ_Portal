@@ -117,6 +117,7 @@ Rails.application.routes.draw do
     collection { patch :reviewed }
     collection { patch :approveplease }
     collection { patch :approved}
+    collection { patch :issued}
 end
 
   ## Approval_route routes

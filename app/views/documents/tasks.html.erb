@@ -2,7 +2,7 @@
 
 <div class="wrapper">
     
-    <%  %>
+    <% if @documents_in_prep %>
         <h3>You are Author on the following documents:</h3>
     
         <% if @documents_in_prep.empty? %>
@@ -22,6 +22,74 @@
         <% end %>
     
         <br/>
-    <%  %>
+    <% end %>
+
+    <% if @documents_for_review %>
+        <h3>You are Reviewer on the following documents:</h3>
     
+        <% if @documents_for_review.empty? %>
+            <p> There are no Documents for review.</p>
+        <% else %>
+            <table class="actions">
+                <tr>
+                    <th>Type</th>
+                    <th>Number</th>
+                    <th>Issue</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Comments</th>   
+                </tr>
+            <%= render @documents_for_review  %>
+            </table>
+        <% end %>
+    
+        <br/>
+    <% end %>
+
+    <% if @documents_for_approval %>
+        <h3>You are Approver on the following documents:</h3>
+    
+        <% if @documents_for_approval.empty? %>
+            <p> There are no Documents for review.</p>
+        <% else %>
+            <table class="actions">
+                <tr>
+                    <th>Type</th>
+                    <th>Number</th>
+                    <th>Issue</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Comments</th>   
+                </tr>
+            <%= render @documents_for_approval  %>
+            </table>
+        <% end %>
+    
+        <br/>
+    <% end %>
+
+    <% if current_user.team = "SHEQ" %>
+        <% if @documents_for_issue %>
+            <h3>The following documents are approved for issue:</h3>
+        
+            <% if @documents_for_issue.empty? %>
+                <p> There are no Documents approved for issue.</p>
+            <% else %>
+                <table class="actions">
+                    <tr>
+                        <th>Type</th>
+                        <th>Number</th>
+                        <th>Issue</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Comments</th>   
+                    </tr>
+                <%= render @documents_for_issue  %>
+                </table>
+            <% end %>
+        
+            <br/>
+        <% end %>
+    <% end %>
+
 </div>

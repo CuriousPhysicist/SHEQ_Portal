@@ -115,7 +115,7 @@ end
 20.times do |i|
 
     type_arr = ["INUTEC/P","INUTEC/WI","INUTEC/AI","INUTEC/MI"]
-    status_arr = ["Issued","Suspended","Withdrawn","In Prep","Awaiting Review","Awaiting Approval"]
+    status_arr = ["Issued","Suspended","Withdrawn","In Prep","Awaiting Review","Awaiting Approval","Approved"]
 
     rnd1 = rand(0..type_arr.length-1)
     rnd2 = rand(0..status_arr.length-1)

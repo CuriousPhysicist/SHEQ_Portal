@@ -250,7 +250,7 @@ class DocumentsController < ApplicationController
                       approval_route_id: @approval_route.id,
                       user_id: 3
               )
-            debugger
+            
             ## email action owner warning of action placing, indicate if action is associated with an Event report
             ## cc line management superior, cc SHEQ team for information.
             #UserMailer.new_action_email(@owner, @action).deliver
@@ -286,7 +286,7 @@ class DocumentsController < ApplicationController
 
   def show
     @documents = Document.find(params[:id]) ## pulls requested Document record from database
-    @approval_route = ApprovalRoute.where('document_id - ?', @documents.id).first ## selects the open approval route with the matching document id
+    @approval_route = ApprovalRoute.where('document_id = ?', @documents.id).first ## selects the open approval route with the matching document id
 
     #MiniMagick.configure do |config|
       #config.validate_on_create = false
@@ -363,20 +363,89 @@ class DocumentsController < ApplicationController
     end
     
     @documents_in_prep = Document.where('issued_flag = ?', false).where('id IN(?)', document_arr)
+
+    ## The code below selects the documents which are 'live' and which the current_user is the assigned reviewer
+    approute_arr = []
+    k = 0
+    
+    reviewer_hsh = Reviewer.where('user_id = ?', current_user.id).index_by(&:approval_route_id).to_a
+    (0..reviewer_hsh.length-1).each do |i| 
+      approute_arr[k] = reviewer_hsh[i][0]
+      k += 1
+    end
+    
+    document_arr = []
+    k = 0
+    approvalroutes_hsh = ApprovalRoute.where('id IN(?)', approute_arr).index_by(&:document_id).to_a
+    
+    (0..approvalroutes_hsh.length-1).each do |i| 
+      document_arr[k] = reviewer_hsh[i][0]
+      k += 1
+    end
+    
+    @documents_for_review = Document.where('review_request_flag = ?', true).where('id IN(?)', document_arr)
+
+    ## The code below selects the documents which are 'live' and which the current_user is the assigned approver
+    approute_arr = []
+    k = 0
+    
+    approver_hsh = Approver.where('user_id = ?', current_user.id).index_by(&:approval_route_id).to_a
+    (0..approver_hsh.length-1).each do |i| 
+      approute_arr[k] = approver_hsh[i][0]
+      k += 1
+    end
+    
+    document_arr = []
+    k = 0
+    approvalroutes_hsh = ApprovalRoute.where('id IN(?)', approute_arr).index_by(&:document_id).to_a
+    
+    (0..approvalroutes_hsh.length-1).each do |i| 
+      document_arr[k] = approver_hsh[i][0]
+      k += 1
+    end
+    
+    @documents_for_approval = Document.where('approve_request_flag = ?', true).where('id IN(?)', document_arr)
+    
+    ## The code below selects the documents which are 'live' and which the current_user is the assigned approver
+    
+    @documents_for_issue = Document.where('approved_flag = ?', true).where('issued_flag = ?', false)
     
     
   end
 
   def reviewplease
+    @document = Document.find(params[:format])
+    
+    @document.update(:status => "Awaiting Review", :review_request_flag => true)
+
+    redirect_to document_path(@document.id)
   end
 
   def reviewed
   end
 
   def approveplease
+    @document = Document.find(params[:format])
+    
+    @document.update(:status => "Awaiting Approval", :review_request_flag => false, :approve_request_flag => true)
+
+    redirect_to document_path(@document.id)
   end
 
   def approved
+    @document = Document.find(params[:format])
+    
+    @document.update(:status => "Approved", :approve_request_flag => false, :approved_flag => true)
+
+    redirect_to document_path(@document.id)
+  end
+
+  def issued
+    @document = Document.find(params[:format])
+    
+    @document.update(:status => "Issued", :issued_flag => true, :issued_on => DateTime.now.to_date)
+
+    redirect_to document_path(@document.id)
   end
 
   def checkout
