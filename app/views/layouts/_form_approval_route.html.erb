@@ -8,7 +8,7 @@
             <% if @document.reviewed_flag == false || current_user.team == "SHEQ" %>
                   <%= f.collection_select(:author_name, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-author"}) %>
             <% end %>
-            <%= f.hidden_field :author_name %>
+            <%= f.hidden_field :author_name, :value => "#{@author_user.first_name} #{@author_user.last_name}" %>
             <%= f.text_field :author_name, :placeholder => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", :id => "author-dummy", disabled: true %>
       <% else %>
             <%= f.text_field :author_name, :value => "#{@author_user.first_name} #{@author_user.last_name}", :class => "form-control", disabled: true %>
@@ -20,7 +20,7 @@
             <% if @document.approved_flag == false || current_user.team == "SHEQ" %>
                   <%= f.collection_select(:reviewer_name, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-reviewer"}) %>
             <% end %>
-            <%= f.hidden_field :reviewer_name %>
+            <%= f.hidden_field :reviewer_name, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}" %>
             <%= f.text_field :reviewer_name, :placeholder => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", :id => "reviewer-dummy", disabled: true %>
       <% else %>
             <%= f.text_field :reviewer_name, :value => "#{@reviewer_user.first_name} #{@reviewer_user.last_name}", :class => "form-control", disabled: true %>
@@ -32,7 +32,7 @@
             <% if @document.issued_flag == false %>
                   <%= f.collection_select(:approver_name, User.order(:last_name),:id,:last_name, {:include_blank => true}, {:id =>"choose-approver"}) %>
             <% end %>
-            <%= f.hidden_field :approver_name %>
+            <%= f.hidden_field :approver_name, :value => "#{@approver_user.first_name} #{@approver_user.last_name}"%>
             <%= f.text_field :approver_name, :placeholder => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", :id => "approver-dummy", disabled: true %>
       <% else %>
             <%= f.text_field :approver_name, :value => "#{@approver_user.first_name} #{@approver_user.last_name}", :class => "form-control", disabled: true %>
