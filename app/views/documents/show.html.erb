@@ -24,7 +24,9 @@
         <%= link_to "Return Document", "#", :class => "btn btn-primary" %><br/><br/>
       <% end %>
       <% if @documents.status == "In Prep" || @documents.status == "Awaiting Review" || @documents.status == "Awaiting Approval" || @documents.status == "Approved" %>
-        <% if @documents.status != "Approved" || current_user.team == "SHEQ" %>
+        <% if @documents.checked_out_flag == true && @documents.checked_out_by == current_user.id || current_user.team == "SHEQ" %>
+          <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/><br/>
+        <% elsif @documents.checked_out_flag == false && @documents.status != "Approved" || current_user.team == "SHEQ" %>
           <%= link_to "Edit Document", edit_document_path(@documents.id), :class => "btn btn-primary" %><br/><br/>
         <% end %>
         <% if @documents.status == "In Prep" && @documents.checked_out_flag == false %>

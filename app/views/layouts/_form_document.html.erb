@@ -39,37 +39,39 @@
                               <%= f.label :checked_out_flag, "Document Checked Out:" %>
                               <%= f.check_box :checked_out_flag %> 
                         </td>
-                        <td>
-                              <% if !@documents.issued_on %>
-                              
-                                    <% if yield(:show_flag) == "" %>
-                                          <% if @documents.checked_out_flag %>
-                                                
-                                                <%= link_to "Check In Document", checkin_documents_path(@documents.id),class: "btn btn-primary" %><br/><br/>
-                                                <p>Download Document (.doc, .docx): <%= link_to "Click Here", @documents.stored_doc_url %> </p>
+                        <% if yield(:show_flag) == "" %>
+                              <td>
+                                    <% if !@documents.issued_on %>
+                                    
+                                          <% if yield(:show_flag) == "" %>
+                                                <% if @documents.checked_out_flag %>
+                                                      
+                                                      <%= link_to "Check In Document", checkin_documents_path(@documents.id),class: "btn btn-primary" %><br/><br/>
+                                                      <p>Download Document (.doc, .docx): <%= link_to "Click Here", @documents.stored_doc_url %> </p>
 
-                                                <%= f.label :stored_doc, "Upload Document (.doc, .docx)" %>
-                                                <div class="file-input">
-                                                      <%= f.file_field :stored_doc %>
-                                                </div><br/>
+                                                      <%= f.label :stored_doc, "Upload Document (.doc, .docx)" %>
+                                                      <div class="file-input">
+                                                            <%= f.file_field :stored_doc %>
+                                                      </div><br/>
+                                                      
+                                                <% else %>
+                                                      <%= link_to "Check Out Document", checkout_documents_path(@documents.id), class: "btn btn-primary" %><br/><br/>
+                                                <% end %>
                                                 
-                                          <% else %>
-                                                <%= link_to "Check Out Document", checkout_documents_path(@documents.id), class: "btn btn-primary" %><br/><br/>
+                                                <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
+                                                
                                           <% end %>
-                                          
-                                          <p>Edit document approval route: <%= link_to "Click Here", approval_route_edit_path(@approval_route.id) %>
-                                          
+                                    
+                                    <% else %>
+                                    
+                                          <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
+                                          <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
+                                    
                                     <% end %>
-                              
-                              <% else %>
-                              
-                                    <p>Download/View Document (PDF): <%= link_to("Click Here", @documents.stored_pdf_url) %> </p>
-                                    <p>View document approval route: <%= link_to "Click Here", approval_route_show_path(@approval_route.id) %>
-                              
-                              <% end %>
-                              
-                               
-                        </td>
+                                    
+                                     
+                              </td>
+                        <% end %>
                   </tr>
             </table>
             
