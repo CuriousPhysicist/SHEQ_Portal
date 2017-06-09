@@ -1,9 +1,9 @@
 ## Double hash comments are to be retained, single hash commenting dissables code (consider removing from final version)
 ## This seeds in the super-user capable of uploading all records through .csv or .xlsx files
 
-User.create!(first_name:  "Andrew",
-             last_name: "Hampson",
-             email: "andrewhampson6@gmail.com",
+User.create!(first_name:  "Super",
+             last_name: "User",
+             email: "superuser0@example.com",
              password:              "Password",
              password_confirmation: "Password",
              team: "SHEQ",
@@ -18,7 +18,7 @@ User.create!(first_name:  "Andrew",
 
 User.create!(first_name:  "Bob",
             last_name: "Builder",
-            email: "example@email.com",
+            email: "bob@example.com",
             password:              "Password",
             password_confirmation: "Password",
             team: "Engineering",
@@ -40,7 +40,7 @@ User.create!(first_name:  "Bob",
      User.create(
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
-            email: "example#{i}@email.com",
+            email: "example#{i}@example.com",
             password:              "Password",
             password_confirmation: "Password",
             active_flag: true,
